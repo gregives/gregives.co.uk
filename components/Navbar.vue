@@ -15,13 +15,16 @@
   </header>
 </template>
 
-<style lang="sass" scoped>
-header
-  clear: both
+<style lang="scss" scoped>
+header {
+  clear: both;
+}
 
-nav
-  float: right
+nav {
+  float: right;
 
-  li
-    display: inline-block
+  li {
+    display: inline-block;
+  }
+}
 </style>
