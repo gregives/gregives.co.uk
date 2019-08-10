@@ -4,7 +4,11 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: '',
+    titleTemplate: (titleChunk) => {
+      titleChunk = titleChunk ? `${titleChunk} | ` : titleChunk
+      return titleChunk + 'Greg Ives – Software Developer'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -14,7 +18,20 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'dns-prefetch', href: '//fonts.googleapis.com' },
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com/',
+        crossorigin: true
+      },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Rubik:400,400i,500|Fira+Mono&display=swap'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
