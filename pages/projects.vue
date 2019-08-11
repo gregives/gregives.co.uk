@@ -1,5 +1,5 @@
 <template>
   <div class="container">
-    Home
+    Projects
   </div>
 </template>

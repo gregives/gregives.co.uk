@@ -1,30 +1,57 @@
 <template>
   <header>
     <div class="container">
-      Greg Ives
+      <span id="logo">Greg Ives</span>
       <nav>
-        <ul>
-          <li>Home</li>
-          <li>Projects</li>
-          <li>Experience</li>
-          <li>About</li>
-          <li>Contact me</li>
-        </ul>
+        <ol>
+          <li>
+            <nuxt-link to="/">Home</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/projects">Projects</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/work">Work</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/about">About</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/contact">Contact</nuxt-link>
+          </li>
+        </ol>
       </nav>
     </div>
   </header>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import '~/assets/sass/_variables';
+
 header {
   clear: both;
-}
 
-nav {
-  float: right;
+  #logo {
+    font-family: $header-font;
+  }
 
-  li {
-    display: inline-block;
+  nav {
+    float: right;
+
+    ol {
+      counter-reset: navbar-links;
+
+      li {
+        counter-increment: navbar-links;
+        display: inline-block;
+        font-size: 80%;
+
+        &::before {
+          content: '0' counter(navbar-links);
+          font-size: 60%;
+        }
+      }
+    }
   }
 }
 </style>
