@@ -57,7 +57,7 @@ a {
   text-decoration: none;
 
   &::before, &::after {
-    background-color: transparentize($color: black, $amount: 0.92);
+    background-color: transparentize($color: black, $amount: 0.95);
     bottom: 1vmin;
     content: '';
     height: 25%;
@@ -68,7 +68,7 @@ a {
   }
 
   &::after {
-    background-color: $colour-primary;
+    background-color: lighten($colour-primary, 20%);
     transition: width 450ms cubic-bezier(0.86, 0, 0.07, 1);
     width: 0;
   }
@@ -78,7 +78,7 @@ a {
   }
 
   &.nuxt-link-exact-active::before {
-    background-color: lighten($colour-primary, 30%);
+    background-color: lighten($colour-primary, 35%);
     width: calc(100% - 1vmin);
   }
 }
