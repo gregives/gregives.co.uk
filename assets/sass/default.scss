@@ -2,14 +2,26 @@
 @import "utilities";
 @import "variables";
 
+body {
+  height: 100%;
+
+  > #__nuxt {
+    height: 100%;
+
+    > #__layout {
+      height: 100%;
+    }
+  }
+}
+
 html {
-  color: rgba(0, 0, 0, 0.9);
+  color: transparentize($color: black, $amount: 0.1);
   font-family: $boring-font;
   font-size: calc(8px + 2vmin);
 
   // Bound font-size on larger screens
   @media (min-width: $break-xl) {
-    font-size: 32px;
+    font-size: calc(8px + 2vh);
   }
 }
 
@@ -35,4 +47,43 @@ h2 {
 
 h3 {
   font-family: $header-font;
+}
+
+a {
+  color: inherit;
+  padding: 1vmin;
+  margin: -1vmin;
+  position: relative;
+  text-decoration: none;
+
+  &::before, &::after {
+    background-color: transparentize($color: black, $amount: 0.92);
+    bottom: 1vmin;
+    content: '';
+    height: 25%;
+    left: 0.8vmin;
+    position: absolute;
+    width: calc(100% - 1vmin);
+    z-index: -1;
+  }
+
+  &::after {
+    background-color: $colour-primary;
+    transition: width 450ms cubic-bezier(0.86, 0, 0.07, 1);
+    width: 0;
+  }
+
+  &:hover::after {
+    width: calc(100% - 1vmin);
+  }
+
+  &.nuxt-link-exact-active::before {
+    background-color: lighten($colour-primary, 30%);
+    width: calc(100% - 1vmin);
+  }
+}
+
+::selection {
+  background-color: deepskyblue;
+  color: white;
 }

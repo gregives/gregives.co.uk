@@ -29,7 +29,7 @@ export default {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css?family=Rubik:400,400i,500|Fira+Mono&display=swap'
+          'https://fonts.googleapis.com/css?family=Rubik:400,400i,500|Fira+Mono:500&display=swap'
       }
     ]
   },

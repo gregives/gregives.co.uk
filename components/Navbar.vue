@@ -30,9 +30,16 @@
 
 header {
   clear: both;
+  padding: 30px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 
   #logo {
+    display: inline-block;
     font-family: $header-font;
+    font-size: 115%;
   }
 
   nav {
@@ -45,10 +52,19 @@ header {
         counter-increment: navbar-links;
         display: inline-block;
         font-size: 80%;
+        position: relative;
+
+        ~ li {
+          margin-left: 6vmin;
+        }
 
         &::before {
+          color: transparentize($color: #000000, $amount: 0.63);
           content: '0' counter(navbar-links);
           font-size: 60%;
+          position: absolute;
+          right: calc(100% + 1vmin);
+          top: 0.5vmin;
         }
       }
     }
