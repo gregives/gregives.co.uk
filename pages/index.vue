@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import Typer from '~/components/Typer.vue'
+import Typer from '~/components/Typer'
 
 export default {
   components: {

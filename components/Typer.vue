@@ -21,34 +21,32 @@ export default {
       selected: false
     }
   },
-  created() {
+  mounted() {
     this.currentType = this.words[0]
     this.currentWord = 0
 
-    if (process.client) {
-      const type = () => {
-        // If the word has finished typing
-        if (this.currentType.length === this.words[this.currentWord].length) {
-          this.currentWord = (this.currentWord + 1) % this.words.length
-          return setTimeout(() => {
-            this.selected = true
-            setTimeout(() => {
-              this.currentType = ''
-              setTimeout(type, 300 + Math.random() * 500)
-            }, 300 + Math.random() * 500)
-          }, 1000 + Math.random() * 2000)
-        }
-
-        this.selected = false
-
-        // Get the current length
-        const length = this.currentType.length
-        this.currentType += this.words[this.currentWord][length]
-        return setTimeout(type, 25 + Math.random() * 100)
+    const type = () => {
+      // If the word has finished typing
+      if (this.currentType.length === this.words[this.currentWord].length) {
+        this.currentWord = (this.currentWord + 1) % this.words.length
+        return setTimeout(() => {
+          this.selected = true
+          setTimeout(() => {
+            this.currentType = ''
+            setTimeout(type, 300 + Math.random() * 500)
+          }, 300 + Math.random() * 500)
+        }, 1000 + Math.random() * 2000)
       }
 
-      setTimeout(type, 2000)
+      this.selected = false
+
+      // Get the current length
+      const length = this.currentType.length
+      this.currentType += this.words[this.currentWord][length]
+      return setTimeout(type, 25 + Math.random() * 100)
     }
+
+    setTimeout(type, 2000)
   }
 }
 </script>
