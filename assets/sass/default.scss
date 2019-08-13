@@ -17,11 +17,11 @@ body {
 html {
   color: transparentize($color: black, $amount: 0.1);
   font-family: $boring-font;
-  font-size: calc(8px + 2vmin);
+  font-size: calc(12px + 2vmin);
 
   // Bound font-size on larger screens
   @media (min-width: $break-xl) {
-    font-size: calc(8px + 2vh);
+    font-size: calc(12px + 2vh);
   }
 }
 
