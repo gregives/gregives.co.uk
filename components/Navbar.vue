@@ -95,6 +95,8 @@ header {
     right: 0;
     top: 0;
 
+    $speed: 150ms;
+
     @media (min-width: $break-lg) {
       display: none;
     }
@@ -106,7 +108,7 @@ header {
       position: relative;
       right: 0;
       top: calc(50% - 1px);
-      transition: transform 300ms ease, background-color 300ms ease;
+      transition: background-color 0ms $speed;
       width: 28px;
 
       &::before,
@@ -121,26 +123,28 @@ header {
 
       &::before {
         top: -7px;
-        transition: top 300ms ease;
+        transition: top $speed $speed ease-out, transform $speed ease-in;
       }
 
       &::after {
         bottom: -7px;
-        transition: bottom 300ms ease, transform 300ms ease;
+        transition: bottom $speed $speed ease-out, transform $speed ease-in;
       }
     }
 
     &.open > div {
       background-color: transparent;
-      transform: rotate(45deg);
 
       &::before {
         top: 0;
+        transform: rotate(-45deg);
+        transition: top $speed ease-in, transform $speed $speed ease-out;
       }
 
       &::after {
         bottom: 0;
-        transform: rotate(90deg);
+        transform: rotate(45deg);
+        transition: bottom $speed ease-in, transform $speed $speed ease-out;
       }
     }
   }
