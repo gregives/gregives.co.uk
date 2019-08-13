@@ -109,7 +109,7 @@ header {
       right: 0;
       top: calc(50% - 1px);
       transition: background-color 0ms $speed;
-      width: 28px;
+      width: calc(16px + 2vw);
 
       &::before,
       &::after {
@@ -122,12 +122,12 @@ header {
       }
 
       &::before {
-        top: -7px;
+        top: calc(-5px - 0.3vw);
         transition: top $speed $speed ease-out, transform $speed ease-in;
       }
 
       &::after {
-        bottom: -7px;
+        bottom: calc(-5px - 0.3vw);
         transition: bottom $speed $speed ease-out, transform $speed ease-in;
       }
     }
