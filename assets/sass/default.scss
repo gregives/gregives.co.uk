@@ -55,6 +55,7 @@ a {
   margin: -1vmin;
   position: relative;
   text-decoration: none;
+  white-space: pre;
 
   &::before, &::after {
     background-color: transparentize($color: black, $amount: 0.95);
@@ -68,7 +69,7 @@ a {
   }
 
   &::after {
-    background-color: lighten($colour-primary, 20%);
+    background-color: transparentize($color: black, $amount: 0.85);
     transition: width 450ms cubic-bezier(0.86, 0, 0.07, 1);
     width: 0;
   }
@@ -83,7 +84,11 @@ a {
   }
 }
 
+nav a::after {
+  background-color: lighten($colour-primary, 20%);
+}
+
 ::selection {
-  background-color: deepskyblue;
+  background-color: dodgerblue;
   color: white;
 }

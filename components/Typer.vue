@@ -16,7 +16,7 @@ export default {
         'a designer',
         'a teacher'
       ],
-      currentType: null,
+      currentType: 'Greg Ives',
       currentWord: 0,
       selected: false
     }
