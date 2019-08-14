@@ -2,6 +2,11 @@
   <header>
     <div class="container">
       <span id="logo">Greg Ives</span>
+      <div id="hamburger" :class="{ open }" @click="open = !open">
+        <div>
+          <div></div>
+        </div>
+      </div>
       <nav>
         <ol>
           <li>
@@ -21,9 +26,6 @@
           </li>
         </ol>
       </nav>
-      <div id="hamburger" :class="{ open }" @click="open = !open">
-        <div></div>
-      </div>
     </div>
   </header>
 </template>
@@ -89,6 +91,7 @@ header {
   }
 
   #hamburger {
+    cursor: pointer;
     height: 100%;
     padding: 10px;
     position: absolute;
@@ -130,6 +133,26 @@ header {
         bottom: calc(-5px - 0.3vw);
         transition: bottom $speed $speed ease-out, transform $speed ease-in;
       }
+
+      > div {
+        background-color: darken(white, 5%);
+        border-radius: 50%;
+        cursor: default;
+        height: 0;
+        left: 50%;
+        opacity: 1;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 500ms cubic-bezier(0.86, 0, 0.07, 1);
+        width: 0;
+        z-index: -1;
+
+        @supports (backdrop-filter: blur(5px)) {
+          backdrop-filter: blur(5px);
+          background-color: transparentize(darken(white, 5%), 0.1);
+        }
+      }
     }
 
     &.open > div {
@@ -145,6 +168,12 @@ header {
         bottom: 0;
         transform: rotate(45deg);
         transition: bottom $speed ease-in, transform $speed $speed ease-out;
+      }
+
+      > div {
+        height: calc(283vmax);
+        opacity: 1;
+        width: calc(283vmax);
       }
     }
   }
