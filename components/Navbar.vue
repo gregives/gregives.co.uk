@@ -136,7 +136,7 @@ header {
 
       > div {
         background-color: darken(white, 5%);
-        border-radius: 50%;
+        border-radius: 1vmax;
         cursor: default;
         height: 0;
         left: 50%;
@@ -144,14 +144,10 @@ header {
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
-        transition: all 500ms cubic-bezier(0.86, 0, 0.07, 1);
+        transition: transform 600ms cubic-bezier(0.23, 1, 0.32, 1),
+          height 0s 600ms, width 0s 600ms;
         width: 0;
         z-index: -1;
-
-        @supports (backdrop-filter: blur(5px)) {
-          backdrop-filter: blur(5px);
-          background-color: transparentize(darken(white, 5%), 0.1);
-        }
       }
     }
 
@@ -171,9 +167,10 @@ header {
       }
 
       > div {
-        height: calc(283vmax);
-        opacity: 1;
-        width: calc(283vmax);
+        transform: translate(-50%, -50%) scale(283);
+        transition: transform 600ms cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        height: 1vmax;
+        width: 1vmax;
       }
     }
   }
