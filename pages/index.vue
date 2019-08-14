@@ -7,10 +7,10 @@
           <typer />
         </h1>
         <div class="description">
-          Hi there! I'm a final-year Computer Science student at the
-          <a href="https://sheffield.ac.uk">University of Sheffield</a>. I'm
-          looking for an opportunity in software development from June&nbsp;2020
-          &mdash; check out my experience below or contact&nbsp;me!
+          Hi there! I'm a final-year Computer Science student at the University
+          of Sheffield. I'm looking for an opportunity in software development
+          from June&nbsp;2020 &mdash; check out my projects and experience or
+          <nuxt-link to="/contact">contact me</nuxt-link>!
         </div>
       </div>
     </div>
