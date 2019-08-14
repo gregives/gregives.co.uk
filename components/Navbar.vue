@@ -2,9 +2,9 @@
   <header>
     <div class="container">
       <span id="logo">Greg Ives</span>
-      <div id="hamburger" :class="{ open }" @click="open = !open">
+      <div id="hamburger" :class="{ open }" tabindex="1" @click="open = !open">
         <div>
-          <div></div>
+          <div @click.stop></div>
         </div>
       </div>
       <nav>
@@ -97,6 +97,7 @@ header {
     position: absolute;
     right: 0;
     top: 0;
+    -webkit-tap-highlight-color: transparent;
 
     $speed: 150ms;
 
@@ -136,18 +137,27 @@ header {
 
       > div {
         background-color: darken(white, 5%);
-        border-radius: 1vmax;
+        border-radius: 50%;
         cursor: default;
-        height: 0;
+        height: calc(20px + 4vw);
         left: 50%;
-        opacity: 1;
+        opacity: 0;
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
         transition: transform 600ms cubic-bezier(0.23, 1, 0.32, 1),
-          height 0s 600ms, width 0s 600ms;
-        width: 0;
+          height 0s 600ms, width 0s 600ms, opacity 300ms ease;
+        width: calc(20px + 4vw);
         z-index: -1;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      outline: none;
+
+      > div > div {
+        opacity: 1;
       }
     }
 
@@ -167,10 +177,8 @@ header {
       }
 
       > div {
-        transform: translate(-50%, -50%) scale(283);
+        transform: translate(-50%, -50%) scale(100);
         transition: transform 600ms cubic-bezier(0.755, 0.05, 0.855, 0.06);
-        height: 1vmax;
-        width: 1vmax;
       }
     }
   }
