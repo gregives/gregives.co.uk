@@ -4,6 +4,8 @@
 
 body {
   height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   > #__nuxt {
     height: 100%;
@@ -11,6 +13,14 @@ body {
     > #__layout {
       height: 100%;
     }
+  }
+}
+
+html[data-menu='open'] {
+  overflow-y: scroll;
+
+  body {
+    overflow-y: hidden;
   }
 }
 

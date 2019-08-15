@@ -2,7 +2,7 @@
   <header>
     <div class="container">
       <span id="logo">Greg Ives</span>
-      <div id="hamburger" :class="{ open }" tabindex="1" @click="open = !open">
+      <div id="hamburger" :class="{ open }" tabindex="0" @click="openMenu">
         <div>
           <div @click.stop></div>
         </div>
@@ -36,6 +36,21 @@ export default {
     return {
       open: false
     }
+  },
+  methods: {
+    openMenu(event) {
+      if (document.documentElement.dataset.menu !== 'open') {
+        document.documentElement.dataset.menu = 'open'
+      } else {
+        const menuOverlay = event.currentTarget.children[0].children[0]
+        const closeMenu = () => {
+          document.documentElement.dataset.menu = 'closed'
+          menuOverlay.removeEventListener('transitionend', closeMenu)
+        }
+        menuOverlay.addEventListener('transitionend', closeMenu)
+      }
+      this.open = !this.open
+    }
   }
 }
 </script>
@@ -46,7 +61,7 @@ export default {
 header {
   clear: both;
   padding: 30px 0;
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   z-index: 1;
