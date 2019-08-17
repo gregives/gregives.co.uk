@@ -34,7 +34,7 @@ export default {
           setTimeout(() => {
             this.currentType = ''
             setTimeout(type, 300 + Math.random() * 500)
-          }, 300 + Math.random() * 500)
+          }, 200 + Math.random() * 300)
         }, 1000 + Math.random() * 2000)
       }
 
@@ -55,8 +55,12 @@ export default {
 @import '~/assets/sass/_variables';
 
 .typer {
+  animation-duration: 400ms;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-name: blink;
+  border-right: solid 1vmin $color-primary;
   color: $color-primary;
-  margin: 0 -0.01em;
   position: relative;
 
   span {
@@ -67,35 +71,20 @@ export default {
     }
   }
 
-  &::after {
-    animation-duration: 400ms;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-    animation-name: blink;
-    content: '';
-    height: 100%;
-    left: 100%;
-    position: absolute;
-    top: 0;
-    width: 1vmin;
-  }
-
   &.selected {
     background-color: transparentize($color: $color-primary, $amount: 0.9);
-
-    &::after {
-      left: auto;
-      right: 100%;
-    }
+    border-right: none;
+    border-left: solid 1vmin $color-primary;
+    margin-left: -1vmin;
   }
 
   @keyframes blink {
     from {
-      background-color: transparent;
+      border-color: transparent;
     }
 
     to {
-      background-color: transparentize($color: $color-primary, $amount: 0.5);
+      border-color: transparentize($color: $color-primary, $amount: 0.5);
     }
   }
 }
