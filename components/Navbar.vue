@@ -57,7 +57,7 @@ header {
     position: fixed;
     top: 0;
     transform: translateX(100%);
-    transition: transform 600ms cubic-bezier(0.86, 0, 0.07, 1);
+    transition: transform 300ms ease;
     width: 100%;
     will-change: transform;
 
@@ -124,5 +124,6 @@ header {
 
 :root[data-menu] header nav {
   transform: none;
+  transition: transform 400ms ease;
 }
 </style>
