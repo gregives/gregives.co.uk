@@ -1,8 +1,6 @@
 <template>
   <div class="hamburger" @click="toggleMenu">
-    <div>
-      <div></div>
-    </div>
+    <div></div>
   </div>
 </template>
 

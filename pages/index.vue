@@ -1,5 +1,6 @@
 <template>
   <div>
+    <shapes />
     <div class="container">
       <div class="centre-y">
         <h1>
@@ -18,10 +19,12 @@
 </template>
 
 <script>
+import Shapes from '~/components/Shapes'
 import Typer from '~/components/Typer'
 
 export default {
   components: {
+    Shapes,
     Typer
   }
 }
