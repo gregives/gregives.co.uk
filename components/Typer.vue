@@ -55,7 +55,7 @@ export default {
 @import '~/assets/sass/_variables';
 
 .typer {
-  color: $colour-primary;
+  color: $color-primary;
   margin: 0 -0.01em;
   position: relative;
 
@@ -81,7 +81,7 @@ export default {
   }
 
   &.selected {
-    background-color: transparentize($color: $colour-primary, $amount: 0.9);
+    background-color: transparentize($color: $color-primary, $amount: 0.9);
 
     &::after {
       left: auto;
@@ -95,7 +95,7 @@ export default {
     }
 
     to {
-      background-color: transparentize($color: $colour-primary, $amount: 0.5);
+      background-color: transparentize($color: $color-primary, $amount: 0.5);
     }
   }
 }

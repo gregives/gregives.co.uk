@@ -4,8 +4,6 @@
 
 body {
   height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
 
   > #__nuxt {
     height: 100%;
@@ -16,22 +14,14 @@ body {
   }
 }
 
-html[data-menu='open'] {
-  overflow-y: scroll;
-
-  body {
-    overflow-y: hidden;
-  }
-}
-
-html {
+:root {
   color: transparentize($color: black, $amount: 0.1);
   font-family: $boring-font;
-  font-size: calc(8px + 2vmin);
+  font-size: calc(0.5rem + 2vmin);
 
   // Bound font-size on larger screens
   @media (min-width: $break-xl) {
-    font-size: calc(8px + 2vh);
+    font-size: calc(0.5rem + 2vh);
   }
 }
 
@@ -84,21 +74,21 @@ a {
     width: 0;
   }
 
-  &:hover::after {
+  &:hover::after,
+  &:focus::after {
     width: calc(100% - 1vmin);
   }
 
   &.nuxt-link-exact-active::before {
-    background-color: lighten($colour-primary, 35%);
-    width: calc(100% - 1vmin);
+    background-color: transparentize($color-primary, 0.8);
   }
 }
 
 nav a::after {
-  background-color: lighten($colour-primary, 20%);
+  background-color: transparentize($color-primary, 0.6);
 }
 
 ::selection {
-  background-color: dodgerblue;
+  background-color: $color-primary;
   color: white;
 }

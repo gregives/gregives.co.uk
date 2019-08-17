@@ -27,8 +27,12 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.description {
-  font-size: 120%;
+<style lang="scss" scoped>
+.centre-y {
+  margin-top: -3rem;
+
+  > div {
+    font-size: 120%;
+  }
 }
 </style>
