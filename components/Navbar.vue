@@ -20,7 +20,9 @@
           </li>
         </ol>
       </nav>
-      <span>Greg Ives</span>
+      <span>
+        <nuxt-link to="/">Greg Ives</nuxt-link>
+      </span>
       <hamburger />
     </div>
   </header>
@@ -48,6 +50,11 @@ header {
     display: inline-block;
     font-family: $header-font;
     font-size: 120%;
+
+    a::before,
+    a::after {
+      display: none;
+    }
   }
 
   nav {
