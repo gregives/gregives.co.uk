@@ -68,9 +68,9 @@ header {
     width: 100%;
     will-change: transform;
 
-    @supports (backdrop-filter: blur(10px)) {
-      background-color: transparentize(darken(white, 5%), 0.2);
-      backdrop-filter: blur(10px);
+    @supports (backdrop-filter: blur(5px)) {
+      background-color: transparentize(darken(white, 5%), 0.1);
+      backdrop-filter: blur(5px);
     }
 
     ol {
