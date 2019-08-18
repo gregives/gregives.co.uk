@@ -4,11 +4,8 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: '',
-    titleTemplate: (titleChunk) => {
-      titleChunk = titleChunk ? `${titleChunk} | ` : titleChunk
-      return titleChunk + 'Greg Ives – Software Developer'
-    },
+    title: 'Software Developer & Designer',
+    titleTemplate: 'Greg Ives | %s',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
