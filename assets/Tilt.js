@@ -8,21 +8,26 @@ export default (function() {
     }
 
     addStyles() {
+      this.element.style.willChange = 'transform'
       this.element.style.transition = 'transform 600ms ease-out'
       this.element.style.transform = 'perspective(1000px)'
     }
 
     addEventListeners() {
-      window.addEventListener('mousemove', this.onMouseMove.bind(this))
-      window.addEventListener(
-        'deviceorientation',
-        this.onDeviceOrientation.bind(this)
-      )
+      this.onMouseMoveBind = this.onMouseMove.bind(this)
+      this.onDeviceOrientationBind = this.onDeviceOrientation.bind(this)
+      window.addEventListener('mousemove', this.onMouseMoveBind)
+      window.addEventListener('deviceorientation', this.onDeviceOrientationBind)
     }
 
     onMouseMove(event) {
       const xProportion = (event.clientX / window.innerWidth - 0.5) * 2
       const yProportion = (event.clientY / window.innerHeight - 0.5) * 2
+
+      window.removeEventListener(
+        'deviceorientation',
+        this.onDeviceOrientationBind
+      )
       this.tiltElements(xProportion, yProportion)
     }
 
