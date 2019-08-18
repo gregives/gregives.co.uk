@@ -27,12 +27,14 @@ export default (function() {
     }
 
     onDeviceOrientation(event) {
-      const xProportion = event.gamma / 90
-      const yProportion = event.beta / 180
+      const xProportion = (event.gamma / 90) * 4
+      const yProportion = (event.beta / 180) * 8
       this.tiltElements(xProportion, yProportion)
     }
 
     tiltElements(xProportion, yProportion) {
+      xProportion = Math.min(Math.max(xProportion, -1), 1)
+      yProportion = Math.min(Math.max(yProportion, -1), 1)
       requestAnimationFrame(
         function() {
           this.element.style.transform =
