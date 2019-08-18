@@ -68,6 +68,11 @@ header {
     width: 100%;
     will-change: transform;
 
+    @supports (backdrop-filter: blur(10px)) {
+      background-color: transparentize(darken(white, 5%), 0.2);
+      backdrop-filter: blur(10px);
+    }
+
     ol {
       counter-reset: navbar-links;
       left: 50%;
