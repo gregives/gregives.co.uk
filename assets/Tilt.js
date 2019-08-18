@@ -32,8 +32,8 @@ export default (function() {
     }
 
     onDeviceOrientation(event) {
-      const xProportion = (event.gamma / 90) * 4
-      const yProportion = (event.beta / 180) * 8
+      const xProportion = (event.gamma / 90) * 8
+      const yProportion = (event.beta / 180) * 16
       this.tiltElements(xProportion, yProportion)
     }
 
