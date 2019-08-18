@@ -46,7 +46,13 @@ h2 {
 }
 
 h3 {
+  font-size: calc(1vw + 1em);
   font-family: $header-font;
+  margin-bottom: 1rem;
+
+  @media (min-width: $break-xl) {
+    font-size: calc(#{$break-xl * 1 / 100} + 1em);
+  }
 }
 
 a {
@@ -91,4 +97,12 @@ nav a::after {
 ::selection {
   background-color: $color-primary;
   color: white;
+}
+
+.page-enter-active, .page-leave-active {
+  transition: opacity 600ms ease;
+}
+
+.page-enter, .page-leave-to {
+  opacity: 0;
 }

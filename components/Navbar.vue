@@ -64,6 +64,7 @@ header {
     background-color: darken(white, 5%);
     left: 0;
     height: 100%;
+    overflow: hidden;
     position: fixed;
     top: 0;
     transform: translateX(100%);
@@ -72,8 +73,9 @@ header {
     will-change: transform;
 
     .shapes {
+      transform: translateX(-100%);
       opacity: 0;
-      transition: opacity 400ms 200ms ease;
+      transition: transform 300ms ease, opacity 300ms ease;
     }
 
     ol {
@@ -147,6 +149,8 @@ header {
 
   .shapes {
     opacity: 1;
+    transform: none;
+    transition: transform 400ms ease, opacity 400ms 400ms ease;
   }
 }
 </style>
