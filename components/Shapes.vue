@@ -1,6 +1,6 @@
 <template>
   <div class="shapes">
-    <div>
+    <div data-tilt>
       <div class="triangle"></div>
       <div class="circle"></div>
       <div class="square"></div>
