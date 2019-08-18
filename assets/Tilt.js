@@ -22,7 +22,7 @@ export default (function() {
 
     onMouseMove(event) {
       const xProportion = (event.clientX / window.innerWidth - 0.5) * 2
-      const yProportion = (event.clientY / window.innerHeight - 0.5) * 2
+      const yProportion = -(event.clientY / window.innerHeight - 0.5) * 2
 
       window.removeEventListener(
         'deviceorientation',
