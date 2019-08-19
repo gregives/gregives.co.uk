@@ -70,7 +70,6 @@ header {
     transform: translateX(100%);
     transition: transform 300ms ease;
     width: 100%;
-    will-change: transform;
 
     .shapes {
       transform: translateX(-100%);
@@ -80,7 +79,7 @@ header {
 
     ol {
       counter-reset: navbar-links;
-      left: 50%;
+      left: calc(50% + 4vmin);
       position: absolute;
       top: 50%;
       transform: translate(-50%, -50%);

@@ -14,26 +14,18 @@ export default (function() {
     }
 
     addEventListeners() {
-      this.onMouseMoveBind = this.onMouseMove.bind(this)
-      this.onDeviceOrientationBind = this.onDeviceOrientation.bind(this)
-      window.addEventListener('mousemove', this.onMouseMoveBind)
-      window.addEventListener('deviceorientation', this.onDeviceOrientationBind)
+      const onMouseMoveBind = this.onMouseMove.bind(this)
+      window.addEventListener('mousestart', onMouseMoveBind)
+      window.addEventListener('mouseend', onMouseMoveBind)
+      window.addEventListener('mousemove', onMouseMoveBind)
+      window.addEventListener('touchstart', onMouseMoveBind)
+      window.addEventListener('touchend', onMouseMoveBind)
+      window.addEventListener('touchmove', onMouseMoveBind)
     }
 
     onMouseMove(event) {
       const xProportion = (event.clientX / window.innerWidth - 0.5) * 2
       const yProportion = -(event.clientY / window.innerHeight - 0.5) * 2
-
-      window.removeEventListener(
-        'deviceorientation',
-        this.onDeviceOrientationBind
-      )
-      this.tiltElements(xProportion, yProportion)
-    }
-
-    onDeviceOrientation(event) {
-      const xProportion = (event.gamma / 90) * 8
-      const yProportion = (event.beta / 180) * 16
       this.tiltElements(xProportion, yProportion)
     }
 

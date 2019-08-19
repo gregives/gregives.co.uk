@@ -80,8 +80,7 @@ a {
     width: 0;
   }
 
-  &:hover::after,
-  &:focus::after {
+  &:hover::after {
     width: calc(100% - 1vmin);
   }
 
@@ -100,7 +99,7 @@ nav a::after {
 }
 
 .page-enter-active, .page-leave-active {
-  transition: opacity 600ms ease;
+  transition: opacity 450ms ease;
 }
 
 .page-enter, .page-leave-to {

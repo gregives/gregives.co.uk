@@ -8,18 +8,23 @@
 export default {
   watch: {
     $route() {
-      this.closeMenu()
+      if (this.menuIsOpen()) {
+        setTimeout(() => this.closeMenu(), 450)
+      }
     }
   },
   methods: {
+    menuIsOpen() {
+      return document.documentElement.hasAttribute('data-menu')
+    },
     openMenu() {
-      document.documentElement.setAttribute('data-menu', '')
+      return document.documentElement.setAttribute('data-menu', '')
     },
     closeMenu() {
-      document.documentElement.removeAttribute('data-menu')
+      return document.documentElement.removeAttribute('data-menu')
     },
     toggleMenu() {
-      if (!document.documentElement.hasAttribute('data-menu')) {
+      if (!this.menuIsOpen()) {
         this.openMenu()
       } else {
         this.closeMenu()
