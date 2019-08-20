@@ -41,7 +41,9 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    { src: '~/plugins/tilt.js', mode: 'client', async: true, defer: true }
+  ],
   /*
    ** Nuxt.js dev-modules
    */

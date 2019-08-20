@@ -1,4 +1,4 @@
-export default (function() {
+export default (_, inject) => {
   class Tilt {
     constructor(element) {
       this.element = element
@@ -57,9 +57,5 @@ export default (function() {
     }
   }
 
-  if (typeof document !== 'undefined') {
-    window.Tilt = Tilt
-  }
-
-  return Tilt
-})()
+  inject('tilt', Tilt.init)
+}

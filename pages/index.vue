@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import Tilt from '~/assets/Tilt'
 import Shapes from '~/components/Shapes'
 import Typer from '~/components/Typer'
 
@@ -29,7 +28,7 @@ export default {
     Typer
   },
   mounted() {
-    Tilt.init(document.querySelectorAll('[data-tilt]'))
+    this.$tilt(document.querySelectorAll('[data-tilt]'))
   }
 }
 </script>
