@@ -1,6 +1,10 @@
 <template>
   <header>
     <div class="container">
+      <span>
+        <nuxt-link to="/">Greg Ives</nuxt-link>
+      </span>
+      <hamburger />
       <nav>
         <shapes />
         <ol>
@@ -21,10 +25,6 @@
           </li>
         </ol>
       </nav>
-      <span>
-        <nuxt-link to="/">Greg Ives</nuxt-link>
-      </span>
-      <hamburger />
     </div>
   </header>
 </template>
@@ -70,6 +70,7 @@ header {
     transform: translateX(100%);
     transition: transform 300ms ease;
     width: 100%;
+    z-index: -1;
 
     .shapes {
       transform: translateX(-100%);
@@ -112,6 +113,7 @@ header {
       float: right;
       margin-top: 0.2rem;
       width: auto;
+      z-index: auto;
 
       .shapes {
         display: none;
@@ -149,7 +151,7 @@ header {
   .shapes {
     opacity: 1;
     transform: none;
-    transition: transform 400ms ease, opacity 400ms 400ms ease;
+    transition: transform 400ms ease, opacity 400ms 200ms ease;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div class="hamburger" @click="toggleMenu">
+  <button class="hamburger" @click="toggleMenu">
     <div></div>
-  </div>
+  </button>
 </template>
 
 <script>
@@ -41,6 +41,8 @@ $speed: 150ms;
 $width: 2px;
 
 .hamburger {
+  background: none;
+  border: none;
   cursor: pointer;
   height: 100%;
   padding: 10px;
@@ -69,6 +71,7 @@ $width: 2px;
       border-radius: $width / 2;
       content: '';
       height: 100%;
+      left: 0;
       position: absolute;
       width: 100%;
     }
