@@ -107,11 +107,12 @@ header {
 
     @media (min-width: $break-lg) {
       background-color: transparent;
+      float: right;
       height: auto;
+      margin-top: 0.2rem;
+      overflow: visible;
       position: relative;
       transform: none;
-      float: right;
-      margin-top: 0.2rem;
       width: auto;
       z-index: auto;
 
