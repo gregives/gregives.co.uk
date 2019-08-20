@@ -15,11 +15,7 @@ export default (function() {
 
     addEventListeners() {
       const onMouseMoveBind = this.onMouseMove.bind(this)
-      window.addEventListener('mousestart', onMouseMoveBind)
-      window.addEventListener('mouseend', onMouseMoveBind)
       window.addEventListener('mousemove', onMouseMoveBind)
-      window.addEventListener('touchstart', onMouseMoveBind)
-      window.addEventListener('touchend', onMouseMoveBind)
       window.addEventListener('touchmove', onMouseMoveBind)
     }
 
