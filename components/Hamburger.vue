@@ -7,11 +7,23 @@
 <script>
 export default {
   watch: {
-    $route() {
+    $route(to, from) {
+      this.changingRoute = true
       if (this.menuIsOpen()) {
         setTimeout(() => this.closeMenu(), 450)
       }
     }
+  },
+  mounted() {
+    window.addEventListener('click', (event) => {
+      const link = event.target.closest('a.nuxt-link-exact-active')
+      if (link !== null) {
+        if (!this.changingRoute) {
+          this.closeMenu()
+        }
+        this.changingRoute = false
+      }
+    })
   },
   methods: {
     menuIsOpen() {
