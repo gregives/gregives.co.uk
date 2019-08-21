@@ -38,7 +38,7 @@ export default {
   margin-top: -3rem;
 
   > div {
-    font-size: 120%;
+    font-size: 140%;
   }
 }
 </style>

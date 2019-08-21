@@ -46,7 +46,7 @@ export default {
 
 header {
   clear: both;
-  padding: 2rem 0;
+  padding: 2rem 0 3rem 0;
   z-index: 1;
 
   .container > span {
@@ -112,7 +112,6 @@ header {
       margin-top: 0.2rem;
       overflow: visible;
       position: relative;
-      transform: none;
       width: auto;
       z-index: auto;
 
@@ -124,11 +123,11 @@ header {
         left: auto;
         position: relative;
         top: auto;
-        transform: none;
+        transform: translateX(-100%);
 
         li {
           display: inline-block;
-          font-size: 90%;
+          font-size: 100%;
 
           ~ li {
             margin-left: 7vmin;

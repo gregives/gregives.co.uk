@@ -17,11 +17,11 @@ body {
 :root {
   color: transparentize($color: black, $amount: 0.1);
   font-family: $boring-font;
-  font-size: calc(0.5rem + 2vmin);
+  font-size: calc(70% + 1vmin);
 
   // Bound font-size on larger screens
   @media (min-width: $break-xl) {
-    font-size: calc(0.5rem + 2vh);
+    font-size: calc(70% + 1vh);
   }
 }
 
@@ -31,27 +31,27 @@ h1 {
   margin-bottom: 3rem;
 
   @media (min-width: $break-xl) {
-    font-size: calc(#{$break-xl * 5 / 100} + 3vmin);
+    font-size: calc(#{$break-xl * 5 / 100} + 3vh);
   }
 }
 
 h2 {
-  font-size: calc(2vw + 1em);
+  font-size: calc(100% + 2vw);
   font-family: $header-font;
   margin-bottom: 2rem;
 
   @media (min-width: $break-xl) {
-    font-size: calc(#{$break-xl * 2 / 100} + 1em);
+    font-size: calc(100% + #{$break-xl * 2 / 100});
   }
 }
 
 h3 {
-  font-size: calc(1vw + 1em);
+  font-size: calc(100% + 0.8vw);
   font-family: $header-font;
   margin-bottom: 1rem;
 
   @media (min-width: $break-xl) {
-    font-size: calc(#{$break-xl * 1 / 100} + 1em);
+    font-size: calc(100% + #{$break-xl * 0.8 / 100});
   }
 }
 
