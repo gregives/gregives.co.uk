@@ -16,9 +16,9 @@ html, body {
 .container {
   height: 100%;
   margin: 0 auto;
-  max-width: calc(0.9 * #{$break-xl} - 2rem);
+  max-width: calc(0.9 * #{$break-xl} - 1rem);
   position: relative;
-  width: calc(90% - 2rem);
+  width: calc(90% - 1rem);
 }
 
 .centre-y {
