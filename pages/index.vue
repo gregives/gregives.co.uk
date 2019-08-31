@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="home">
     <shapes />
     <div class="container">
       <div class="centre-y">
@@ -33,12 +33,20 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.centre-y {
-  margin-top: -3rem;
+<style lang="scss">
+#home {
+  height: 100%;
 
-  > div {
-    font-size: 140%;
+  .container {
+    height: 100%;
+  }
+
+  .centre-y {
+    margin-top: -3rem;
+
+    > div {
+      font-size: 140%;
+    }
   }
 }
 </style>

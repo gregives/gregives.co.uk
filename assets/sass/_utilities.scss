@@ -14,7 +14,6 @@ html, body {
 }
 
 .container {
-  height: 100%;
   margin: 0 auto;
   max-width: calc(0.9 * #{$break-xl} - 1rem);
   position: relative;

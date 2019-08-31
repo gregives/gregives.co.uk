@@ -18,12 +18,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div {
+#__layout > div {
   height: 100%;
   display: flex;
   flex-direction: column;
 
-  main {
+  > main {
     flex: 1;
   }
 }
