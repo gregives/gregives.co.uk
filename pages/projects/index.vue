@@ -1,11 +1,15 @@
 <template>
-  <div id="projects" class="container">
-    <div v-for="project in projects" :key="project.title">
-      <nuxt-link :to="link(project)">
-        <h3>{{ title(project) }}</h3>
-        <p>{{ project.description }}</p>
-      </nuxt-link>
-    </div>
+  <div class="container">
+    <ol id="projects">
+      <li v-for="project in projects" :key="project.title">
+        <nuxt-link :to="link(project)">
+          <div>
+            <h3>{{ title(project) }}</h3>
+            <p>{{ project.description }}</p>
+          </div>
+        </nuxt-link>
+      </li>
+    </ol>
   </div>
 </template>
 
@@ -48,55 +52,66 @@ export default {
 @import '~/assets/sass/_variables';
 
 #projects {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2.5rem;
 
-  > div {
-    width: 100%;
+  @media (min-width: $break-sm) {
+    grid-template-columns: 1fr 1fr;
+  }
 
-    @media (min-width: $break-sm) {
-      width: 50%;
+  @media (min-width: $break-lg) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 
-      &:nth-child(2n) {
-        padding-left: 1rem;
-      }
+  li {
+    margin: -1rem;
+    padding: 0rem;
+    position: relative;
 
-      &:nth-child(2n + 1) {
-        padding-right: 1rem;
-      }
-    }
-
-    @media (min-width: $break-lg) {
-      width: 1/3 * 100%;
-
-      &:nth-child(3n) {
-        padding-left: 1rem;
-        padding-right: 0;
-      }
-
-      &:nth-child(3n + 1) {
-        padding-left: 0;
-        padding-right: 1rem;
-      }
-
-      &:nth-child(3n + 2) {
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-    }
-
-    a {
-      padding: 0;
+    > a {
+      display: block;
       margin: 0;
-      position: relative;
-      text-decoration: none;
+      padding: 1.5rem;
       white-space: initial;
+
+      &::after {
+        display: none;
+      }
+
+      &::before {
+        background: none;
+        border: solid 2px transparentize(black, 0.95);
+        box-sizing: content-box;
+        content: '';
+        height: calc(100% - 1rem);
+        left: 0.5rem;
+        position: absolute;
+        transition: border 150ms ease;
+        top: 0.5rem;
+        width: calc(100% - 1rem);
+      }
+
+      &:hover::before {
+        border: solid 2px transparentize(black, 0.9);
+      }
+
+      > div {
+        height: 100%;
+        width: 100%;
+      }
     }
 
-    p {
-      font-size: 90%;
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) > a::before,
+      &:nth-child(#{$i}) > a::after {
+        transform: rotate(#{random() * 4 - 2}deg);
+      }
     }
+  }
+
+  p {
+    font-size: 90%;
   }
 }
 </style>

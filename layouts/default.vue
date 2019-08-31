@@ -17,7 +17,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 #__layout > div {
   height: 100%;
   display: flex;

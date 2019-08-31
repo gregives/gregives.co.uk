@@ -48,7 +48,7 @@ h2 {
 h3 {
   font-size: calc(100% + 0.8vw);
   font-family: $header-font;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 
   @media (min-width: $break-xl) {
     font-size: calc(100% + #{$break-xl * 0.8 / 100});
