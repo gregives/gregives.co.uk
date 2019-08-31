@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="container">
-      <span>
+      <span class="logo">
         <nuxt-link to="/">Greg Ives</nuxt-link>
       </span>
       <hamburger />
@@ -44,21 +44,21 @@ export default {
 <style lang="scss">
 @import '~/assets/sass/_variables';
 
+.logo {
+  display: inline-block;
+  font-family: $header-font;
+  font-size: 120%;
+
+  a::before,
+  a::after {
+    display: none;
+  }
+}
+
 header {
   clear: both;
   padding: 2rem 0 3rem 0;
   z-index: 1;
-
-  .container > span {
-    display: inline-block;
-    font-family: $header-font;
-    font-size: 120%;
-
-    a::before,
-    a::after {
-      display: none;
-    }
-  }
 
   nav {
     background-color: darken(white, 5%);
