@@ -1,5 +1,5 @@
 <template>
-  <button class="hamburger" @click="toggleMenu">
+  <button class="hamburger" aria-label="Menu" title="Menu" @click="toggleMenu">
     <div></div>
   </button>
 </template>
