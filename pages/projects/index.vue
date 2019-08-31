@@ -1,8 +1,10 @@
 <template>
-  <div class="container">
+  <div id="projects" class="container">
     <div v-for="project in projects" :key="project.title">
-      <h3>{{ title(project) }}</h3>
-      <nuxt-link :to="link(project)">Read more</nuxt-link>
+      <nuxt-link :to="link(project)">
+        <h3>{{ title(project) }}</h3>
+        <p>{{ project.description }}</p>
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -42,13 +44,59 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.container {
+<style lang="scss">
+@import '~/assets/sass/_variables';
+
+#projects {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
 
   > div {
     width: 100%;
+
+    @media (min-width: $break-sm) {
+      width: 50%;
+
+      &:nth-child(2n) {
+        padding-left: 1rem;
+      }
+
+      &:nth-child(2n + 1) {
+        padding-right: 1rem;
+      }
+    }
+
+    @media (min-width: $break-lg) {
+      width: 1/3 * 100%;
+
+      &:nth-child(3n) {
+        padding-left: 1rem;
+        padding-right: 0;
+      }
+
+      &:nth-child(3n + 1) {
+        padding-left: 0;
+        padding-right: 1rem;
+      }
+
+      &:nth-child(3n + 2) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+
+    a {
+      padding: 0;
+      margin: 0;
+      position: relative;
+      text-decoration: none;
+      white-space: initial;
+    }
+
+    p {
+      font-size: 90%;
+    }
   }
 }
 </style>

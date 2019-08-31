@@ -7,7 +7,9 @@ export default {
   data() {
     return {
       title: 'Computer Vision System for a Chess-Playing Robot',
-      shortTitle: 'Dissertation'
+      shortTitle: 'Dissertation',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     }
   }
 }
