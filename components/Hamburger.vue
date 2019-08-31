@@ -62,7 +62,6 @@ $width: 2px;
   position: absolute;
   right: 0;
   top: 0;
-  -webkit-tap-highlight-color: transparent;
 
   @media (min-width: $break-lg) {
     display: none;
