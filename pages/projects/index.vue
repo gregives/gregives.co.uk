@@ -73,16 +73,22 @@ export default {
 #projects {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: calc(6rem + 3vmin) calc(3rem + 3vmin);
-  margin-top: 3rem;
+  grid-gap: calc(6rem + 6vmin) calc(3rem + 6vmin);
+  margin-top: 10vh;
   margin-bottom: 10vh;
 
-  @media (min-width: $break-sm) {
+  @media (min-width: $break-md) {
     grid-template-columns: 1fr 1fr;
-  }
+    grid-gap: calc(3rem + 6vmin);
+    margin-top: calc(6rem + 10vh);
 
-  @media (min-width: $break-lg) {
-    grid-template-columns: 1fr 1fr 1fr;
+    li:nth-child(2n) {
+      margin-top: 3rem;
+    }
+
+    li:nth-child(2n + 1) {
+      margin-top: -6rem;
+    }
   }
 
   li {
@@ -123,7 +129,7 @@ export default {
 
         img {
           margin-top: -3rem;
-          margin-bottom: 0.75rem;
+          margin-bottom: 1rem;
           width: 80%;
         }
       }
@@ -135,10 +141,6 @@ export default {
         transform: rotate(#{random() * 4 - 2}deg);
       }
     }
-  }
-
-  p {
-    font-size: 90%;
   }
 }
 </style>
