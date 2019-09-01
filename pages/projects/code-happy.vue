@@ -6,8 +6,8 @@
 export default {
   data() {
     return {
-      title: 'Android Apps',
-      date: new Date(2016, 8),
+      title: 'Code Happy',
+      date: new Date(2019, 3),
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     }

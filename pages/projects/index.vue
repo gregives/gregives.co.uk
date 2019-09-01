@@ -4,6 +4,7 @@
       <li v-for="project in projects" :key="project.title">
         <nuxt-link :to="link(project)">
           <div>
+            <img src="https://via.placeholder.com/800x400" alt />
             <h3>{{ title(project) }}</h3>
             <p>{{ project.description }}</p>
           </div>
@@ -16,9 +17,18 @@
 <script>
 import androidApps from './android-apps'
 import autoClicker from './auto-clicker'
-import cisco from './cisco'
+import ciscoUniversityChallenge from './cisco-university-challenge'
+import codeHappy from './code-happy'
 import dissertation from './dissertation'
 import festimap from './festimap'
+import hacksheffield from './hacksheffield'
+import hype from './hype'
+import picnicSpots from './picnic-spots'
+import portfolio from './portfolio'
+import snapscroll from './snapscroll'
+import stegaphoto from './stegaphoto'
+import tvRemote from './tv-remote'
+import universityOfSheffieldBrassBand from './university-of-sheffield-brass-band'
 
 export default {
   data() {
@@ -26,10 +36,19 @@ export default {
       projects: [
         androidApps.data(),
         autoClicker.data(),
-        cisco.data(),
+        ciscoUniversityChallenge.data(),
+        codeHappy.data(),
         dissertation.data(),
-        festimap.data()
-      ]
+        festimap.data(),
+        hacksheffield.data(),
+        hype.data(),
+        picnicSpots.data(),
+        portfolio.data(),
+        snapscroll.data(),
+        stegaphoto.data(),
+        tvRemote.data(),
+        universityOfSheffieldBrassBand.data()
+      ].sort((a, b) => b.date - a.date)
     }
   },
   methods: {
@@ -54,7 +73,9 @@ export default {
 #projects {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 2.5rem;
+  grid-gap: calc(6rem + 3vmin) calc(3rem + 3vmin);
+  margin-top: 3rem;
+  margin-bottom: 10vh;
 
   @media (min-width: $break-sm) {
     grid-template-columns: 1fr 1fr;
@@ -65,7 +86,7 @@ export default {
   }
 
   li {
-    margin: -1rem;
+    margin: -1.5rem;
     padding: 0rem;
     position: relative;
 
@@ -84,25 +105,31 @@ export default {
         border: solid 2px transparentize(black, 0.95);
         box-sizing: content-box;
         content: '';
-        height: calc(100% - 1rem);
+        height: 95%;
         left: 0.5rem;
         position: absolute;
-        transition: border 150ms ease;
-        top: 0.5rem;
+        transition: border 300ms ease;
+        top: 5%;
         width: calc(100% - 1rem);
       }
 
       &:hover::before {
-        border: solid 2px transparentize(black, 0.9);
+        border: solid 2px transparentize($color-primary, 0.4);
       }
 
       > div {
         height: 100%;
         width: 100%;
+
+        img {
+          margin-top: -3rem;
+          margin-bottom: 0.75rem;
+          width: 80%;
+        }
       }
     }
 
-    @for $i from 1 through 5 {
+    @for $i from 1 through 14 {
       &:nth-child(#{$i}) > a::before,
       &:nth-child(#{$i}) > a::after {
         transform: rotate(#{random() * 4 - 2}deg);
