@@ -5,7 +5,10 @@
         <nuxt-link :to="link(project)">
           <div>
             <img src="https://via.placeholder.com/800x400" alt />
-            <h3>{{ title(project) }}</h3>
+            <h3>
+              {{ title(project) }}
+              <small>{{ project.date.getFullYear() }}</small>
+            </h3>
             <p>{{ project.description }}</p>
           </div>
         </nuxt-link>
@@ -80,14 +83,15 @@ export default {
   @media (min-width: $break-md) {
     grid-template-columns: 1fr 1fr;
     grid-gap: calc(3rem + 6vmin);
-    margin-top: calc(6rem + 10vh);
+    margin-top: calc(4rem + 10vh);
 
     li:nth-child(2n) {
-      margin-top: 3rem;
+      margin-top: 2rem;
     }
 
     li:nth-child(2n + 1) {
-      margin-top: -6rem;
+      margin-top: -4rem;
+      margin-bottom: 4rem;
     }
   }
 
@@ -126,6 +130,11 @@ export default {
       > div {
         height: 100%;
         width: 100%;
+
+        h3 > small {
+          color: transparentize(black, 0.7);
+          font-size: 60%;
+        }
 
         img {
           margin-top: -3rem;
