@@ -9,7 +9,7 @@ export default {
       title: 'Picnic Spots',
       date: new Date(2019, 4),
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        'Website created at HackBordeaux in 24 hours. View, add and review the best places to eat your tuna sweetcorn sandwiches.'
     }
   }
 }

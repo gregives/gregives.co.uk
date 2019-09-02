@@ -9,7 +9,7 @@ export default {
       title: 'TV Remote',
       date: new Date(2018, 11),
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        'Firmware for the unPhone, a souped-up ESP32 with an LCD touchscreen, to control televisions from a number of manufacturers.'
     }
   }
 }

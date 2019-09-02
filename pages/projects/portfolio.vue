@@ -9,7 +9,7 @@ export default {
       title: 'Portfolio',
       date: new Date(2019, 8),
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        'The very website your eyes are gazing upon, built to showcase my projects, experience and pixel-perfectionism. See how it was made.'
     }
   }
 }

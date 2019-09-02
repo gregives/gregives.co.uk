@@ -9,7 +9,7 @@ export default {
       title: 'Festimap',
       date: new Date(2019, 5),
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        'Progressive web app designed to share photos at festivals around the globe. Created as part of a university project with a friend.'
     }
   }
 }

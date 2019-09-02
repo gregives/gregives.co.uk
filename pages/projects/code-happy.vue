@@ -9,7 +9,7 @@ export default {
       title: 'Code Happy',
       date: new Date(2019, 3),
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        "How happy are you when you code? Code Happy, created at START Hack, uses Microsoft's Face API to track how happy you are when you code."
     }
   }
 }

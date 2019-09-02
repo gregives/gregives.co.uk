@@ -9,7 +9,7 @@ export default {
       title: 'StegaPhoto',
       date: new Date(2017, 9),
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        'Cyber security research project on steganography — created a web application which can hide any number of files inside an image.'
     }
   }
 }

@@ -10,7 +10,7 @@ export default {
       shortTitle: 'Dissertation',
       date: new Date(2019, 8),
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        'The dissertation for my degree, entitled "A Computer Vision System for a Chess-Playing Robot". Tracks the state of a chessboard over time.'
     }
   }
 }

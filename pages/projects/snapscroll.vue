@@ -9,7 +9,7 @@ export default {
       title: 'SnapScroll',
       date: new Date(2017, 8),
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        'My first JavaScript library, designed to scroll smoothly between points on a website. Scroll jacking is bad, please do not use.'
     }
   }
 }

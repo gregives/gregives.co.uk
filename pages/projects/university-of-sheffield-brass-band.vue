@@ -10,7 +10,7 @@ export default {
       shortTitle: 'USBB',
       date: new Date(2019, 3),
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        'Website designed and created for the University of Sheffield Brass Band, of which I am a proud member. Uses Jekyll for easy content management.'
     }
   }
 }

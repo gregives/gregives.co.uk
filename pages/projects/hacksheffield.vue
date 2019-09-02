@@ -9,7 +9,7 @@ export default {
       title: 'HackSheffield',
       date: new Date(2019, 6),
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        'Hackathon society which I have been involved in since starting university. See which hackathons I have attended and organised.'
     }
   }
 }
