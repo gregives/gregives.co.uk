@@ -14,6 +14,15 @@
           <nuxt-link to="/contact">contact me</nuxt-link>!
         </div>
       </div>
+      <div class="headshots">
+        <img
+          v-for="head in heads()"
+          :key="head"
+          class="headshots__image"
+          :src="head"
+          alt="Headshot of Greg Ives"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -27,26 +36,88 @@ export default {
     Shapes,
     Typer
   },
+  data() {
+    return {
+      heads() {
+        const heads = []
+        for (let i = 1; i <= 5; i++) {
+          for (let j = 1; j <= 6; j++) {
+            heads.push(require(`~/assets/images/headshots/${i}${j}.png`))
+          }
+        }
+        return heads
+      }
+    }
+  },
   mounted() {
     this.$tilt(document.querySelectorAll('[data-tilt]'))
+
+    window.addEventListener('mousemove', (event) => {
+      const xProportion =
+        Math.floor((event.clientX / window.innerWidth) * 6) + 1
+      const yProportion =
+        Math.floor((event.clientY / window.innerHeight) * 5) + 1
+
+      const headshots = Array.from(
+        document.getElementsByClassName('headshots__image')
+      )
+
+      headshots.forEach((headshot) => {
+        if (headshot.src.endsWith(`${yProportion}${xProportion}.png`)) {
+          headshot.style.display = 'block'
+        } else {
+          headshot.style.display = 'none'
+        }
+      })
+    })
   }
 }
 </script>
 
 <style lang="scss">
+@import '~/assets/sass/_variables';
+
 #home {
   height: 100%;
+  overflow-y: hidden;
 
   .container {
     height: 100%;
   }
 
   .centre-y {
-    margin-top: -3rem;
+    margin-top: calc(5vw - 7rem);
 
     > div {
-      font-size: 140%;
+      font-size: 120%;
+      width: 100%;
+
+      @media (min-width: $break-md) {
+        width: 70%;
+      }
     }
+  }
+}
+
+.headshots {
+  bottom: calc(-2vh - 3vw);
+  height: calc(20vh + 30vw);
+  position: absolute;
+  right: -5vw;
+
+  @media (min-width: $break-xl) {
+    height: calc(20vh + #{30 / 100 * $break-xl});
+    bottom: calc(-2vh - #{3 / 100 * $break-xl});
+  }
+}
+
+.headshots__image {
+  display: none;
+  filter: saturate(0) sepia(1) hue-rotate(170deg) saturate(2);
+  height: 100%;
+
+  &[src$='35.png'] {
+    display: block;
   }
 }
 </style>

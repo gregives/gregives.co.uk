@@ -29,7 +29,7 @@ body {
 h1 {
   font-size: calc(5vw + 3vmin);
   font-family: $header-font;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 
   @media (min-width: $break-xl) {
     font-size: calc(#{$break-xl * 5 / 100} + 3vh);
@@ -39,7 +39,7 @@ h1 {
 h2 {
   font-size: calc(100% + 2vw);
   font-family: $header-font;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 
   @media (min-width: $break-xl) {
     font-size: calc(100% + #{$break-xl * 2 / 100});
