@@ -6,7 +6,6 @@
       </span>
       <hamburger />
       <nav>
-        <shapes />
         <ol>
           <li>
             <nuxt-link to="/">Home</nuxt-link>
@@ -31,12 +30,10 @@
 
 <script>
 import Hamburger from '~/components/Hamburger'
-import Shapes from '~/components/Shapes'
 
 export default {
   components: {
-    Hamburger,
-    Shapes
+    Hamburger
   }
 }
 </script>
@@ -56,14 +53,22 @@ export default {
 }
 
 header {
+  background-color: transparentize(white, 0.1);
+  box-shadow: 0 0 2rem -1rem transparentize(black, 0.8);
   clear: both;
-  padding: 2rem 0 3rem 0;
+  padding: 1.5rem 0;
+  margin-bottom: 1rem;
   z-index: 1;
+
+  @supports (backdrop-filter: blur(5px)) {
+    backdrop-filter: blur(5px);
+    background-color: transparentize(white, 0.6);
+  }
 
   nav {
     background-color: darken(white, 5%);
     left: 0;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
     position: fixed;
     top: 0;
@@ -71,12 +76,6 @@ header {
     transition: transform 300ms ease;
     width: 100%;
     z-index: -1;
-
-    .shapes {
-      transform: translateX(-100%);
-      opacity: 0;
-      transition: transform 300ms ease, opacity 300ms ease;
-    }
 
     ol {
       counter-reset: navbar-links;
@@ -148,10 +147,9 @@ header {
   transform: none;
   transition: transform 400ms ease;
 
-  .shapes {
-    opacity: 1;
-    transform: none;
-    transition: transform 400ms ease, opacity 400ms 200ms ease;
+  @media (min-width: $break-lg) {
+    transform: translateX(100%);
+    transition: none;
   }
 }
 </style>

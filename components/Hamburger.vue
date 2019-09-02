@@ -58,7 +58,6 @@ $width: 2px;
   cursor: pointer;
   height: 100%;
   padding: 10px;
-  outline: none;
   position: absolute;
   right: 0;
   top: 0;
