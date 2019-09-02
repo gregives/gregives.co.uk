@@ -74,7 +74,7 @@ $width: 2px;
     right: 0;
     top: calc(50% - #{$width / 2});
     transition: background-color 0ms $speed;
-    width: calc(8px + 3vw);
+    width: calc(15px + 2vw);
 
     &::before,
     &::after {
