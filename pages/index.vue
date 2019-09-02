@@ -116,7 +116,7 @@ export default {
   filter: saturate(0) sepia(1) hue-rotate(170deg) saturate(2);
   height: 100%;
 
-  &[src$='35.png'] {
+  &[data-xy='53'] {
     display: block;
   }
 }
