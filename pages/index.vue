@@ -17,9 +17,10 @@
       <div class="headshots">
         <img
           v-for="head in heads()"
-          :key="head"
+          :key="head.src"
           class="headshots__image"
-          :src="head"
+          :data-xy="`${head.x}${head.y}`"
+          :src="head.src"
           alt="Headshot of Greg Ives"
         />
       </div>
@@ -40,9 +41,10 @@ export default {
     return {
       heads() {
         const heads = []
-        for (let i = 1; i <= 5; i++) {
-          for (let j = 1; j <= 6; j++) {
-            heads.push(require(`~/assets/images/headshots/${i}${j}.png`))
+        for (let y = 1; y <= 5; y++) {
+          for (let x = 1; x <= 6; x++) {
+            const src = require(`~/assets/images/headshots/${y}${x}.png`)
+            heads.push({ x, y, src })
           }
         }
         return heads
@@ -53,17 +55,15 @@ export default {
     this.$tilt(document.querySelectorAll('[data-tilt]'))
 
     window.addEventListener('mousemove', (event) => {
-      const xProportion =
-        Math.floor((event.clientX / window.innerWidth) * 6) + 1
-      const yProportion =
-        Math.floor((event.clientY / window.innerHeight) * 5) + 1
+      const x = Math.floor((event.clientX / window.innerWidth) * 6) + 1
+      const y = Math.floor((event.clientY / window.innerHeight) * 5) + 1
 
       const headshots = Array.from(
         document.getElementsByClassName('headshots__image')
       )
 
       headshots.forEach((headshot) => {
-        if (headshot.src.endsWith(`${yProportion}${xProportion}.png`)) {
+        if (headshot.dataset.xy === `${x}${y}`) {
           headshot.style.display = 'block'
         } else {
           headshot.style.display = 'none'
