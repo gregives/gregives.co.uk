@@ -132,7 +132,7 @@ export default {
         width: 100%;
 
         h3 > small {
-          color: transparentize(black, 0.7);
+          color: transparentize(black, 0.46);
           font-size: 60%;
         }
 
