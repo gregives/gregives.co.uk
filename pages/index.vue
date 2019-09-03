@@ -15,14 +15,16 @@
         </div>
       </div>
       <div class="headshots">
-        <img
+        <picture
           v-for="head in heads()"
-          :key="head.src"
+          :key="head.png"
           class="headshots__image"
           :data-xy="`${head.x}${head.y}`"
-          :src="head.src"
-          alt="Headshot of Greg Ives"
-        />
+        >
+          <source :srcset="head.webp" type="image/webp" />
+          <source :srcset="head.png" type="image/png" />
+          <img :src="head.png" alt="Headshot of Greg Ives" />
+        </picture>
       </div>
     </div>
   </div>
@@ -43,8 +45,9 @@ export default {
         const heads = []
         for (let y = 1; y <= 5; y++) {
           for (let x = 1; x <= 6; x++) {
-            const src = require(`~/assets/images/headshots/${y}${x}.png`)
-            heads.push({ x, y, src })
+            const png = require(`~/assets/images/headshots/${y}${x}.png`)
+            const webp = require(`~/assets/images/headshots/${y}${x}.png?webp`)
+            heads.push({ x, y, png, webp })
           }
         }
         return heads
@@ -118,6 +121,10 @@ export default {
 
   &[data-xy='53'] {
     display: block;
+  }
+
+  img {
+    height: 100%;
   }
 }
 </style>
