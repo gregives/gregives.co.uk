@@ -1,7 +1,9 @@
 <template>
-  <span class="typer" :class="{ selected }">
-    <span>{{ currentType }}</span>
-    <span v-for="word in words" :key="word">{{ word }}</span>
+  <span class="typer" :class="{ 'typer--selected': selected }">
+    <span class="typer__word">{{ currentType }}</span>
+    <span v-for="word in words" :key="word" class="typer__word">
+      {{ word }}
+    </span>
   </span>
 </template>
 
@@ -62,21 +64,13 @@ export default {
   border-right: solid 1vmin $color-primary;
   color: $color-primary;
   position: relative;
+}
 
-  span {
-    white-space: pre;
-
-    ~ span {
-      display: none;
-    }
-  }
-
-  &.selected {
-    background-color: transparentize($color: $color-primary, $amount: 0.9);
-    border-right: none;
-    border-left: solid 1vmin $color-primary;
-    margin-left: -1vmin;
-  }
+.typer--selected {
+  background-color: transparentize($color: $color-primary, $amount: 0.9);
+  border-right: none;
+  border-left: solid 1vmin $color-primary;
+  margin-left: -1vmin;
 
   @keyframes blink {
     from {
@@ -86,6 +80,14 @@ export default {
     to {
       border-color: transparentize($color: $color-primary, $amount: 0.5);
     }
+  }
+}
+
+.typer__word {
+  white-space: pre;
+
+  ~ .typer__word {
+    display: none;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <button class="hamburger" aria-label="Menu" title="Menu" @click="toggleMenu">
-    <div></div>
+    <div class="hamburger__icon"></div>
   </button>
 </template>
 
@@ -65,41 +65,41 @@ $width: 2px;
   @media (min-width: $break-lg) {
     display: none;
   }
+}
 
-  > div {
+.hamburger__icon {
+  background-color: transparentize($color: black, $amount: 0.1);
+  border-radius: $width / 2;
+  height: $width;
+  position: relative;
+  right: 0;
+  top: calc(50% - #{$width / 2});
+  transition: background-color 0ms $speed;
+  width: calc(15px + 2vw);
+
+  &::before,
+  &::after {
     background-color: transparentize($color: black, $amount: 0.1);
     border-radius: $width / 2;
-    height: $width;
-    position: relative;
-    right: 0;
-    top: calc(50% - #{$width / 2});
-    transition: background-color 0ms $speed;
-    width: calc(15px + 2vw);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
 
-    &::before,
-    &::after {
-      background-color: transparentize($color: black, $amount: 0.1);
-      border-radius: $width / 2;
-      content: '';
-      height: 100%;
-      left: 0;
-      position: absolute;
-      width: 100%;
-    }
+  &::before {
+    top: calc(-4px - 0.5vw);
+    transition: top $speed $speed ease-out, transform $speed ease-in;
+  }
 
-    &::before {
-      top: calc(-4px - 0.5vw);
-      transition: top $speed $speed ease-out, transform $speed ease-in;
-    }
-
-    &::after {
-      bottom: calc(-4px - 0.5vw);
-      transition: bottom $speed $speed ease-out, transform $speed ease-in;
-    }
+  &::after {
+    bottom: calc(-4px - 0.5vw);
+    transition: bottom $speed $speed ease-out, transform $speed ease-in;
   }
 }
 
-:root[data-menu] .hamburger > div {
+:root[data-menu] .hamburger__icon {
   background-color: transparent;
 
   &::before {

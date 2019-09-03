@@ -19,9 +19,3 @@ html, body {
   position: relative;
   width: calc(90% - 1rem);
 }
-
-.centre-y {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
