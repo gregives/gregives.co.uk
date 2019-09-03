@@ -14,12 +14,13 @@
           <nuxt-link to="/contact">contact me</nuxt-link>!
         </div>
       </div>
-      <div class="headshots">
+      <div ref="headshots" class="headshots">
         <picture
-          v-for="head in heads()"
+          v-for="head in heads"
           :key="head.png"
           class="headshots__image"
-          :data-xy="`${head.x}${head.y}`"
+          :data-x="head.x"
+          :data-y="head.y"
         >
           <source :srcset="head.webp" type="image/webp" />
           <source :srcset="head.png" type="image/png" />
@@ -34,6 +35,19 @@
 import Shapes from '~/components/Shapes'
 import Typer from '~/components/Typer'
 
+const path = require('path')
+const files = require.context('~/assets/images/headshots/', false, /\.png$/)
+const heads = Array.from(files.keys()).map((file) => {
+  const basename = path.basename(file)
+  const coords = basename.replace(/\..*/, '').split('_')
+  return {
+    x: parseInt(coords[0]),
+    y: parseInt(coords[1]),
+    png: require(`~/assets/images/headshots/${path.basename(file)}`),
+    webp: require(`~/assets/images/headshots/${path.basename(file)}?webp`)
+  }
+})
+
 export default {
   components: {
     Shapes,
@@ -41,37 +55,57 @@ export default {
   },
   data() {
     return {
-      heads() {
-        const heads = []
-        for (let y = 1; y <= 5; y++) {
-          for (let x = 1; x <= 6; x++) {
-            const png = require(`~/assets/images/headshots/${y}${x}.png`)
-            const webp = require(`~/assets/images/headshots/${y}${x}.png?webp`)
-            heads.push({ x, y, png, webp })
-          }
-        }
-        return heads
-      }
+      heads
     }
   },
   mounted() {
     this.$tilt(document.querySelectorAll('[data-tilt]'))
 
     window.addEventListener('mousemove', (event) => {
-      const x = Math.floor((event.clientX / window.innerWidth) * 6) + 1
-      const y = Math.floor((event.clientY / window.innerHeight) * 5) + 1
+      const headshots = this.$refs.headshots
+      if (headshots === undefined) {
+        return
+      }
+      const rect = headshots.getBoundingClientRect()
 
-      const headshots = Array.from(
-        document.getElementsByClassName('headshots__image')
+      const mouseX = ((event.clientX - rect.x) * 10) / rect.width
+      const mouseY = ((event.clientY - rect.y) * 10) / rect.height
+
+      const closestHeadshot = Array.from(headshots.children).reduce(
+        (closest, headshot) => {
+          const pointX = headshot.dataset.x
+          const pointY = headshot.dataset.y
+          const distance = {
+            x: Math.abs(mouseX - pointX),
+            y: Math.abs(mouseY - pointY)
+          }
+
+          if (
+            distance.y < closest.distance.y ||
+            (distance.y === closest.distance.y &&
+              distance.x < closest.distance.x)
+          ) {
+            return {
+              distance,
+              headshot
+            }
+          } else {
+            return closest
+          }
+        },
+        {
+          distance: {
+            x: Infinity,
+            y: Infinity
+          },
+          headshot: headshots[0]
+        }
       )
 
-      headshots.forEach((headshot) => {
-        if (headshot.dataset.xy === `${x}${y}`) {
-          headshot.style.display = 'block'
-        } else {
-          headshot.style.display = 'none'
-        }
+      Array.from(headshots.children).forEach((headshot) => {
+        headshot.style.display = 'none'
       })
+      closestHeadshot.headshot.style.display = 'block'
     })
   }
 }
@@ -119,7 +153,7 @@ export default {
   display: none;
   height: 100%;
 
-  &[data-xy='53'] {
+  &[data-x='5'][data-y='4'] {
     display: block;
   }
 
