@@ -104,6 +104,7 @@ export default {
 
 .headshots {
   bottom: calc(-2vh - 3vw);
+  filter: saturate(0) sepia(1) hue-rotate(170deg) saturate(2);
   height: calc(20vh + 30vw);
   position: absolute;
   right: -5vw;
@@ -116,7 +117,6 @@ export default {
 
 .headshots__image {
   display: none;
-  filter: saturate(0) sepia(1) hue-rotate(170deg) saturate(2);
   height: 100%;
 
   &[data-xy='53'] {
