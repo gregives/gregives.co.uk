@@ -17,14 +17,14 @@
       <div ref="headshots" class="headshots">
         <picture
           v-for="head in heads"
-          :key="head.png.src"
+          :key="head.png"
           class="headshots__image"
           :data-x="head.x"
           :data-y="head.y"
         >
-          <source :srcset="head.webp.srcSet" type="image/webp" />
-          <source :srcset="head.png.srcSet" type="image/png" />
-          <img :src="head.png.src" alt="Headshot of Greg Ives" />
+          <source :srcset="head.webp" type="image/webp" />
+          <source :srcset="head.png" type="image/png" />
+          <img :src="head.png" alt="Headshot of Greg Ives" />
         </picture>
       </div>
     </div>
@@ -43,8 +43,8 @@ const heads = Array.from(files.keys()).map((file) => {
   return {
     x: parseInt(coords[0]),
     y: parseInt(coords[1]),
-    png: require(`~/assets/images/headshots/${basename}?resize`),
-    webp: require(`~/assets/images/headshots/${basename}?webp&resize`)
+    png: require(`~/assets/images/headshots/${basename}`),
+    webp: require(`~/assets/images/headshots/${basename}?webp`)
   }
 })
 
