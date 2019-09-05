@@ -63,13 +63,13 @@ export default {
 
 .nav {
   background-color: darken(white, 5%);
-  left: 0;
   height: 100vh;
-  overflow: hidden;
+  left: 0;
   position: fixed;
   top: 0;
   transform: translateX(100%);
-  transition: transform 300ms ease;
+  transition: transform 300ms ease, visibility 0s 300ms;
+  visibility: hidden;
   width: 100%;
   z-index: -1;
 
@@ -80,6 +80,7 @@ export default {
     margin-top: 0.2rem;
     overflow: visible;
     position: relative;
+    visibility: visible;
     width: auto;
     z-index: auto;
   }
@@ -135,8 +136,9 @@ export default {
 }
 
 :root[data-menu] .nav {
+  visibility: visible;
   transform: none;
-  transition: transform 400ms ease;
+  transition: transform 400ms ease, visibility 0s;
 
   @media (min-width: $break-lg) {
     transform: translateX(100%);
