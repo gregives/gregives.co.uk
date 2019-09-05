@@ -34,16 +34,20 @@ import Typer from '~/components/Typer'
 
 const path = require('path')
 const files = require.context('~/assets/images/headshots/', false, /\.png$/)
-const heads = Array.from(files.keys()).map((file) => {
-  const basename = path.basename(file)
-  const coords = basename.replace(/\..*/, '').split('_')
-  return {
-    x: parseInt(coords[0]),
-    y: parseInt(coords[1]),
-    png: require(`~/assets/images/headshots/${basename}`),
-    webp: require(`~/assets/images/headshots/${basename}?webp`)
-  }
-})
+const heads = Array.from(files.keys())
+  .map((file) => {
+    const basename = path.basename(file)
+    const coords = basename.replace(/\..*/, '').split('_')
+    return {
+      x: parseInt(coords[0]),
+      y: parseInt(coords[1]),
+      png: require(`~/assets/images/headshots/${basename}`),
+      webp: require(`~/assets/images/headshots/${basename}?webp`)
+    }
+  })
+  .sort((a, b) => {
+    return -(a.x === 5 && a.y === 3)
+  })
 
 export default {
   components: {
