@@ -41,7 +41,7 @@ const heads = Array.from(files.keys())
     return {
       x: parseInt(coords[0]),
       y: parseInt(coords[1]),
-      png: require(`~/assets/images/headshots/${basename}`),
+      png: require(`~/assets/images/headshots/${basename}?original`),
       webp: require(`~/assets/images/headshots/${basename}?webp`)
     }
   })
