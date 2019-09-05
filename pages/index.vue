@@ -138,7 +138,7 @@ export default {
 
 .headshots {
   bottom: calc(-2vh - 3vw);
-  filter: saturate(0) sepia(1) hue-rotate(170deg) saturate(2);
+  filter: sepia(1) hue-rotate(170deg) saturate(2);
   height: calc(20vh + 30vw);
   position: absolute;
   right: -5vw;
