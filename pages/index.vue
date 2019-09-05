@@ -156,7 +156,7 @@ export default {
   display: none;
   height: 100%;
 
-  &[data-x='5'][data-y='4'] {
+  &[data-x='5'][data-y='3'] {
     display: block;
   }
 
