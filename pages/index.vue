@@ -4,12 +4,12 @@
     <div class="container">
       <div class="home__hero">
         <h1 class="home__title">I am&nbsp;<typer /></h1>
-        <div class="home__description">
+        <p class="home__description">
           Hi there! I'm a final-year Computer Science student at the University
           of Sheffield. I'm looking for an opportunity in software development
           from June&nbsp;2020 &mdash; check out my projects and experience or
           <nuxt-link to="/contact">contact me</nuxt-link>!
-        </div>
+        </p>
       </div>
       <div ref="headshots" class="headshots">
         <picture

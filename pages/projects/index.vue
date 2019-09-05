@@ -124,12 +124,7 @@ export default {
   padding: 1.5rem;
   white-space: initial;
 
-  &::after {
-    display: none;
-  }
-
   &::before {
-    background: none;
     border: solid 2px transparentize(black, 0.95);
     box-sizing: content-box;
     content: '';

@@ -58,40 +58,17 @@ h3 {
 
 a {
   color: inherit;
-  padding: 1vmin;
-  margin: -1vmin;
-  position: relative;
   text-decoration: none;
-  white-space: pre;
-
-  &::before, &::after {
-    background-color: transparentize($color: black, $amount: 0.95);
-    bottom: 1vmin;
-    content: '';
-    height: 25%;
-    left: 0.8vmin;
-    position: absolute;
-    width: calc(100% - 1vmin);
-    z-index: -1;
-  }
-
-  &::after {
-    background-color: transparentize($color: black, $amount: 0.9);
-    transition: width 450ms cubic-bezier(0.86, 0, 0.07, 1);
-    width: 0;
-  }
-
-  &:hover::after {
-    width: calc(100% - 1vmin);
-  }
-
-  &.nuxt-link-exact-active::before {
-    background-color: transparentize($color-primary, 0.8);
-  }
 }
 
-nav a::after {
-  background-color: transparentize($color-primary, 0.6);
+p a {
+  box-shadow: 0 -0.4em transparentize($color-primary, 0.8) inset;
+  transition: all 150ms ease-out;
+
+  &:hover {
+    box-shadow: 0 -1.4em transparentize($color-primary, 0.8) inset;
+    color: $color-primary;
+  }
 }
 
 ::selection {

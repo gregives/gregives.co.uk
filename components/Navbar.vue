@@ -59,11 +59,6 @@ export default {
   display: inline-block;
   font-family: $header-font;
   font-size: 120%;
-
-  a::before,
-  a::after {
-    display: none;
-  }
 }
 
 .nav {
