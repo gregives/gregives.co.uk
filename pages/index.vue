@@ -19,9 +19,12 @@
           :data-x="head.x"
           :data-y="head.y"
         >
-          <source :srcset="head.webp" type="image/webp" />
-          <source :srcset="head.png" type="image/png" />
-          <img :src="head.png" alt="Headshot of Greg Ives" />
+          <source :srcset="head.lazy ? false : head.webp" type="image/webp" />
+          <source :srcset="head.lazy ? false : head.png" type="image/png" />
+          <img
+            :src="head.lazy ? false : head.png"
+            alt="Headshot of Greg Ives"
+          />
         </picture>
       </div>
     </div>
@@ -34,20 +37,24 @@ import Typer from '~/components/Typer'
 
 const path = require('path')
 const files = require.context('~/assets/images/headshots/', false, /\.png$/)
-const heads = Array.from(files.keys())
-  .map((file) => {
-    const basename = path.basename(file)
-    const coords = basename.replace(/\..*/, '').split('_')
-    return {
-      x: parseInt(coords[0]),
-      y: parseInt(coords[1]),
-      png: require(`~/assets/images/headshots/${basename}?original`),
-      webp: require(`~/assets/images/headshots/${basename}?webp`)
-    }
-  })
-  .sort((a, b) => {
-    return -(a.x === 5 && a.y === 3)
-  })
+const heads = Array.from(files.keys()).map((file) => {
+  const basename = path.basename(file)
+  const coords = basename.replace(/\..*/, '').split('_')
+  return {
+    x: parseInt(coords[0]),
+    y: parseInt(coords[1]),
+    png: require(`~/assets/images/headshots/${basename}?original`),
+    webp: require(`~/assets/images/headshots/${basename}?webp`),
+    lazy: true
+  }
+})
+
+const headIndex = heads.findIndex((head) => {
+  return head.x === 5 && head.y === 3
+})
+
+const head = heads.splice(headIndex, 1)[0]
+heads.unshift({ ...head, lazy: false })
 
 export default {
   components: {
@@ -61,6 +68,10 @@ export default {
   },
   mounted() {
     this.$tilt(document.querySelectorAll('[data-tilt]'))
+
+    this.heads = this.heads.map((head) => {
+      return { ...head, lazy: false }
+    })
 
     window.addEventListener('mousemove', (event) => {
       const headshots = this.$refs.headshots
@@ -157,7 +168,7 @@ export default {
   display: none;
   height: 100%;
 
-  &[data-x='5'][data-y='3'] {
+  &:first-child {
     display: block;
   }
 
