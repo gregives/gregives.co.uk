@@ -37,6 +37,7 @@
     "imagemin-pngquant": "^8.0.0",
     "imagemin-svgo": "^7.0.0",
     "jimp": "^0.6.4",
+    "lazysizes": "^5.1.1",
     "lint-staged": "^8.2.1",
     "node-sass": "^4.12.0",
     "prettier": "^1.16.4",

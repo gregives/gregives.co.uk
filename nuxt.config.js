@@ -41,9 +41,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    { src: '~/plugins/tilt.js', mode: 'client', async: true, defer: true }
-  ],
+  plugins: ['~/plugins/tilt.client.js', '~/plugins/lazysizes.client.js'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -65,9 +63,17 @@ export default {
    ** Build configuration
    */
   build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {}
+    extend(
+      config,
+      {
+        isClient,
+        loaders: { vue }
+      }
+    ) {
+      if (isClient) {
+        vue.transformAssetUrls.img = ['data-src', 'src']
+        vue.transformAssetUrls.source = ['data-srcset', 'srcset']
+      }
+    }
   }
 }
