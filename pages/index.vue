@@ -39,7 +39,7 @@ const path = require('path')
 const files = require.context('~/assets/images/headshots/', false, /\.png$/)
 const heads = Array.from(files.keys()).map((file) => {
   const basename = path.basename(file)
-  const coords = basename.replace(/\..*/, '').split('_')
+  const coords = basename.match(/[^.]+/)[0].split('_')
   return {
     x: parseInt(coords[0]),
     y: parseInt(coords[1]),
