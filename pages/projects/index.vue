@@ -6,13 +6,13 @@
         :key="project.title"
         class="project-list__item"
       >
-        <nuxt-link :to="link(project)" class="project-list__link">
+        <nuxt-link :to="project.link" class="project-list__link">
           <img
             src="https://via.placeholder.com/800x400"
             class="project-list__image"
           />
           <h3 class="project-list__title">
-            {{ title(project) }}
+            {{ project.title }}
             <small class="project-list__date">
               {{ project.date.getFullYear() }}
             </small>
@@ -25,53 +25,25 @@
 </template>
 
 <script>
-import androidApps from './android-apps'
-import autoClicker from './auto-clicker'
-import ciscoUniversityChallenge from './cisco-university-challenge'
-import codeHappy from './code-happy'
-import dissertation from './dissertation'
-import festimap from './festimap'
-import hacksheffield from './hacksheffield'
-import hype from './hype'
-import picnicSpots from './picnic-spots'
-import portfolio from './portfolio'
-import snapscroll from './snapscroll'
-import stegaphoto from './stegaphoto'
-import tvRemote from './tv-remote'
-import universityOfSheffieldBrassBand from './university-of-sheffield-brass-band'
+const files = require.context('./', false, /\.vue$/)
+const projects = Array.from(files.keys())
+  .filter((file) => files(file).default !== undefined)
+  .map((file) => {
+    const name = file.match(/[\w-]+/)[0]
+    const project = files(file).default.data()
+    return {
+      title: project.shortTitle || project.title,
+      date: project.date,
+      description: project.description,
+      link: `/projects/${name}`
+    }
+  })
+  .sort((a, b) => b.date - a.date)
 
 export default {
   data() {
     return {
-      projects: [
-        androidApps.data(),
-        autoClicker.data(),
-        ciscoUniversityChallenge.data(),
-        codeHappy.data(),
-        dissertation.data(),
-        festimap.data(),
-        hacksheffield.data(),
-        hype.data(),
-        picnicSpots.data(),
-        portfolio.data(),
-        snapscroll.data(),
-        stegaphoto.data(),
-        tvRemote.data(),
-        universityOfSheffieldBrassBand.data()
-      ].sort((a, b) => b.date - a.date)
-    }
-  },
-  methods: {
-    title(project) {
-      return project.shortTitle || project.title
-    },
-    link(project) {
-      return (
-        '/projects/' +
-        this.title(project)
-          .toLowerCase()
-          .replace(' ', '-')
-      )
+      projects
     }
   }
 }
