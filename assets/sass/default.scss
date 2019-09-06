@@ -63,7 +63,7 @@ a {
 
 p a {
   box-shadow: 0 -0.4em transparentize($color-primary, 0.8) inset;
-  transition: all 150ms ease-out;
+  transition: box-shadow 150ms ease-out, color 150ms ease-out;
 
   &:hover {
     box-shadow: 0 -1.4em transparentize($color-primary, 0.8) inset;
@@ -74,6 +74,11 @@ p a {
 ::selection {
   background-color: $color-primary;
   color: white;
+}
+
+:root.tabbing :focus {
+  outline: 2px dashed $color-primary;
+  outline-offset: 0.1rem;
 }
 
 .page-enter-active, .page-leave-active {
