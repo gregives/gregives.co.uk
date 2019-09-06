@@ -54,7 +54,8 @@ export default {
   modules: [
     '@nuxtjs/pwa',
     '@bazzite/nuxt-optimized-images',
-    'nuxt-webfontloader'
+    'nuxt-webfontloader',
+    '@nuxtjs/sitemap'
   ],
   optimizedImages: {
     optimizeImages: true,
