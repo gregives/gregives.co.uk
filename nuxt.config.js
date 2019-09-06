@@ -22,11 +22,6 @@ export default {
         rel: 'preconnect',
         href: 'https://fonts.gstatic.com/',
         crossorigin: true
-      },
-      {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css?family=Rubik:400,400i,500|Fira+Mono:500&display=swap'
       }
     ]
   },
@@ -52,11 +47,24 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/pwa', '@bazzite/nuxt-optimized-images'],
+  modules: [
+    '@nuxtjs/pwa',
+    '@bazzite/nuxt-optimized-images',
+    'nuxt-webfontloader'
+  ],
   optimizedImages: {
     optimizeImages: true,
     responsive: {
       sizes: [213, 256, 341, 455, 533, 640, 768, 1024, 1366, 1600, 1920]
+    }
+  },
+  webfontloader: {
+    custom: {
+      families: ['Rubik:n4,i4,n5', 'Fira Mono:n5'],
+      urls: [
+        'https://fonts.googleapis.com/css?family=Rubik:400,400i,500&display=swap',
+        'https://fonts.googleapis.com/css?family=Fira+Mono:500&display=swap'
+      ]
     }
   },
   /*
