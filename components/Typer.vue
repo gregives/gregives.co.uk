@@ -67,7 +67,7 @@ export default {
 }
 
 .typer--selected {
-  background-color: transparentize($color: $color-primary, $amount: 0.9);
+  box-shadow: 0 -1.4em transparentize($color-primary, 0.9) inset;
   border-right: none;
   border-left: solid 1vmin $color-primary;
   margin-left: -1vmin;
@@ -78,7 +78,7 @@ export default {
     }
 
     to {
-      border-color: transparentize($color: $color-primary, $amount: 0.5);
+      border-color: transparentize($color-primary, 0.5);
     }
   }
 }
