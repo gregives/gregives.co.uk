@@ -69,7 +69,7 @@ $width: 2px;
 }
 
 .hamburger__icon {
-  background-color: transparentize($color: black, $amount: 0.1);
+  background-color: transparentize(black, 0.1);
   border-radius: $width / 2;
   height: $width;
   position: relative;
@@ -80,7 +80,7 @@ $width: 2px;
 
   &::before,
   &::after {
-    background-color: transparentize($color: black, $amount: 0.1);
+    background-color: transparentize(black, 0.1);
     border-radius: $width / 2;
     content: '';
     height: 100%;

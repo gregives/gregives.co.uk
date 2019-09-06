@@ -16,7 +16,7 @@ body {
 }
 
 :root {
-  color: transparentize($color: black, $amount: 0.1);
+  color: transparentize(black, 0.1);
   font-family: $boring-font;
   font-size: calc(70% + 1vmin);
 

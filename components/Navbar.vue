@@ -111,7 +111,7 @@ export default {
   }
 
   &::before {
-    color: transparentize($color: #000000, $amount: 0.63);
+    color: transparentize(black, 0.63);
     content: '0' counter(navbar-links);
     font-size: 60%;
     position: absolute;
