@@ -46,12 +46,11 @@ export default {
   box-shadow: 0 0 2rem -1rem transparentize(black, 0.8);
   clear: both;
   padding: 1.5rem 0;
-  margin-bottom: 1rem;
   z-index: 1;
 
   @supports (backdrop-filter: blur(5px)) {
     backdrop-filter: blur(5px);
-    background-color: transparentize(white, 0.6);
+    background-color: transparentize(white, 0.4);
   }
 }
 

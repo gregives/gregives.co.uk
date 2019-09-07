@@ -3,6 +3,7 @@
 @import "utilities";
 
 body {
+  background-color: darken(white, 5%);
   height: 100%;
   overflow-y: scroll;
 
@@ -66,7 +67,7 @@ p a {
   transition: box-shadow 150ms ease-out, color 150ms ease-out;
 
   &:hover {
-    box-shadow: 0 -1.4em transparentize($color-primary, 0.8) inset;
+    box-shadow: 0 -1.3em transparentize($color-primary, 0.8) inset;
     color: $color-primary;
   }
 }
@@ -78,7 +79,7 @@ p a {
 
 :root.tabbing :focus {
   outline: 2px dashed $color-primary;
-  outline-offset: 0.1rem;
+  outline-offset: 0.3rem;
 }
 
 .page-enter-active, .page-leave-active {

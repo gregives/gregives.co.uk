@@ -11,8 +11,8 @@
 <style lang="scss">
 $shape-gradient: linear-gradient(
   to bottom right,
-  darken(white, 2%),
-  darken(white, 6%)
+  darken(white, 5%),
+  darken(white, 20%)
 );
 $shape-size: calc(80px + 10vw);
 
