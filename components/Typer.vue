@@ -1,9 +1,9 @@
 <template>
   <span class="typer" :class="{ 'typer--selected': selected }">
     <span class="typer__word">{{ currentType }}</span>
-    <span v-for="word in words" :key="word" class="typer__word">
-      {{ word }}
-    </span>
+    <span v-for="word in words" :key="word" class="typer__word">{{
+      word
+    }}</span>
   </span>
 </template>
 
