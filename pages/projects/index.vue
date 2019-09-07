@@ -5,20 +5,30 @@
         v-for="project in projects"
         :key="project.title"
         class="project-list__item"
+        :class="{ 'project-list__item--small': !project.link }"
       >
-        <nuxt-link :to="project.link" class="project-list__link">
+        <nuxt-link
+          v-if="project.link"
+          :to="project.link"
+          class="project-list__link"
+        >
           <img
             src="https://via.placeholder.com/800x400"
             class="project-list__image"
           />
           <h3 class="project-list__title">
             {{ project.title }}
-            <small class="project-list__date">
-              {{ project.date.getFullYear() }}
-            </small>
           </h3>
-          <p class="project-list__description">{{ project.description }}</p>
+          <small class="project-list__date">
+            {{ project.date.getFullYear() }}
+          </small>
+          <p class="project-list__description" v-html="project.description"></p>
         </nuxt-link>
+        <p
+          v-else
+          class="project-list__description"
+          v-html="project.description"
+        ></p>
       </li>
     </ol>
   </div>
@@ -40,6 +50,11 @@ const projects = Array.from(files.keys())
   })
   .sort((a, b) => b.date - a.date)
 
+projects.splice(3, 0, {
+  description:
+    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit eligendi vitae, dolore ab tenetur quae ad, natus hic fugit mollitia eum laboriosam, earum officia! Tempora quasi aliquam ab sit doloribus.'
+})
+
 export default {
   data() {
     return {
@@ -54,73 +69,81 @@ export default {
 
 .project-list {
   display: grid;
+  grid-auto-rows: min-content;
   grid-template-columns: 1fr;
-  grid-gap: calc(6rem + 6vmin) calc(3rem + 6vmin);
-  margin-top: 10vh;
-  margin-bottom: 10vh;
+  grid-gap: calc(1rem + 5vmin);
+  margin: 4rem 0;
 
   @media (min-width: $break-md) {
     grid-template-columns: 1fr 1fr;
-    grid-gap: calc(3rem + 6vmin);
-    margin-top: calc(4rem + 10vh);
   }
 }
 
 .project-list__item {
-  margin: -1.5rem;
-  padding: 0rem;
+  grid-row: span 2;
   position: relative;
 
-  @media (min-width: $break-md) {
-    &:nth-child(2n) {
-      margin-top: 2rem;
-    }
+  &::before {
+    background-color: darken(white, 3%);
+    box-shadow: 0 0 2rem -1rem transparentize(black, 0.8);
+    content: '';
+    height: 80%;
+    left: 0;
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    z-index: -1;
+  }
+}
 
-    &:nth-child(2n + 1) {
-      margin-top: -4rem;
-      margin-bottom: 4rem;
-    }
+.project-list__item--small {
+  grid-row: span 1;
+
+  &::before {
+    background-color: darken(white, 3%);
+    border: 4px solid transparentize($color-primary, 0.6);
+    box-shadow: 0 0 2rem -1rem transparentize(black, 0.8);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
   }
 
-  @for $i from 1 through 14 {
-    &:nth-child(#{$i}) > .project-list__link::before,
-    &:nth-child(#{$i}) > .project-list__link::after {
-      transform: rotate(#{random() * 4 - 2}deg);
-    }
+  .project-list__description {
+    padding: 1.5rem;
   }
 }
 
 .project-list__link {
   display: block;
-  margin: 0;
   padding: 1.5rem;
-  white-space: initial;
+  padding-top: 0;
 
-  &::before {
-    border: solid 2px transparentize(black, 0.95);
-    box-sizing: content-box;
-    content: '';
-    height: 95%;
-    left: 0.5rem;
-    position: absolute;
-    transition: border 300ms ease;
-    top: 5%;
-    width: calc(100% - 1rem);
+  &:hover .project-list__title {
+    box-shadow: 0 -1.5em transparentize($color-primary, 0.8) inset;
+    color: $color-primary;
   }
+}
 
-  &:hover::before {
-    border: solid 2px transparentize($color-primary, 0.4);
-  }
+.project-list__title {
+  box-shadow: 0 -0.6em transparentize($color-primary, 0.8) inset;
+  display: inline-block;
+  transition: box-shadow 150ms ease-out, color 150ms ease-out;
 }
 
 .project-list__date {
   color: transparentize(black, 0.46);
-  font-size: 60%;
+  font-family: $header-font;
+  font-size: 90%;
+  margin-left: 1rem;
 }
 
 .project-list__image {
-  margin-top: -3rem;
   margin-bottom: 1rem;
-  width: 80%;
+  margin-left: -1.5rem;
+  width: 100%;
 }
 </style>
