@@ -1,8 +1,15 @@
+// Load primary color from scss
+import fs from 'fs'
+import path from 'path'
+const scss = fs.readFileSync(
+  path.join(__dirname, 'assets', 'sass', '_variables.scss'),
+  { encoding: 'utf8' }
+)
+const primaryColor = scss.match(/\$color-primary:\s?(\w+);/)[1]
+
 export default {
   mode: 'universal',
-  /*
-   ** Headers of the page
-   */
+  // Content of page head
   head: {
     title: 'Software Developer & Designer',
     titleTemplate: 'Greg Ives | %s',
@@ -25,44 +32,33 @@ export default {
       }
     ]
   },
-  /*
-   ** Customize the progress-bar color
-   */
-  loading: { color: 'dodgerblue' },
-  /*
-   ** Global CSS
-   */
+  // Progress-bar color and theme color
+  loading: { color: primaryColor },
+  // Global CSS
   css: ['~/assets/sass/default'],
-  /*
-   ** Plugins to load before mounting the App
-   */
+  // Plugins to load before mounting the App
   plugins: [
     '~/plugins/tilt.client.js',
     '~/plugins/lazysizes.client.js',
     '~/plugins/tabbing.client.js'
   ],
-  /*
-   ** Nuxt.js dev-modules
-   */
-  devModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
-  ],
-  /*
-   ** Nuxt.js modules
-   */
+  // Nuxt.js dev-modules
+  devModules: ['@nuxtjs/eslint-module'],
+  // Nuxt.js modules
   modules: [
     '@nuxtjs/pwa',
     '@bazzite/nuxt-optimized-images',
     'nuxt-webfontloader',
     '@nuxtjs/sitemap'
   ],
+  // Options for nuxt-optimized-images
   optimizedImages: {
     optimizeImages: true,
     responsive: {
       sizes: [213, 256, 341, 455, 533, 640, 768, 1024, 1366, 1600, 1920]
     }
   },
+  // Options for nuxt-webfontloader
   webfontloader: {
     custom: {
       families: ['Rubik:n4,i4,n5', 'Fira Mono:n5'],
@@ -72,9 +68,7 @@ export default {
       ]
     }
   },
-  /*
-   ** Build configuration
-   */
+  // Build configuration
   build: {
     extend(
       config,
