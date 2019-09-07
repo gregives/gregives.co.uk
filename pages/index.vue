@@ -152,11 +152,12 @@ export default {
 }
 
 .headshots {
-  bottom: calc(-2vh - 3vw);
-  filter: sepia(1) hue-rotate(170deg) saturate(2);
+  bottom: 0;
+  filter: sepia(1) hue-rotate(#{hue($color-primary) - 50deg}) saturate(2);
   height: calc(20vh + 30vw);
+  pointer-events: none;
   position: absolute;
-  right: -5vw;
+  right: -2vw;
 
   @media (min-width: $break-xl) {
     height: calc(20vh + #{30 / 100 * $break-xl});
