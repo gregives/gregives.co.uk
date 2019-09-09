@@ -12,10 +12,9 @@
           :to="project.link"
           class="project-list__link"
         >
-          <img
-            src="https://via.placeholder.com/800x400"
-            class="project-list__image"
-          />
+          <div class="project-list__image">
+            <img src="https://via.placeholder.com/800x400" />
+          </div>
           <h3 class="project-list__title">
             {{ project.title }}
           </h3>
@@ -69,7 +68,7 @@ export default {
 
 .project-list {
   display: grid;
-  grid-auto-rows: min-content;
+  grid-auto-rows: auto;
   grid-template-columns: 1fr;
   grid-gap: calc(1rem + 5vmin);
   margin: 4rem 0;
@@ -101,7 +100,7 @@ export default {
 
   &::before {
     background-color: darken(white, 3%);
-    border: 4px solid transparentize($color-primary, 0.6);
+    border: 4px solid transparentize($color-primary, 0.8);
     box-shadow: 0 0 2rem -1rem transparentize(black, 0.8);
     content: '';
     height: 100%;
@@ -122,9 +121,22 @@ export default {
   padding: 1.5rem;
   padding-top: 0;
 
-  &:hover .project-list__title {
-    box-shadow: 0 -1.5em transparentize($color-primary, 0.8) inset;
-    color: $color-primary;
+  &:hover {
+    .project-list__title {
+      box-shadow: 0 -1.5em transparentize($color-primary, 0.8) inset;
+      color: $color-primary;
+    }
+
+    .project-list__image {
+      &::after {
+        opacity: 0.2;
+      }
+
+      img {
+        filter: saturate(0);
+        transform: scale(1.1);
+      }
+    }
   }
 }
 
@@ -144,6 +156,29 @@ export default {
 .project-list__image {
   margin-bottom: 1rem;
   margin-left: -1.5rem;
+  overflow: hidden;
+  padding-bottom: 50%;
+  position: relative;
   width: 100%;
+
+  &::after {
+    background-color: $color-primary;
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity 300ms ease;
+    width: 100%;
+  }
+
+  img {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    transition: transform 300ms ease, filter 300ms ease;
+    width: 100%;
+  }
 }
 </style>
