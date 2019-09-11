@@ -1,11 +1,17 @@
-// Load primary color from scss
 import fs from 'fs'
 import path from 'path'
+
+// Load primary color from scss
 const scss = fs.readFileSync(
   path.join(__dirname, 'assets', 'sass', '_variables.scss'),
   { encoding: 'utf8' }
 )
 const primaryColor = scss.match(/\$color-primary:\s?(\w+);/)[1]
+
+// Generate routes from projects
+const projects = fs
+  .readdirSync(path.join(__dirname, 'contents', 'projects'))
+  .map((file) => `/projects/${file.match(/[^.]+/)[0]}`)
 
 export default {
   mode: 'universal',
@@ -67,6 +73,9 @@ export default {
         'https://fonts.googleapis.com/css?family=Fira+Mono:500&display=swap'
       ]
     }
+  },
+  generate: {
+    routes: [].concat(projects)
   },
   // Build configuration
   build: {
