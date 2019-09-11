@@ -16,7 +16,7 @@
             <img src="https://via.placeholder.com/800x400" />
           </div>
           <h3 class="project-list__title">
-            {{ project.title }}
+            {{ project.titleShort || project.title }}
           </h3>
           <small class="project-list__date">
             {{ project.date.getFullYear() }}
@@ -34,30 +34,28 @@
 </template>
 
 <script>
-const files = require.context('./', false, /\.vue$/)
-const projects = Array.from(files.keys())
-  .filter((file) => files(file).default !== undefined)
-  .map((file) => {
-    const name = file.match(/[\w-]+/)[0]
-    const project = files(file).default.data()
-    return {
-      title: project.shortTitle || project.title,
-      date: project.date,
-      description: project.description,
-      link: `/projects/${name}`
-    }
-  })
-  .sort((a, b) => b.date - a.date)
-
-projects.splice(3, 0, {
-  description:
-    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit eligendi vitae, dolore ab tenetur quae ad, natus hic fugit mollitia eum laboriosam, earum officia! Tempora quasi aliquam ab sit doloribus.'
-})
-
 export default {
   data() {
     return {
-      projects
+      projects: (() => {
+        const path = require('path')
+        const files = require.context('~/contents/projects/', false, /\.md$/)
+        const projects = files.keys().map((file) => {
+          const basename = path.basename(file)
+          const project = files(file).attributes
+          return {
+            ...project,
+            date: new Date(project.date),
+            link: `/projects/${basename.match(/[^.]+/)[0]}`
+          }
+        })
+        projects.sort((a, b) => b.date - a.date)
+        projects.splice(3, 0, {
+          description:
+            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione minima quasi porro voluptatibus nesciunt assumenda voluptatem dolor illo libero totam! Repellat sequi quibusdam architecto aliquam rerum totam ipsum veritatis ex.'
+        })
+        return projects
+      })()
     }
   }
 }
