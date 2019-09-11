@@ -1,6 +1,21 @@
 <template>
   <div class="container">
-    <h2>{{ project.attributes.title }}</h2>
+    <article class="project">
+      <div class="project__date">
+        <div>{{ project.attributes.date }}</div>
+      </div>
+      <h2 class="project__title">{{ project.attributes.title }}</h2>
+      <ul class="project__tag-list">
+        <li
+          v-for="tag in project.attributes.tags"
+          :key="tag"
+          class="project__tag-list-item"
+        >
+          {{ tag }}
+        </li>
+      </ul>
+      <div class="project__text" v-html="project.html"></div>
+    </article>
   </div>
 </template>
 
@@ -18,3 +33,32 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import '~/assets/sass/_variables';
+
+.project {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin: 3.5rem 0;
+}
+
+.project__date {
+  color: transparentize(black, 0.46);
+  font-family: $header-font;
+  position: relative;
+
+  > div {
+    bottom: 2rem;
+    position: absolute;
+  }
+}
+
+.project__tag-list {
+  color: transparentize(black, 0.46);
+
+  &-item::before {
+    content: '\2014';
+  }
+}
+</style>

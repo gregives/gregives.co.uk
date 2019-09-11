@@ -173,7 +173,9 @@ export default {
 
   img {
     bottom: 0;
+    height: 100%;
     left: 0;
+    object-fit: cover;
     position: absolute;
     transition: transform 300ms ease, filter 300ms ease;
     width: 100%;

@@ -27,9 +27,12 @@ body {
   }
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font;
+}
+
 h1 {
   font-size: calc(5vw + 3vmin);
-  font-family: $header-font;
   margin-bottom: 2rem;
 
   @media (min-width: $break-xl) {
@@ -39,8 +42,7 @@ h1 {
 
 h2 {
   font-size: calc(100% + 2vw);
-  font-family: $header-font;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 
   @media (min-width: $break-xl) {
     font-size: calc(100% + #{$break-xl * 2 / 100});
@@ -49,7 +51,6 @@ h2 {
 
 h3 {
   font-size: calc(100% + 0.8vw);
-  font-family: $header-font;
   margin-bottom: 0.5rem;
 
   @media (min-width: $break-xl) {
@@ -70,6 +71,10 @@ p a {
     box-shadow: 0 -1.3em transparentize($color-primary, 0.8) inset;
     color: $color-primary;
   }
+}
+
+strong {
+  font-weight: 500;
 }
 
 ::selection {
