@@ -18,7 +18,7 @@ body {
 
 :root {
   color: transparentize(black, 0.1);
-  font-family: $boring-font;
+  font-family: $font-sans-serif;
   font-size: calc(70% + 1vmin);
 
   // Bound font-size on larger screens
@@ -28,7 +28,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $header-font;
+  font-family: $font-monospace;
 }
 
 h1 {

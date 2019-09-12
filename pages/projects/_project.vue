@@ -45,7 +45,7 @@ export default {
 
 .project__date {
   color: transparentize(black, 0.46);
-  font-family: $header-font;
+  font-family: $font-monospace;
   position: relative;
 
   > div {

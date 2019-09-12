@@ -67,10 +67,11 @@ export default {
   // Options for nuxt-webfontloader
   webfontloader: {
     custom: {
-      families: ['Rubik:n4,i4,n5', 'Fira Mono:n5'],
+      families: ['Rubik:n4,i4,n5', 'Fira Mono:n4,n5', 'Fira Code:n4'],
       urls: [
         'https://fonts.googleapis.com/css?family=Rubik:400,400i,500&display=swap',
-        'https://fonts.googleapis.com/css?family=Fira+Mono:500&display=swap'
+        'https://fonts.googleapis.com/css?family=Fira+Mono:400,500&display=swap',
+        'https://fonts.googleapis.com/css?family=Fira+Code:400&display=swap'
       ]
     }
   },

@@ -56,8 +56,9 @@ export default {
 
 .header__logo {
   display: inline-block;
-  font-family: $header-font;
+  font-family: $font-monospace;
   font-size: 120%;
+  font-weight: 500;
 }
 
 .nav {
