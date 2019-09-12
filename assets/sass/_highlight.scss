@@ -1,0 +1,60 @@
+.hljs {
+  background: lighten(black, 25%);
+  display: block;
+  font-family: $font-code;
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 1em;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+  color: white;
+}
+
+.hljs,
+.hljs-subst {
+  color: transparentize(white, 0.1);
+}
+
+.hljs-string,
+.hljs-title,
+.hljs-name,
+.hljs-type,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-built_in,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: saturate(lighten(adjust-hue(invert($color-primary), 180deg), 10%), 10%);
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-meta {
+  color: transparentize(white, 0.46);
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-title,
+.hljs-section,
+.hljs-doctag,
+.hljs-type,
+.hljs-name,
+.hljs-strong {
+  font-family: $font-monospace;
+  font-weight: 500;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}

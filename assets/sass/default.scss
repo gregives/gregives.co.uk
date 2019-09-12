@@ -1,6 +1,7 @@
 @import "reset";
 @import "variables";
 @import "utilities";
+@import "highlight";
 
 body {
   background-color: darken(white, 5%);
@@ -75,6 +76,12 @@ p a {
 
 strong {
   font-weight: 500;
+}
+
+.hljs {
+  border-radius: $border-radius;
+  box-shadow: 0 0 2rem -1rem transparentize(black, 0.8);
+  font-size: 80%;
 }
 
 ::selection {

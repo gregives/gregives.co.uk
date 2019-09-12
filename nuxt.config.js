@@ -87,13 +87,42 @@ export default {
         loaders: { vue }
       }
     ) {
+      // Lazyloading images
       if (isClient) {
         vue.transformAssetUrls.img = ['data-src', 'src']
         vue.transformAssetUrls.source = ['data-srcset', 'srcset']
       }
+
+      // Markdown formatter
+      const hljs = require('highlight.js')
+      const markdown = require('markdown-it')({
+        xhtmlOut: false,
+        breaks: false,
+        typographer: true,
+        highlight(str, lang) {
+          if (lang && hljs.getLanguage(lang)) {
+            try {
+              return `<pre class="hljs"><code>${
+                hljs.highlight(lang, str, true).value
+              }</code></pre>`
+            } catch (e) {}
+          }
+
+          return `<pre class="hljs"><code>${markdown.utils.escapeHtml(
+            str
+          )}</code></pre>`
+        }
+      })
+
+      // Markdown loader
       config.module.rules.push({
         test: /\.md$/,
-        loader: 'frontmatter-markdown-loader'
+        loader: 'frontmatter-markdown-loader',
+        options: {
+          markdown: (body) => {
+            return markdown.render(body)
+          }
+        }
       })
     }
   }
