@@ -113,6 +113,9 @@ export default {
             str
           )}</code></pre>`
         }
+      }).use(require('markdown-it-anchor'), {
+        permalink: true,
+        permalinkSymbol: '§'
       })
 
       // Markdown loader
@@ -124,10 +127,10 @@ export default {
             return markdown
               .render(body)
               .replace(
-                /<h(\d)>([\s\S]*?)<\/h\1>/g,
-                (_substring, header, inner) => {
+                /<h(\d)([^>]*?)>([\s\S]*?)<\/h\1>/g,
+                (_substring, header, attrs, inner) => {
                   const newHeader = parseInt(header) + 2
-                  return `<h${newHeader}>${inner}</h${newHeader}>`
+                  return `<h${newHeader}${attrs}>${inner}</h${newHeader}>`
                 }
               )
           }

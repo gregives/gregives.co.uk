@@ -23,6 +23,16 @@ export default {
   h6 {
     border-bottom: 1px solid transparentize(black, 0.5);
     padding-bottom: 0.25rem;
+    position: relative;
+
+    .header-anchor {
+      font-weight: 400;
+      opacity: 0.1;
+    }
+
+    &:hover .header-anchor {
+      opacity: 0.46;
+    }
   }
 
   h3:not(:first-child) {
