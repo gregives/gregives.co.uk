@@ -46,26 +46,56 @@ export default {
 
 .project {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 100%;
   margin: 3.5rem 0;
+
+  @media (min-width: $break-lg) {
+    grid-template-columns: 1fr 3fr;
+  }
 }
 
 .project__date {
   color: transparentize(black, 0.46);
   font-family: $font-monospace;
+  margin-top: -1.25rem;
+  margin-bottom: 1.75rem;
+  order: 2;
   position: relative;
 
-  > div {
-    bottom: calc(2rem + 0.75vw);
-    position: absolute;
+  @media (min-width: $break-lg) {
+    margin-top: 0;
+    order: 1;
+
+    > div {
+      bottom: calc(0.25rem + 0.75vw);
+      position: absolute;
+    }
+  }
+}
+
+.project__title {
+  order: 1;
+
+  @media (min-width: $break-lg) {
+    order: 2;
   }
 }
 
 .project__tag-list {
   color: transparentize(black, 0.46);
+  display: none;
+  order: 3;
 
   &-item::before {
     content: '\2014';
   }
+
+  @media (min-width: $break-lg) {
+    display: block;
+  }
+}
+
+.project__text {
+  order: 4;
 }
 </style>

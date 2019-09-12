@@ -57,35 +57,36 @@ export default {
 
   ul,
   ol {
+    margin-left: 1rem;
     margin-bottom: 1rem;
 
     ul,
     ol {
-      margin-left: 2rem;
+      margin-left: 1.5rem;
       margin-bottom: 0;
     }
   }
 
   ul {
-    list-style: disc inside;
+    list-style-type: disc;
 
     ul {
-      list-style: circle inside;
+      list-style-type: circle;
 
       ul {
-        list-style: square inside;
+        list-style-type: square;
       }
     }
   }
 
   ol {
-    list-style: decimal inside;
+    list-style-type: decimal;
 
     ol {
-      list-style: lower-latin inside;
+      list-style-type: lower-latin;
 
       ol {
-        list-style: lower-roman inside;
+        list-style-type: lower-roman;
       }
     }
   }

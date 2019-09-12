@@ -13,7 +13,7 @@
           class="project-list__link"
         >
           <div class="project-list__image">
-            <img src="https://via.placeholder.com/800x400" />
+            <img src="https://source.unsplash.com/random/800x400" />
           </div>
           <h3 class="project-list__title">
             {{ project.titleShort || project.title }}
@@ -67,7 +67,7 @@ export default {
 .project-list {
   display: grid;
   grid-auto-rows: auto;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100%;
   grid-gap: calc(1rem + 5vmin);
   margin: 4rem 0;
 

@@ -97,6 +97,10 @@ p a {
   }
 }
 
+img {
+  max-width: 100%;
+}
+
 hr {
   border: none;
   border-bottom: 1px solid transparentize(black, 0.5);
@@ -124,8 +128,9 @@ code {
   box-shadow: 0 0 2rem -1rem transparentize(black, 0.8) inset;
   line-height: 1.25;
   font-size: 90%;
-  padding: 0.75rem 0.5rem;
   margin: 1rem 0rem;
+  padding: 0.75rem 0.5rem;
+  width: 100%;
 
   code {
     padding: 0;
