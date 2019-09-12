@@ -94,9 +94,9 @@ export default {
       )
 
       Array.from(headshots.children).forEach((headshot) => {
-        headshot.style.display = 'none'
+        headshot.style.visibility = 'hidden'
       })
-      closestHeadshot.headshot.style.display = 'block'
+      closestHeadshot.headshot.style.visibility = 'visible'
     })
   }
 }
@@ -107,24 +107,29 @@ export default {
 
 .headshots {
   bottom: 0;
-  filter: sepia(1) hue-rotate(#{hue($color-primary) - 50deg}) saturate(2);
+  filter: sepia(1) hue-rotate(#{hue($color-primary) - 45deg}) saturate(2);
   height: calc(20vh + 30vw);
   pointer-events: none;
   position: absolute;
   right: -2vw;
+  width: calc(15vh + 22.5vw); // Aspect ratio of 4:3
 
   @media (min-width: $break-xl) {
-    height: calc(20vh + #{30 / 100 * $break-xl});
     bottom: calc(-2vh - #{3 / 100 * $break-xl});
+    height: calc(20vh + #{30 / 100 * $break-xl});
+    width: calc(15vh + #{22.5 / 100 * $break-xl});
   }
 }
 
 .headshots__image {
-  display: none;
   height: 100%;
+  right: 0;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
 
   &:first-child {
-    display: block;
+    visibility: visible;
   }
 
   img {
