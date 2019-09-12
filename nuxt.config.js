@@ -96,6 +96,7 @@ export default {
       // Markdown formatter
       const hljs = require('highlight.js')
       const markdown = require('markdown-it')({
+        html: true,
         xhtmlOut: false,
         breaks: false,
         typographer: true,
@@ -120,7 +121,15 @@ export default {
         loader: 'frontmatter-markdown-loader',
         options: {
           markdown: (body) => {
-            return markdown.render(body)
+            return markdown
+              .render(body)
+              .replace(
+                /<h(\d)>([\s\S]*?)<\/h\1>/g,
+                (_substring, header, inner) => {
+                  const newHeader = parseInt(header) + 2
+                  return `<h${newHeader}>${inner}</h${newHeader}>`
+                }
+              )
           }
         }
       })

@@ -14,13 +14,20 @@
           {{ tag }}
         </li>
       </ul>
-      <div class="project__text" v-html="project.html"></div>
+      <div class="project__text">
+        <markdown :html="project.html" />
+      </div>
     </article>
   </div>
 </template>
 
 <script>
+import Markdown from '~/components/Markdown'
+
 export default {
+  components: {
+    Markdown
+  },
   asyncData({ params, error }) {
     try {
       const project = require(`~/contents/projects/${params.project}.md`)
@@ -49,7 +56,7 @@ export default {
   position: relative;
 
   > div {
-    bottom: 2rem;
+    bottom: calc(2rem + 0.75vw);
     position: absolute;
   }
 }

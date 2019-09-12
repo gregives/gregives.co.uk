@@ -1,10 +1,6 @@
 .hljs {
-  background: lighten(black, 25%);
   display: block;
-  font-family: $font-code;
   overflow-x: auto;
-  max-width: 100%;
-  padding: 1em;
 }
 
 .hljs-keyword,
@@ -12,12 +8,12 @@
 .hljs-literal,
 .hljs-section,
 .hljs-link {
-  color: white;
+  color: transparentize(black, 0.05);
 }
 
 .hljs,
 .hljs-subst {
-  color: transparentize(white, 0.1);
+  color: transparentize(black, 0.1);
 }
 
 .hljs-string,
@@ -32,14 +28,14 @@
 .hljs-variable,
 .hljs-template-tag,
 .hljs-template-variable {
-  color: saturate(lighten(adjust-hue(invert($color-primary), 180deg), 10%), 10%);
+  color: $color-primary;
 }
 
 .hljs-comment,
 .hljs-quote,
 .hljs-deletion,
 .hljs-meta {
-  color: transparentize(white, 0.46);
+  color: transparentize(black, 0.46);
 }
 
 .hljs-keyword,
