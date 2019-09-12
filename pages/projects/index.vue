@@ -82,6 +82,7 @@ export default {
 
   &::before {
     background-color: darken(white, 3%);
+    border-radius: $border-radius;
     box-shadow: 0 0 2rem -1rem transparentize(black, 0.8);
     content: '';
     height: 80%;
@@ -97,16 +98,9 @@ export default {
   grid-row: span 1;
 
   &::before {
-    background-color: darken(white, 3%);
     border: 4px solid transparentize($color-primary, 0.8);
-    box-shadow: 0 0 2rem -1rem transparentize(black, 0.8);
-    content: '';
     height: 100%;
-    left: 0;
-    position: absolute;
     top: 0;
-    width: 100%;
-    z-index: -1;
   }
 
   .project-list__description {
@@ -126,13 +120,14 @@ export default {
     }
 
     .project-list__image {
+      filter: saturate(0.5) brightness(1.2);
+
       &::after {
-        opacity: 0.2;
+        opacity: 0.6;
       }
 
       img {
-        filter: saturate(0);
-        transform: scale(1.1);
+        transform: scale(1.05);
       }
     }
   }
@@ -152,15 +147,18 @@ export default {
 }
 
 .project-list__image {
+  border-radius: $border-radius;
+  border-bottom-left-radius: 0;
   margin-bottom: 1rem;
   margin-left: -1.5rem;
   overflow: hidden;
   padding-bottom: 50%;
   position: relative;
+  transition: filter 300ms ease;
   width: 100%;
 
   &::after {
-    background-color: $color-primary;
+    background-color: saturate($color-primary, 20%);
     content: '';
     height: 100%;
     left: 0;
@@ -177,7 +175,7 @@ export default {
     left: 0;
     object-fit: cover;
     position: absolute;
-    transition: transform 300ms ease, filter 300ms ease;
+    transition: transform 300ms ease;
     width: 100%;
   }
 }

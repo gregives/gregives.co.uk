@@ -4,6 +4,9 @@ $header-font: 'Fira Mono', 'Consolas', 'Lucida Console', Monaco, monospace;
 // Primary color is loaded into nuxt.config.js
 $color-primary: crimson;
 
+// Let's round things off a bit
+$border-radius: 0.5rem;
+
 // Breakpoints
 $break-sm: 576px;
 $break-md: 768px;
