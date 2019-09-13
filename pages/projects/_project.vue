@@ -28,9 +28,9 @@ export default {
   components: {
     Markdown
   },
-  asyncData({ params, error }) {
+  async asyncData({ params, error }) {
     try {
-      const project = require(`~/contents/projects/${params.project}.md`)
+      const project = await import(`~/contents/projects/${params.project}.md`)
       return {
         project
       }

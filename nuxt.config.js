@@ -87,6 +87,10 @@ export default {
         loaders: { vue }
       }
     ) {
+      config.node = {
+        fs: 'empty'
+      }
+
       // Lazyloading images
       if (isClient) {
         vue.transformAssetUrls.img = ['data-src', 'src']

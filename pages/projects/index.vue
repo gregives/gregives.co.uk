@@ -35,28 +35,34 @@
 
 <script>
 export default {
-  data() {
-    return {
-      projects: (() => {
-        const path = require('path')
-        const files = require.context('~/contents/projects/', false, /\.md$/)
-        const projects = files.keys().map((file) => {
-          const basename = path.basename(file)
-          const project = files(file).attributes
-          return {
-            ...project,
-            date: new Date(project.date),
-            link: `/projects/${basename.match(/[^.]+/)[0]}`
-          }
-        })
-        projects.sort((a, b) => b.date - a.date)
-        projects.splice(3, 0, {
-          description:
-            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione minima quasi porro voluptatibus nesciunt assumenda voluptatem dolor illo libero totam! Repellat sequi quibusdam architecto aliquam rerum totam ipsum veritatis ex.'
-        })
-        return projects
-      })()
-    }
+  async asyncData() {
+    const projects = Promise.all(
+      (await import('~/contents/projects')).default.map(async (project) => {
+        const { attributes } = await import(`~/contents/projects/${project}`)
+        if (attributes === undefined) {
+          return null
+        }
+        return {
+          ...attributes,
+          date: new Date(attributes.date),
+          link: `/projects/${project.match(/[^.]+/)[0]}`
+        }
+      })
+    ).then((projects) => {
+      projects = projects
+        .filter((project) => project !== null)
+        .sort((projectA, projectB) => projectB.date - projectA.date)
+
+      projects.splice(3, 0, {
+        description:
+          'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione minima quasi porro voluptatibus nesciunt assumenda voluptatem dolor illo libero totam! Repellat sequi quibusdam architecto aliquam rerum totam ipsum veritatis ex.'
+      })
+
+      return {
+        projects
+      }
+    })
+    return projects
   }
 }
 </script>
