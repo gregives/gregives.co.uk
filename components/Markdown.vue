@@ -27,6 +27,7 @@ export default {
 
     .header-anchor {
       font-weight: 400;
+      margin-left: 0.5rem;
       opacity: 0.1;
     }
 
