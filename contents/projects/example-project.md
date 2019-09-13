@@ -14,6 +14,17 @@ tags:
 Lorem markdownum addere pressitque, `resurgebant tamen`: huic! Fuit hunc mea; est
 quantumque violenta **_quoque volat_** descenderat! Proles fessa habenti.
 
+The HTML specification
+is maintained by the W3C.
+
+==marked==
+
+++inserted++
+
+29^th^
+
+H~2~O
+
 <strong>Test test</strong> test. 🐷
 
 ~~Strook-through~~?
@@ -50,7 +61,7 @@ quantumque violenta quoque volat descenderat! Proles fessa habenti.
 
 Lorem markdownum addere pressitque, `resurgebant tamen`: huic! Fuit hunc mea; est
 quantumque violenta quoque volat descenderat! Proles fessa habenti: telique,
-Eurus mariti eque pati. Cum videor tergum ulli crescentesque sitim auris; deus
+Eurus mariti eque pati. Cum videor tergum ulli HTML crescentesque sitim auris; deus
 citra et linguas subit et sed confusaque ad. Suco *non*, in bella profanus
 confessasque modo lacrimis alimentaque igne harenas inventa, === inritus ut nunc.
 
@@ -126,3 +137,6 @@ condita, nutricisque, vulnus deo.
 Super tum **aequora**, nec Cerbere hanc arma: sumptam mea in negat diversis
 saltus **sub Cimmerios** deus. More ad quoque Nocte mihi vivit aestuat ille?
 Iste petis cum, operatus exterrita prosunt medio.
+
+*[HTML]: Hyper Text Markup Language
+*[W3C]:  World Wide Web Consortium
