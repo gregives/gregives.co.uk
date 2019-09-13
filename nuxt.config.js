@@ -124,6 +124,7 @@ export default {
         .use(require('markdown-it-sup'))
         .use(require('markdown-it-sub'))
         .use(require('markdown-it-mark'))
+        .use(require('markdown-it-ins'))
 
       // Markdown loader
       config.module.rules.push({
