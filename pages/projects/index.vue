@@ -34,13 +34,13 @@
 </template>
 
 <script>
-import * as projectNames from '~/contents/projects'
+import projectNames from '~/contents/projects'
 
 export default {
   async asyncData() {
     // Import all projects
     const projects = await Promise.all(
-      projectNames.default.map(async (project) => {
+      projectNames.map(async (project) => {
         const { attributes } = await import(`~/contents/projects/${project}.md`)
         return {
           ...attributes,

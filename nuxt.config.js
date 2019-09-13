@@ -1,17 +1,15 @@
 import fs from 'fs'
 import path from 'path'
 
+// Load projects for generate.routes
+import projectNames from './contents/projects'
+
 // Load primary color from scss
 const scss = fs.readFileSync(
   path.join(__dirname, 'assets', 'sass', '_variables.scss'),
   { encoding: 'utf8' }
 )
 const primaryColor = scss.match(/\$color-primary:\s?(\w+);/)[1]
-
-// Generate routes from projects
-const projects = fs
-  .readdirSync(path.join(__dirname, 'contents', 'projects'))
-  .map((file) => `/projects/${file.match(/[^.]+/)[0]}`)
 
 export default {
   mode: 'universal',
@@ -76,7 +74,7 @@ export default {
     }
   },
   generate: {
-    routes: [].concat(projects)
+    routes: [].concat(projectNames.map((project) => `/projects/${project}`))
   },
   // Build configuration
   build: {
@@ -87,10 +85,6 @@ export default {
         loaders: { vue }
       }
     ) {
-      config.node = {
-        fs: 'empty'
-      }
-
       // Lazyloading images
       if (isClient) {
         vue.transformAssetUrls.img = ['data-src', 'src']
