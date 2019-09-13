@@ -34,35 +34,33 @@
 </template>
 
 <script>
+import * as projectNames from '~/contents/projects'
+
 export default {
   async asyncData() {
-    const projects = Promise.all(
-      (await import('~/contents/projects')).default.map(async (project) => {
-        const { attributes } = await import(`~/contents/projects/${project}`)
-        if (attributes === undefined) {
-          return null
-        }
+    // Import all projects
+    const projects = await Promise.all(
+      projectNames.default.map(async (project) => {
+        const { attributes } = await import(`~/contents/projects/${project}.md`)
         return {
           ...attributes,
           date: new Date(attributes.date),
-          link: `/projects/${project.match(/[^.]+/)[0]}`
+          link: `/projects/${project}`
         }
       })
-    ).then((projects) => {
-      projects = projects
-        .filter((project) => project !== null)
-        .sort((projectA, projectB) => projectB.date - projectA.date)
+    )
 
-      projects.splice(3, 0, {
-        description:
-          'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione minima quasi porro voluptatibus nesciunt assumenda voluptatem dolor illo libero totam! Repellat sequi quibusdam architecto aliquam rerum totam ipsum veritatis ex.'
-      })
+    projects.sort((projectA, projectB) => projectB.date - projectA.date)
 
-      return {
-        projects
-      }
+    // Add other content into list of projects
+    projects.splice(3, 0, {
+      description:
+        'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione minima quasi porro voluptatibus nesciunt assumenda voluptatem dolor illo libero totam! Repellat sequi quibusdam architecto aliquam rerum totam ipsum veritatis ex.'
     })
-    return projects
+
+    return {
+      projects
+    }
   }
 }
 </script>
