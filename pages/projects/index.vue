@@ -13,7 +13,10 @@
           class="project-list__link"
         >
           <div class="project-list__image">
-            <img src="https://source.unsplash.com/random/800x400" />
+            <img
+              src="https://source.unsplash.com/random/800x400"
+              :alt="project.title"
+            />
           </div>
           <h3 class="project-list__title">
             {{ project.titleShort || project.title }}

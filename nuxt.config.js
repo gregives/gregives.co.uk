@@ -117,7 +117,9 @@ export default {
           permalinkSymbol: '§',
           permalinkSpace: false
         })
-        .use(require('markdown-it-task-lists'))
+        .use(require('markdown-it-task-lists'), {
+          label: true
+        })
         .use(require('markdown-it-abbr'))
         .use(require('markdown-it-sup'))
         .use(require('markdown-it-sub'))
