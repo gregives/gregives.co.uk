@@ -113,10 +113,12 @@ export default {
             str
           )}</code></pre>`
         }
-      }).use(require('markdown-it-anchor'), {
-        permalink: true,
-        permalinkSymbol: '§'
       })
+        .use(require('markdown-it-anchor'), {
+          permalink: true,
+          permalinkSymbol: '§'
+        })
+        .use(require('markdown-it-task-lists'))
 
       // Markdown loader
       config.module.rules.push({

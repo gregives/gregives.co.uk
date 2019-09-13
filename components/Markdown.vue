@@ -79,6 +79,15 @@ export default {
     }
   }
 
+  ul.contains-task-list {
+    list-style-type: none;
+    margin-left: 0;
+
+    ul.contains-task-list {
+      margin-left: 1.5rem;
+    }
+  }
+
   ol {
     list-style-type: decimal;
 

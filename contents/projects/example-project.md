@@ -11,8 +11,6 @@ tags:
   - Tags
 ---
 
-# Carina animi cetera
-
 Lorem markdownum addere pressitque, `resurgebant tamen`: huic! Fuit hunc mea; est
 quantumque violenta **_quoque volat_** descenderat! Proles fessa habenti.
 
@@ -26,19 +24,29 @@ quantumque violenta **_quoque volat_** descenderat! Proles fessa habenti.
 | engine | engine to be used for processing templates. Handlebars is the default. |
 | ext    | extension to be used for dest files. |
 
-## Sanguinis descenderat tauro
+# Sanguinis descenderat tauro
 
 Lorem "markdownum addere" pressitque, `resurgebant tamen`: huic! Fuit hunc mea; est
 quantumque 'violenta quoque' volat descenderat! Proles fessa habenti.
 
 ---
 
-### Eurus mariti eque
+- [ ] Mercury
+- [x] Venus
+- [x] Earth (Orbit/Moon)
+- [x] Mars
+- [ ] Jupiter
+  - [ ] Saturn
+  - [ ] Uranus
+  - [ ] Neptune
+- [ ] Comet Haley
+
+## Eurus mariti eque
 
 Lorem markdownum addere pressitque, `resurgebant tamen`: huic! Fuit hunc mea; est
 quantumque violenta quoque volat descenderat! Proles fessa habenti.
 
-#### Bella profanus
+### Bella profanus
 
 Lorem markdownum addere pressitque, `resurgebant tamen`: huic! Fuit hunc mea; est
 quantumque violenta quoque volat descenderat! Proles fessa habenti: telique,
@@ -70,7 +78,7 @@ function $initHighlight(block, cls) {
 export  $initHighlight;
 ```
 
-## Ponti dies moenia me includit causa
+# Ponti dies moenia me includit causa
 
 Pacaverat olim magnis grata pater vestigia volatilis **pater bracchia arvum** si
 superos movet ubi visendae parili regna parensque ait. Dispositam hortos, modo
@@ -91,7 +99,7 @@ saxa, in flamma et quos serpens.
 >> E quondam aquis: quoniam facis licet curat; rursus lunae, mersurum. Duo cervus
 >>>> sociis, illi quas Propoetidas tantum, *o pennas*.
 
-## Nodosaque monstra quoque victorem neque
+# Nodosaque monstra quoque victorem neque
 
 Contra raras, et rumorum aurea deus latices; prohibent. Suos fata socero
 saevoque colorem virent insidiaeque puer Elinque praebet ipse, aura cornua
