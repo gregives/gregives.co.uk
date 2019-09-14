@@ -9,7 +9,7 @@ const scss = fs.readFileSync(
   path.join(__dirname, 'assets', 'sass', '_variables.scss'),
   { encoding: 'utf8' }
 )
-const primaryColor = scss.match(/\$color-primary:\s?(\w+);/)[1]
+const primaryColor = scss.match(/\$color--primary:\s?(\w+);/)[1]
 
 // Store fonts for preloading
 const fonts = ['Rubik:400,400i,500', 'Fira+Mono:400,500', 'Fira+Code:400']

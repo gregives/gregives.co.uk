@@ -56,7 +56,7 @@ export default {
 
 .header__logo {
   display: inline-block;
-  font-family: $font-monospace;
+  font-family: $font--monospace;
   font-size: 120%;
   font-weight: 500;
 }
@@ -73,7 +73,7 @@ export default {
   width: 100%;
   z-index: -1;
 
-  @media (min-width: $break-lg) {
+  @media (min-width: $breakpoint--lg) {
     background-color: transparent;
     float: right;
     height: auto;
@@ -93,7 +93,7 @@ export default {
   top: 50%;
   transform: translate(-50%, -50%);
 
-  @media (min-width: $break-lg) {
+  @media (min-width: $breakpoint--lg) {
     left: auto;
     position: relative;
     top: auto;
@@ -111,7 +111,7 @@ export default {
   }
 
   &::before {
-    color: transparentize(black, 0.63);
+    color: $color--text-muted;
     content: '0' counter(navbar-links);
     font-size: 60%;
     position: absolute;
@@ -119,7 +119,7 @@ export default {
     top: 1vmin;
   }
 
-  @media (min-width: $break-lg) {
+  @media (min-width: $breakpoint--lg) {
     display: inline-block;
     font-size: 100%;
 
@@ -140,7 +140,7 @@ export default {
   transform: none;
   transition: transform 400ms ease, visibility 0s;
 
-  @media (min-width: $break-lg) {
+  @media (min-width: $breakpoint--lg) {
     transform: translateX(100%);
     transition: none;
   }

@@ -63,7 +63,7 @@ $width: 2px;
   right: 0;
   top: 0;
 
-  @media (min-width: $break-lg) {
+  @media (min-width: $breakpoint--lg) {
     display: none;
   }
 }

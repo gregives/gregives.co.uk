@@ -56,7 +56,7 @@ export default {
   font-size: 120%;
   width: 100%;
 
-  @media (min-width: $break-md) {
+  @media (min-width: $breakpoint--md) {
     width: 70%;
   }
 }

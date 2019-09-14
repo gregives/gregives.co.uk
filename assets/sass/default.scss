@@ -18,26 +18,26 @@ body {
 }
 
 :root {
-  color: transparentize(black, 0.1);
-  font-family: $font-sans-serif;
+  color: $color--text;
+  font-family: $font--sans-serif;
   font-size: calc(70% + 1vmin);
 
   // Bound font-size on larger screens
-  @media (min-width: $break-xl) {
+  @media (min-width: $breakpoint--xl) {
     font-size: calc(70% + 1vh);
   }
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font-monospace;
+  font-family: $font--monospace;
 }
 
 h1 {
   font-size: calc(5vw + 3vmin);
   margin-bottom: 2rem;
 
-  @media (min-width: $break-xl) {
-    font-size: calc(#{$break-xl * 5 / 100} + 3vh);
+  @media (min-width: $breakpoint--xl) {
+    font-size: calc(#{$breakpoint--xl * 5 / 100} + 3vh);
   }
 }
 
@@ -45,8 +45,8 @@ h2 {
   font-size: calc(100% + 2vw);
   margin-bottom: 1.75rem;
 
-  @media (min-width: $break-xl) {
-    font-size: calc(100% + #{$break-xl * 2 / 100});
+  @media (min-width: $breakpoint--xl) {
+    font-size: calc(100% + #{$breakpoint--xl * 2 / 100});
   }
 }
 
@@ -54,8 +54,8 @@ h3 {
   font-size: calc(120% + 1vw);
   margin-bottom: 1.5rem;
 
-  @media (min-width: $break-xl) {
-    font-size: calc(120% + #{$break-xl * 1 / 100});
+  @media (min-width: $breakpoint--xl) {
+    font-size: calc(120% + #{$breakpoint--xl * 1 / 100});
   }
 }
 
@@ -63,8 +63,8 @@ h4 {
   font-size: calc(120% + 0.5vw);
   margin-bottom: 1.25rem;
 
-  @media (min-width: $break-xl) {
-    font-size: calc(120% + #{$break-xl * 0.5 / 100});
+  @media (min-width: $breakpoint--xl) {
+    font-size: calc(120% + #{$breakpoint--xl * 0.5 / 100});
   }
 }
 
@@ -72,8 +72,8 @@ h5 {
   font-size: calc(120% + 0.25vw);
   margin-bottom: 1rem;
 
-  @media (min-width: $break-xl) {
-    font-size: calc(120% + #{$break-xl * 0.25 / 100});
+  @media (min-width: $breakpoint--xl) {
+    font-size: calc(120% + #{$breakpoint--xl * 0.25 / 100});
   }
 }
 
@@ -88,12 +88,12 @@ a {
 }
 
 p a {
-  box-shadow: 0 -0.4em transparentize($color-primary, 0.8) inset;
+  box-shadow: 0 -0.4em transparentize($color--primary, 0.8) inset;
   transition: box-shadow 150ms ease-out, color 150ms ease-out;
 
   &:hover {
-    box-shadow: 0 -1.3em transparentize($color-primary, 0.8) inset;
-    color: $color-primary;
+    box-shadow: 0 -1.3em transparentize($color--primary, 0.8) inset;
+    color: $color--primary;
   }
 }
 
@@ -136,7 +136,7 @@ code {
     padding: 0;
     background-color: transparent;
     border-radius: 0;
-    font-family: $font-code;
+    font-family: $font--code;
     font-weight: inherit;
     font-size: inherit;
     box-shadow: none;
@@ -144,12 +144,12 @@ code {
 }
 
 ::selection {
-  background-color: $color-primary;
+  background-color: $color--primary;
   color: white;
 }
 
 :root.tabbing :focus {
-  outline: 2px dashed $color-primary;
+  outline: 2px dashed $color--primary;
   outline-offset: 0.3rem;
 }
 

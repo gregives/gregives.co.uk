@@ -78,7 +78,7 @@ export default {
   grid-gap: calc(1rem + 5vmin);
   margin: 4rem 0;
 
-  @media (min-width: $break-md) {
+  @media (min-width: $breakpoint--md) {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -105,7 +105,7 @@ export default {
   grid-row: span 1;
 
   &::before {
-    border: 4px solid transparentize($color-primary, 0.8);
+    border: 4px solid transparentize($color--primary, 0.8);
     height: 100%;
     top: 0;
   }
@@ -122,8 +122,8 @@ export default {
 
   &:hover {
     .project-list__title {
-      box-shadow: 0 -1.5em transparentize($color-primary, 0.8) inset;
-      color: $color-primary;
+      box-shadow: 0 -1.5em transparentize($color--primary, 0.8) inset;
+      color: $color--primary;
     }
 
     .project-list__image {
@@ -141,14 +141,14 @@ export default {
 }
 
 .project-list__title {
-  box-shadow: 0 -0.6em transparentize($color-primary, 0.8) inset;
+  box-shadow: 0 -0.6em transparentize($color--primary, 0.8) inset;
   display: inline-block;
   transition: box-shadow 150ms ease-out, color 150ms ease-out;
 }
 
 .project-list__date {
-  color: transparentize(black, 0.46);
-  font-family: $font-monospace;
+  color: $color--text-muted;
+  font-family: $font--monospace;
   font-size: 90%;
   margin-left: 1rem;
 }
@@ -165,7 +165,7 @@ export default {
   width: 100%;
 
   &::after {
-    background-color: saturate($color-primary, 20%);
+    background-color: saturate($color--primary, 20%);
     content: '';
     height: 100%;
     left: 0;

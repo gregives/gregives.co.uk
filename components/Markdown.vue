@@ -102,11 +102,11 @@ export default {
   }
 
   mark {
-    background-color: transparentize($color-primary, 0.6);
+    background-color: transparentize($color--primary, 0.8);
   }
 
   blockquote {
-    border-left: 4px solid transparentize($color-primary, 0.6);
+    border-left: 4px solid transparentize($color--primary, 0.6);
     padding-left: 1rem;
   }
 

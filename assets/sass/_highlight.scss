@@ -8,12 +8,12 @@
 .hljs-literal,
 .hljs-section,
 .hljs-link {
-  color: transparentize(black, 0.05);
+  color:  $color--text;
 }
 
 .hljs,
 .hljs-subst {
-  color: transparentize(black, 0.1);
+  color: $color--text;
 }
 
 .hljs-string,
@@ -28,14 +28,14 @@
 .hljs-variable,
 .hljs-template-tag,
 .hljs-template-variable {
-  color: $color-primary;
+  color: $color--primary;
 }
 
 .hljs-comment,
 .hljs-quote,
 .hljs-deletion,
 .hljs-meta {
-  color: transparentize(black, 0.46);
+  color: $color--text-muted;
 }
 
 .hljs-keyword,
@@ -47,7 +47,7 @@
 .hljs-type,
 .hljs-name,
 .hljs-strong {
-  font-family: $font-monospace;
+  font-family: $font--monospace;
   font-weight: 500;
 }
 
