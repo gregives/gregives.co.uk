@@ -11,6 +11,10 @@ const scss = fs.readFileSync(
 )
 const primaryColor = scss.match(/\$color-primary:\s?(\w+);/)[1]
 
+// Store fonts for preloading
+const fonts = ['Rubik:400,400i,500', 'Fira+Mono:400,500', 'Fira+Code:400']
+fonts[fonts.length - 1] += '&display=swap'
+
 export default {
   mode: 'universal',
   // Content of page head
@@ -33,6 +37,11 @@ export default {
         rel: 'preconnect',
         href: 'https://fonts.gstatic.com/',
         crossorigin: true
+      },
+      {
+        rel: 'preload',
+        href: `https://fonts.googleapis.com/css?family=${fonts.join('%7C')}`,
+        as: 'style'
       }
     ]
   },
@@ -64,13 +73,8 @@ export default {
   },
   // Options for nuxt-webfontloader
   webfontloader: {
-    custom: {
-      families: ['Rubik:n4,i4,n5', 'Fira Mono:n4,n5', 'Fira Code:n4'],
-      urls: [
-        'https://fonts.googleapis.com/css?family=Rubik:400,400i,500&display=swap',
-        'https://fonts.googleapis.com/css?family=Fira+Mono:400,500&display=swap',
-        'https://fonts.googleapis.com/css?family=Fira+Code:400&display=swap'
-      ]
+    google: {
+      families: fonts
     }
   },
   generate: {
