@@ -115,7 +115,6 @@ export default {
   width: calc(15vh + 22.5vw); // Aspect ratio of 4:3
 
   @media (min-width: $breakpoint--xl) {
-    bottom: calc(-2vh - #{3 / 100 * $breakpoint--xl});
     height: calc(20vh + #{30 / 100 * $breakpoint--xl});
     width: calc(15vh + #{22.5 / 100 * $breakpoint--xl});
   }
