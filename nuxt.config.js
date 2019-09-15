@@ -5,11 +5,16 @@ import path from 'path'
 import projectNames from './contents/projects'
 
 // Load primary color from scss
-const scss = fs.readFileSync(
-  path.join(__dirname, 'assets', 'sass', '_variables.scss'),
-  { encoding: 'utf8' }
-)
-const primaryColor = scss.match(/\$color--primary:\s?(\w+);/)[1]
+const primaryColor = fs
+  .readFileSync(path.join(__dirname, 'assets', 'sass', '_variables.scss'), {
+    encoding: 'utf8'
+  })
+  .match(/\$color--primary:\s?(\w+);/)[1]
+
+// Preload woff2 fonts
+const fonts = fs
+  .readdirSync(path.join(__dirname, 'static', '_fonts'))
+  .filter((font) => font.endsWith('.woff2'))
 
 export default {
   mode: 'universal',
@@ -26,7 +31,17 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }].concat(
+      fonts.map((font) => {
+        return {
+          rel: 'preload',
+          href: `/_fonts/${font}`,
+          as: 'font',
+          type: 'font/woff2',
+          crossorigin: 'anonymous'
+        }
+      })
+    )
   },
   // Progress-bar color and theme color
   loading: {
