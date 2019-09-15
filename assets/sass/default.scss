@@ -1,4 +1,5 @@
 @import "reset";
+@import "fonts";
 @import "variables";
 @import "utilities";
 @import "highlight";
@@ -19,7 +20,7 @@ body {
 
 :root {
   color: $color--text;
-  font-family: $font--sans-serif;
+  font-family: $font--body;
   font-size: calc(70% + 1vmin);
 
   // Bound font-size on larger screens
@@ -29,7 +30,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font--monospace;
+  font-family: $font--fancy;
 }
 
 h1 {
@@ -115,7 +116,7 @@ code {
   background-color: transparentize(black, 0.95);
   border-radius: 0.25rem;
   box-shadow: 0 0 0.5rem -0.25rem transparentize(black, 0.8) inset;
-  font-family: 'Fira Mono';
+  font-family: $font--code;
   font-weight: 500;
   font-size: 90%;
   padding: 0.15rem 0.3rem;

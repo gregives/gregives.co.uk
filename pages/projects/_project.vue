@@ -56,7 +56,7 @@ export default {
 
 .project__date {
   color: $color--text-muted;
-  font-family: $font--monospace;
+  font-family: $font--fancy;
   margin-top: -1.25rem;
   margin-bottom: 1.75rem;
   order: 2;

@@ -148,7 +148,7 @@ export default {
 
 .project-list__date {
   color: $color--text-muted;
-  font-family: $font--monospace;
+  font-family: $font--fancy;
   font-size: 90%;
   margin-left: 1rem;
 }

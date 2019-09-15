@@ -56,7 +56,7 @@ export default {
 
 .header__logo {
   display: inline-block;
-  font-family: $font--monospace;
+  font-family: $font--fancy;
   font-size: 120%;
   font-weight: 500;
 }

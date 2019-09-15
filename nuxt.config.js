@@ -11,10 +11,6 @@ const scss = fs.readFileSync(
 )
 const primaryColor = scss.match(/\$color--primary:\s?(\w+);/)[1]
 
-// Store fonts for preloading
-const fonts = ['Rubik:400,400i,500', 'Fira+Mono:400,500', 'Fira+Code:400']
-fonts[fonts.length - 1] += '&display=swap'
-
 export default {
   mode: 'universal',
   // Content of page head
@@ -30,23 +26,15 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'dns-prefetch', href: '//fonts.googleapis.com' },
-      {
-        rel: 'preconnect',
-        href: 'https://fonts.gstatic.com/',
-        crossorigin: true
-      },
-      {
-        rel: 'preload',
-        href: `https://fonts.googleapis.com/css?family=${fonts.join('%7C')}`,
-        as: 'style'
-      }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   // Progress-bar color and theme color
-  loading: { color: primaryColor },
+  loading: {
+    color: primaryColor,
+    failedColor: 'crimson',
+    duration: 3000,
+    continuous: true
+  },
   // Global CSS
   css: ['~/assets/sass/default'],
   // Plugins to load before mounting the App
@@ -73,8 +61,8 @@ export default {
   },
   // Options for nuxt-webfontloader
   webfontloader: {
-    google: {
-      families: fonts
+    custom: {
+      families: ['Fira Sans:n4,i4,n5', 'Fira Code:n4,n5']
     }
   },
   generate: {
