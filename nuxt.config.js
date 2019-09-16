@@ -11,16 +11,6 @@ const primaryColor = fs
   })
   .match(/\$color--primary:\s?(\w+);/)[1]
 
-// Preload woff2 fonts
-const fonts = fs
-  .readdirSync(path.join(__dirname, 'static', '_fonts'))
-  .filter((font) => {
-    return (
-      font.endsWith('.woff2') ||
-      (font.startsWith('tiempos') && font.endsWith('.woff'))
-    )
-  })
-
 export default {
   mode: 'universal',
   // Content of page head
@@ -39,17 +29,7 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'preload', href: '/fonts.css', as: 'style' }
-    ].concat(
-      fonts.map((font) => {
-        return {
-          rel: 'preload',
-          href: `/_fonts/${font}`,
-          as: 'font',
-          type: 'font/woff2',
-          crossorigin: 'anonymous'
-        }
-      })
-    )
+    ]
   },
   // Progress-bar color and theme color
   loading: {
