@@ -1,16 +1,16 @@
 // Fonts
+$font--fancy: 'Tiempos Headline', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 $font--body: 'Fira Sans', Arial, Helvetica, sans-serif;
 $font--code: 'Fira Code', 'Consolas', 'Lucida Console', Monaco, monospace;
-$font--fancy: $font--code;
 
 // Primary color is loaded into nuxt.config.js
-$color--primary: royalblue;
+$color--primary: black;
 
 $color--text: transparentize(black, 0.13);
 $color--text-muted: transparentize(black, 0.4);
 
 // Let's round things off a bit
-$border-radius: 0.5rem;
+$border-radius: 0.25rem;
 
 // Breakpoints
 $breakpoint--sm: 576px;

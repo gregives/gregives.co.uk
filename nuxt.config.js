@@ -14,7 +14,12 @@ const primaryColor = fs
 // Preload woff2 fonts
 const fonts = fs
   .readdirSync(path.join(__dirname, 'static', '_fonts'))
-  .filter((font) => font.endsWith('.woff2'))
+  .filter((font) => {
+    return (
+      font.endsWith('.woff2') ||
+      (font.startsWith('tiempos') && font.endsWith('.woff'))
+    )
+  })
 
 export default {
   mode: 'universal',
@@ -77,7 +82,11 @@ export default {
   // Options for nuxt-webfontloader
   webfontloader: {
     custom: {
-      families: ['Fira Sans:n4,i4,n5', 'Fira Code:n4,n5']
+      families: [
+        'Tiempos Headline:n5,n9',
+        'Fira Sans:n4,i4,n5',
+        'Fira Code:n4,n5'
+      ]
     }
   },
   generate: {
