@@ -2,23 +2,20 @@
   <div class="home">
     <shapes />
     <div class="container">
-      <div class="home__hero">
-        <h1 class="home__title">
-          Hi, I'm
-          <span class="home__title--primary">Greg Ives</span>
-        </h1>
-        <p class="home__description">
-          I'm a final-year Computer Science student at the University of
-          Sheffield. I'm looking for an opportunity in software development from
-          <strong>June&nbsp;2020</strong> &mdash; check out my work or
-          contact&nbsp;me!
-        </p>
-        <div class="home__projects">
-          <nuxt-link to="/projects" class="home__projects-link">
-            <em>See my projects</em>
-          </nuxt-link>
-        </div>
-      </div>
+      <h1 class="home__title">
+        Hi, I'm
+        <span class="home__title--primary">Greg Ives</span>
+      </h1>
+      <p class="home__description">
+        I'm a final-year Computer Science student at the University of
+        Sheffield. I'm looking for an opportunity in software development from
+        <strong>June&nbsp;2020</strong> &mdash; check out my work or
+        contact&nbsp;me!
+      </p>
+      <headshots />
+      <p class="home__projects">
+        <nuxt-link to="/projects">See my projects</nuxt-link>
+      </p>
     </div>
     <svg class="home__filter">
       <defs>
@@ -26,7 +23,7 @@
           <feTurbulence
             type="fractalNoise"
             baseFrequency="0.01"
-            numOctaves="2"
+            numOctaves="3"
             result="turbulence"
           ></feTurbulence>
           <feColorMatrix
@@ -39,7 +36,7 @@
               attributeName="values"
               from="0"
               to="360"
-              :dur="`${Math.random() + 5}s`"
+              :dur="`${Math.random() + 3}s`"
               repeatCount="indefinite"
             ></animate>
           </feColorMatrix>
@@ -51,8 +48,8 @@
           >
             <animate
               attributeName="scale"
-              values="20; 30; 20"
-              :dur="`${Math.random() + 9}s`"
+              values="10; 20; 10"
+              :dur="`${Math.random() + 7}s`"
               repeatCount="indefinite"
             ></animate>
           </feDisplacementMap>
@@ -63,10 +60,12 @@
 </template>
 
 <script>
+import Headshots from '~/components/Headshots'
 import Shapes from '~/components/Shapes'
 
 export default {
   components: {
+    Headshots,
     Shapes
   },
   mounted() {
@@ -87,41 +86,34 @@ export default {
   }
 }
 
-.home__hero {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 .home__title {
-  font-size: 10vw;
   font-weight: 500;
-  -webkit-text-stroke: 0.2vmin black;
+  padding-top: 10vh;
+  -webkit-text-stroke: 0.2vmin $color--primary;
   -webkit-text-fill-color: transparent;
-
-  @media (min-width: $breakpoint--xl) {
-    font-size: #{$breakpoint--xl * 10 / 100};
-  }
 }
 
 .home__title--primary {
   color: $color--primary;
   filter: url('#underwater');
-  font-size: 11vw;
   font-weight: 900;
   margin-left: 1vw;
   -webkit-text-stroke: transparent;
   -webkit-text-fill-color: $color--primary;
-
-  @media (min-width: $breakpoint--xl) {
-    font-size: #{$breakpoint--xl * 11 / 100};
-  }
 }
 
 .home__description {
   font-size: 120%;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   width: 100%;
+
+  @media (min-width: $breakpoint--md) {
+    width: 70%;
+  }
+
+  @media (min-width: $breakpoint--md) {
+    width: 65%;
+  }
 }
 
 .home__filter {
@@ -129,38 +121,9 @@ export default {
 }
 
 .home__projects {
-  color: $color--primary;
   font-family: $font--fancy;
   font-size: calc(120% + 1vw);
-  text-align: right;
-}
-
-.home__projects-link {
-  display: inline-block;
-
-  &::after {
-    animation: bounce 3s infinite;
-    content: '\2192';
-    display: inline-block;
-    margin-left: 2rem;
-  }
-
-  @keyframes bounce {
-    0% {
-      transform: none;
-    }
-    5% {
-      transform: translateX(-1rem) scaleX(0.9);
-    }
-    10% {
-      transform: none;
-    }
-    15% {
-      transform: translateX(-1rem) scaleX(0.9);
-    }
-    20% {
-      transform: none;
-    }
-  }
+  font-style: italic;
+  font-weight: 500;
 }
 </style>
