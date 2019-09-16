@@ -26,13 +26,19 @@ export default {
     position: relative;
 
     .header-anchor {
+      color: $color--text-muted;
       font-weight: 400;
       margin-left: 0.5rem;
-      opacity: 0.1;
+      opacity: 0.2;
+      transition: opacity 150ms ease;
+
+      &:focus {
+        opacity: 1;
+      }
     }
 
     &:hover .header-anchor {
-      opacity: 0.46;
+      opacity: 1;
     }
   }
 
@@ -111,10 +117,12 @@ export default {
   }
 
   table {
-    display: block;
+    border: 1px solid transparentize(black, 0.6);
+    border-collapse: separate;
+    border-radius: $border-radius;
+    max-width: 100%;
     overflow: auto;
     text-align: left;
-    width: 100%;
 
     th {
       font-weight: 500;
@@ -122,8 +130,17 @@ export default {
 
     th,
     td {
-      border: 1px solid transparentize(black, 0.6);
+      border-left: 1px solid transparentize(black, 0.6);
       padding: 0.5rem 0.75rem;
+    }
+
+    td {
+      border-top: 1px solid transparentize(black, 0.6);
+    }
+
+    th:first-child,
+    td:first-child {
+      border-left: none;
     }
   }
 }
