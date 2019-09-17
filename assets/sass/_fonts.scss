@@ -4,13 +4,13 @@
   font-family: 'Fira Code';
   font-style: normal;
   font-weight: 400;
-  src: url('/_fonts/fira-code-v3-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/_fonts/fira-code-v3-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/_fonts/fira-code-v3-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/_fonts/fira-code-v3-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('/_fonts/fira-code-v3-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/_fonts/fira-code-v3-latin-regular.svg#FiraCode') format('svg'); /* Legacy iOS */
+  src: url('~assets/fonts/fira-code-v3-latin-regular.eot');
+  src: local('Fira Code Regular'), local('FiraCode-Regular'),
+       url('~assets/fonts/fira-code-v3-latin-regular.eot?#iefix') format('embedded-opentype'),
+       url('~assets/fonts/fira-code-v3-latin-regular.woff2') format('woff2'),
+       url('~assets/fonts/fira-code-v3-latin-regular.woff') format('woff'),
+       url('~assets/fonts/fira-code-v3-latin-regular.ttf') format('truetype'),
+       url('~assets/fonts/fira-code-v3-latin-regular.svg#FiraCode') format('svg');
 }
 
 /* fira-code-500 - latin */
@@ -19,13 +19,13 @@
   font-family: 'Fira Code';
   font-style: normal;
   font-weight: 500;
-  src: url('/_fonts/fira-code-v3-latin-500.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/_fonts/fira-code-v3-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/_fonts/fira-code-v3-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/_fonts/fira-code-v3-latin-500.woff') format('woff'), /* Modern Browsers */
-       url('/_fonts/fira-code-v3-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/_fonts/fira-code-v3-latin-500.svg#FiraCode') format('svg'); /* Legacy iOS */
+  src: url('~assets/fonts/fira-code-v3-latin-500.eot');
+  src: local('Fira Code Medium'), local('FiraCode-Medium'),
+       url('~assets/fonts/fira-code-v3-latin-500.eot?#iefix') format('embedded-opentype'),
+       url('~assets/fonts/fira-code-v3-latin-500.woff2') format('woff2'),
+       url('~assets/fonts/fira-code-v3-latin-500.woff') format('woff'),
+       url('~assets/fonts/fira-code-v3-latin-500.ttf') format('truetype'),
+       url('~assets/fonts/fira-code-v3-latin-500.svg#FiraCode') format('svg');
 }
 
 /* fira-sans-regular - latin */
@@ -34,13 +34,13 @@
   font-family: 'Fira Sans';
   font-style: normal;
   font-weight: 400;
-  src: url('/_fonts/fira-sans-v10-latin-regular.eot'); /* IE9 Compat Modes */
+  src: url('~assets/fonts/fira-sans-v10-latin-regular.eot');
   src: local('Fira Sans Regular'), local('FiraSans-Regular'),
-       url('/_fonts/fira-sans-v10-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/_fonts/fira-sans-v10-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/_fonts/fira-sans-v10-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('/_fonts/fira-sans-v10-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/_fonts/fira-sans-v10-latin-regular.svg#FiraSans') format('svg'); /* Legacy iOS */
+       url('~assets/fonts/fira-sans-v10-latin-regular.eot?#iefix') format('embedded-opentype'),
+       url('~assets/fonts/fira-sans-v10-latin-regular.woff2') format('woff2'),
+       url('~assets/fonts/fira-sans-v10-latin-regular.woff') format('woff'),
+       url('~assets/fonts/fira-sans-v10-latin-regular.ttf') format('truetype'),
+       url('~assets/fonts/fira-sans-v10-latin-regular.svg#FiraSans') format('svg');
 }
 
 /* fira-sans-italic - latin */
@@ -49,13 +49,13 @@
   font-family: 'Fira Sans';
   font-style: italic;
   font-weight: 400;
-  src: url('/_fonts/fira-sans-v10-latin-italic.eot'); /* IE9 Compat Modes */
+  src: url('~assets/fonts/fira-sans-v10-latin-italic.eot');
   src: local('Fira Sans Italic'), local('FiraSans-Italic'),
-       url('/_fonts/fira-sans-v10-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/_fonts/fira-sans-v10-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/_fonts/fira-sans-v10-latin-italic.woff') format('woff'), /* Modern Browsers */
-       url('/_fonts/fira-sans-v10-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/_fonts/fira-sans-v10-latin-italic.svg#FiraSans') format('svg'); /* Legacy iOS */
+       url('~assets/fonts/fira-sans-v10-latin-italic.eot?#iefix') format('embedded-opentype'),
+       url('~assets/fonts/fira-sans-v10-latin-italic.woff2') format('woff2'),
+       url('~assets/fonts/fira-sans-v10-latin-italic.woff') format('woff'),
+       url('~assets/fonts/fira-sans-v10-latin-italic.ttf') format('truetype'),
+       url('~assets/fonts/fira-sans-v10-latin-italic.svg#FiraSans') format('svg');
 }
 
 /* fira-sans-500 - latin */
@@ -64,29 +64,41 @@
   font-family: 'Fira Sans';
   font-style: normal;
   font-weight: 500;
-  src: url('/_fonts/fira-sans-v10-latin-500.eot'); /* IE9 Compat Modes */
+  src: url('~assets/fonts/fira-sans-v10-latin-500.eot');
   src: local('Fira Sans Medium'), local('FiraSans-Medium'),
-       url('/_fonts/fira-sans-v10-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/_fonts/fira-sans-v10-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
-       url('/_fonts/fira-sans-v10-latin-500.woff') format('woff'), /* Modern Browsers */
-       url('/_fonts/fira-sans-v10-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/_fonts/fira-sans-v10-latin-500.svg#FiraSans') format('svg'); /* Legacy iOS */
+       url('~assets/fonts/fira-sans-v10-latin-500.eot?#iefix') format('embedded-opentype'),
+       url('~assets/fonts/fira-sans-v10-latin-500.woff2') format('woff2'),
+       url('~assets/fonts/fira-sans-v10-latin-500.woff') format('woff'),
+       url('~assets/fonts/fira-sans-v10-latin-500.ttf') format('truetype'),
+       url('~assets/fonts/fira-sans-v10-latin-500.svg#FiraSans') format('svg');
 }
 
+/* tiempos-headline-500 - latin */
 @font-face {
   font-display: swap;
   font-family: 'Tiempos Headline';
   font-style: normal;
   font-weight: 500;
-  src: local('Tiempos Headline'), local('Tiempos-Headline'),
-    url('/_fonts/tiempos-headline-500.woff') format('woff');
+  src: url('~assets/fonts/fira-sans-v10-latin-500.eot');
+  src: local('Tiempos Headline Medium'), local('TiemposHeadline-Medium'),
+       url('~assets/fonts/tiempos-headline-v1-latin-500.eot?#iefix') format('embedded-opentype'),
+       url('~assets/fonts/tiempos-headline-v1-latin-500.woff2') format('woff2'),
+       url('~assets/fonts/tiempos-headline-v1-latin-500.woff') format('woff'),
+       url('~assets/fonts/tiempos-headline-v1-latin-500.ttf') format('truetype'),
+       url('~assets/fonts/tiempos-headline-v1-latin-500.svg#TiemposHeadline') format('svg');
 }
 
+/* tiempos-headline-900 - latin */
 @font-face {
   font-display: swap;
   font-family: 'Tiempos Headline';
   font-style: normal;
   font-weight: 900;
-  src: local('Tiempos Headline'), local('Tiempos-Headline'),
-    url('/_fonts/tiempos-headline-900.woff') format('woff');
+  src: url('~assets/fonts/tiempos-headline-v1-latin-900.eot');
+  src: local('Tiempos Headline Black'), local('TiemposHeadline-Black'),
+       url('~assets/fonts/tiempos-headline-v1-latin-900.eot?#iefix') format('embedded-opentype'),
+       url('~assets/fonts/tiempos-headline-v1-latin-900.woff2') format('woff2'),
+       url('~assets/fonts/tiempos-headline-v1-latin-900.woff') format('woff'),
+       url('~assets/fonts/tiempos-headline-v1-latin-900.ttf') format('truetype'),
+       url('~assets/fonts/tiempos-headline-v1-latin-900.svg#TiemposHeadline') format('svg');
 }

@@ -26,10 +26,7 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'preload', href: '/fonts.css', as: 'style' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   // Progress-bar color and theme color
   loading: {
@@ -69,8 +66,7 @@ export default {
         'Tiempos Headline:n5,n9',
         'Fira Sans:n4,i4,n5',
         'Fira Code:n4,n5'
-      ],
-      urls: ['/fonts.css']
+      ]
     }
   },
   generate: {
