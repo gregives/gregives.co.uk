@@ -17,7 +17,7 @@
         <nuxt-link to="/projects">See my projects</nuxt-link>
       </p>
     </div>
-    <svg class="home__filter">
+    <svg height="0" width="0">
       <defs>
         <filter id="underwater">
           <feTurbulence
@@ -114,10 +114,6 @@ export default {
   @media (min-width: $breakpoint--md) {
     width: 65%;
   }
-}
-
-.home__filter {
-  display: none;
 }
 
 .home__projects {
