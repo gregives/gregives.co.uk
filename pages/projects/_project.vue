@@ -2,7 +2,7 @@
   <div class="container">
     <article class="project">
       <div class="project__date">
-        <div>{{ project.attributes.date }}</div>
+        <div>{{ date }}</div>
       </div>
       <h2 class="project__title">{{ project.attributes.title }}</h2>
       <ul class="project__tag-list">
@@ -27,6 +27,16 @@ import Markdown from '~/components/Markdown'
 export default {
   components: {
     Markdown
+  },
+  computed: {
+    date() {
+      const dateParts = this.project.attributes.date.split('/')
+      const date = new Date(dateParts[1], dateParts[0])
+      return date.toLocaleString(undefined, {
+        year: 'numeric',
+        month: 'long'
+      })
+    }
   },
   async asyncData({ params, error }) {
     try {
@@ -67,7 +77,7 @@ export default {
     order: 1;
 
     > div {
-      bottom: calc(0.25rem + 0.75vw);
+      bottom: calc(0.25rem + 0.5vw);
       position: absolute;
     }
   }

@@ -45,9 +45,10 @@ export default {
     const projects = await Promise.all(
       projectNames.map(async (project) => {
         const { attributes } = await import(`~/contents/projects/${project}.md`)
+        const date = attributes.date.split('/')
         return {
           ...attributes,
-          date: new Date(attributes.date),
+          date: new Date(date[1], date[0]),
           link: `/projects/${project}`
         }
       })

@@ -1,6 +1,6 @@
 ---
 title: Example Project
-date: October 2019
+date: 10/2019
 description: >-
   Example project just to see if all the markdown looks alrighty. Extravagant markdown lorem ipsum, with syntax highlighting.
 tags:
