@@ -1,8 +1,13 @@
 <template>
-  <picture>
+  <picture :style="{ width }">
     <source :data-srcset="webp" type="image/webp" />
     <source :data-srcset="responsive.srcSet" type="image/png" />
-    <img :data-src="original" class="lazyload" :alt="alt" />
+    <img
+      :src="sqip"
+      :data-src="original"
+      class="lazy-image lazy-image--load"
+      :alt="alt"
+    />
   </picture>
 </template>
 
@@ -16,6 +21,10 @@ export default {
     alt: {
       type: String,
       default: ''
+    },
+    width: {
+      type: String,
+      default: '100%'
     }
   },
   computed: {
@@ -24,6 +33,9 @@ export default {
     },
     responsive() {
       return this.src ? require(`~/assets/images/lazy/${this.src}?resize`) : ''
+    },
+    sqip() {
+      return this.src ? require(`~/assets/images/lazy/${this.src}?sqip`) : ''
     },
     original() {
       return this.src ? require(`~/assets/images/lazy/${this.src}`) : ''

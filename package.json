@@ -54,6 +54,7 @@
     "prettier": "^1.16.4",
     "responsive-loader": "^1.2.0",
     "sass-loader": "^7.2.0",
+    "sqip-loader": "^0.2.0",
     "vue-tabbing": "^0.1.0",
     "vue-template-compiler": "^2.6.10",
     "vue-template-es2015-compiler": "^1.9.1",

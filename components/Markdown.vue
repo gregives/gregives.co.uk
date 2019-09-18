@@ -69,6 +69,14 @@ export default {
     margin-bottom: 1rem;
   }
 
+  img {
+    margin-bottom: 1rem;
+    max-height: 2/3 * 100vh;
+    object-fit: contain;
+    object-position: top left;
+    width: 100%;
+  }
+
   ul,
   ol {
     margin-left: 1rem;
