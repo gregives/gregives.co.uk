@@ -5,10 +5,21 @@
 <script>
 export default {
   props: {
-    html: {
-      type: String,
-      default: ''
+    vue: {
+      type: Object,
+      default() {
+        return {}
+      }
     }
+  },
+  created() {
+    // eslint-disable-next-line
+    this.templateRender = new Function(this.vue.render)()
+    // eslint-disable-next-line
+    this.$options.staticRenderFns = new Function(this.vue.staticRenderFns)()
+  },
+  render(createElement) {
+    return this.templateRender ? this.templateRender() : createElement('div')
   }
 }
 </script>

@@ -15,7 +15,7 @@
         </li>
       </ul>
       <div class="project__text">
-        <markdown :html="project.html" />
+        <markdown :vue="project.vue" />
       </div>
     </article>
   </div>

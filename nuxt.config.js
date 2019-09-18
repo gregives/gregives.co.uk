@@ -1,6 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 
+// Modes for frontmatter-markdown-loader
+import Mode from 'frontmatter-markdown-loader/mode'
+
 // Load projects for generate.routes
 import projectNames from './contents/projects'
 
@@ -127,6 +130,10 @@ export default {
         test: /\.md$/,
         loader: 'frontmatter-markdown-loader',
         options: {
+          mode: [Mode.VUE_RENDER_FUNCTIONS],
+          vue: {
+            root: 'markdown'
+          },
           markdown: (body) => {
             return markdown
               .render(body)
