@@ -2,7 +2,7 @@
   <div class="container">
     <article class="project">
       <div class="project__date">
-        <div>{{ date }}</div>
+        <div>{{ project.attributes.date }}</div>
       </div>
       <h2 class="project__title">{{ project.attributes.title }}</h2>
       <ul class="project__tag-list">
@@ -28,21 +28,23 @@ export default {
   components: {
     Markdown
   },
-  computed: {
-    date() {
-      const dateParts = this.project.attributes.date.split('/')
-      const date = new Date(dateParts[1], dateParts[0])
-      return date.toLocaleString(undefined, {
-        year: 'numeric',
-        month: 'long'
-      })
-    }
-  },
   async asyncData({ params, error }) {
     try {
-      const project = await import(`~/contents/projects/${params.project}.md`)
+      const { attributes, vue } = await import(
+        `~/contents/projects/${params.project}.md`
+      )
+      const date = attributes.date.split('/')
       return {
-        project
+        project: {
+          attributes: {
+            ...attributes,
+            date: new Date(date[1], date[0]).toLocaleString('en-GB', {
+              year: 'numeric',
+              month: 'long'
+            })
+          },
+          vue
+        }
       }
     } catch (e) {
       error({ statusCode: 404, message: 'This project could not be found' })
