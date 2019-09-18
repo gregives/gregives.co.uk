@@ -1,7 +1,7 @@
 <template>
   <picture :style="{ width }">
     <source :data-srcset="webp" type="image/webp" />
-    <source :data-srcset="responsive.srcSet" type="image/png" />
+    <source :data-srcset="responsive" type="image/png" />
     <img
       :src="sqip"
       :data-src="original"
@@ -16,11 +16,11 @@ export default {
   props: {
     src: {
       type: String,
-      default: ''
+      required: true
     },
     alt: {
       type: String,
-      default: ''
+      required: true
     },
     width: {
       type: String,
@@ -29,16 +29,16 @@ export default {
   },
   computed: {
     webp() {
-      return this.src ? require(`~/assets/images/lazy/${this.src}?webp`) : ''
+      return require(`~/assets/images/lazy/${this.src}?webp`)
     },
     responsive() {
-      return this.src ? require(`~/assets/images/lazy/${this.src}?resize`) : ''
+      return require(`~/assets/images/lazy/${this.src}?resize`).srcSet
     },
     sqip() {
-      return this.src ? require(`~/assets/images/lazy/${this.src}?sqip`) : ''
+      return require(`~/assets/images/lazy/${this.src}?sqip`)
     },
     original() {
-      return this.src ? require(`~/assets/images/lazy/${this.src}`) : ''
+      return require(`~/assets/images/lazy/${this.src}`)
     }
   }
 }
