@@ -44,7 +44,8 @@ export default {
   plugins: [
     '~/plugins/tilt.client.js',
     '~/plugins/lazysizes.client.js',
-    '~/plugins/tabbing.client.js'
+    '~/plugins/tabbing.client.js',
+    '~/plugins/components.js'
   ],
   // Nuxt.js dev-modules
   devModules: ['@nuxtjs/eslint-module'],
