@@ -13,10 +13,7 @@
           class="project-list__link"
         >
           <div class="project-list__image">
-            <img
-              src="https://source.unsplash.com/random/800x400"
-              :alt="project.title"
-            />
+            <lazy-image src="placeholder.png" :alt="project.title" />
           </div>
           <h3 class="project-list__title">
             {{ project.titleShort || project.title }}
@@ -182,6 +179,7 @@ export default {
     height: 100%;
     left: 0;
     object-fit: cover;
+    object-position: top left;
     position: absolute;
     transition: transform 300ms ease;
     width: 100%;
