@@ -59,6 +59,10 @@ export default {
   // Options for nuxt-optimized-images
   optimizedImages: {
     optimizeImages: true,
+    responsiveImagesName: ({ isDev }) =>
+      isDev
+        ? '[path][name]--[width][hash:optimized].[ext]'
+        : 'img/[hash:7].[ext]',
     responsive: {
       sizes: [213, 256, 341, 455, 533, 640, 768, 1024, 1366, 1600, 1920]
     }
