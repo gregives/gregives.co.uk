@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <shapes />
     <div class="container">
       <h1 class="home__title">
         Hi, I'm
@@ -61,12 +60,10 @@
 
 <script>
 import Headshots from '~/components/Headshots'
-import Shapes from '~/components/Shapes'
 
 export default {
   components: {
-    Headshots,
-    Shapes
+    Headshots
   },
   mounted() {
     this.$tilt(document.querySelectorAll('[data-tilt]'))
