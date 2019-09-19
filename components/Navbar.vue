@@ -80,6 +80,7 @@ export default {
     margin-top: 0.2rem;
     overflow: visible;
     position: relative;
+    transition: none;
     visibility: visible;
     width: auto;
     z-index: auto;
@@ -88,7 +89,7 @@ export default {
 
 .nav__list {
   counter-reset: navbar-links;
-  left: calc(50% + 4vmin);
+  left: 50%;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -114,9 +115,8 @@ export default {
     color: $color--text-muted;
     content: '0' counter(navbar-links);
     font-size: 60%;
-    position: absolute;
-    right: calc(100% + 4vmin);
-    top: 1vmin;
+    margin-right: 3vmin;
+    vertical-align: text-top;
   }
 
   @media (min-width: $breakpoint--lg) {
@@ -129,9 +129,45 @@ export default {
     }
 
     &::before {
-      right: calc(100% + 1vmin);
-      top: 0.5vmin;
+      margin-right: 1vmin;
     }
+  }
+}
+
+.nav__link {
+  transition: color 150ms ease-out;
+  position: relative;
+  margin: -0.5rem -1rem;
+  padding: 0.5rem 1rem;
+
+  &::before,
+  &::after {
+    bottom: 0.5rem;
+    background-color: transparentize($color--primary, 0.9);
+    content: '';
+    height: 0.4em;
+    left: 1rem;
+    position: absolute;
+    width: calc(110% - 2rem);
+    z-index: -1;
+  }
+
+  &::after {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 150ms ease-out;
+  }
+
+  &:hover {
+    color: $color--primary;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &.nuxt-link-exact-active {
+    color: $color--primary;
   }
 }
 
