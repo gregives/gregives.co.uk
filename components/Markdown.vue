@@ -21,8 +21,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~/assets/sass/_variables';
-
 .markdown {
   h3,
   h4,

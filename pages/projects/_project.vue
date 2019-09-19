@@ -1,24 +1,22 @@
 <template>
-  <div class="container">
-    <article class="project">
-      <div class="project__date">
-        <div>{{ project.attributes.date }}</div>
-      </div>
-      <h2 class="project__title">{{ project.attributes.title }}</h2>
-      <ul class="project__tag-list">
-        <li
-          v-for="tag in project.attributes.tags"
-          :key="tag"
-          class="project__tag-list-item"
-        >
-          {{ tag }}
-        </li>
-      </ul>
-      <div class="project__text">
-        <markdown :vue="project.vue" />
-      </div>
-    </article>
-  </div>
+  <main class="project">
+    <div class="project__date">
+      <div>{{ project.attributes.date }}</div>
+    </div>
+    <h2 class="project__title">{{ project.attributes.title }}</h2>
+    <ul class="project__tag-list">
+      <li
+        v-for="tag in project.attributes.tags"
+        :key="tag"
+        class="project__tag-list-item"
+      >
+        {{ tag }}
+      </li>
+    </ul>
+    <div class="project__text">
+      <markdown :vue="project.vue" />
+    </div>
+  </main>
 </template>
 
 <script>
@@ -54,12 +52,11 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~/assets/sass/_variables';
-
 .project {
+  @include container;
   display: grid;
   grid-template-columns: 100%;
-  margin: 3.5rem 0;
+  padding: 3rem 0;
 
   @media (min-width: $breakpoint--lg) {
     grid-template-columns: 1fr 3fr;

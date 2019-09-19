@@ -1,36 +1,39 @@
 <template>
-  <div class="container">
-    <ol class="project-list">
+  <main class="projects">
+    <ol class="projects__list">
       <li
         v-for="project in projects"
         :key="project.title"
-        class="project-list__item"
-        :class="{ 'project-list__item--small': !project.link }"
+        class="projects__list-item"
+        :class="{ 'projects__list-item--small': !project.link }"
       >
         <nuxt-link
           v-if="project.link"
           :to="project.link"
-          class="project-list__link"
+          class="projects__list-link"
         >
-          <div class="project-list__image">
+          <div class="projects__list-image">
             <lazy-image src="placeholder.png" :alt="project.title" />
           </div>
-          <h3 class="project-list__title">
+          <h3 class="projects__list-title">
             {{ project.titleShort || project.title }}
           </h3>
-          <small class="project-list__date">
+          <small class="projects__list-date">
             {{ project.date.getFullYear() }}
           </small>
-          <p class="project-list__description" v-html="project.description"></p>
+          <p
+            class="projects__list-description"
+            v-html="project.description"
+          ></p>
         </nuxt-link>
         <p
           v-else
-          class="project-list__description"
+          class="projects__list-description"
           v-html="project.description"
         ></p>
       </li>
     </ol>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -67,21 +70,23 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~/assets/sass/_variables';
+.projects {
+  @include container;
+  padding: 3rem 0;
+}
 
-.project-list {
+.projects__list {
   display: grid;
   grid-auto-rows: auto;
   grid-template-columns: 100%;
   grid-gap: calc(1rem + 5vmin);
-  margin: 4rem 0;
 
   @media (min-width: $breakpoint--md) {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-.project-list__item {
+.projects__list-item {
   grid-row: span 2;
   position: relative;
 
@@ -99,7 +104,7 @@ export default {
   }
 }
 
-.project-list__item--small {
+.projects__list-item--small {
   grid-row: span 1;
 
   &::before {
@@ -108,23 +113,23 @@ export default {
     top: 0;
   }
 
-  .project-list__description {
+  .projects__list-description {
     padding: 1.5rem;
   }
 }
 
-.project-list__link {
+.projects__list-link {
   display: block;
   padding: 1.5rem;
   padding-top: 0;
 
   &:hover {
-    .project-list__title {
+    .projects__list-title {
       box-shadow: 0 -1.5em transparentize($color--primary, 0.8) inset;
       color: $color--primary;
     }
 
-    .project-list__image {
+    .projects__list-image {
       filter: saturate(0.5) brightness(1.2);
 
       &::after {
@@ -138,20 +143,20 @@ export default {
   }
 }
 
-.project-list__title {
+.projects__list-title {
   box-shadow: 0 -0.6em transparentize($color--primary, 0.8) inset;
   display: inline-block;
   transition: box-shadow 150ms ease-out, color 150ms ease-out;
 }
 
-.project-list__date {
+.projects__list-date {
   color: $color--text-muted;
   font-family: $font--fancy;
   font-size: 90%;
   margin-left: 1rem;
 }
 
-.project-list__image {
+.projects__list-image {
   border-radius: $border-radius;
   border-bottom-left-radius: 0;
   margin-bottom: 1rem;

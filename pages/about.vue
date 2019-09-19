@@ -1,5 +1,12 @@
 <template>
-  <div class="container">
+  <main class="about">
     About
-  </div>
+  </main>
 </template>
+
+<style lang="scss">
+.about {
+  @include container;
+  padding: 3rem 0;
+}
+</style>

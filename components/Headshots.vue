@@ -103,8 +103,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~/assets/sass/_variables';
-
 .headshots {
   bottom: 0;
   filter: sepia(1) hue-rotate(#{hue($color--primary) - 45deg}) saturate(1.5);

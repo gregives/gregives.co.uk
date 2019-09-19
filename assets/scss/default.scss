@@ -3,6 +3,7 @@
 @import "variables";
 @import "utilities";
 @import "highlight";
+@import "mixins";
 
 body {
   background-color: $color--body;
@@ -37,22 +38,9 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: calc(120% + 4vw);
   margin-bottom: 2rem;
-  position: relative;
-  -webkit-text-stroke: 0.2vmin black;
-  -webkit-text-fill-color: transparent;
 
   @media (min-width: $breakpoint--xl) {
     font-size: calc(120% + #{$breakpoint--xl * 4 / 100});
-  }
-
-  &::after {
-    content: '';
-    background: linear-gradient(to top, $color--body, transparentize($color--body, 1));
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
   }
 }
 
@@ -129,7 +117,7 @@ strong {
 
 code {
   background-color: transparentize(black, 0.95);
-  border-radius: 0.25rem;
+  border-radius: min(0.25rem, $border-radius);
   box-shadow: 0 0 0.5rem -0.25rem transparentize(black, 0.8) inset;
   font-family: $font--code;
   font-weight: 500;

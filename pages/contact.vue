@@ -1,5 +1,12 @@
 <template>
-  <div class="container">
+  <main class="contact">
     Contact
-  </div>
+  </main>
 </template>
+
+<style lang="scss">
+.contact {
+  @include container;
+  padding: 3rem 0;
+}
+</style>

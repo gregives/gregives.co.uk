@@ -1,5 +1,12 @@
 <template>
-  <div class="container">
+  <main class="work">
     <h1>Work &amp; Volunteering</h1>
-  </div>
+  </main>
 </template>
+
+<style lang="scss">
+.work {
+  @include container;
+  padding: 3rem 0;
+}
+</style>

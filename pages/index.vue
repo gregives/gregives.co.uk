@@ -1,21 +1,19 @@
 <template>
-  <div class="home">
-    <div class="container">
-      <h1 class="home__title">
-        Hi, I'm
-        <span class="home__title--primary">Greg Ives</span>
-      </h1>
-      <p class="home__description">
-        I'm a final-year Computer Science student at the University of
-        Sheffield. I'm looking for an opportunity in software development from
-        <strong>June&nbsp;2020</strong> &mdash; check out my work or
-        contact&nbsp;me!
-      </p>
-      <headshots />
-      <p class="home__projects">
-        <nuxt-link to="/projects">See my projects</nuxt-link>
-      </p>
-    </div>
+  <main class="home">
+    <h1 class="home__title">
+      Hi, I’m
+      <span class="home__title--primary">Greg Ives</span>
+    </h1>
+    <p class="home__description">
+      I’m a final-year Computer Science student at the University of Sheffield.
+      I’m looking for an opportunity in software development from
+      <strong>June&nbsp;2020</strong> &mdash; check out my work or
+      contact&nbsp;me!
+    </p>
+    <p class="home__projects">
+      <nuxt-link to="/projects">See my projects</nuxt-link>
+    </p>
+    <headshots />
     <svg height="0" width="0">
       <defs>
         <filter id="underwater">
@@ -55,7 +53,7 @@
         </filter>
       </defs>
     </svg>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -72,22 +70,16 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~/assets/sass/_variables';
-
 .home {
-  height: 100%;
+  @include container;
+  padding: 3rem 0;
   overflow-y: hidden;
-
-  .container {
-    height: 100%;
-  }
 }
 
 .home__title {
   font-weight: 500;
-  padding-top: 10vh;
   -webkit-text-stroke: 0.2vmin $color--primary;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: $color--body;
 
   &::after {
     display: none;

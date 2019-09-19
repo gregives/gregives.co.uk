@@ -9,7 +9,7 @@ import projectNames from './contents/projects'
 
 // Load primary color from scss
 const primaryColor = fs
-  .readFileSync(path.join(__dirname, 'assets', 'sass', '_variables.scss'), {
+  .readFileSync(path.join(__dirname, 'assets', 'scss', '_variables.scss'), {
     encoding: 'utf8'
   })
   .match(/\$color--primary:\s?(\w+);/)[1]
@@ -39,7 +39,7 @@ export default {
     continuous: true
   },
   // Global CSS
-  css: ['~/assets/sass/default'],
+  css: ['~/assets/scss/default.scss'],
   // Plugins to load before mounting the App
   plugins: [
     '~/plugins/tilt.client.js',
@@ -52,10 +52,14 @@ export default {
   // Nuxt.js modules
   modules: [
     '@nuxtjs/pwa',
+    '@nuxtjs/style-resources',
     '@bazzite/nuxt-optimized-images',
     'nuxt-webfontloader',
     '@nuxtjs/sitemap'
   ],
+  styleResources: {
+    scss: ['~/assets/scss/_variables.scss', '~/assets/scss/_mixins.scss']
+  },
   // Options for nuxt-optimized-images
   optimizedImages: {
     optimizeImages: true,

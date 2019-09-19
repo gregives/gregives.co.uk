@@ -12,10 +12,3 @@ html, body {
 *, *::before, *::after {
   box-sizing: border-box;
 }
-
-.container {
-  margin: 0 auto;
-  max-width: #{0.9 * $breakpoint--xl};
-  position: relative;
-  width: 90%;
-}

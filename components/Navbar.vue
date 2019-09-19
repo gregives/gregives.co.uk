@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="container">
+    <div class="header__content">
       <span class="header__logo">
         <nuxt-link to="/">Greg Ives</nuxt-link>
       </span>
@@ -39,8 +39,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~/assets/sass/_variables';
-
 .header {
   background-color: transparentize(white, 0.1);
   box-shadow: 0 0 2rem -1rem transparentize(black, 0.8);
@@ -52,6 +50,10 @@ export default {
     backdrop-filter: blur(5px);
     background-color: transparentize(white, 0.4);
   }
+}
+
+.header__content {
+  @include container;
 }
 
 .header__logo {

@@ -47,8 +47,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~/assets/sass/_variables';
-
 $speed: 150ms;
 $width: 2px;
 

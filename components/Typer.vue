@@ -54,8 +54,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~/assets/sass/_variables';
-
 .typer {
   animation-duration: 400ms;
   animation-direction: alternate;
