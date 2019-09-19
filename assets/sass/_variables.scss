@@ -5,6 +5,7 @@ $font--code: 'Fira Code', 'Consolas', 'Lucida Console', Monaco, monospace;
 
 // Primary color is loaded into nuxt.config.js
 $color--primary: mediumblue;
+$color--body: darken(white, 5%);
 
 $color--text: transparentize(black, 0.13);
 $color--text-muted: transparentize(black, 0.4);

@@ -88,6 +88,10 @@ export default {
   padding-top: 10vh;
   -webkit-text-stroke: 0.2vmin $color--primary;
   -webkit-text-fill-color: transparent;
+
+  &::after {
+    display: none;
+  }
 }
 
 .home__title--primary {

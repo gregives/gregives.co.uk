@@ -5,7 +5,7 @@
 @import "highlight";
 
 body {
-  background-color: darken(white, 5%);
+  background-color: $color--body;
   height: 100%;
   overflow-y: scroll;
 
@@ -37,9 +37,22 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: calc(120% + 4vw);
   margin-bottom: 2rem;
+  position: relative;
+  -webkit-text-stroke: 0.2vmin black;
+  -webkit-text-fill-color: transparent;
 
   @media (min-width: $breakpoint--xl) {
     font-size: calc(120% + #{$breakpoint--xl * 4 / 100});
+  }
+
+  &::after {
+    content: '';
+    background: linear-gradient(to top, $color--body, transparentize($color--body, 1));
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 }
 
