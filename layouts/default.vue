@@ -2,6 +2,45 @@
   <div id="__app">
     <navbar />
     <nuxt />
+    <svg height="0" width="0">
+      <defs>
+        <filter id="underwater">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.01"
+            numOctaves="3"
+            result="turbulence"
+          ></feTurbulence>
+          <feColorMatrix
+            in="turbulence"
+            type="hueRotate"
+            values="0"
+            result="animated"
+          >
+            <animate
+              attributeName="values"
+              from="0"
+              to="360"
+              :dur="`${Math.random() + 3}s`"
+              repeatCount="indefinite"
+            ></animate>
+          </feColorMatrix>
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="animated"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          >
+            <animate
+              attributeName="scale"
+              values="10; 20; 10"
+              :dur="`${Math.random() + 7}s`"
+              repeatCount="indefinite"
+            ></animate>
+          </feDisplacementMap>
+        </filter>
+      </defs>
+    </svg>
   </div>
 </template>
 

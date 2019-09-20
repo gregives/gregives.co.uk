@@ -14,45 +14,6 @@
       <nuxt-link to="/projects">See my projects</nuxt-link>
     </p>
     <headshots />
-    <svg height="0" width="0">
-      <defs>
-        <filter id="underwater">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.01"
-            numOctaves="3"
-            result="turbulence"
-          ></feTurbulence>
-          <feColorMatrix
-            in="turbulence"
-            type="hueRotate"
-            values="0"
-            result="animated"
-          >
-            <animate
-              attributeName="values"
-              from="0"
-              to="360"
-              :dur="`${Math.random() + 3}s`"
-              repeatCount="indefinite"
-            ></animate>
-          </feColorMatrix>
-          <feDisplacementMap
-            in="SourceGraphic"
-            in2="animated"
-            xChannelSelector="R"
-            yChannelSelector="G"
-          >
-            <animate
-              attributeName="scale"
-              values="10; 20; 10"
-              :dur="`${Math.random() + 7}s`"
-              repeatCount="indefinite"
-            ></animate>
-          </feDisplacementMap>
-        </filter>
-      </defs>
-    </svg>
   </main>
 </template>
 
@@ -89,10 +50,11 @@ export default {
 .home__title--primary {
   color: $color--primary;
   filter: url('#underwater');
+  font-size: 110%;
   font-weight: 900;
-  margin-left: 1vw;
-  -webkit-text-stroke: transparent;
-  -webkit-text-fill-color: $color--primary;
+  line-height: 1;
+  -webkit-text-stroke: 0 currentColor;
+  -webkit-text-fill-color: currentColor;
 }
 
 .home__description {

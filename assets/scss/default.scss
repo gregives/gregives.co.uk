@@ -36,8 +36,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+  color: $color--primary;
   font-size: calc(120% + 4vw);
   margin-bottom: 2rem;
+  -webkit-text-stroke: 0.2vmin $color--primary;
+  -webkit-text-fill-color: transparent;
 
   @media (min-width: $breakpoint--xl) {
     font-size: calc(120% + #{$breakpoint--xl * 4 / 100});
