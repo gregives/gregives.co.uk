@@ -14,9 +14,6 @@
             <nuxt-link class="nav__link" to="/projects">Projects</nuxt-link>
           </li>
           <li class="nav__list-item">
-            <nuxt-link class="nav__link" to="/work">Work</nuxt-link>
-          </li>
-          <li class="nav__list-item">
             <nuxt-link class="nav__link" to="/about">About</nuxt-link>
           </li>
           <li class="nav__list-item">
@@ -43,7 +40,7 @@ export default {
   background-color: transparentize(white, 0.1);
   box-shadow: 0 0 2rem -1rem transparentize(black, 0.8);
   clear: both;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   z-index: 1;
 
   @supports (backdrop-filter: blur(5px)) {
@@ -80,7 +77,6 @@ export default {
     float: right;
     height: auto;
     margin-top: 0.2rem;
-    overflow: visible;
     position: relative;
     transition: none;
     visibility: visible;
@@ -142,34 +138,27 @@ export default {
   margin: -0.5rem -1rem;
   padding: 0.5rem 1rem;
 
-  &::before,
-  &::after {
+  &::before {
     bottom: 0.5rem;
     background-color: transparentize($color--primary, 0.9);
     content: '';
     height: 0.4em;
     left: 1rem;
     position: absolute;
-    width: calc(110% - 2rem);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 150ms ease-out;
+    width: calc(100% - 2rem);
     z-index: -1;
   }
 
-  &::after {
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 150ms ease-out;
-  }
-
-  &:hover {
-    color: $color--primary;
-
-    &::after {
-      transform: scaleX(1);
-    }
-  }
-
+  &:hover,
   &.nuxt-link-exact-active {
     color: $color--primary;
+
+    &::before {
+      transform: scaleY(1);
+    }
   }
 }
 
