@@ -8,7 +8,7 @@
       I’m a final-year Computer Science student at the University of Sheffield.
       I’m looking for an opportunity in software development from
       <strong>June&nbsp;2020</strong> &mdash; check out my work or
-      contact&nbsp;me!
+      contact&nbsp;me!&nbsp;👋
     </p>
     <p class="home__projects">
       <nuxt-link to="/projects">See my projects</nuxt-link>
@@ -62,11 +62,11 @@ export default {
   width: 100%;
 
   @media (min-width: $breakpoint--md) {
-    width: 70%;
+    width: 75%;
   }
 
   @media (min-width: $breakpoint--md) {
-    width: 65%;
+    width: 70%;
   }
 }
 
@@ -75,5 +75,12 @@ export default {
   font-size: calc(120% + 1vw);
   font-style: italic;
   font-weight: 500;
+
+  @media (min-width: $breakpoint--lg) {
+    &::after {
+      content: ' \2192';
+      font-size: 3rem;
+    }
+  }
 }
 </style>

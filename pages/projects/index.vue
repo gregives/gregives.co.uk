@@ -1,5 +1,13 @@
 <template>
   <main class="projects">
+    <h1 class="projects__title">
+      My <span class="projects__title--primary">Projects</span>
+    </h1>
+    <p class="projects__introduction">
+      Here’s a selection of projects which I’ve created since I became
+      interested in coding... I’ve made lots of things from Android apps to
+      websites to a TV remote, have a browse!
+    </p>
     <ol class="projects__list">
       <li
         v-for="project in projects"
@@ -75,6 +83,33 @@ export default {
   padding: 3rem 0;
 }
 
+.projects__title--primary {
+  filter: url('#underwater');
+  font-size: 110%;
+  font-weight: 900;
+  line-height: 1;
+  -webkit-text-stroke: 0 currentColor;
+  -webkit-text-fill-color: currentColor;
+}
+
+.projects__introduction {
+  font-size: 120%;
+  margin-bottom: 3rem;
+  padding-left: 0;
+
+  @media (min-width: $breakpoint--lg) {
+    padding-left: 20%;
+
+    &::before {
+      content: '\21B3';
+      font-size: 3rem;
+      position: absolute;
+      right: calc(80% + 0.5em);
+      transform: rotate(90deg);
+    }
+  }
+}
+
 .projects__list {
   display: grid;
   grid-auto-rows: auto;
@@ -108,7 +143,6 @@ export default {
   grid-row: span 1;
 
   &::before {
-    border: 4px solid transparentize($color--primary, 0.8);
     height: 100%;
     top: 0;
   }
@@ -124,11 +158,6 @@ export default {
   padding-top: 0;
 
   &:hover {
-    .projects__list-title {
-      box-shadow: 0 -1.5em transparentize($color--primary, 0.8) inset;
-      color: $color--primary;
-    }
-
     .projects__list-image {
       filter: saturate(0.5) brightness(1.2);
 
@@ -144,9 +173,7 @@ export default {
 }
 
 .projects__list-title {
-  box-shadow: 0 -0.6em transparentize($color--primary, 0.8) inset;
   display: inline-block;
-  transition: box-shadow 150ms ease-out, color 150ms ease-out;
 }
 
 .projects__list-date {
