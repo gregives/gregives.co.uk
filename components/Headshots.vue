@@ -107,6 +107,7 @@ export default {
   bottom: 0;
   filter: sepia(1) hue-rotate(#{hue($color--primary) - 45deg}) saturate(1.5);
   height: calc(20vh + 30vw);
+  overflow-y: hidden;
   pointer-events: none;
   position: absolute;
   right: 0;

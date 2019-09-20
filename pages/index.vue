@@ -34,7 +34,6 @@ export default {
 .home {
   @include container;
   padding: 3rem 0;
-  overflow-y: hidden;
 }
 
 .home__title {
