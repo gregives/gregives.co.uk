@@ -27,19 +27,19 @@ export default {
   },
   methods: {
     menuIsOpen() {
-      return document.documentElement.hasAttribute('data-menu')
+      return document.documentElement.dataset.menu !== 'closed'
     },
     openMenu() {
-      return document.documentElement.setAttribute('data-menu', '')
+      document.documentElement.dataset.menu = 'open'
     },
     closeMenu() {
-      return document.documentElement.removeAttribute('data-menu')
+      document.documentElement.dataset.menu = 'closed'
     },
     toggleMenu() {
-      if (!this.menuIsOpen()) {
-        this.openMenu()
-      } else {
+      if (this.menuIsOpen()) {
         this.closeMenu()
+      } else {
+        this.openMenu()
       }
     }
   }
@@ -54,12 +54,11 @@ $width: 2px;
   background: none;
   border: none;
   cursor: pointer;
+  float: right;
   height: 100%;
-  padding: 10px;
+  padding: 1rem 0.5rem;
+  margin: 0 -0.5rem;
   outline: none;
-  position: absolute;
-  right: 0;
-  top: 0;
 
   @media (min-width: $breakpoint--lg) {
     display: none;
@@ -98,7 +97,7 @@ $width: 2px;
   }
 }
 
-:root[data-menu] .hamburger__icon {
+:root[data-menu='open'] .hamburger__icon {
   background-color: transparent;
 
   &::before {

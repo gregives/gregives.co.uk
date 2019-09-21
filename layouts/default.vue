@@ -1,5 +1,8 @@
 <template>
   <div id="__app">
+    <script>
+      document.documentElement.dataset.menu = 'closed'
+    </script>
     <navbar />
     <nuxt />
     <svg height="0" width="0">

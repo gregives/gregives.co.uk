@@ -162,7 +162,7 @@ export default {
   }
 }
 
-:root[data-menu] .nav {
+:root[data-menu='open'] .nav {
   visibility: visible;
   transform: none;
   transition: transform 400ms ease, visibility 0s;
