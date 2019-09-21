@@ -39,30 +39,28 @@ export default {
   filter: saturate(0);
   float: right;
   font-size: 110%;
-  margin-right: 1rem;
-  opacity: 0.87;
+  height: 2rem;
+  line-height: 2rem;
+  margin-right: 2rem;
   outline: none;
-  padding: 0.25rem;
-  text-align: right;
+  padding: 0 0.5rem;
+  text-align: center;
   transition: filter 150ms ease-out, opacity 150ms ease-out;
   width: 2rem;
 
   &:hover {
-    opacity: 1;
     filter: saturate(0.4);
   }
 
   @media (min-width: $breakpoint--lg) {
-    margin-right: 0;
-    margin-left: 1rem;
+    font-size: 100%;
+    margin-right: -0.5rem;
+    text-align: right;
+    width: 3rem;
   }
 }
 
-:root[data-theme='dark'] .theme-toggle {
-  opacity: 1;
-
-  &:hover {
-    filter: saturate(1);
-  }
+:root[data-theme='dark'] .theme-toggle:hover {
+  filter: saturate(1);
 }
 </style>

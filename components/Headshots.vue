@@ -122,7 +122,7 @@ export default {
 
 :root[data-theme='dark'] .headshots {
   filter: invert(0.5) sepia(1) hue-rotate(-45deg)
-    hue-rotate($color--primary-hue) brightness(0.35) saturate(2);
+    hue-rotate($color--primary-hue) brightness(0.5) saturate(3);
 }
 
 .headshots__image {

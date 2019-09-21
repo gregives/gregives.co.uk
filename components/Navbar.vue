@@ -74,7 +74,7 @@ export default {
     background-color: transparent;
     float: right;
     height: auto;
-    margin-top: 0.2rem;
+    line-height: 2rem;
     position: relative;
     transform: none;
     transition: none;
@@ -129,6 +129,7 @@ export default {
 
     &::before {
       margin-right: 1vmin;
+      vertical-align: top;
     }
   }
 }
@@ -169,7 +170,7 @@ export default {
   transition: transform 400ms ease, visibility 0s;
 
   @media (min-width: $breakpoint--lg) {
-    transform: translateX(100%);
+    transform: none;
     transition: none;
   }
 }

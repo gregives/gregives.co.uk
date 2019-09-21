@@ -72,7 +72,7 @@ $width: 2px;
   position: relative;
   right: 0;
   top: calc(50% - #{$width / 2});
-  transition: background-color 0ms $speed;
+  transition: transform $speed ease-in;
   width: calc(15px + 2vw);
 
   &::before,
@@ -88,7 +88,7 @@ $width: 2px;
 
   &::before {
     top: calc(-4px - 0.5vw);
-    transition: top $speed $speed ease-out, transform $speed ease-in;
+    transition: top $speed $speed ease-out;
   }
 
   &::after {
@@ -98,17 +98,17 @@ $width: 2px;
 }
 
 :root[data-menu='open'] .hamburger__icon {
-  background-color: transparent;
+  transform: rotate(45deg);
+  transition: transform $speed $speed ease-out;
 
   &::before {
     top: 0;
-    transform: rotate(-45deg);
-    transition: top $speed ease-in, transform $speed $speed ease-out;
+    transition: top $speed ease-in;
   }
 
   &::after {
     bottom: 0;
-    transform: rotate(45deg);
+    transform: rotate(-90deg);
     transition: bottom $speed ease-in, transform $speed $speed ease-out;
   }
 }
