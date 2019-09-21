@@ -29,7 +29,7 @@ export default {
       // Change meta theme color
       document
         .querySelector('meta[name=theme-color]')
-        .setAttribute('content', this.theme === 'light' ? '#33c' : '#222')
+        .setAttribute('content', this.theme === 'light' ? '#33c' : '#333')
     }
   }
 }
