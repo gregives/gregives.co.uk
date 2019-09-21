@@ -59,15 +59,15 @@ export default {
   animation-direction: alternate;
   animation-iteration-count: infinite;
   animation-name: blink;
-  border-right: solid 1vmin $color--primary;
-  color: $color--primary;
+  border-right: solid 1vmin $color__primary;
+  color: $color__primary;
   position: relative;
 }
 
 .typer--selected {
-  box-shadow: 0 -1.4em transparentize($color--primary, 0.9) inset;
+  box-shadow: 0 -1.4em transparentize($color__primary, 0.9) inset;
   border-right: none;
-  border-left: solid 1vmin $color--primary;
+  border-left: solid 1vmin $color__primary;
   margin-left: -1vmin;
 
   @keyframes blink {
@@ -76,7 +76,7 @@ export default {
     }
 
     to {
-      border-color: transparentize($color--primary, 0.5);
+      border-color: transparentize($color__primary, 0.5);
     }
   }
 }

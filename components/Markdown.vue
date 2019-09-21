@@ -31,7 +31,7 @@ export default {
     position: relative;
 
     .header-anchor {
-      color: $color--text-muted;
+      color: $color__text--muted;
       font-weight: 400;
       margin-left: 0.5rem;
       opacity: 0.2;
@@ -121,11 +121,11 @@ export default {
   }
 
   mark {
-    background-color: transparentize($color--primary, 0.8);
+    background-color: transparentize($color__primary, 0.8);
   }
 
   blockquote {
-    border-left: 4px solid transparentize($color--primary, 0.6);
+    border-left: 4px solid transparentize($color__primary, 0.6);
     padding-left: 1rem;
   }
 

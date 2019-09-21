@@ -105,7 +105,7 @@ export default {
 <style lang="scss">
 .headshots {
   bottom: 0;
-  filter: sepia(1) hue-rotate(#{hue($color--primary) - 45deg}) saturate(1.5);
+  filter: sepia(1) hue-rotate(#{hue($color__primary) - 45deg}) saturate(1.5);
   height: calc(20vh + 30vw);
   overflow-y: hidden;
   pointer-events: none;
@@ -113,9 +113,9 @@ export default {
   right: 0;
   width: calc(15vh + 22.5vw); // Aspect ratio of 4:3
 
-  @media (min-width: $breakpoint--xl) {
-    height: calc(20vh + #{30 / 100 * $breakpoint--xl});
-    width: calc(15vh + #{22.5 / 100 * $breakpoint--xl});
+  @media (min-width: $breakpoint__xl) {
+    height: calc(20vh + #{30 / 100 * $breakpoint__xl});
+    width: calc(15vh + #{22.5 / 100 * $breakpoint__xl});
   }
 }
 

@@ -38,8 +38,8 @@ export default {
 
 .home__title {
   font-weight: 500;
-  -webkit-text-stroke: 0.2vmin $color--primary;
-  -webkit-text-fill-color: $color--body;
+  -webkit-text-stroke: 0.2vmin $color__primary;
+  -webkit-text-fill-color: $color__body;
 
   &::after {
     display: none;
@@ -47,7 +47,7 @@ export default {
 }
 
 .home__title--primary {
-  color: $color--primary;
+  color: $color__primary;
   filter: url('#underwater');
   font-size: 110%;
   font-weight: 900;
@@ -61,22 +61,22 @@ export default {
   margin-bottom: 3rem;
   width: 100%;
 
-  @media (min-width: $breakpoint--md) {
+  @media (min-width: $breakpoint__md) {
     width: 75%;
   }
 
-  @media (min-width: $breakpoint--md) {
+  @media (min-width: $breakpoint__md) {
     width: 70%;
   }
 }
 
 .home__projects {
-  font-family: $font--fancy;
+  font-family: $font__fancy;
   font-size: calc(120% + 1vw);
   font-style: italic;
   font-weight: 500;
 
-  @media (min-width: $breakpoint--lg) {
+  @media (min-width: $breakpoint__lg) {
     &::after {
       content: ' \2192';
       font-size: 3rem;

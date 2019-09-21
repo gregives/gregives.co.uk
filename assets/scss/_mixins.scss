@@ -1,6 +1,6 @@
 @mixin container {
   margin: 0 auto;
-  max-width: #{0.9 * $breakpoint--xl};
+  max-width: #{0.9 * $breakpoint__xl};
   position: relative;
   width: 90%;
 }

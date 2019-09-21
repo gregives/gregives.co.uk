@@ -97,7 +97,7 @@ export default {
   margin-bottom: 3rem;
   padding-left: 0;
 
-  @media (min-width: $breakpoint--lg) {
+  @media (min-width: $breakpoint__lg) {
     padding-left: 20%;
 
     &::before {
@@ -116,7 +116,7 @@ export default {
   grid-template-columns: 100%;
   grid-gap: calc(1rem + 5vmin);
 
-  @media (min-width: $breakpoint--md) {
+  @media (min-width: $breakpoint__md) {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -177,8 +177,8 @@ export default {
 }
 
 .projects__list-date {
-  color: $color--text-muted;
-  font-family: $font--fancy;
+  color: $color__text--muted;
+  font-family: $font__fancy;
   font-size: 90%;
   margin-left: 1rem;
 }
@@ -195,7 +195,7 @@ export default {
   width: 100%;
 
   &::after {
-    background-color: saturate($color--primary, 20%);
+    background-color: saturate($color__primary, 20%);
     content: '';
     height: 100%;
     left: 0;

@@ -55,7 +55,7 @@ export default {
 
 .header__logo {
   display: inline-block;
-  font-family: $font--fancy;
+  font-family: $font__fancy;
   font-size: 130%;
   font-weight: 500;
 }
@@ -72,7 +72,7 @@ export default {
   width: 100%;
   z-index: -1;
 
-  @media (min-width: $breakpoint--lg) {
+  @media (min-width: $breakpoint__lg) {
     background-color: transparent;
     float: right;
     height: auto;
@@ -92,7 +92,7 @@ export default {
   top: 50%;
   transform: translate(-50%, -50%);
 
-  @media (min-width: $breakpoint--lg) {
+  @media (min-width: $breakpoint__lg) {
     left: auto;
     position: relative;
     top: auto;
@@ -110,14 +110,14 @@ export default {
   }
 
   &::before {
-    color: $color--text-muted;
+    color: $color__text--muted;
     content: '0' counter(navbar-links);
     font-size: 60%;
     margin-right: 3vmin;
     vertical-align: text-top;
   }
 
-  @media (min-width: $breakpoint--lg) {
+  @media (min-width: $breakpoint__lg) {
     display: inline-block;
     font-size: 100%;
 
@@ -140,7 +140,7 @@ export default {
 
   &::before {
     bottom: 0.5rem;
-    background-color: transparentize($color--primary, 0.9);
+    background-color: transparentize($color__primary, 0.9);
     content: '';
     height: 0.4em;
     left: 1rem;
@@ -154,7 +154,7 @@ export default {
 
   &:hover,
   &.nuxt-link-exact-active {
-    color: $color--primary;
+    color: $color__primary;
 
     &::before {
       transform: scaleY(1);
@@ -167,7 +167,7 @@ export default {
   transform: none;
   transition: transform 400ms ease, visibility 0s;
 
-  @media (min-width: $breakpoint--lg) {
+  @media (min-width: $breakpoint__lg) {
     transform: translateX(100%);
     transition: none;
   }

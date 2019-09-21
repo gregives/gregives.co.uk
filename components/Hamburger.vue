@@ -60,7 +60,7 @@ $width: 2px;
   margin: 0 -0.5rem;
   outline: none;
 
-  @media (min-width: $breakpoint--lg) {
+  @media (min-width: $breakpoint__lg) {
     display: none;
   }
 }

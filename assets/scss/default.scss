@@ -6,7 +6,7 @@
 @import "mixins";
 
 body {
-  background-color: $color--body;
+  background-color: $color__body;
   height: 100%;
   overflow-y: scroll;
 
@@ -20,30 +20,30 @@ body {
 }
 
 :root {
-  color: $color--text;
-  font-family: $font--body;
+  color: $color__text;
+  font-family: $font__body;
   font-size: calc(70% + 1vmin);
 
   // Bound font-size on larger screens
-  @media (min-width: $breakpoint--xl) {
+  @media (min-width: $breakpoint__xl) {
     font-size: calc(70% + 1vh);
   }
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font--fancy;
+  font-family: $font__fancy;
   font-weight: 500;
 }
 
 h1 {
-  color: $color--primary;
+  color: $color__primary;
   font-size: calc(120% + 4vw);
   margin-bottom: 2rem;
-  -webkit-text-stroke: 0.2vmin $color--primary;
+  -webkit-text-stroke: 0.2vmin $color__primary;
   -webkit-text-fill-color: transparent;
 
-  @media (min-width: $breakpoint--xl) {
-    font-size: calc(120% + #{$breakpoint--xl * 4 / 100});
+  @media (min-width: $breakpoint__xl) {
+    font-size: calc(120% + #{$breakpoint__xl * 4 / 100});
   }
 }
 
@@ -51,8 +51,8 @@ h2 {
   font-size: calc(120% + 2vw);
   margin-bottom: 1.75rem;
 
-  @media (min-width: $breakpoint--xl) {
-    font-size: calc(120% + #{$breakpoint--xl * 2 / 100});
+  @media (min-width: $breakpoint__xl) {
+    font-size: calc(120% + #{$breakpoint__xl * 2 / 100});
   }
 }
 
@@ -60,8 +60,8 @@ h3 {
   font-size: calc(120% + 1vw);
   margin-bottom: 1.5rem;
 
-  @media (min-width: $breakpoint--xl) {
-    font-size: calc(120% + #{$breakpoint--xl * 1 / 100});
+  @media (min-width: $breakpoint__xl) {
+    font-size: calc(120% + #{$breakpoint__xl * 1 / 100});
   }
 }
 
@@ -69,8 +69,8 @@ h4 {
   font-size: calc(120% + 0.5vw);
   margin-bottom: 1.25rem;
 
-  @media (min-width: $breakpoint--xl) {
-    font-size: calc(120% + #{$breakpoint--xl * 0.5 / 100});
+  @media (min-width: $breakpoint__xl) {
+    font-size: calc(120% + #{$breakpoint__xl * 0.5 / 100});
   }
 }
 
@@ -78,8 +78,8 @@ h5 {
   font-size: calc(120% + 0.25vw);
   margin-bottom: 1rem;
 
-  @media (min-width: $breakpoint--xl) {
-    font-size: calc(120% + #{$breakpoint--xl * 0.25 / 100});
+  @media (min-width: $breakpoint__xl) {
+    font-size: calc(120% + #{$breakpoint__xl * 0.25 / 100});
   }
 }
 
@@ -94,12 +94,12 @@ a {
 }
 
 p a {
-  box-shadow: 0 -0.4em transparentize($color--primary, 0.8) inset;
+  box-shadow: 0 -0.4em transparentize($color__primary, 0.8) inset;
   transition: box-shadow 150ms ease-out, color 150ms ease-out;
 
   &:hover {
-    box-shadow: 0 -1.3em transparentize($color--primary, 0.8) inset;
-    color: $color--primary;
+    box-shadow: 0 -1.3em transparentize($color__primary, 0.8) inset;
+    color: $color__primary;
   }
 }
 
@@ -122,7 +122,7 @@ code {
   background-color: transparentize(black, 0.95);
   border-radius: min(0.25rem, $border-radius);
   box-shadow: 0 0 0.5rem -0.25rem transparentize(black, 0.8) inset;
-  font-family: $font--code;
+  font-family: $font__code;
   font-weight: 500;
   font-size: 90%;
   padding: 0.15rem 0.3rem;
@@ -143,7 +143,7 @@ code {
     padding: 0;
     background-color: transparent;
     border-radius: 0;
-    font-family: $font--code;
+    font-family: $font__code;
     font-weight: inherit;
     font-size: inherit;
     box-shadow: none;
@@ -151,12 +151,12 @@ code {
 }
 
 ::selection {
-  background-color: $color--primary;
+  background-color: $color__primary;
   color: white;
 }
 
 :root.tabbing :focus {
-  outline: 2px dashed $color--primary;
+  outline: 2px dashed $color__primary;
   outline-offset: 0.3rem;
 }
 
