@@ -1,7 +1,7 @@
 <template>
   <div id="__app">
     <script>
-      var theme = localStorage.getItem('theme')
+      const theme = localStorage.getItem('theme') || 'light'
       document.documentElement.dataset.theme = theme
       document.documentElement.dataset.menu = 'closed'
     </script>

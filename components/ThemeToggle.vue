@@ -17,8 +17,8 @@ export default {
     }
   },
   mounted() {
-    this.theme = localStorage.getItem('theme')
-    document.documentElement.dataset.theme = this.theme
+    this.theme = document.documentElement.dataset.theme || 'light'
+    localStorage.setItem('theme', this.theme)
   },
   methods: {
     toggleTheme() {
