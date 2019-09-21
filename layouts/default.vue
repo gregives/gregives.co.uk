@@ -3,6 +3,9 @@
     <script>
       const theme = localStorage.getItem('theme') || 'light'
       document.documentElement.dataset.theme = theme
+      document
+        .querySelector('meta[name=theme-color]')
+        .setAttribute('content', theme === 'light' ? '#33c' : '#222')
       document.documentElement.dataset.menu = 'closed'
     </script>
     <navbar />

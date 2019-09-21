@@ -25,6 +25,11 @@ export default {
       this.theme = this.theme === 'light' ? 'dark' : 'light'
       document.documentElement.dataset.theme = this.theme
       localStorage.setItem('theme', this.theme)
+
+      // Change meta theme color
+      document
+        .querySelector('meta[name=theme-color]')
+        .setAttribute('content', this.theme === 'light' ? '#33c' : '#222')
     }
   }
 }
