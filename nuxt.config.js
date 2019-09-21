@@ -12,7 +12,7 @@ const primaryColor = fs
   .readFileSync(path.join(__dirname, 'assets', 'scss', '_variables.scss'), {
     encoding: 'utf8'
   })
-  .match(/\$color__primary:\s?(\w+);/)[1]
+  .match(/\$color--primary:\s?(\w+);/)[1]
 
 export default {
   mode: 'universal',

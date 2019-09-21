@@ -26,12 +26,12 @@ export default {
   h4,
   h5,
   h6 {
-    border-bottom: 1px solid transparentize(black, 0.5);
+    border-bottom: 1px solid $color--text-muted;
     padding-bottom: 0.25rem;
     position: relative;
 
     .header-anchor {
-      color: $color__text--muted;
+      color: $color--text-muted;
       font-weight: 400;
       margin-left: 0.5rem;
       opacity: 0.2;
@@ -121,16 +121,17 @@ export default {
   }
 
   mark {
-    background-color: transparentize($color__primary, 0.8);
+    background-color: $color--primary-muted;
+    color: $color--text;
   }
 
   blockquote {
-    border-left: 4px solid transparentize($color__primary, 0.6);
+    border-left: 4px solid $color--primary-muted;
     padding-left: 1rem;
   }
 
   table {
-    border: 1px solid transparentize(black, 0.6);
+    border: 1px solid $color--text-muted;
     border-collapse: separate;
     border-radius: $border-radius;
     max-width: 100%;
@@ -143,12 +144,12 @@ export default {
 
     th,
     td {
-      border-left: 1px solid transparentize(black, 0.6);
+      border-left: 1px solid $color--text-muted;
       padding: 0.5rem 0.75rem;
     }
 
     td {
-      border-top: 1px solid transparentize(black, 0.6);
+      border-top: 1px solid $color--text-muted;
     }
 
     th:first-child,

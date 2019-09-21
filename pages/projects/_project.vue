@@ -58,20 +58,20 @@ export default {
   grid-template-columns: 100%;
   padding: 3rem 0;
 
-  @media (min-width: $breakpoint__lg) {
+  @media (min-width: $breakpoint--lg) {
     grid-template-columns: 1fr 3fr;
   }
 }
 
 .project__date {
-  color: $color__text--muted;
-  font-family: $font__fancy;
+  color: $color--text-muted;
+  font-family: $font--fancy;
   margin-top: -1.25rem;
   margin-bottom: 1.75rem;
   order: 2;
   position: relative;
 
-  @media (min-width: $breakpoint__lg) {
+  @media (min-width: $breakpoint--lg) {
     margin-top: 0;
     order: 1;
 
@@ -85,13 +85,13 @@ export default {
 .project__title {
   order: 1;
 
-  @media (min-width: $breakpoint__lg) {
+  @media (min-width: $breakpoint--lg) {
     order: 2;
   }
 }
 
 .project__tag-list {
-  color: $color__text--muted;
+  color: $color--text-muted;
   display: none;
   order: 3;
 
@@ -99,7 +99,7 @@ export default {
     content: '\2014';
   }
 
-  @media (min-width: $breakpoint__lg) {
+  @media (min-width: $breakpoint--lg) {
     display: block;
   }
 }

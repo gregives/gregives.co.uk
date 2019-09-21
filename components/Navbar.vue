@@ -5,6 +5,7 @@
         <nuxt-link to="/">Greg Ives</nuxt-link>
       </span>
       <hamburger />
+      <theme-toggle />
       <nav class="nav">
         <ol class="nav__list">
           <li class="nav__list-item">
@@ -27,26 +28,23 @@
 
 <script>
 import Hamburger from '~/components/Hamburger'
+import ThemeToggle from '~/components/ThemeToggle'
 
 export default {
   components: {
-    Hamburger
+    Hamburger,
+    ThemeToggle
   }
 }
 </script>
 
 <style lang="scss">
 .header {
-  background-color: transparentize(white, 0.1);
-  box-shadow: 0 0 2rem -1rem transparentize(black, 0.8);
+  background-color: $color--body-overlay;
+  box-shadow: $box-shadow;
   clear: both;
   padding: 1rem 0;
   z-index: 1;
-
-  @supports (backdrop-filter: blur(5px)) {
-    backdrop-filter: blur(5px);
-    background-color: transparentize(white, 0.4);
-  }
 }
 
 .header__content {
@@ -55,13 +53,13 @@ export default {
 
 .header__logo {
   display: inline-block;
-  font-family: $font__fancy;
+  font-family: $font--fancy;
   font-size: 130%;
   font-weight: 500;
 }
 
 .nav {
-  background-color: darken(white, 5%);
+  background-color: $color--body-overlay;
   height: 100vh;
   left: 0;
   position: fixed;
@@ -72,12 +70,13 @@ export default {
   width: 100%;
   z-index: -1;
 
-  @media (min-width: $breakpoint__lg) {
+  @media (min-width: $breakpoint--lg) {
     background-color: transparent;
     float: right;
     height: auto;
     margin-top: 0.2rem;
     position: relative;
+    transform: none;
     transition: none;
     visibility: visible;
     width: auto;
@@ -87,16 +86,18 @@ export default {
 
 .nav__list {
   counter-reset: navbar-links;
+  display: inline-block;
   left: 50%;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
 
-  @media (min-width: $breakpoint__lg) {
+  @media (min-width: $breakpoint--lg) {
+    float: right;
     left: auto;
     position: relative;
     top: auto;
-    transform: translateX(-100%);
+    transform: none;
   }
 }
 
@@ -110,19 +111,19 @@ export default {
   }
 
   &::before {
-    color: $color__text--muted;
+    color: $color--text-muted;
     content: '0' counter(navbar-links);
     font-size: 60%;
     margin-right: 3vmin;
     vertical-align: text-top;
   }
 
-  @media (min-width: $breakpoint__lg) {
+  @media (min-width: $breakpoint--lg) {
     display: inline-block;
     font-size: 100%;
 
     ~ .nav__list-item {
-      margin-left: 7vmin;
+      margin-left: 5vmin;
       margin-top: auto;
     }
 
@@ -140,7 +141,7 @@ export default {
 
   &::before {
     bottom: 0.5rem;
-    background-color: transparentize($color__primary, 0.9);
+    background-color: $color--primary-muted;
     content: '';
     height: 0.4em;
     left: 1rem;
@@ -154,7 +155,7 @@ export default {
 
   &:hover,
   &.nuxt-link-exact-active {
-    color: $color__primary;
+    color: $color--primary;
 
     &::before {
       transform: scaleY(1);
@@ -167,7 +168,7 @@ export default {
   transform: none;
   transition: transform 400ms ease, visibility 0s;
 
-  @media (min-width: $breakpoint__lg) {
+  @media (min-width: $breakpoint--lg) {
     transform: translateX(100%);
     transition: none;
   }

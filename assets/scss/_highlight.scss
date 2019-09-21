@@ -8,12 +8,12 @@
 .hljs-literal,
 .hljs-section,
 .hljs-link {
-  color:  $color__text;
+  color:  $color--text;
 }
 
 .hljs,
 .hljs-subst {
-  color: $color__text;
+  color: $color--text;
 }
 
 .hljs-string,
@@ -28,14 +28,14 @@
 .hljs-variable,
 .hljs-template-tag,
 .hljs-template-variable {
-  color: $color__primary;
+  color: $color--primary;
 }
 
 .hljs-comment,
 .hljs-quote,
 .hljs-deletion,
 .hljs-meta {
-  color: $color__text--muted;
+  color: $color--text-muted;
 }
 
 .hljs-keyword,

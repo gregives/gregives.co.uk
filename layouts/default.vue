@@ -1,6 +1,8 @@
 <template>
   <div id="__app">
     <script>
+      var theme = localStorage.getItem('theme')
+      document.documentElement.dataset.theme = theme
       document.documentElement.dataset.menu = 'closed'
     </script>
     <navbar />

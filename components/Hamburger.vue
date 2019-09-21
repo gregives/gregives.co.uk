@@ -60,13 +60,13 @@ $width: 2px;
   margin: 0 -0.5rem;
   outline: none;
 
-  @media (min-width: $breakpoint__lg) {
+  @media (min-width: $breakpoint--lg) {
     display: none;
   }
 }
 
 .hamburger__icon {
-  background-color: transparentize(black, 0.1);
+  background-color: $color--text;
   border-radius: $width / 2;
   height: $width;
   position: relative;
@@ -77,7 +77,7 @@ $width: 2px;
 
   &::before,
   &::after {
-    background-color: transparentize(black, 0.1);
+    background-color: $color--text;
     border-radius: $width / 2;
     content: '';
     height: 100%;
