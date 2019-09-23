@@ -4,7 +4,7 @@ $font--body: 'Fira Sans', Arial, Helvetica, sans-serif;
 $font--code: 'Fira Code', 'Consolas', 'Lucida Console', Monaco, monospace;
 
 // Primary color is loaded into nuxt.config.js
-$color--primary: #33c;
+$color--primary: #33f;
 
 :root {
   --color--primary: #{$color--primary};
@@ -19,7 +19,7 @@ $color--primary: #33c;
   --color--text-muter: #{transparentize(black, 0.98)};
 
   &[data-theme='dark'] {
-    $color--primary: #8585e0;
+    $color--primary: #99f;
     --color--primary: #{$color--primary};
     --color--primary-muted: #{transparentize($color--primary, 0.7)};
     --color--primary-hue: #{hue($color--primary)};
