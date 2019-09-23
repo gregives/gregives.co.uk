@@ -10,7 +10,7 @@ export default {
     $route(to, from) {
       this.changingRoute = true
       if (this.menuIsOpen()) {
-        setTimeout(() => this.closeMenu(), 450)
+        setTimeout(this.closeMenu, 300) // If link clicked to other route
       }
     }
   },
@@ -19,7 +19,7 @@ export default {
       const link = event.target.closest('a.nuxt-link-exact-active')
       if (link !== null) {
         if (!this.changingRoute) {
-          this.closeMenu()
+          this.closeMenu() // If link clicked to current route
         }
         this.changingRoute = false
       }
@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     menuIsOpen() {
-      return document.documentElement.dataset.menu !== 'closed'
+      return document.documentElement.dataset.menu === 'open'
     },
     openMenu() {
       document.documentElement.dataset.menu = 'open'

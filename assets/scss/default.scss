@@ -161,9 +161,19 @@ code {
 }
 
 .page-enter-active, .page-leave-active {
-  transition: opacity 450ms ease;
+  transition: opacity 300ms ease;
 }
 
 .page-enter, .page-leave-to {
   opacity: 0;
+}
+
+:root[data-menu='open'] {
+  .page-enter-active, .page-leave-active {
+    transition: none;
+  }
+  
+  .page-enter, .page-leave-to {
+    opacity: 1;
+  }
 }
