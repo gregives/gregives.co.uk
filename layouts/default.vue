@@ -5,7 +5,7 @@
       document.documentElement.dataset.theme = theme
       document
         .querySelector('meta[name=theme-color]')
-        .setAttribute('content', theme === 'light' ? '#33c' : '#222')
+        .setAttribute('content', theme === 'light' ? '#33c' : '#333')
       document.documentElement.dataset.menu = 'closed'
     </script>
     <navbar />
