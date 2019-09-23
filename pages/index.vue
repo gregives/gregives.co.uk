@@ -5,10 +5,12 @@
       <span class="home__title--primary">Greg Ives</span>
     </h1>
     <p class="home__description">
-      I’m a final-year Computer Science student at the University of Sheffield.
-      I’m looking for an opportunity in software development from
+      I’m a
+      <strong>final-year Computer Science student</strong>
+      at the University of Sheffield. I’m looking for an opportunity in software
+      development from
       <strong>June&nbsp;2020</strong> &mdash; check out my work or
-      contact&nbsp;me!&nbsp;👋
+      contact&nbsp;me!
     </p>
     <p class="home__projects">
       <nuxt-link to="/projects">See my projects</nuxt-link>
