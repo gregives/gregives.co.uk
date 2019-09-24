@@ -68,6 +68,7 @@ export default {
   }
 
   img {
+    border-radius: $border-radius;
     margin-bottom: 1rem;
     max-height: 2/3 * 100vh;
     object-fit: contain;

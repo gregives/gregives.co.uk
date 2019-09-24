@@ -93,7 +93,6 @@ export default {
 }
 
 .projects__introduction {
-  font-size: 120%;
   margin-bottom: 3rem;
   padding-left: 0;
 

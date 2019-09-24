@@ -91,6 +91,13 @@ h6 {
 a {
   color: inherit;
   text-decoration: none;
+
+  &[target='_blank']::after {
+    content: '\2B77';
+    display: inline-block;
+    font-size: 80%;
+    vertical-align: top;
+  }
 }
 
 p a {
