@@ -169,6 +169,8 @@ code {
 }
 
 :root[data-menu='open'] {
+  overflow-y: hidden;
+
   .page-enter-active, .page-leave-active {
     transition: none;
   }

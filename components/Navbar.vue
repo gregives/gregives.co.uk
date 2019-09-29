@@ -64,8 +64,9 @@ export default {
   left: 0;
   position: fixed;
   top: 0;
-  transform: translateX(100%);
-  transition: transform 300ms ease, visibility 0s 300ms;
+  transform: translateX(100%) skewX(10deg);
+  transform-origin: top left;
+  transition: transform 300ms ease-in, visibility 0s 300ms;
   visibility: hidden;
   width: 100%;
   z-index: -1;
@@ -167,7 +168,7 @@ export default {
 :root[data-menu='open'] .nav {
   visibility: visible;
   transform: none;
-  transition: transform 400ms ease, visibility 0s;
+  transition: transform 400ms ease-out, visibility 0s;
 
   @media (min-width: $breakpoint--lg) {
     transform: none;
