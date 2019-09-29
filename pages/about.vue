@@ -9,43 +9,26 @@
         src="about/hacksheffield.jpg"
         alt="Greg Ives at HackSheffield"
       />
-      <p>
-        Hi there, I'm Greg Ives! I'm in my final year at the University of
-        Sheffield, studying a masters in Computer Science. I love making things
-        which work well, look good and are accessible to everyone.
-      </p>
-      <p>
-        I have a lot of experience building performant and accessible websites.
-        Recently, I have been focusing on JAMstack &mdash; this website is
-        statically generated using Nuxt. I am an avid hackathoner, attending
-        hackathons across Europe and organising
-        <a href="https://hackSheffield.co" target="_blank">hackSheffield</a>
-        for the past three years. I am a strong believer that you can learn
-        just as much in your spare time as in education &mdash; most of my
-        knowledge has come from hackathons and my side projects.
-      </p>
-      <p>
-        This summer I worked as an intern at
-        <a href="https://financialforce.com" target="_blank">FinancialForce</a>,
-        building an app for the Salesforce platform with
-        <a href="https://lwc.dev" target="_blank">Lightning Web Components</a>.
-        I volunteer as an instructor at
-        <a href="https://codefirstgirls.org.uk" target="_blank">
-          Code First: Girls
-        </a>,
-        teaching young women and non-binary people to build their first website.
-        I am also a teaching assistant at the University of Sheffield, teaching
-        various modules to first year students.
-      </p>
-      <p>
-        I'm looking for an opportunity in software development after I graduate
-        in June 2020.
-        <nuxt-link to="/contact">Get in touch with me</nuxt-link>
-        for a copy of my CV and to have a chat!
-      </p>
+      <markdown :vue="vue" />
     </div>
   </main>
 </template>
+
+<script>
+import Markdown from '~/components/Markdown'
+
+export default {
+  components: {
+    Markdown
+  },
+  async asyncData() {
+    const { vue } = await import('~/contents/about.md')
+    return {
+      vue
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 .about {
@@ -62,25 +45,20 @@
   -webkit-text-fill-color: currentColor;
 }
 
-.about__image {
-  img {
-    border-radius: $border-radius;
-  }
+.about__text {
+  display: grid;
 
   @media (min-width: $breakpoint--lg) {
-    float: left;
-    margin-right: 2rem;
-    width: calc(50% - 1rem) !important;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: calc(1rem + 5vmin);
   }
 }
 
-.about__text {
-  img {
-    margin-bottom: 1rem;
-  }
+.about__image {
+  margin-bottom: 1rem;
 
-  p {
-    margin-bottom: 1rem;
+  img {
+    border-radius: $border-radius;
   }
 }
 </style>
