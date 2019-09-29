@@ -91,14 +91,6 @@ h6 {
 a {
   color: inherit;
   text-decoration: none;
-
-  &[target='_blank']::after {
-    content: '\21F1';
-    display: inline-block;
-    font-size: 80%;
-    vertical-align: top;
-    transform: rotate(90deg);
-  }
 }
 
 p a {

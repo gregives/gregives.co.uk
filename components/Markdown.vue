@@ -32,7 +32,6 @@ export default {
 
     .header-anchor {
       color: $color--text-muted;
-      font-weight: 400;
       margin-left: 0.5rem;
       opacity: 0.2;
       transition: opacity 150ms ease;
@@ -67,9 +66,12 @@ export default {
     margin-bottom: 1rem;
   }
 
+  picture {
+    margin: 2rem 0;
+  }
+
   img {
     border-radius: $border-radius;
-    margin-bottom: 1rem;
     max-height: 2/3 * 100vh;
     object-fit: contain;
     object-position: top left;

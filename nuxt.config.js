@@ -122,7 +122,7 @@ export default {
       })
         .use(require('markdown-it-anchor'), {
           permalink: true,
-          permalinkSymbol: '§',
+          permalinkSymbol: '#',
           permalinkSpace: false
         })
         .use(require('markdown-it-task-lists'), {
