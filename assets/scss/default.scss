@@ -169,7 +169,11 @@ code {
 }
 
 :root[data-menu='open'] {
-  overflow-y: hidden;
+  overflow-y: scroll;
+  
+  body {
+    overflow-y: hidden;
+  }
 
   .page-enter-active, .page-leave-active {
     transition: none;
