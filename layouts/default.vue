@@ -15,8 +15,8 @@
         <filter id="underwater">
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.01"
-            numOctaves="3"
+            baseFrequency="0.02"
+            numOctaves="2"
             result="turbulence"
           ></feTurbulence>
           <feColorMatrix
@@ -29,7 +29,7 @@
               attributeName="values"
               from="0"
               to="360"
-              :dur="`${Math.random() + 3}s`"
+              :dur="`${Math.random() + 2}s`"
               repeatCount="indefinite"
             ></animate>
           </feColorMatrix>
@@ -63,13 +63,9 @@ export default {
 </script>
 
 <style lang="scss">
-#__layout > div {
+#__app {
   height: 100%;
   display: flex;
   flex-direction: column;
-
-  > main {
-    flex: 1;
-  }
 }
 </style>

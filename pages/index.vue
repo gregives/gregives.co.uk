@@ -35,13 +35,14 @@ export default {
 <style lang="scss">
 .home {
   @include container;
+  flex: 1;
   padding: 3rem 0;
 }
 
 .home__title {
   font-weight: 500;
   -webkit-text-stroke: 0.2vmin $color--primary;
-  -webkit-text-fill-color: $color--body;
+  -webkit-text-fill-color: transparent;
 
   &::after {
     display: none;
