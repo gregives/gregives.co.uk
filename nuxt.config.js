@@ -34,7 +34,6 @@ export default {
   // Progress-bar color and theme color
   loading: {
     color: primaryColor,
-    failedColor: 'crimson',
     duration: 3000,
     continuous: true
   },

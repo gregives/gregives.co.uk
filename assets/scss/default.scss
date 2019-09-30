@@ -151,12 +151,17 @@ code {
   outline-offset: 0.3rem;
 }
 
+.nuxt-progress {
+  background-color: $color--primary !important;
+}
+
 .page-enter-active, .page-leave-active {
-  transition: opacity 300ms ease;
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
 }
 
 .page-enter, .page-leave-to {
   opacity: 0;
+  transform: translateY(0.5rem);
 }
 
 :root[data-menu='open'] {
