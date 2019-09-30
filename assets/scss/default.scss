@@ -7,22 +7,13 @@
 
 body {
   background-color: $color--body;
-  height: 100%;
-  overflow-y: scroll;
-
-  > #__nuxt {
-    height: 100%;
-
-    > #__layout {
-      height: 100%;
-    }
-  }
 }
 
 :root {
   color: $color--text;
   font-family: $font--body;
   font-size: calc(70% + 1vmin);
+  overflow-y: scroll;
 
   // Bound font-size on larger screens
   @media (min-width: $breakpoint--xl) {

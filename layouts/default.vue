@@ -64,7 +64,7 @@ export default {
 
 <style lang="scss">
 #__app {
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
