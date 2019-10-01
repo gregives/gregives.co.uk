@@ -50,10 +50,9 @@ export default {
   devModules: ['@nuxtjs/eslint-module'],
   // Nuxt.js modules
   modules: [
+    '@bazzite/nuxt-optimized-images',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
-    '@bazzite/nuxt-optimized-images',
-    'nuxt-webfontloader',
     '@nuxtjs/sitemap'
   ],
   styleResources: {
@@ -68,16 +67,6 @@ export default {
         : 'img/[hash:7].[ext]',
     responsive: {
       sizes: [213, 256, 341, 455, 533, 640, 768, 1024, 1366, 1600, 1920]
-    }
-  },
-  // Options for nuxt-webfontloader
-  webfontloader: {
-    custom: {
-      families: [
-        'Tiempos Headline:n5,n9',
-        'Fira Sans:n4,i4,n5',
-        'Fira Code:n4,n5'
-      ]
     }
   },
   generate: {
