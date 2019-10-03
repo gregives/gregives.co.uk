@@ -1,9 +1,14 @@
 @import "reset";
 @import "fonts";
 @import "variables";
-@import "utilities";
 @import "highlight";
 @import "mixins";
+
+*,
+*::before,
+*::after {
+  transition: background-color 150ms ease-out;
+}
 
 body {
   background-color: $color--body;
