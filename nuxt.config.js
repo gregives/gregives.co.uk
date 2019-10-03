@@ -87,6 +87,12 @@ export default {
         vue.transformAssetUrls.source = ['data-srcset', 'srcset']
       }
 
+      // Resolve material design icons
+      config.resolve.alias.icons = path.resolve(
+        __dirname,
+        'node_modules/vue-material-design-icons'
+      )
+
       // Markdown formatter
       const hljs = require('highlight.js')
       const markdown = require('markdown-it')({
