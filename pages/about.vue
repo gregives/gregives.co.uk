@@ -32,17 +32,15 @@ export default {
 
 <style lang="scss">
 .about {
-  @include container;
-  padding: 3rem 0;
+  @include page;
+}
+
+.about__title {
+  @include title;
 }
 
 .about__title--primary {
-  filter: url('#underwater');
-  font-size: 110%;
-  font-weight: 900;
-  line-height: 1;
-  -webkit-text-stroke: 0 currentColor;
-  -webkit-text-fill-color: currentColor;
+  @include title--primary;
 }
 
 .about__text {

@@ -79,34 +79,15 @@ export default {
 
 <style lang="scss">
 .projects {
-  @include container;
-  padding: 3rem 0;
+  @include page;
+}
+
+.projects__title {
+  @include title;
 }
 
 .projects__title--primary {
-  filter: url('#underwater');
-  font-size: 110%;
-  font-weight: 900;
-  line-height: 1;
-  -webkit-text-stroke: 0 currentColor;
-  -webkit-text-fill-color: currentColor;
-}
-
-.projects__introduction {
-  margin-bottom: 3rem;
-  padding-left: 0;
-
-  @media (min-width: $breakpoint--lg) {
-    padding-left: 20%;
-
-    &::before {
-      content: '\21B3';
-      font-size: 3rem;
-      position: absolute;
-      right: calc(80% + 0.5em);
-      transform: rotate(90deg);
-    }
-  }
+  @include title--primary;
 }
 
 .projects__list {

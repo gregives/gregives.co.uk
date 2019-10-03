@@ -4,3 +4,25 @@
   position: relative;
   width: 90%;
 }
+
+@mixin page {
+  @include container;
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+}
+
+@mixin title {
+  font-weight: 500;
+  -webkit-text-stroke: 0.2vmin $color--primary;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin title--primary {
+  color: $color--primary;
+  filter: url('#underwater');
+  font-size: 110%;
+  font-weight: 900;
+  line-height: 1;
+  -webkit-text-stroke: 0 currentColor;
+  -webkit-text-fill-color: currentColor;
+}

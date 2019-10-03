@@ -53,10 +53,9 @@ export default {
 
 <style lang="scss">
 .project {
-  @include container;
+  @include page;
   display: grid;
   grid-template-columns: 100%;
-  padding: 3rem 0;
 
   @media (min-width: $breakpoint--lg) {
     grid-template-columns: 1fr 3fr;

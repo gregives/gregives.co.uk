@@ -33,29 +33,16 @@ export default {
 
 <style lang="scss">
 .home {
-  @include container;
-  flex: 1;
-  padding: 3rem 0;
+  @include page;
+  height: 100vh;
 }
 
 .home__title {
-  font-weight: 500;
-  -webkit-text-stroke: 0.2vmin $color--primary;
-  -webkit-text-fill-color: transparent;
-
-  &::after {
-    display: none;
-  }
+  @include title;
 }
 
 .home__title--primary {
-  color: $color--primary;
-  filter: url('#underwater');
-  font-size: 110%;
-  font-weight: 900;
-  line-height: 1;
-  -webkit-text-stroke: 0 currentColor;
-  -webkit-text-fill-color: currentColor;
+  @include title--primary;
 }
 
 .home__description {

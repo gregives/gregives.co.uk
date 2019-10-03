@@ -99,17 +99,15 @@ export default {
 
 <style lang="scss">
 .contact {
-  @include container;
-  padding: 3rem 0;
+  @include page;
+}
+
+.contact__title {
+  @include title;
 }
 
 .contact__title--primary {
-  filter: url('#underwater');
-  font-size: 110%;
-  font-weight: 900;
-  line-height: 1;
-  -webkit-text-stroke: 0 currentColor;
-  -webkit-text-fill-color: currentColor;
+  @include title--primary;
 }
 
 .contact__layout {
