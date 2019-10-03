@@ -1,17 +1,11 @@
 <template>
   <main class="home">
     <h1 class="home__title">
-      Hi, I’m
-      <span class="home__title--primary">Greg Ives</span>
+      Hi, I’m <span class="home__title--primary">Greg Ives</span>
     </h1>
-    <p class="home__description">
-      I’m a
-      <strong>final-year Computer Science student</strong>
-      at the University of Sheffield. I’m looking for an opportunity in software
-      development from
-      <strong>June&nbsp;2020</strong> &mdash; check out my work or
-      contact&nbsp;me!
-    </p>
+    <div class="home__description">
+      <markdown :vue="vue" />
+    </div>
     <p class="home__projects">
       <nuxt-link to="/projects">See my projects</nuxt-link>
     </p>
@@ -21,13 +15,18 @@
 
 <script>
 import Headshots from '~/components/Headshots'
+import Markdown from '~/components/Markdown'
 
 export default {
   components: {
-    Headshots
+    Headshots,
+    Markdown
   },
-  mounted() {
-    this.$tilt(document.querySelectorAll('[data-tilt]'))
+  async asyncData() {
+    const { vue } = await import('~/contents/index.md')
+    return {
+      vue
+    }
   }
 }
 </script>
@@ -60,7 +59,6 @@ export default {
 }
 
 .home__description {
-  font-size: 120%;
   margin-bottom: 3rem;
   width: 100%;
 

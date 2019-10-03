@@ -1,0 +1,1 @@
+I'm a **final-year Computer Science student** at the University of Sheffield. I'm looking for an opportunity in software development from **June 2020** --- check out my work or contact me!
