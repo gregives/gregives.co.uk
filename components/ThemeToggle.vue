@@ -34,7 +34,7 @@ export default {
       localStorage.setItem('theme', this.theme)
 
       const color = getComputedStyle(document.documentElement).getPropertyValue(
-        '--color--primary'
+        this.theme === 'light' ? '--color--primary' : '--color--body-overlay'
       )
       document
         .querySelector('meta[name=theme-color]')

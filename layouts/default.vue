@@ -60,7 +60,9 @@ export default {
           document.documentElement.dataset.theme = theme
           const color = getComputedStyle(
             document.documentElement
-          ).getPropertyValue('--color--primary')
+          ).getPropertyValue(
+            theme === 'light' ? '--color--primary' : '--color--body-overlay'
+          )
           document
             .querySelector('meta[name=theme-color]')
             .setAttribute('content', color)
