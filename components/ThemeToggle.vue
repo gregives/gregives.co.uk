@@ -5,12 +5,20 @@
     :title="theme === 'light' ? 'Dark theme' : 'Light theme'"
     @click="toggleTheme"
   >
-    {{ theme === 'light' ? '🌛' : '🌞' }}
+    <moon-icon v-if="theme === 'light'" title="Dark theme" />
+    <sun-icon v-else title="Light theme" />
   </button>
 </template>
 
 <script>
+import SunIcon from 'icons/WhiteBalanceSunny'
+import MoonIcon from 'icons/WeatherNight'
+
 export default {
+  components: {
+    SunIcon,
+    MoonIcon
+  },
   data() {
     return {
       theme: 'light'
@@ -41,31 +49,32 @@ export default {
   border: none;
   color: $color--text;
   cursor: pointer;
-  filter: saturate(0);
   float: right;
-  font-size: 110%;
   height: 2rem;
-  line-height: 2rem;
   margin-right: 2rem;
   outline: none;
-  padding: 0 0.5rem;
+  padding: 0.25rem 0.5rem;
   text-align: center;
-  transition: filter 150ms ease-out, opacity 150ms ease-out;
-  width: 2rem;
+  transition: color 150ms ease-out;
+
+  svg {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
 
   &:hover {
-    filter: saturate(0.4);
+    color: $color--primary;
   }
 
   @media (min-width: $breakpoint--lg) {
-    font-size: 100%;
     margin-right: -0.5rem;
-    text-align: right;
-    width: 3rem;
-  }
-}
+    margin-left: 3vmin;
+    padding: 0.375rem 0.5rem;
 
-:root[data-theme='dark'] .theme-toggle:hover {
-  filter: saturate(1);
+    svg {
+      height: 1.25rem;
+      width: 1.25rem;
+    }
+  }
 }
 </style>
