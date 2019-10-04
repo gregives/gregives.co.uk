@@ -153,6 +153,13 @@ code {
   outline-offset: 0.1rem;
 }
 
+:target::before {
+  content: '';
+  display: block;
+  height: 5rem;
+  margin-top: -5rem;
+}
+
 .nuxt-progress {
   background-color: $color--primary !important;
 }
