@@ -44,7 +44,15 @@ export default {
   box-shadow: $box-shadow;
   clear: both;
   padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 1;
+
+  @supports (backdrop-filter: blur(5px)) {
+    backdrop-filter: blur(5px);
+    background-color: $color--body-blur;
+  }
 }
 
 .header__content {
@@ -56,6 +64,11 @@ export default {
   font-family: $font--fancy;
   font-size: 130%;
   font-weight: 500;
+  transition: color 150ms ease-out;
+
+  &:hover {
+    color: $color--primary;
+  }
 }
 
 .nav {
