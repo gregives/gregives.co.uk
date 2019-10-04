@@ -1,15 +1,6 @@
 <template>
   <div id="__app">
-    <script>
-      const theme = localStorage.getItem('theme') || 'light'
-      document.documentElement.dataset.theme = theme
-      document
-        .querySelector('meta[name=theme-color]')
-        .setAttribute('content', theme === 'light' ? '#33f' : '#333')
-      document.documentElement.dataset.menu = 'closed'
-      const vh = window.innerHeight * 0.01
-      document.documentElement.style.setProperty('--vh', `${vh}px`)
-    </script>
+    <script v-html="script"></script>
     <navbar />
     <nuxt />
     <svg id="__filters" height="0" width="0">
@@ -60,6 +51,26 @@ import Navbar from '~/components/Navbar'
 export default {
   components: {
     Navbar
+  },
+  data() {
+    return {
+      script: (() => {
+        const content = function() {
+          const theme = localStorage.getItem('theme') || 'light'
+          document.documentElement.dataset.theme = theme
+          const color = getComputedStyle(
+            document.documentElement
+          ).getPropertyValue('--color--primary')
+          document
+            .querySelector('meta[name=theme-color]')
+            .setAttribute('content', color)
+          document.documentElement.dataset.menu = 'closed'
+          const vh = window.innerHeight * 0.01
+          document.documentElement.style.setProperty('--vh', `${vh}px`)
+        }
+        return `(${content.toString()})()`
+      })()
+    }
   }
 }
 </script>

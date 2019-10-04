@@ -25,8 +25,7 @@ export default {
     }
   },
   mounted() {
-    this.theme = document.documentElement.dataset.theme || 'light'
-    localStorage.setItem('theme', this.theme)
+    this.theme = localStorage.getItem('theme') || 'light'
   },
   methods: {
     toggleTheme() {
@@ -34,10 +33,12 @@ export default {
       document.documentElement.dataset.theme = this.theme
       localStorage.setItem('theme', this.theme)
 
-      // Change meta theme color
+      const color = getComputedStyle(document.documentElement).getPropertyValue(
+        '--color--primary'
+      )
       document
         .querySelector('meta[name=theme-color]')
-        .setAttribute('content', this.theme === 'light' ? '#33f' : '#333')
+        .setAttribute('content', color)
     }
   }
 }
