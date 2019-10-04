@@ -10,12 +10,12 @@
     </script>
     <navbar />
     <nuxt />
-    <svg height="0" width="0">
+    <svg id="__filters" height="0" width="0">
       <defs>
         <filter id="underwater">
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.02"
+            baseFrequency="0.01"
             numOctaves="2"
             result="turbulence"
           ></feTurbulence>
@@ -63,9 +63,7 @@ export default {
 </script>
 
 <style lang="scss">
-#__app {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+#__filters {
+  position: absolute;
 }
 </style>

@@ -80,7 +80,7 @@ export default {
 
   ul,
   ol {
-    margin-left: 1rem;
+    margin-left: 2rem;
     margin-bottom: 1rem;
 
     ul,
