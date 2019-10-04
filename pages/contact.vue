@@ -6,6 +6,36 @@
     <div class="contact__layout">
       <div class="contact__text">
         <markdown :vue="vue" />
+        <div class="contact__social">
+          <a
+            class="contact__social-icon contact__social-icon--email"
+            href="mailto:greg@gregives.co.uk"
+          >
+            <email-icon title="Email" />
+            Email me for a chat
+          </a>
+          <a
+            class="contact__social-icon contact__social-icon--twitter"
+            href="https://twitter.com/_gregives"
+          >
+            <twitter-icon title="Twitter" />
+            I occasionally retweet stuff
+          </a>
+          <a
+            class="contact__social-icon contact__social-icon--github"
+            href="https://github.com/gregives"
+          >
+            <github-icon title="GitHub" />
+            Check out my projects
+          </a>
+          <a
+            class="contact__social-icon contact__social-icon--devpost"
+            href="https://devpost.com/gregives"
+          >
+            <devpost-icon title="Devpost" />
+            Some of my hackathon submissions
+          </a>
+        </div>
       </div>
       <div class="contact__form">
         <form
@@ -24,11 +54,11 @@
           />
           <label class="form__input">
             <input type="text" name="name" required />
-            <span>What should I call you?</span>
+            <span>Name</span>
           </label>
           <label class="form__input">
             <input type="email" name="email" required />
-            <span>Your email address</span>
+            <span>Email address</span>
           </label>
           <label class="form__input">
             <input type="text" name="_subject" required />
@@ -36,7 +66,7 @@
           </label>
           <label class="form__input">
             <textarea name="message" required @input="autoHeight"></textarea>
-            <span>Write your message here</span>
+            <span>Your message</span>
           </label>
           <button class="form__submit" type="submit" :disabled="message === 1">
             Send message
@@ -52,11 +82,19 @@
 
 <script>
 import axios from 'axios'
+import EmailIcon from 'icons/At'
+import TwitterIcon from 'icons/Twitter'
+import GithubIcon from 'icons/GithubCircle'
+import DevpostIcon from 'icons/HexagonOutline'
 import Markdown from '~/components/Markdown'
 
 export default {
   components: {
-    Markdown
+    Markdown,
+    EmailIcon,
+    TwitterIcon,
+    GithubIcon,
+    DevpostIcon
   },
   data() {
     return {
@@ -117,6 +155,36 @@ export default {
   @media (min-width: $breakpoint--lg) {
     grid-template-columns: 1fr 1fr;
     grid-gap: calc(1rem + 5vmin);
+  }
+}
+
+.contact__social {
+  margin-top: 2rem;
+}
+
+.contact__social-icon {
+  display: block;
+  transition: color 150ms ease-out;
+
+  &:hover {
+    color: $color--primary;
+  }
+
+  span {
+    display: inline-block;
+    margin-right: 1rem;
+    vertical-align: middle;
+  }
+
+  svg {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  &--devpost {
+    svg {
+      transform: rotate(90deg);
+    }
   }
 }
 
@@ -197,7 +265,7 @@ export default {
     top: 0;
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 150ms ease-out;
+    transition: transform 150ms ease-out, opacity 150ms ease;
     width: 100%;
     z-index: -1;
   }
