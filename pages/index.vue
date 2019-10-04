@@ -34,7 +34,8 @@ export default {
 <style lang="scss">
 .home {
   @include page;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
 }
 
 .home__title {

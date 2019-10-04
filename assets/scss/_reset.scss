@@ -20,6 +20,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body {
   line-height: 1.5;
   min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
 }

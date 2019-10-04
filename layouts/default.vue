@@ -7,6 +7,8 @@
         .querySelector('meta[name=theme-color]')
         .setAttribute('content', theme === 'light' ? '#33f' : '#333')
       document.documentElement.dataset.menu = 'closed'
+      const vh = window.innerHeight * 0.01
+      document.documentElement.style.setProperty('--vh', `${vh}px`)
     </script>
     <navbar />
     <nuxt />
