@@ -1,18 +1,34 @@
 <template>
   <main class="project">
-    <div class="project__date">
-      <div>{{ project.attributes.date }}</div>
+    <div>
+      <div class="project__back project__back--mobile">
+        <nuxt-link to="/projects">
+          Back to projects&nbsp;&nbsp;&#x2190;
+        </nuxt-link>
+      </div>
     </div>
     <h2 class="project__title">{{ project.attributes.title }}</h2>
-    <ul class="project__tag-list">
-      <li
-        v-for="tag in project.attributes.tags"
-        :key="tag"
-        class="project__tag-list-item"
-      >
-        {{ tag }}
-      </li>
-    </ul>
+    <div class="project__details">
+      <div class="project__sticky">
+        <div class="project__back">
+          <nuxt-link to="/projects">
+            Back to projects&nbsp;&nbsp;&#x2190;
+          </nuxt-link>
+        </div>
+        <div class="project__date">
+          <div>{{ project.attributes.date }}</div>
+        </div>
+        <ul class="project__tag-list">
+          <li
+            v-for="tag in project.attributes.tags"
+            :key="tag"
+            class="project__tag-list-item"
+          >
+            {{ tag }}
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="project__text">
       <markdown :vue="project.vue" />
     </div>
@@ -62,37 +78,56 @@ export default {
   }
 }
 
-.project__date {
-  color: $color--text-muted;
-  font-family: $font--fancy;
-  margin-top: -1.25rem;
-  margin-bottom: 1.75rem;
-  order: 2;
-  position: relative;
+.project__details {
+  margin-bottom: 1rem;
+  margin-top: -1rem;
 
   @media (min-width: $breakpoint--lg) {
-    margin-top: 0;
-    order: 1;
+    margin-top: -3.75rem;
+  }
+}
 
-    > div {
-      bottom: calc(0.25rem + 0.5vw);
-      position: absolute;
+.project__sticky {
+  @media (min-width: $breakpoint--lg) {
+    position: sticky;
+    top: 6rem;
+  }
+}
+
+.project__back {
+  color: $color--text-muted;
+  display: none;
+  margin-bottom: 1rem;
+  transition: color 150ms ease-out;
+
+  &:hover {
+    color: $color--primary;
+  }
+
+  &--mobile {
+    display: block;
+  }
+
+  @media (min-width: $breakpoint--lg) {
+    display: block;
+    margin-bottom: 2rem;
+
+    &--mobile {
+      display: none;
     }
   }
 }
 
-.project__title {
-  order: 1;
-
-  @media (min-width: $breakpoint--lg) {
-    order: 2;
-  }
+.project__date {
+  font-family: $font--fancy;
+  font-size: 120%;
+  margin-bottom: 1rem;
 }
 
 .project__tag-list {
   color: $color--text-muted;
   display: none;
-  order: 3;
+  margin-left: 1rem;
 
   &-item::before {
     content: '\2014';
@@ -101,9 +136,5 @@ export default {
   @media (min-width: $breakpoint--lg) {
     display: block;
   }
-}
-
-.project__text {
-  order: 4;
 }
 </style>
