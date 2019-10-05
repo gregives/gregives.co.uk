@@ -51,11 +51,11 @@ export default {
   width: 100%;
 
   @media (min-width: $breakpoint--md) {
-    width: 75%;
+    width: 70%;
   }
 
   @media (min-width: $breakpoint--md) {
-    width: 70%;
+    width: 60%;
   }
 }
 

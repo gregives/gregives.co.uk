@@ -1,3 +1,1 @@
-**Final-year Computer Science student** at the University of Sheffield. Interned at [FinancialForce](https://financialforce.com). Lead instructor at [Code First: Girls](https://codefirstgirls.org.uk) and teaching assistant at the Uninversity of Sheffield. Attendee and organiser of hackathons.
-
-I'm looking for an opportunity in software development from **June 2020** --- check out my work or contact me!
+I'm a **final-year Computer Science student** at the University of Sheffield. This summer I interned at [FinancialForce](https://financialforce.com). I'm a lead instructor at [Code First: Girls](https://codefirstgirls.org.uk) and a teaching assistant at the University of Sheffield. *I'm looking for an opportunity in software development from June 2020 --- check out my work or contact me!*
