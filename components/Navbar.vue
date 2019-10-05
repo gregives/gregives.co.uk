@@ -101,7 +101,6 @@ export default {
 }
 
 .nav__list {
-  counter-reset: navbar-links;
   display: inline-block;
   left: 50%;
   position: absolute;
@@ -118,7 +117,6 @@ export default {
 }
 
 .nav__list-item {
-  counter-increment: navbar-links;
   position: relative;
   font-size: 150%;
 
@@ -139,31 +137,12 @@ export default {
 
 .nav__link {
   transition: color 150ms ease-out;
-  position: relative;
   margin: -0.5rem -1rem;
   padding: 0.5rem 1rem;
-
-  &::before {
-    bottom: 0.5rem;
-    background-color: $color--primary-muted;
-    content: '';
-    height: 0.4em;
-    left: 1rem;
-    position: absolute;
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform 150ms ease-out;
-    width: calc(100% - 2rem);
-    z-index: -1;
-  }
 
   &:hover,
   &.nuxt-link-exact-active {
     color: $color--primary;
-
-    &::before {
-      transform: scaleY(1);
-    }
   }
 }
 

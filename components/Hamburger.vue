@@ -98,7 +98,7 @@ $width: 2px;
 }
 
 :root[data-menu='open'] .hamburger__icon {
-  transform: rotate(45deg);
+  transform: rotate(135deg);
   transition: transform $speed $speed ease-out;
 
   &::before {
