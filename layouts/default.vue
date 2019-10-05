@@ -67,8 +67,12 @@ export default {
             .querySelector('meta[name=theme-color]')
             .setAttribute('content', color)
           document.documentElement.dataset.menu = 'closed'
-          const vh = window.innerHeight * 0.01
-          document.documentElement.style.setProperty('--vh', `${vh}px`)
+          const updateVH = () => {
+            const vh = window.innerHeight * 0.01
+            document.documentElement.style.setProperty('--vh', `${vh}px`)
+          }
+          window.addEventListener('resize', updateVH)
+          updateVH()
         }
         return `(${content.toString()})()`
       })()
