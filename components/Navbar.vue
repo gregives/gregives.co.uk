@@ -72,20 +72,22 @@ export default {
 }
 
 .nav {
-  background-color: $color--body-overlay;
+  background-color: $color--body;
+  box-shadow: $box-shadow;
   height: 100vh;
-  left: 0;
+  right: 0;
   position: fixed;
   top: 0;
-  transform: translateX(100%) skewX(10deg);
+  transform: translateX(100%) skewX(20deg);
   transform-origin: top left;
   transition: transform 300ms ease-in, visibility 0s 300ms;
   visibility: hidden;
-  width: 100%;
+  width: calc(90% - 5rem);
   z-index: -1;
 
   @media (min-width: $breakpoint--lg) {
     background-color: transparent;
+    box-shadow: none;
     float: right;
     height: auto;
     line-height: 2rem;
@@ -124,14 +126,6 @@ export default {
     margin-top: 5vmin;
   }
 
-  &::before {
-    color: $color--text-muted;
-    content: '0' counter(navbar-links);
-    font-size: 60%;
-    margin-right: 3vmin;
-    vertical-align: text-top;
-  }
-
   @media (min-width: $breakpoint--lg) {
     display: inline-block;
     font-size: 100%;
@@ -139,11 +133,6 @@ export default {
     ~ .nav__list-item {
       margin-left: 5vmin;
       margin-top: auto;
-    }
-
-    &::before {
-      margin-right: 1vmin;
-      vertical-align: top;
     }
   }
 }

@@ -173,18 +173,24 @@ code {
   transform: translateY(0.5rem);
 }
 
-:root[data-menu='open'] {
-  overflow-y: scroll;
-  
+main {
+  transition: filter 300ms ease-out;
+}
+
+:root[data-menu='open'] {  
   body {
     overflow-y: hidden;
+
+    @media (min-width: $breakpoint--lg) {
+      overflow-y: auto;
+    }
   }
 
-  .page-enter-active, .page-leave-active {
-    transition: none;
-  }
-  
-  .page-enter, .page-leave-to {
-    opacity: 1;
+  main {
+    filter: blur(5px);
+
+    @media (min-width: $breakpoint--lg) {
+      filter: none;
+    }
   }
 }
