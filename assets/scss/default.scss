@@ -174,11 +174,10 @@ code {
 }
 
 main {
-  transition: opacity 300ms ease-out, filter 300ms ease-out;
-  will-change: filter;
+  transition: opacity 300ms ease-out;
 }
 
-:root[data-menu='open'] {  
+:root[data-menu='open'] {
   body {
     overflow-y: hidden;
 
@@ -188,11 +187,10 @@ main {
   }
 
   main {
-    filter: blur(5px);
     opacity: 0.2;
+    pointer-events: none;
 
     @media (min-width: $breakpoint--lg) {
-      filter: none;
       opacity: 1;
     }
   }

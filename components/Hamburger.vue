@@ -18,10 +18,15 @@ export default {
     window.addEventListener('click', (event) => {
       const link = event.target.closest('a.nuxt-link-exact-active')
       if (link !== null) {
-        if (!this.changingRoute) {
+        if (!this.changingRoute && this.menuIsOpen()) {
           this.closeMenu() // If link clicked to current route
         }
         this.changingRoute = false
+      }
+
+      const header = event.target.closest('header')
+      if (header === null && this.menuIsOpen()) {
+        this.closeMenu() // If clicking outside the header
       }
     })
   },
@@ -98,7 +103,7 @@ $width: 2px;
 }
 
 :root[data-menu='open'] .hamburger__icon {
-  transform: rotate(135deg);
+  transform: rotate(45deg);
   transition: transform $speed $speed ease-out;
 
   &::before {
