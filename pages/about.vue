@@ -54,9 +54,23 @@ export default {
 
 .about__image {
   margin-bottom: 1rem;
+  position: relative;
+  width: calc(100% - 1.5rem) !important;
 
   img {
     border-radius: $border-radius;
+  }
+
+  &::before {
+    background-color: $color--body-overlay;
+    border-radius: $border-radius;
+    content: '';
+    left: 1.5rem;
+    padding-bottom: 2 / 3 * 100%;
+    position: absolute;
+    top: 1.5rem;
+    width: 100%;
+    z-index: -1;
   }
 }
 </style>
