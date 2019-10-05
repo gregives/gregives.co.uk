@@ -169,12 +169,12 @@ code {
 }
 
 .page-enter, .page-leave-to {
-  opacity: 0;
+  opacity: 0 !important;
   transform: translateY(0.5rem);
 }
 
 main {
-  transition: filter 300ms ease-out;
+  transition: opacity 300ms ease-out, filter 300ms ease-out;
   will-change: filter;
 }
 
@@ -189,9 +189,11 @@ main {
 
   main {
     filter: blur(5px);
+    opacity: 0.2;
 
     @media (min-width: $breakpoint--lg) {
       filter: none;
+      opacity: 1;
     }
   }
 }
