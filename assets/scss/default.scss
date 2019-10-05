@@ -175,6 +175,7 @@ code {
 
 main {
   transition: filter 300ms ease-out;
+  will-change: filter;
 }
 
 :root[data-menu='open'] {  
