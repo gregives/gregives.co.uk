@@ -20,6 +20,9 @@ $color--primary: #35f;
   --color--text-muted: #{transparentize(black, 0.4)};
   --color--text-muter: #{transparentize(black, 0.98)};
 
+  --box-shadow: 0 0 2rem -1rem #{transparentize(black, 0.8)};
+  --box-shadow--small: 0 0 0.5rem -0.25rem #{transparentize(black, 0.8)};
+
   &[data-theme='dark'] {
     $color--primary: #9af;
     --color--primary: #{$color--primary};
@@ -34,6 +37,9 @@ $color--primary: #35f;
     --color--text: #{transparentize(white, 0.13)};
     --color--text-muted: #{transparentize(white, 0.4)};
     --color--text-muter: #{transparentize(white, 0.95)};
+
+    --box-shadow: 0 0 2rem -1rem #{transparentize(black, 0.6)};
+    --box-shadow--small: 0 0 0.5rem -0.25rem #{transparentize(black, 0.6)};
   }
 }
 
@@ -47,11 +53,11 @@ $color--text: var(--color--text);
 $color--text-muted: var(--color--text-muted);
 $color--text-muter: var(--color--text-muter);
 
+$box-shadow: var(--box-shadow);
+$box-shadow--small: var(--box-shadow--small);
+
 // Let's round things off a bit
 $border-radius: 0.2rem;
-
-$box-shadow: 0 0 2rem -1rem transparentize(black, 0.8);
-$box-shadow--small: 0 0 0.5rem -0.25rem transparentize(black, 0.8);
 
 // Breakpoints
 $breakpoint--sm: 576px;
