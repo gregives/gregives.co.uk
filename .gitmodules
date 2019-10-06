@@ -1,0 +1,3 @@
+[submodule "pages/resume"]
+	path = pages/resume
+	url = https://github.com/gregives/resume
