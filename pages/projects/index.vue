@@ -120,6 +120,7 @@ export default {
 }
 
 .projects__list-image {
+  box-shadow: $box-shadow;
   border-radius: $border-radius;
   margin-right: 1.5rem;
   overflow: hidden;

@@ -66,7 +66,7 @@
           </label>
           <label class="form__input">
             <textarea name="message" required @input="autoHeight"></textarea>
-            <span>Your message</span>
+            <span>Say hello</span>
           </label>
           <button class="form__submit" type="submit" :disabled="message === 1">
             Send message

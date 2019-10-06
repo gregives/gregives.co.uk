@@ -43,3 +43,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.lazy-image {
+  filter: drop-shadow(0 0 0.5rem transparentize(black, 0.9));
+}
+</style>

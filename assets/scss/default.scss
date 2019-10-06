@@ -144,8 +144,7 @@ code {
 }
 
 ::selection {
-  background-color: $color--primary;
-  color: white;
+  background-color: $color--primary-muted;
 }
 
 :root.tabbing :focus {
@@ -187,7 +186,7 @@ main {
   }
 
   main {
-    opacity: 0.2;
+    opacity: 0.1;
     pointer-events: none;
 
     @media (min-width: $breakpoint--lg) {

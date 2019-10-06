@@ -1,5 +1,6 @@
 <template>
   <main class="home">
+    <headshots />
     <h1 class="home__title">
       Hi, I’m <span class="home__title--primary">Greg Ives</span>
     </h1>
@@ -9,7 +10,6 @@
     <p class="home__projects">
       <nuxt-link to="/projects">See my projects</nuxt-link>
     </p>
-    <headshots />
   </main>
 </template>
 

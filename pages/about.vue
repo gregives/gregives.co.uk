@@ -53,7 +53,7 @@ export default {
 }
 
 .about__image {
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
   position: relative;
   width: calc(100% - 1.5rem) !important;
 
@@ -64,6 +64,7 @@ export default {
   &::before {
     background-color: $color--body-overlay;
     border-radius: $border-radius;
+    box-shadow: $box-shadow;
     content: '';
     left: 1.5rem;
     padding-bottom: 2 / 3 * 100%;
