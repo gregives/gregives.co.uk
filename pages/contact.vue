@@ -166,14 +166,16 @@ export default {
   display: block;
   transition: color 150ms ease-out;
 
+  ~ .contact__social-icon {
+    margin-top: 0.5rem;
+  }
+
   &:hover {
     color: $color--primary;
   }
 
   span {
-    display: inline-block;
     margin-right: 1rem;
-    vertical-align: middle;
   }
 
   svg {
@@ -206,8 +208,6 @@ export default {
     border: 2px solid $color--primary-muted;
     color: $color--text;
     display: block;
-    font-family: $font--body;
-    font-size: 100%;
     padding: 1rem;
     padding-bottom: 0.75rem;
     resize: none;

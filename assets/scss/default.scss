@@ -24,6 +24,14 @@ body {
   @media (min-width: $breakpoint--xl) {
     font-size: calc(70% + 1vh);
   }
+
+  @media print {
+    font-size: calc(50% + 1vmin);
+  }
+
+  @media print and (min-width: $breakpoint--xl) {
+    font-size: calc(50% + 1vh);
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -171,6 +179,10 @@ code {
 .page-enter, .page-leave-to {
   opacity: 0 !important;
   transform: translateY(0.5rem);
+}
+
+.material-design-icon svg {
+  vertical-align: middle;
 }
 
 main {
