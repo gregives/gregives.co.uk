@@ -9,6 +9,12 @@
   @include container;
   padding-top: 6rem;
   padding-bottom: 3rem;
+
+  @media print {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
 }
 
 @mixin title {

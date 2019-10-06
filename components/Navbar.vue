@@ -53,6 +53,10 @@ export default {
     backdrop-filter: blur(5px);
     background-color: $color--body-blur;
   }
+
+  @media print {
+    display: none;
+  }
 }
 
 .header__content {

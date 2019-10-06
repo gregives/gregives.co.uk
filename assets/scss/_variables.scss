@@ -23,23 +23,30 @@ $color--primary: #35f;
   --box-shadow: 0 0 2rem -1rem #{transparentize(black, 0.8)};
   --box-shadow--small: 0 0 0.5rem -0.25rem #{transparentize(black, 0.8)};
 
-  &[data-theme='dark'] {
-    $color--primary: #9af;
-    --color--primary: #{$color--primary};
-    --color--primary-muted: #{transparentize($color--primary, 0.7)};
-    --color--primary-hue: #{hue($color--primary)};
+  @media screen {
+    &[data-theme='dark'] {
+      $color--primary: #9af;
+      --color--primary: #{$color--primary};
+      --color--primary-muted: #{transparentize($color--primary, 0.7)};
+      --color--primary-hue: #{hue($color--primary)};
+  
+      $color--body: hsl(hue($color--primary), 30%, 14%);
+      --color--body: #{$color--body};
+      $color--body-overlay: lighten($color--body, 4%);
+      --color--body-overlay: #{$color--body-overlay};
+      --color--body-blur: #{transparentize($color--body-overlay, 0.1)};
+      --color--text: #{transparentize(white, 0.13)};
+      --color--text-muted: #{transparentize(white, 0.4)};
+      --color--text-muter: #{transparentize(white, 0.95)};
+  
+      --box-shadow: 0 0 2rem -1rem #{transparentize(black, 0.6)};
+      --box-shadow--small: 0 0 0.5rem -0.25rem #{transparentize(black, 0.6)};
+    }
+  }
 
-    $color--body: hsl(hue($color--primary), 30%, 14%);
+  @media print {
+    $color--body: white;
     --color--body: #{$color--body};
-    $color--body-overlay: lighten($color--body, 4%);
-    --color--body-overlay: #{$color--body-overlay};
-    --color--body-blur: #{transparentize($color--body-overlay, 0.1)};
-    --color--text: #{transparentize(white, 0.13)};
-    --color--text-muted: #{transparentize(white, 0.4)};
-    --color--text-muter: #{transparentize(white, 0.95)};
-
-    --box-shadow: 0 0 2rem -1rem #{transparentize(black, 0.6)};
-    --box-shadow--small: 0 0 0.5rem -0.25rem #{transparentize(black, 0.6)};
   }
 }
 
