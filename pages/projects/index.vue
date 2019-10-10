@@ -11,7 +11,7 @@
       >
         <nuxt-link :to="project.link" class="projects__list-link">
           <div class="projects__list-image">
-            <lazy-image src="placeholder.png" :alt="project.title" />
+            <lazy-image :src="project.image" :alt="project.title" />
           </div>
           <div class="projects__list-content">
             <h4 class="projects__list-title">
@@ -143,6 +143,7 @@ export default {
 
   img {
     bottom: 0;
+    filter: none !important;
     height: 100%;
     left: 0;
     object-fit: cover;

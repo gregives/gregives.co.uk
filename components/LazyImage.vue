@@ -16,7 +16,7 @@ export default {
   props: {
     src: {
       type: String,
-      required: true
+      default: ''
     },
     alt: {
       type: String,
@@ -29,15 +29,19 @@ export default {
   },
   computed: {
     webp() {
+      if (!this.src) return false
       return require(`~/assets/images/lazy/${this.src}?webp`)
     },
     responsive() {
+      if (!this.src) return false
       return require(`~/assets/images/lazy/${this.src}?resize`).srcSet
     },
     sqip() {
+      if (!this.src) return false
       return require(`~/assets/images/lazy/${this.src}?sqip`)
     },
     original() {
+      if (!this.src) return false
       return require(`~/assets/images/lazy/${this.src}`)
     }
   }
@@ -47,5 +51,25 @@ export default {
 <style lang="scss">
 .lazy-image {
   filter: drop-shadow(0 0 0.5rem transparentize(black, 0.9));
+
+  &:not([src]) {
+    &::before,
+    &::after {
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    &::before {
+      background-color: $color--body;
+    }
+
+    &::after {
+      background-color: $color--primary-muted;
+    }
+  }
 }
 </style>
