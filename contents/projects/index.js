@@ -1,5 +1,4 @@
 export default [
-  'android-apps',
   'auto-clicker',
   'cisco-university-challenge',
   'code-happy',
@@ -8,6 +7,7 @@ export default [
   'festimap',
   'hacksheffield',
   'hype',
+  'icon-packs',
   'picnic-spots',
   'portfolio',
   'snapscroll',
