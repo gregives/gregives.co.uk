@@ -26,11 +26,11 @@ body {
   }
 
   @media print {
-    font-size: calc(50% + 1vmin);
+    font-size: calc(40% + 1vmin);
   }
 
   @media print and (min-width: $breakpoint--xl) {
-    font-size: calc(50% + 1vh);
+    font-size: calc(40% + 1vh);
   }
 }
 
