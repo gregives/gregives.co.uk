@@ -51,16 +51,12 @@ export default {
   color: $color--text;
   cursor: pointer;
   float: right;
-  height: 2rem;
   margin-right: 2rem;
   outline: none;
-  padding: 0.25rem 0.5rem;
-  text-align: center;
   transition: color 150ms ease-out;
 
   svg {
-    height: 1.5rem;
-    width: 1.5rem;
+    margin-top: -0.25rem;
   }
 
   &:hover {
@@ -70,12 +66,6 @@ export default {
   @media (min-width: $breakpoint--lg) {
     margin-right: -0.5rem;
     margin-left: 3vmin;
-    padding: 0.375rem 0.5rem;
-
-    svg {
-      height: 1.25rem;
-      width: 1.25rem;
-    }
   }
 }
 </style>

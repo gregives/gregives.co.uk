@@ -43,6 +43,7 @@ export default {
   background-color: $color--body-overlay;
   box-shadow: $box-shadow;
   clear: both;
+  line-height: 2rem;
   padding: 1rem 0;
   position: fixed;
   top: 0;
@@ -94,7 +95,6 @@ export default {
     box-shadow: none;
     float: right;
     height: auto;
-    line-height: 2rem;
     position: relative;
     transform: none;
     transition: none;
