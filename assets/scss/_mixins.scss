@@ -48,15 +48,18 @@
 
   &::before {
     content: '';
+    border: 2px solid transparent;
     border-radius: $border-radius;
     box-shadow: $box-shadow--primary;
+    box-sizing: content-box;
     height: 100%;
-    left: 0;
-    opacity: 0.6;
+    left: -2px; // Account for border
+    opacity: 0.5;
     position: absolute;
-    top: 0;
+    top: -2px;
     transition: box-shadow 150ms ease;
     width: 100%;
+    z-index: -1;
   }
 
   &:hover {
