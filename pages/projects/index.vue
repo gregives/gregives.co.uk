@@ -85,6 +85,10 @@ export default {
   display: block;
 
   &:hover {
+    .projects__list-content {
+      box-shadow: $box-shadow--small;
+    }
+
     .projects__list-title {
       color: $color--primary;
     }
@@ -97,7 +101,7 @@ export default {
       }
 
       img {
-        transform: scale(1.05);
+        transform: scale(1.02);
       }
     }
   }
@@ -162,5 +166,6 @@ export default {
   margin-left: 1.5rem;
   padding: 1.5rem;
   position: relative;
+  transition: background-color 150ms ease-out, box-shadow 150ms ease-out;
 }
 </style>
