@@ -2,6 +2,7 @@
 title: Computer Vision System for a Chess-Playing Robot
 titleShort: Dissertation
 date: 05/2019
+image: dissertation/demonstration.png
 description: >-
   A computer vision system for a chess-playing robot. Tracks the state of a chessboard over time, using Python, scikit-learn and OpenCV.
 tags:
