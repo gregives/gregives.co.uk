@@ -3,10 +3,8 @@ $font--fancy: 'Tiempos Headline', 'Palatino Linotype', 'Book Antiqua', Palatino,
 $font--body: 'IBM Plex Sans', Arial, Helvetica, sans-serif;
 $font--code: 'IBM Plex Mono', 'Consolas', 'Lucida Console', Monaco, monospace;
 
-// Primary color is loaded into nuxt.config.js
-$color--primary: #35f;
-
 :root {
+  $color--primary: #35f;
   --color--primary: #{$color--primary};
   --color--primary-muted: #{transparentize($color--primary, 0.8)};
   --color--primary-hue: #{hue($color--primary)};
@@ -22,6 +20,8 @@ $color--primary: #35f;
 
   --box-shadow: 0 0 2rem -1rem #{transparentize(black, 0.8)};
   --box-shadow--small: 0 0 0.5rem -0.25rem #{transparentize(black, 0.8)};
+  --box-shadow--primary: 0 0.5rem 1rem -0.5rem #{$color--primary};
+  --box-shadow--primary-small: 0 0.25rem 0.5rem -0.25rem #{$color--primary};
 
   @media screen {
     &[data-theme='dark'] {
@@ -41,6 +41,8 @@ $color--primary: #35f;
   
       --box-shadow: 0 0 2rem -1rem #{transparentize(black, 0.6)};
       --box-shadow--small: 0 0 0.5rem -0.25rem #{transparentize(black, 0.6)};
+      --box-shadow--primary: 0 0.5rem 1rem -0.5rem #{$color--body-overlay};
+      --box-shadow--primary-small: 0 0.25rem 0.5rem -0.25rem #{$color--body-overlay};
     }
   }
 
@@ -62,6 +64,8 @@ $color--text-muter: var(--color--text-muter);
 
 $box-shadow: var(--box-shadow);
 $box-shadow--small: var(--box-shadow--small);
+$box-shadow--primary: var(--box-shadow--primary);
+$box-shadow--primary-small: var(--box-shadow--primary-small);
 
 // Let's round things off a bit
 $border-radius: 0.2rem;

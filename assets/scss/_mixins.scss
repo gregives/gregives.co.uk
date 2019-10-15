@@ -32,3 +32,52 @@
   -webkit-text-stroke: 0 currentColor;
   -webkit-text-fill-color: currentColor;
 }
+
+@mixin button {
+  background-color: transparent;
+  border: 2px solid $color--primary;
+  border-radius: $border-radius;
+  color: $color--primary;
+  cursor: pointer;
+  font-size: 120%;
+  font-family: $font--fancy;
+  opacity: 1;
+  padding: 0.5rem 1rem;
+  position: relative;
+  transition: opacity 150ms ease;
+
+  &::before {
+    content: '';
+    border-radius: $border-radius;
+    box-shadow: $box-shadow--primary;
+    height: 100%;
+    left: 0;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    transition: box-shadow 150ms ease;
+    width: 100%;
+  }
+
+  &:hover {
+    opacity: 0.8;
+
+    &::before {
+      box-shadow: $box-shadow--primary-small;
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5 !important;
+  }
+}
+
+@mixin button--primary {
+  background-color: $color--primary;
+  color: $color--body;
+
+  &::before {
+    opacity: 1;
+  }
+}

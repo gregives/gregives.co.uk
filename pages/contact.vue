@@ -82,7 +82,7 @@
 
 <script>
 import axios from 'axios'
-import EmailIcon from 'icons/At'
+import EmailIcon from 'icons/EmailVariant'
 import TwitterIcon from 'icons/Twitter'
 import GithubIcon from 'icons/GithubCircle'
 import DevpostIcon from 'icons/HexagonOutline'
@@ -245,45 +245,8 @@ export default {
 }
 
 .form__submit {
-  background-color: transparent;
-  border-radius: $border-radius;
-  border: 2px solid $color--primary;
-  color: $color--primary;
-  cursor: pointer;
-  font-size: 120%;
-  font-family: $font--fancy;
-  padding: 0.5rem 1rem;
-  position: relative;
-  transition: color 150ms ease-out;
-
-  &::before {
-    background-color: $color--primary;
-    content: '';
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 150ms ease-out, opacity 150ms ease;
-    width: 100%;
-    z-index: -1;
-  }
-
-  &:hover,
-  &:focus {
-    color: $color--body;
-    outline: none !important;
-
-    &::before {
-      transform: none;
-    }
-  }
-
-  &[disabled] {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
+  @include button;
+  @include button--primary;
 }
 
 .form__feedback {
