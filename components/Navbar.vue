@@ -9,16 +9,24 @@
       <nav class="nav">
         <ol class="nav__list">
           <li class="nav__list-item">
-            <nuxt-link class="nav__link" to="/">Home</nuxt-link>
+            <nuxt-link class="nav__link" to="/">
+              <span>Home</span>
+            </nuxt-link>
           </li>
           <li class="nav__list-item">
-            <nuxt-link class="nav__link" to="/projects">Projects</nuxt-link>
+            <nuxt-link class="nav__link" to="/projects">
+              <span>Projects</span>
+            </nuxt-link>
           </li>
           <li class="nav__list-item">
-            <nuxt-link class="nav__link" to="/about">About</nuxt-link>
+            <nuxt-link class="nav__link" to="/about">
+              <span>About</span>
+            </nuxt-link>
           </li>
           <li class="nav__list-item">
-            <nuxt-link class="nav__link" to="/contact">Contact</nuxt-link>
+            <nuxt-link class="nav__link" to="/contact">
+              <span>Contact</span>
+            </nuxt-link>
           </li>
         </ol>
       </nav>
@@ -140,13 +148,18 @@ export default {
 }
 
 .nav__link {
-  transition: color 150ms ease-out;
   margin: -0.5rem -1rem;
   padding: 0.5rem 1rem;
 
+  span {
+    @include link;
+  }
+
   &:hover,
   &.nuxt-link-exact-active {
-    color: $color--primary;
+    span {
+      border-bottom: 1px solid $color--primary;
+    }
   }
 }
 

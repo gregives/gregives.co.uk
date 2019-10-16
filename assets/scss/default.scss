@@ -95,13 +95,7 @@ a {
 }
 
 p a {
-  box-shadow: 0 -0.4em $color--primary-muted inset;
-  transition: box-shadow 150ms ease-out, color 150ms ease-out;
-
-  &:hover {
-    box-shadow: 0 -1.3em $color--primary-muted inset;
-    color: $color--primary;
-  }
+  @include link;
 }
 
 img,

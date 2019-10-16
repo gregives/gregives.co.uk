@@ -12,28 +12,30 @@
             href="mailto:greg@gregives.co.uk"
           >
             <email-icon title="Email" />
-            Email me for a chat
+            <span class="contact__social-text">Email me for a chat</span>
           </a>
           <a
             class="contact__social-icon contact__social-icon--twitter"
             href="https://twitter.com/_gregives"
           >
             <twitter-icon title="Twitter" />
-            I occasionally retweet stuff
+            <span class="contact__social-text">I occasionally tweet stuff</span>
           </a>
           <a
             class="contact__social-icon contact__social-icon--github"
             href="https://github.com/gregives"
           >
             <github-icon title="GitHub" />
-            Check out my projects
+            <span class="contact__social-text">Check out my projects</span>
           </a>
           <a
             class="contact__social-icon contact__social-icon--devpost"
             href="https://devpost.com/gregives"
           >
             <devpost-icon title="Devpost" />
-            Some of my hackathon submissions
+            <span class="contact__social-text">
+              Some of my hackathon submissions
+            </span>
           </a>
         </div>
       </div>
@@ -188,6 +190,10 @@ export default {
       transform: rotate(90deg);
     }
   }
+}
+
+.contact__social-text {
+  @include link;
 }
 
 .form {
