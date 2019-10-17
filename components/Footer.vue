@@ -25,6 +25,10 @@
   padding: 1rem 0;
   position: relative;
   z-index: 1;
+
+  @media print {
+    display: none;
+  }
 }
 
 .footer__content {
