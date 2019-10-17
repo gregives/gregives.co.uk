@@ -18,15 +18,16 @@ export default {
   mode: 'universal',
   // Content of page head
   head: {
-    title: 'Software Developer & Designer',
-    titleTemplate: 'Greg Ives | %s',
+    title: 'Software Developer',
+    titleTemplate: '%s | Greg Ives',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content:
+          'Personal site and portfolio of software developer Greg Ives. Currently in his final year studying Computer Science at the University of Sheffield, Greg is looking for an opportunity in software development from June 2020.'
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
@@ -61,7 +62,7 @@ export default {
   },
   // Options for nuxt-optimized-images
   optimizedImages: {
-    optimizeImages: true,
+    optimizeImages: false,
     responsiveImagesName: ({ isDev }) =>
       isDev
         ? '[path][name]--[width][hash:optimized].[ext]'

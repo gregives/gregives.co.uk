@@ -1,36 +1,38 @@
 <template>
   <main class="project">
-    <div>
-      <div class="project__back project__back--mobile">
-        <nuxt-link to="/projects">
-          Back to projects&nbsp;&nbsp;&#x2190;
-        </nuxt-link>
-      </div>
-    </div>
-    <h2 class="project__title">{{ project.attributes.title }}</h2>
-    <div class="project__details">
-      <div class="project__sticky">
-        <div class="project__back">
+    <div class="project__content">
+      <div>
+        <div class="project__back project__back--mobile">
           <nuxt-link to="/projects">
             Back to projects&nbsp;&nbsp;&#x2190;
           </nuxt-link>
         </div>
-        <div class="project__date">
-          <div>{{ project.attributes.date }}</div>
-        </div>
-        <ul class="project__tag-list">
-          <li
-            v-for="tag in project.attributes.tags"
-            :key="tag"
-            class="project__tag-list-item"
-          >
-            {{ tag }}
-          </li>
-        </ul>
       </div>
-    </div>
-    <div class="project__text">
-      <markdown :vue="project.vue" />
+      <h2 class="project__title">{{ project.attributes.title }}</h2>
+      <div class="project__details">
+        <div class="project__sticky">
+          <div class="project__back">
+            <nuxt-link to="/projects">
+              Back to projects&nbsp;&nbsp;&#x2190;
+            </nuxt-link>
+          </div>
+          <div class="project__date">
+            <div>{{ project.attributes.date }}</div>
+          </div>
+          <ul class="project__tag-list">
+            <li
+              v-for="tag in project.attributes.tags"
+              :key="tag"
+              class="project__tag-list-item"
+            >
+              {{ tag }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="project__text">
+        <markdown :vue="project.vue" />
+      </div>
     </div>
   </main>
 </template>
@@ -63,6 +65,18 @@ export default {
     } catch (e) {
       error({ statusCode: 404, message: 'This project could not be found' })
     }
+  },
+  head() {
+    return {
+      title: this.project.attributes.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.project.attributes.description
+        }
+      ]
+    }
   }
 }
 </script>
@@ -70,6 +84,9 @@ export default {
 <style lang="scss">
 .project {
   @include page;
+}
+
+.project__content {
   display: grid;
   grid-template-columns: 100%;
 

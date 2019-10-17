@@ -53,6 +53,11 @@ export default {
     return {
       projects
     }
+  },
+  head() {
+    return {
+      title: 'Projects'
+    }
   }
 }
 </script>

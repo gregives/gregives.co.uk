@@ -133,6 +133,11 @@ export default {
           this.message = 2
         })
     }
+  },
+  head() {
+    return {
+      title: 'Contact'
+    }
   }
 }
 </script>

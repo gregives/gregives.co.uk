@@ -26,6 +26,11 @@ export default {
     return {
       vue
     }
+  },
+  head() {
+    return {
+      title: 'About'
+    }
   }
 }
 </script>

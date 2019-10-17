@@ -1,6 +1,6 @@
-# gregives.github.io
+# gregives.co.uk
 
-> My personal website
+> Personal site and portfolio of software developer Greg Ives.
 
 ## Build Setup
 

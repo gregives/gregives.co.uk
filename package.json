@@ -1,7 +1,7 @@
 {
   "name": "gregives.co.uk",
   "version": "1.0.0",
-  "description": "My personal website",
+  "description": "Personal site and portfolio of software developer Greg Ives.",
   "author": "Greg Ives",
   "private": true,
   "scripts": {
