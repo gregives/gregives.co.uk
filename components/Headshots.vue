@@ -52,15 +52,23 @@ export default {
       return { ...head, lazy: false }
     })
 
-    window.addEventListener('mousemove', (event) => {
+    window.addEventListener('mousemove', this.changeHeadshot)
+    window.addEventListener('touchstart', this.changeHeadshot)
+    window.addEventListener('touchmove', this.changeHeadshot)
+  },
+  methods: {
+    changeHeadshot(event) {
       const headshots = this.$refs.headshots
       if (headshots === undefined) {
         return
       }
       const rect = headshots.getBoundingClientRect()
 
-      const mouseX = ((event.clientX - rect.x) * 10) / rect.width
-      const mouseY = ((event.clientY - rect.y) * 10) / rect.height
+      const clientX = event.clientX || event.changedTouches[0].clientX
+      const clientY = event.clientY || event.changedTouches[0].clientY
+
+      const mouseX = ((clientX - rect.x) * 10) / rect.width
+      const mouseY = ((clientY - rect.y) * 10) / rect.height
 
       const closestHeadshot = Array.from(headshots.children).reduce(
         (closest, headshot) => {
@@ -97,7 +105,7 @@ export default {
         headshot.style.visibility = 'hidden'
       })
       closestHeadshot.headshot.style.visibility = 'visible'
-    })
+    }
   }
 }
 </script>
