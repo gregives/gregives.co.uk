@@ -50,6 +50,7 @@ export default {
   devModules: ['@nuxtjs/eslint-module'],
   // Nuxt.js modules
   modules: [
+    'vue-scrollto/nuxt',
     '@bazzite/nuxt-optimized-images',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',

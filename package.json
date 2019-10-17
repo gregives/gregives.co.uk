@@ -23,7 +23,8 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "axios": "^0.19.0",
     "nuxt": "^2.0.0",
-    "vue-material-design-icons": "^4.1.0"
+    "vue-material-design-icons": "^4.1.0",
+    "vue-scrollto": "^2.17.1"
   },
   "devDependencies": {
     "@bazzite/nuxt-optimized-images": "^0.2.1",
