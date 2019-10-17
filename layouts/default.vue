@@ -71,7 +71,7 @@ export default {
             .setAttribute('content', color)
           document.documentElement.dataset.menu = 'closed'
           const updateVH = () => {
-            const vh = window.innerHeight * 0.01
+            const vh = document.documentElement.clientHeight * 0.01
             document.documentElement.style.setProperty('--vh', `${vh}px`)
           }
           window.addEventListener('resize', updateVH)
