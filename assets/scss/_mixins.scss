@@ -36,13 +36,13 @@
 }
 
 @mixin link {
-  $border-size: 1px;
+  $border-size: 0.075rem;
   border-bottom: $border-size solid $color--primary-muted;
   color: $color--primary;
-  transition: border-bottom 150ms ease-out;
+  transition: border-bottom-color 150ms ease-out;
 
   &:hover {
-    border-bottom: $border-size solid $color--primary;
+    border-bottom-color: $color--primary;
   }
 }
 
