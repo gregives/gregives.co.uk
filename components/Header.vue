@@ -133,7 +133,7 @@ export default {
   font-size: 150%;
 
   ~ .nav__list-item {
-    margin-top: 5vmin;
+    margin-top: 2rem;
   }
 
   @media (min-width: $breakpoint--lg) {
@@ -141,7 +141,7 @@ export default {
     font-size: 100%;
 
     ~ .nav__list-item {
-      margin-left: 5vmin;
+      margin-left: 2rem;
       margin-top: auto;
     }
   }

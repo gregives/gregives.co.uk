@@ -65,7 +65,7 @@ export default {
 
   @media (min-width: $breakpoint--lg) {
     margin-right: -0.5rem;
-    margin-left: 3vmin;
+    margin-left: 1.5rem;
   }
 }
 </style>

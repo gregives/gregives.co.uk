@@ -45,15 +45,15 @@ export default {
 
 .about__text {
   display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: 100%;
 
   @media (min-width: $breakpoint--lg) {
     grid-template-columns: 1fr 1fr;
-    grid-gap: calc(1rem + 5vmin);
   }
 }
 
 .about__image {
-  margin-bottom: 2.5rem;
   position: relative;
   width: calc(100% - 1.5rem) !important;
 

@@ -74,7 +74,7 @@ export default {
 .projects__list {
   display: grid;
   grid-template-columns: 100%;
-  grid-gap: calc(1rem + 5vmin);
+  grid-gap: 3rem;
 
   @media (min-width: $breakpoint--md) {
     grid-template-columns: 1fr 1fr;

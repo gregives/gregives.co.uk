@@ -152,11 +152,11 @@ export default {
 
 .contact__layout {
   display: grid;
-  grid-gap: 2rem;
+  grid-template-columns: 100%;
+  grid-gap: 3rem;
 
   @media (min-width: $breakpoint--lg) {
     grid-template-columns: 1fr 1fr;
-    grid-gap: calc(1rem + 5vmin);
   }
 }
 
