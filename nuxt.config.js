@@ -73,55 +73,7 @@ export default {
     }
   },
   rfg: {
-    design: {
-      ios: {
-        pictureAspect: 'backgroundAndMargin',
-        backgroundColor: '#ffffff',
-        margin: '28%',
-        assets: {
-          ios6AndPriorIcons: false,
-          ios7AndLaterIcons: false,
-          precomposedIcons: false,
-          declareOnlyDefaultIcon: true
-        },
-        appName: 'Greg Ives'
-      },
-      desktopBrowser: {},
-      windows: {
-        pictureAspect: 'whiteSilhouette',
-        backgroundColor: '#3255ff',
-        onConflict: 'override',
-        assets: {
-          windows80Ie10Tile: false,
-          windows10Ie11EdgeTiles: {
-            small: false,
-            medium: true,
-            big: false,
-            rectangle: false
-          }
-        },
-        appName: 'Greg Ives'
-      },
-      androidChrome: {
-        pictureAspect: 'shadow',
-        themeColor: '#ffffff',
-        manifest: {
-          name: 'Greg Ives',
-          display: 'standalone',
-          orientation: 'notSet',
-          onConflict: 'override',
-          declared: true
-        },
-        assets: {
-          legacyIcon: false,
-          lowResolutionIcons: false
-        }
-      },
-      safariPinnedTab: {
-        pictureAspect: 'silhouette',
-        themeColor: '#3255ff'
-      }
-    },
+    design: import('./favicon'),
     settings: {
       scalingAlgorithm: 'Mitchell',
       errorOnImageTooSmall: false,
