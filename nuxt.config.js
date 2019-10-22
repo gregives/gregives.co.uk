@@ -52,6 +52,7 @@ export default {
   // Nuxt.js modules
   modules: [
     'vue-scrollto/nuxt',
+    'nuxt-rfg-icon',
     '@bazzite/nuxt-optimized-images',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
@@ -69,6 +70,68 @@ export default {
         : 'img/[hash:7].[ext]',
     responsive: {
       sizes: [213, 256, 341, 455, 533, 640, 768, 1024, 1366, 1600, 1920]
+    }
+  },
+  rfg: {
+    design: {
+      ios: {
+        pictureAspect: 'backgroundAndMargin',
+        backgroundColor: '#ffffff',
+        margin: '28%',
+        assets: {
+          ios6AndPriorIcons: false,
+          ios7AndLaterIcons: false,
+          precomposedIcons: false,
+          declareOnlyDefaultIcon: true
+        },
+        appName: 'Greg Ives'
+      },
+      desktopBrowser: {},
+      windows: {
+        pictureAspect: 'whiteSilhouette',
+        backgroundColor: '#3255ff',
+        onConflict: 'override',
+        assets: {
+          windows80Ie10Tile: false,
+          windows10Ie11EdgeTiles: {
+            small: false,
+            medium: true,
+            big: false,
+            rectangle: false
+          }
+        },
+        appName: 'Greg Ives'
+      },
+      androidChrome: {
+        pictureAspect: 'shadow',
+        themeColor: '#ffffff',
+        manifest: {
+          name: 'Greg Ives',
+          display: 'standalone',
+          orientation: 'notSet',
+          onConflict: 'override',
+          declared: true
+        },
+        assets: {
+          legacyIcon: false,
+          lowResolutionIcons: false
+        }
+      },
+      safariPinnedTab: {
+        pictureAspect: 'silhouette',
+        themeColor: '#3255ff'
+      }
+    },
+    settings: {
+      scalingAlgorithm: 'Mitchell',
+      errorOnImageTooSmall: false,
+      readmeFile: false,
+      htmlCodeFile: false,
+      usePathAsIs: false
+    },
+    versioning: {
+      paramName: 'v',
+      paramValue: Date.now().toString(36)
     }
   },
   generate: {
