@@ -52,7 +52,6 @@ export default {
   // Nuxt.js modules
   modules: [
     'vue-scrollto/nuxt',
-    'nuxt-rfg-icon',
     '@bazzite/nuxt-optimized-images',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
@@ -70,20 +69,6 @@ export default {
         : 'img/[hash:7].[ext]',
     responsive: {
       sizes: [213, 256, 341, 455, 533, 640, 768, 1024, 1366, 1600, 1920]
-    }
-  },
-  rfg: {
-    design: import('./favicon'),
-    settings: {
-      scalingAlgorithm: 'Mitchell',
-      errorOnImageTooSmall: false,
-      readmeFile: false,
-      htmlCodeFile: false,
-      usePathAsIs: false
-    },
-    versioning: {
-      paramName: 'v',
-      paramValue: Date.now().toString(36)
     }
   },
   generate: {
