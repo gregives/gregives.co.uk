@@ -5,3 +5,5 @@ description: >-
   Website created at HackBordeaux in 24 hours. View, add and review the best places to eat your tuna sweetcorn sandwiches.
 tags:
 ---
+
+Picnic Spots was created at HackBordeaux with another member of HackSheffield, in 24 hours.
