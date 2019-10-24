@@ -15,11 +15,11 @@
             <span class="contact__social-text">Email me for a chat</span>
           </a>
           <a
-            class="contact__social-icon contact__social-icon--twitter"
-            href="https://twitter.com/_gregives"
+            class="contact__social-icon contact__social-icon--linkedin"
+            href="https://www.linkedin.com/in/gregiv-es/"
           >
-            <twitter-icon title="Twitter" />
-            <span class="contact__social-text">I occasionally tweet stuff</span>
+            <linkedin-icon title="LinkedIn" />
+            <span class="contact__social-text">Connect with me</span>
           </a>
           <a
             class="contact__social-icon contact__social-icon--github"
@@ -33,9 +33,14 @@
             href="https://devpost.com/gregives"
           >
             <devpost-icon title="Devpost" />
-            <span class="contact__social-text">
-              Some of my hackathon submissions
-            </span>
+            <span class="contact__social-text">Hackathon submissions</span>
+          </a>
+          <a
+            class="contact__social-icon contact__social-icon--twitter"
+            href="https://twitter.com/gregiv_es"
+          >
+            <twitter-icon title="Twitter" />
+            <span class="contact__social-text">Follow me on Twitter</span>
           </a>
         </div>
       </div>
@@ -88,6 +93,7 @@ import EmailIcon from 'icons/EmailVariant'
 import TwitterIcon from 'icons/Twitter'
 import GithubIcon from 'icons/GithubCircle'
 import DevpostIcon from 'icons/HexagonOutline'
+import LinkedinIcon from 'icons/LinkedinBox'
 import Markdown from '~/components/Markdown'
 
 export default {
@@ -96,7 +102,8 @@ export default {
     EmailIcon,
     TwitterIcon,
     GithubIcon,
-    DevpostIcon
+    DevpostIcon,
+    LinkedinIcon
   },
   data() {
     return {
