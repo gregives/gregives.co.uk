@@ -62,11 +62,17 @@ export default {
       if (headshots === undefined) {
         return
       }
+
+      let clientX
+      let clientY
+      try {
+        clientX = event.clientX || event.changedTouches[0].clientX
+        clientY = event.clientY || event.changedTouches[0].clientY
+      } catch (error) {
+        return
+      }
+
       const rect = headshots.getBoundingClientRect()
-
-      const clientX = event.clientX || event.changedTouches[0].clientX
-      const clientY = event.clientY || event.changedTouches[0].clientY
-
       const mouseX = ((clientX - rect.x) * 10) / rect.width
       const mouseY = ((clientY - rect.y) * 10) / rect.height
 

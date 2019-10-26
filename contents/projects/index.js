@@ -3,7 +3,6 @@ export default [
   'cisco-university-challenge',
   'code-happy',
   'dissertation',
-  'example-project',
   'festimap',
   'hacksheffield',
   'hype',

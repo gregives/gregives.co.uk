@@ -71,6 +71,11 @@ export default {
       sizes: [213, 256, 341, 455, 533, 640, 768, 1024, 1366, 1600, 1920]
     }
   },
+  sitemap: {
+    hostname: 'https://gregives.co.uk',
+    gzip: true,
+    exclude: ['/resume']
+  },
   generate: {
     routes: [].concat(projectNames.map((project) => `/projects/${project}`))
   },
