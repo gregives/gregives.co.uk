@@ -59,6 +59,7 @@ export default {
     return {
       script: (() => {
         const content = function() {
+          // Set theme and theme-color as soon as possible
           const theme = localStorage.getItem('theme') || 'light'
           document.documentElement.dataset.theme = theme
           const color = getComputedStyle(
@@ -67,9 +68,13 @@ export default {
             theme === 'light' ? '--color--primary' : '--color--body-overlay'
           )
           document
-            .querySelector('meta[name=theme-color]')
-            .setAttribute('content', color)
+            .querySelector('meta[name="theme-color"]')
+            .setAttribute('content', color.trim())
+
+          // Set menu to closed
           document.documentElement.dataset.menu = 'closed'
+
+          // Update VH units for Android
           const updateVH = () => {
             const vh = document.documentElement.clientHeight * 0.01
             document.documentElement.style.setProperty('--vh', `${vh}px`)

@@ -24,21 +24,36 @@ export default {
       theme: 'light'
     }
   },
+  computed: {
+    color() {
+      return getComputedStyle(document.documentElement)
+        .getPropertyValue(
+          this.theme === 'light' ? '--color--primary' : '--color--body-overlay'
+        )
+        .trim()
+    }
+  },
+  head() {
+    return process.client
+      ? {
+          meta: [
+            { hid: 'theme-color', name: 'theme-color', content: this.color }
+          ]
+        }
+      : {}
+  },
+  watch: {
+    theme() {
+      document.documentElement.dataset.theme = this.theme
+      localStorage.setItem('theme', this.theme)
+    }
+  },
   mounted() {
     this.theme = localStorage.getItem('theme') || 'light'
   },
   methods: {
     toggleTheme() {
       this.theme = this.theme === 'light' ? 'dark' : 'light'
-      document.documentElement.dataset.theme = this.theme
-      localStorage.setItem('theme', this.theme)
-
-      const color = getComputedStyle(document.documentElement).getPropertyValue(
-        this.theme === 'light' ? '--color--primary' : '--color--body-overlay'
-      )
-      document
-        .querySelector('meta[name=theme-color]')
-        .setAttribute('content', color)
     }
   }
 }
