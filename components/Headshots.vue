@@ -73,13 +73,14 @@ export default {
       }
 
       const rect = headshots.getBoundingClientRect()
-      const mouseX = ((clientX - rect.x) * 10) / rect.width
-      const mouseY = ((clientY - rect.y) * 10) / rect.height
+      const mouseX = ((clientX - rect.left) * 10) / rect.width
+      const mouseY = ((clientY - rect.top) * 10) / rect.height
 
       const closestHeadshot = Array.from(headshots.children).reduce(
         (closest, headshot) => {
           const pointX = headshot.dataset.x
           const pointY = headshot.dataset.y
+
           const distance = {
             x: Math.abs(mouseX - pointX),
             y: Math.abs(mouseY - pointY)
@@ -103,7 +104,7 @@ export default {
             x: Infinity,
             y: Infinity
           },
-          headshot: headshots[0]
+          headshot: headshots.children[0]
         }
       )
 
