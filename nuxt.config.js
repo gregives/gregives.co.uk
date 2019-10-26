@@ -35,8 +35,7 @@ export default {
   // Progress-bar color and theme color
   loading: {
     color: primaryColor,
-    duration: 3000,
-    continuous: true
+    duration: 3000
   },
   // Global CSS
   css: ['~/assets/scss/default.scss'],
@@ -47,8 +46,6 @@ export default {
     '~/plugins/tabbing.client.js',
     '~/plugins/components.js'
   ],
-  // Nuxt.js dev-modules
-  devModules: ['@nuxtjs/eslint-module'],
   // Nuxt.js modules
   modules: [
     'vue-scrollto/nuxt',
@@ -57,10 +54,16 @@ export default {
     '@nuxtjs/style-resources',
     '@nuxtjs/sitemap'
   ],
+  buildModules: [
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/google-analytics',
+  ],
   styleResources: {
     scss: ['~/assets/scss/_variables.scss', '~/assets/scss/_mixins.scss']
   },
-  // Options for nuxt-optimized-images
+  googleAnalytics: {
+    id: 'UA-115006226-1'
+  },
   optimizedImages: {
     optimizeImages: false,
     responsiveImagesName: ({ isDev }) =>
