@@ -94,11 +94,9 @@ import TwitterIcon from 'icons/Twitter'
 import GithubIcon from 'icons/GithubCircle'
 import DevpostIcon from 'icons/HexagonOutline'
 import LinkedinIcon from 'icons/LinkedinBox'
-import Markdown from '~/components/Markdown'
 
 export default {
   components: {
-    Markdown,
     EmailIcon,
     TwitterIcon,
     GithubIcon,

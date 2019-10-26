@@ -18,12 +18,10 @@
 
 <script>
 import Headshots from '~/components/Headshots'
-import Markdown from '~/components/Markdown'
 
 export default {
   components: {
-    Headshots,
-    Markdown
+    Headshots
   },
   async asyncData() {
     const { vue } = await import('~/contents/index.md')

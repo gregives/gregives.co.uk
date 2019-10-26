@@ -15,12 +15,7 @@
 </template>
 
 <script>
-import Markdown from '~/components/Markdown'
-
 export default {
-  components: {
-    Markdown
-  },
   async asyncData() {
     const { vue } = await import('~/contents/about.md')
     return {
