@@ -179,7 +179,8 @@ code {
   vertical-align: middle;
 }
 
-main {
+main,
+footer > * {
   transition: opacity 300ms ease-out;
 }
 
@@ -192,12 +193,15 @@ main {
     }
   }
 
-  main {
+  main,
+  .header__logo,
+  footer > * {
     opacity: 0.1;
     pointer-events: none;
 
     @media (min-width: $breakpoint--lg) {
       opacity: 1;
+      pointer-events: all;
     }
   }
 }

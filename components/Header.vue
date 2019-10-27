@@ -56,7 +56,7 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
 
   @supports (backdrop-filter: blur(5px)) {
     backdrop-filter: blur(5px);
@@ -77,7 +77,7 @@ export default {
   font-family: $font--fancy;
   font-size: 130%;
   font-weight: 500;
-  transition: color 150ms ease-out;
+  transition: color 150ms ease-out, opacity 300ms ease-out;
 
   &:hover {
     color: $color--primary;

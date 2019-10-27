@@ -1,5 +1,5 @@
 <template>
-  <button class="hamburger" aria-label="Menu" title="Menu" @click="toggleMenu">
+  <button class="hamburger" aria-label="Menu" title="Menu" @click.stop="toggleMenu">
     <div class="hamburger__icon"></div>
   </button>
 </template>
@@ -24,9 +24,9 @@ export default {
         this.changingRoute = false
       }
 
-      const header = event.target.closest('header')
-      if (header === null && this.menuIsOpen()) {
-        this.closeMenu() // If clicking outside the header
+      const nav = document.querySelector('nav').getBoundingClientRect()
+      if (event.clientX < nav.left && this.menuIsOpen()) {
+        this.closeMenu() // If clicking outside the nav
       }
     })
   },
