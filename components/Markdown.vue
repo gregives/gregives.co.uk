@@ -62,12 +62,16 @@ export default {
     margin-top: 1rem;
   }
 
-  p {
+  p:not(:last-child) {
     margin-bottom: 1rem;
   }
 
-  picture {
-    margin: 2rem 0;
+  picture:not(:last-child) {
+    margin-top: 2rem;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
   }
 
   img {
@@ -78,10 +82,24 @@ export default {
     width: 100%;
   }
 
+  iframe {
+    border-radius: $border-radius;
+    display: block;
+    margin-top: 2rem;
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
   ul,
   ol {
     margin-left: 2rem;
-    margin-bottom: 1rem;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
 
     ul,
     ol {
