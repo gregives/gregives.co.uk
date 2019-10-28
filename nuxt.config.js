@@ -46,6 +46,8 @@ export default {
     '~/plugins/tabbing.client.js',
     '~/plugins/components.js'
   ],
+  // Nuxt.js dev-modules
+  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/google-analytics'],
   // Nuxt.js modules
   modules: [
     'vue-scrollto/nuxt',
@@ -53,10 +55,6 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     '@nuxtjs/sitemap'
-  ],
-  buildModules: [
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/google-analytics',
   ],
   styleResources: {
     scss: ['~/assets/scss/_variables.scss', '~/assets/scss/_mixins.scss']

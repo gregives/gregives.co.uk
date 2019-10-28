@@ -1,5 +1,10 @@
 <template>
-  <button class="hamburger" aria-label="Menu" title="Menu" @click.stop="toggleMenu">
+  <button
+    class="hamburger"
+    aria-label="Menu"
+    title="Menu"
+    @click.stop="toggleMenu"
+  >
     <div class="hamburger__icon"></div>
   </button>
 </template>
