@@ -39,15 +39,24 @@
   }
 }
 
+$link-weight: 0.08rem;
+
 @mixin link {
-  $border-size: 0.075rem;
-  border-bottom: $border-size solid $color--primary-muted;
+  background-image: linear-gradient($color--primary, $color--primary);
+  background-size: 0% $link-weight;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  box-shadow: 0 #{-$link-weight} $color--primary-muted inset;
   color: $color--primary;
-  transition: border-bottom-color 150ms ease-out;
+  transition: background-size 300ms ease-out;
 
   &:hover {
-    border-bottom-color: $color--primary;
+    @include link-active;
   }
+}
+
+@mixin link-active {
+  background-size: 100% $link-weight;
 }
 
 @mixin button {

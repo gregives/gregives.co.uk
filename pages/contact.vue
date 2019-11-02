@@ -184,6 +184,10 @@ export default {
 
   &:hover {
     color: $color--primary;
+
+    .contact__social-text {
+      @include link-active;
+    }
   }
 
   span {

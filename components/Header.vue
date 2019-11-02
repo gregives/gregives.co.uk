@@ -158,7 +158,7 @@ export default {
   &:hover,
   &.nuxt-link-exact-active {
     span {
-      border-bottom-color: $color--primary;
+      @include link-active;
     }
   }
 }
