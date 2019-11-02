@@ -33,7 +33,7 @@ export default {
     .header-anchor {
       color: $color--text-muted;
       margin-left: 0.5rem;
-      opacity: 0.2;
+      opacity: 0;
       transition: opacity 150ms ease;
 
       &:focus {
