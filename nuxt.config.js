@@ -30,7 +30,15 @@ export default {
           'Personal site and portfolio of software developer Greg Ives. Currently in his final year studying Computer Science at the University of Sheffield, Greg is looking for an opportunity in software development from June 2020.'
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'preconnect',
+        href: 'https://www.google-analytics.com',
+        crossorigin: true
+      },
+      { rel: 'dns-prefetch', href: 'https://www.google-analytics.com' }
+    ]
   },
   // Progress-bar color and theme color
   loading: {
