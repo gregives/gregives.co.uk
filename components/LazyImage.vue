@@ -33,7 +33,7 @@ export default {
       return require(`~/assets/images/lazy/${this.src}?webp`)
     },
     responsive() {
-      if (!this.src) return false
+      if (!this.src || this.src.endsWith('.gif')) return false
       return require(`~/assets/images/lazy/${this.src}?resize`).srcSet
     },
     sqip() {

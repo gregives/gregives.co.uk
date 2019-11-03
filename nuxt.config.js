@@ -63,7 +63,6 @@ export default {
     id: 'UA-115006226-1'
   },
   optimizedImages: {
-    optimizeImages: false,
     responsiveImagesName: ({ isDev }) =>
       isDev
         ? '[path][name]--[width][hash:optimized].[ext]'
