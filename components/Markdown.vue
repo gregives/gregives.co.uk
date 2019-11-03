@@ -66,7 +66,7 @@ export default {
     margin-bottom: 1rem;
   }
 
-  picture:not(:last-child) {
+  picture {
     margin-top: 2rem;
 
     &:not(:last-child) {
@@ -149,6 +149,10 @@ export default {
   blockquote {
     border-left: 4px solid $color--primary-muted;
     padding-left: 1rem;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
   }
 
   table {
