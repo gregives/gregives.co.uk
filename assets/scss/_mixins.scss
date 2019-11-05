@@ -71,7 +71,7 @@ $link-weight: 0.08rem;
   opacity: 1;
   padding: 0.5rem 1rem;
   position: relative;
-  transition: opacity 150ms ease;
+  transition: opacity 150ms ease, transform 150ms ease;
 
   &::before {
     content: '';
@@ -91,6 +91,7 @@ $link-weight: 0.08rem;
 
   &:hover {
     opacity: 0.8;
+    transform: scale(1.02);
 
     &::before {
       box-shadow: $box-shadow--primary;
