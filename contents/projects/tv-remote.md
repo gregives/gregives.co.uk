@@ -5,6 +5,12 @@ image: tv-remote/unphone.jpg
 description: >-
   Firmware for the unPhone, a souped-up ESP32 with an LCD touchscreen, to control televisions from a number of manufacturers.
 tags:
+  - C++
+  - unPhone
+  - ESP32
+  - Arduino
+  - Internet of Things
+  - Infrared remote
 ---
 
 During my third year of university, I undertook a module on the Internet of Things. As part of this module, we were tasked to create a piece of firmware for the [unPhone](https://unphone.net/the-unphone/).

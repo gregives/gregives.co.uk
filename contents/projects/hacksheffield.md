@@ -5,6 +5,11 @@ image: hacksheffield/committee.jpg
 description: >-
   Hackathon society which I have been involved in since starting university. See which hackathons I have attended and organised.
 tags:
+  - Hackathons
+  - Event management
+  - Leadership
+  - Public speaking
+  - Travels
 ---
 
 The first hackathon I attended was HackSheffield 2.0, less than a month after I started university --- I had a fantastic time at the event, making <nuxt-link to="/projects/hype">an Android app called Hype</nuxt-link>, so I decided to become more involved with hackathons and in particular, HackSheffield society.

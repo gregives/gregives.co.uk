@@ -4,8 +4,12 @@ titleShort: USBB
 date: 03/2019
 image: usbb/website1.png
 description: >-
-  Website designed and created for the University of Sheffield Brass Band, of which I am a proud member. Uses Jekyll for easy content management.
+  Website for the University of Sheffield Brass Band to showcase concerts, news and photos. Uses Jekyll for easy content management.
 tags:
+  - Jekyll
+  - Web design
+  - Bootstrap
+  - Content management
 ---
 
 I have been a member of the University of Sheffield Brass Band for three years, and decided to create a website for them to promote concerts, news and photos. Check out the website at [usbb.org.uk](https://usbb.org.uk)!

@@ -3,8 +3,12 @@ title: SnapScroll
 date: 08/2017
 image: snapscroll/screenshot.png
 description: >-
-  My first JavaScript library, designed to scroll smoothly between points on a website. Scroll jacking is bad, please do not use.
+  My first JavaScript library to scroll smoothly between points on a website, built as a jQuery plugin.
 tags:
+  - jQuery
+  - Library
+  - Scrolling
+  - Animation
 ---
 
 When creating my personal site in 2016, fullscreen scrolling websites were all the rage. However, none of the open-source libraries available were what I was looking for; [fullPage by Alvaro Trigo](https://alvarotrigo.com/fullPage/) came close, but did not allow the centering of elements less than the height of the viewport. So I decided to create my own snap scrolling JavaScript library, **snapScroll.js**.
@@ -22,13 +26,8 @@ SnapScroll.js was built as a jQuery plugin, in order to use jQuery's scrollTo fu
 SnapScroll.js was kindly supported by [BrowserStack](https://browserstack.com), in order to test browser support and find any problems with the scroll detection. SnapScroll.js supports the following browsers:
 
 - Chrome ≥ 26
-
 - Firefox ≥ 21
-
 - Edge ≥ 14
-
 - Opera ≥ 15
-
 - Safari ≥ 6.2
-
 - Internet Explorer not supported

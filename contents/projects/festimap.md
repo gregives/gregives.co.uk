@@ -5,6 +5,14 @@ image: festimap/screenshots1.png
 description: >-
   Progressive web app designed to share photos at festivals around the world, created for a university module on modern web development.
 tags:
+  - Node.js
+  - Express
+  - socket.io
+  - MongoDB
+  - Passport
+  - Vue
+  - Mapbox
+
 ---
 
 Festimap is a progressive web app designed to share photos from festivals around the world. Created as a university project with [Tom Croasdale](https://tomcroasdale.dev), Festimap was built with Express, Node.js, MongoDB and Vue.

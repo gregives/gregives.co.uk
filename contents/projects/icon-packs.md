@@ -6,9 +6,10 @@ description: >-
   My first foray into programming and design. Icon packs for custom Android launchers, so you can make your phone homescreen look pretty.
 tags:
   - Android
-  - Icon Packs
+  - Icon packs
   - Java
   - Design
+  - Promotion
 ---
 
 I made my first Android app aged 14 --- I brought my coding and design skills together to create icon packs for custom launchers, such as Nova Launcher. My first icon pack, Trace, was designed as a transparent outlined-icon pack to allow minimal distraction from your homescreen wallpaper.
