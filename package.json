@@ -9,7 +9,12 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "deploy:checks": "git diff-index --quiet HEAD && rimraf pages/resume",
+    "deploy:generate": "cross-env NODE_ENV=production nuxt generate",
+    "deploy:commit": "git checkout -B deploy && git add -A && git commit --no-verify -m 'New deploy'",
+    "deploy:push": "git subtree push --prefix dist origin deploy",
+    "deploy": "npm run deploy:checks && npm run deploy:generate && npm run deploy:commit && npm run deploy:push"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint"
@@ -57,12 +62,14 @@
     "@nuxtjs/eslint-config": "^1.0.1",
     "@nuxtjs/eslint-module": "^1.1.0",
     "babel-eslint": "^10.0.1",
+    "cross-env": "^6.0.3",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-plugin-prettier": "^3.0.1",
     "husky": "^2.6.0",
     "lint-staged": "^8.2.1",
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "rimraf": "^3.0.0"
   }
 }
