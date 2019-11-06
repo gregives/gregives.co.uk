@@ -13,9 +13,8 @@
     "deploy:checks": "git diff-index --quiet HEAD && rimraf pages/resume",
     "deploy:generate": "cross-env NODE_ENV=production nuxt generate",
     "deploy:commit": "git checkout -B deploy && git add -A && git commit --no-verify -m \"Deploy static site\"",
-    "deploy:push": "git subtree split --prefix dist deploy && git push -f origin deploy:deploy",
-    "deploy:cleanup": "git checkout - && git branch -D deploy",
-    "deploy": "npm run deploy:checks && npm run deploy:generate && npm run deploy:commit && npm run deploy:push && npm run deploy:cleanup"
+    "deploy:push": "git push -f origin deploy:deploy && git checkout - && git branch -D deploy",
+    "deploy": "npm run deploy:checks && npm run deploy:generate && npm run deploy:commit && npm run deploy:push"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint"
