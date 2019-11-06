@@ -1,5 +1,4 @@
 export default [
-  'code-happy',
   'dissertation',
   'festimap',
   'hacksheffield',
