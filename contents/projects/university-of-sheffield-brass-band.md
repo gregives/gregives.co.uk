@@ -16,7 +16,8 @@ I have been a member of the University of Sheffield Brass Band for three years, 
 
 An essential requirement of the brass band’s website was that people with only a little technical experience would be able to edit it, or even people who had no prior experience. The website was designed with four pages in mind:
 
-- The home page aims to provide an overview of the band, with some photos of the band in action, a news section and finally a short description of the band and its function. - A concerts page should promote the band's upcoming concerts, providing ticketing information and possibly a banner or graphic designed for the concert.
+- The home page aims to provide an overview of the band, with some photos of the band in action, a news section and finally a short description of the band and its function.
+- A concerts page should promote the band's upcoming concerts, providing ticketing information and possibly a banner or graphic designed for the concert.
 - Members of the band should be able to upload images to the gallery page with little configuration.
 - Finally, the contact page allows potential customers to enquire about the band.
 
