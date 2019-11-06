@@ -84,6 +84,7 @@ export default {
 
   iframe {
     border-radius: $border-radius;
+    box-shadow: $box-shadow;
     display: block;
     margin-top: 2rem;
     width: 100%;
