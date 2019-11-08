@@ -78,6 +78,13 @@ export default {
       sizes: [640, 768, 1024, 1366, 1600, 1920]
     }
   },
+  pwa: {
+    meta: {
+      name: 'Greg Ives',
+      ogHost: 'https://gregives.co.uk',
+      ogImage: '/og.png'
+    }
+  },
   sitemap: {
     hostname: 'https://gregives.co.uk',
     gzip: true,
