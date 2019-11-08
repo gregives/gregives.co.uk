@@ -49,7 +49,6 @@ export default {
   css: ['~/assets/scss/default.scss'],
   // Plugins to load before mounting the App
   plugins: [
-    '~/plugins/tilt.client.js',
     '~/plugins/lazysizes.client.js',
     '~/plugins/tabbing.client.js',
     '~/plugins/components.js'
