@@ -85,6 +85,12 @@ export default {
         return `(${content.toString()})()`
       })()
     }
+  },
+  mounted() {
+    // Disable install prompt for PWA
+    window.addEventListener('beforeinstallprompt', (event) => {
+      event.preventDefault()
+    })
   }
 }
 </script>
