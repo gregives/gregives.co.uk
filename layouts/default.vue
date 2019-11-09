@@ -1,9 +1,8 @@
 <template>
   <div id="__app">
     <script v-html="script"></script>
-    <Header />
-    <Nuxt />
-    <Footer />
+    <navbar />
+    <nuxt />
     <svg id="__filters" height="0" width="0">
       <defs>
         <filter id="underwater">
@@ -47,13 +46,11 @@
 </template>
 
 <script>
-import Header from '~/components/Header'
-import Footer from '~/components/Footer'
+import Navbar from '~/components/Navbar'
 
 export default {
   components: {
-    Header,
-    Footer
+    Navbar
   },
   data() {
     return {
