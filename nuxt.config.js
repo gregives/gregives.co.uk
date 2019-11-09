@@ -82,7 +82,12 @@ export default {
     meta: {
       name: 'Greg Ives',
       ogHost: 'https://gregives.co.uk',
-      ogImage: '/og.png'
+      ogImage: {
+        path: '/og.png',
+        width: 1910,
+        height: 1000,
+        type: 'image/png'
+      }
     }
   },
   sitemap: {
