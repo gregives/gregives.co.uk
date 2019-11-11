@@ -10,6 +10,10 @@
   transition: background-color 150ms ease-out;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: $color--body;
 }
@@ -210,5 +214,10 @@ footer > * {
   main {
     transform: translate(-30%);
     transition: opacity 300ms ease-out, transform 400ms ease-out;
+
+    @media (min-width: $breakpoint--lg) {
+      transform: none;
+      transition: none;
+    }
   }
 }

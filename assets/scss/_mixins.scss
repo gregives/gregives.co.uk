@@ -19,6 +19,22 @@
   }
 }
 
+@mixin dots($clip-path) {
+  &::before {
+    background-image: radial-gradient($color--primary-muted 10%, transparent 10%);
+    background-size: 1rem 1rem;
+    clip-path: $clip-path;
+    content: '';
+    height: 100%;
+    left: calc(50% + 2px);
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100vw;
+    z-index: -1;
+  }
+}
+
 @mixin title {
   font-weight: 500;
   -webkit-text-stroke: 0.2vmin $color--primary;

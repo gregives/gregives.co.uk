@@ -78,7 +78,13 @@ export default {
 
 <style lang="scss">
 .project {
+  $clip-path: polygon(100% 0%, 100% 100%, 40% 30%);
   @include page;
+  @include dots($clip-path);
+
+  &::before {
+    height: 20rem;
+  }
 }
 
 .project__content {

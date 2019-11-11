@@ -149,7 +149,9 @@ export default {
 
 <style lang="scss">
 .contact {
+  $clip-path: polygon(100% 30%, 70% 20%, 50% 90%, 90% 100%, 100% 100%);
   @include page;
+  @include dots($clip-path);
 }
 
 .contact__title {
