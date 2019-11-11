@@ -223,9 +223,10 @@ export default {
 
   input,
   textarea {
-    background: $color--body;
+    background: $color--body-overlay;
     border-radius: $border-radius;
-    border: 2px solid $color--primary-muted;
+    border: $border-weight solid $color--primary-muted;
+    box-shadow: $box-shadow--small;
     color: $color--text;
     display: block;
     padding: 1rem;
@@ -249,7 +250,7 @@ export default {
   }
 
   span {
-    background: $color--body;
+    background: linear-gradient($color--body 40%, $color--body-overlay 60%);
     bottom: 100%;
     color: $color--text-muted;
     left: 0;

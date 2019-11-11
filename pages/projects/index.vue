@@ -91,6 +91,7 @@ export default {
 
   &:hover {
     .projects__list-content {
+      border-color: $color--primary;
       box-shadow: $box-shadow--small;
     }
 
@@ -165,12 +166,14 @@ export default {
 
 .projects__list-content {
   background-color: $color--body-overlay;
+  border: $border-weight solid $color--primary-muted;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
   margin-top: -1.5rem;
   margin-left: 1.5rem;
   padding: 1.5rem;
   position: relative;
-  transition: background-color 150ms ease-out, box-shadow 150ms ease-out;
+  transition: background-color 150ms ease-out, box-shadow 150ms ease-out,
+    border-color 150ms ease-out;
 }
 </style>

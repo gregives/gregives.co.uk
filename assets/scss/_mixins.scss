@@ -60,7 +60,7 @@ $link-weight: 0.08rem;
 }
 
 @mixin button {
-  $border-size: 2px;
+  $border-size: $border-weight;
   background-color: transparent;
   border: $border-size solid $color--primary;
   border-radius: $border-radius;
