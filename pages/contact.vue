@@ -252,14 +252,38 @@ export default {
   }
 
   span {
-    background: linear-gradient($color--body 40%, $color--body-overlay 60%);
     bottom: 100%;
     color: $color--text-muted;
     left: 0;
     margin-bottom: -0.75rem;
     margin-left: calc(0.5rem + 2px);
+    overflow: hidden;
     padding: 0 0.5rem;
     position: absolute;
+    z-index: 1;
+
+    &::before {
+      background-color: $color--body;
+      bottom: 0;
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      z-index: -1;
+    }
+
+    &::after {
+      background-color: $color--body-overlay;
+      bottom: -50%;
+      content: '';
+      filter: blur(0.125rem);
+      height: 100%;
+      left: -50%;
+      position: absolute;
+      width: 200%;
+      z-index: -1;
+    }
   }
 
   &:not(:last-child) {
