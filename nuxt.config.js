@@ -87,7 +87,8 @@ export default {
         width: 1910,
         height: 1000,
         type: 'image/png'
-      }
+      },
+      twitterCard: 'summary_large_image'
     }
   },
   sitemap: {
