@@ -96,4 +96,8 @@ export default {
 #__filters {
   position: absolute;
 }
+
+#__app {
+  overflow: hidden;
+}
 </style>
