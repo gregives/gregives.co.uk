@@ -186,12 +186,14 @@ export default {
   margin-top: 2rem;
 }
 
-.contact__social-icon {
-  transition: color 150ms ease-out;
-
-  ~ .contact__social-icon {
+.contact__social-item {
+  ~ .contact__social-item {
     margin-top: 0.5rem;
   }
+}
+
+.contact__social-icon {
+  transition: color 150ms ease-out;
 
   &:hover {
     color: $color--primary;
