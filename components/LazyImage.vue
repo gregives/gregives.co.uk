@@ -1,14 +1,23 @@
 <template>
-  <picture :style="{ width }">
-    <source :data-srcset="webp" type="image/webp" />
-    <source :data-srcset="responsive" type="image/png" />
-    <img
-      :src="sqip"
-      :data-src="original"
-      class="lazy-image lazy-image--load"
-      :alt="alt"
-    />
-  </picture>
+  <div class="lazy">
+    <noscript>
+      <picture :style="{ width }">
+        <source :srcset="webp" type="image/webp" />
+        <source :srcset="responsive" :type="type" />
+        <img :src="original" class="lazy__image" :alt="alt" />
+      </picture>
+    </noscript>
+    <picture :style="{ width }">
+      <source :data-srcset="webp" type="image/webp" />
+      <source :data-srcset="responsive" :type="type" />
+      <img
+        :src="sqip"
+        :data-src="original"
+        class="lazy__image lazy__image--load"
+        :alt="alt"
+      />
+    </picture>
+  </div>
 </template>
 
 <script>
@@ -28,6 +37,9 @@ export default {
     }
   },
   computed: {
+    type() {
+      return `image/${this.src.split('.').pop()}`
+    },
     webp() {
       if (!this.src) return false
       return require(`~/assets/images/lazy/${this.src}?webp`)
@@ -49,7 +61,7 @@ export default {
 </script>
 
 <style lang="scss">
-.lazy-image {
+.lazy__image {
   filter: drop-shadow(0 0 0.5rem transparentize(black, 0.9));
 
   &:not([src]) {

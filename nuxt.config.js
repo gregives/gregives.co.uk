@@ -38,7 +38,13 @@ export default {
         crossorigin: true
       },
       { rel: 'dns-prefetch', href: 'https://www.google-analytics.com' }
-    ]
+    ],
+    noscript: [
+      {
+        innerHTML: '<style>.lazy>picture,.theme-toggle{display:none;}</style>'
+      }
+    ],
+    __dangerouslyDisableSanitizers: ['noscript']
   },
   // Progress-bar color and theme color
   loading: {
