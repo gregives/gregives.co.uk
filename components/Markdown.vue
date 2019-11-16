@@ -66,7 +66,7 @@ export default {
     margin-bottom: 1rem;
   }
 
-  picture {
+  .lazy {
     margin-top: 2rem;
 
     &:not(:last-child) {
