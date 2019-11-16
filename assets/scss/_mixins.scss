@@ -87,7 +87,7 @@ $link-weight: 0.08rem;
   opacity: 1;
   padding: 0.5rem 1rem;
   position: relative;
-  transition: opacity 150ms ease, transform 150ms ease;
+  transition: background-color 150ms ease-out, opacity 150ms ease, transform 150ms ease;
 
   &::before {
     content: '';
