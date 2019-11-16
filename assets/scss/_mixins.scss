@@ -77,7 +77,7 @@ $link-weight: 0.08rem;
 
 @mixin button {
   $border-size: $border-weight;
-  background-color: transparent;
+  background-color: $color--body;
   border: $border-size solid $color--primary;
   border-radius: $border-radius;
   color: $color--primary;
@@ -116,7 +116,12 @@ $link-weight: 0.08rem;
 
   &[disabled] {
     cursor: not-allowed;
-    opacity: 0.5 !important;
+    opacity: 0.5;
+    transform: none;
+
+    &::before {
+      box-shadow: $box-shadow--primary-small;
+    }
   }
 }
 
