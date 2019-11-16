@@ -159,7 +159,7 @@ export default {
 
 <style lang="scss">
 .contact {
-  $clip-path: polygon(100% 30%, 70% 20%, 50% 90%, 90% 100%, 100% 100%);
+  $clip-path: polygon(100% 30%, 70% 25%, 50% 60%, 80% 100%, 100% 100%);
   @include page;
   @include dots($clip-path);
 }
@@ -265,9 +265,8 @@ export default {
   span {
     bottom: 100%;
     color: $color--text-muted;
-    left: 0;
+    left: 0.5rem;
     margin-bottom: -0.75rem;
-    margin-left: calc(0.5rem + 2px);
     overflow: hidden;
     padding: 0 0.5rem;
     position: absolute;
@@ -275,18 +274,19 @@ export default {
 
     &::before {
       background-color: $color--body;
-      bottom: 0;
+      bottom: -0.5rem;
       content: '';
+      filter: blur(0.125rem);
       height: 100%;
-      left: 0;
+      left: -50%;
       position: absolute;
-      width: 100%;
+      width: 200%;
       z-index: -1;
     }
 
     &::after {
       background-color: $color--body-overlay;
-      bottom: -50%;
+      bottom: -60%;
       content: '';
       filter: blur(0.125rem);
       height: 100%;
