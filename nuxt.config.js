@@ -103,7 +103,7 @@ export default {
     exclude: ['/resume']
   },
   generate: {
-    routes: [].concat(projectNames.map((project) => `/projects/${project}`))
+    routes: ['/404', ...projectNames.map((project) => `/projects/${project}`)]
   },
   // Build configuration
   build: {
