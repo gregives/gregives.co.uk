@@ -43,16 +43,11 @@
 
 @mixin title--primary {
   color: $color--primary;
-  filter: url('#underwater');
   font-size: 110%;
   font-weight: 900;
   line-height: 1;
   -webkit-text-stroke: 0 currentColor;
   -webkit-text-fill-color: currentColor;
-
-  @media (prefers-reduced-motion: reduce) {
-    filter: none !important;
-  }
 }
 
 $link-weight: 0.08rem;

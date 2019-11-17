@@ -3,45 +3,6 @@
     <script v-html="script"></script>
     <navbar />
     <nuxt />
-    <svg id="__filters" height="0" width="0">
-      <defs>
-        <filter id="underwater">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.01"
-            numOctaves="2"
-            result="turbulence"
-          ></feTurbulence>
-          <feColorMatrix
-            in="turbulence"
-            type="hueRotate"
-            values="0"
-            result="animated"
-          >
-            <animate
-              attributeName="values"
-              from="0"
-              to="360"
-              :dur="`${Math.random() + 2}s`"
-              repeatCount="indefinite"
-            ></animate>
-          </feColorMatrix>
-          <feDisplacementMap
-            in="SourceGraphic"
-            in2="animated"
-            xChannelSelector="R"
-            yChannelSelector="G"
-          >
-            <animate
-              attributeName="scale"
-              values="10; 20; 10"
-              :dur="`${Math.random() + 7}s`"
-              repeatCount="indefinite"
-            ></animate>
-          </feDisplacementMap>
-        </filter>
-      </defs>
-    </svg>
   </div>
 </template>
 
@@ -93,10 +54,6 @@ export default {
 </script>
 
 <style lang="scss">
-#__filters {
-  position: absolute;
-}
-
 #__app {
   overflow: hidden;
 }
