@@ -85,18 +85,6 @@ export default {
 }
 
 .nav {
-  $clip-path: polygon(
-    0% 100%,
-    0% 80%,
-    80% 100%,
-    100% 100%,
-    100% 90%,
-    80% 30%,
-    100% 10%,
-    100% 100%
-  );
-  @include dots($clip-path);
-
   background-color: $color--body;
   box-shadow: $box-shadow;
   height: 100vh;
@@ -110,10 +98,6 @@ export default {
   width: calc(90% - 5rem);
   z-index: -1;
 
-  &::before {
-    width: 100%;
-  }
-
   @media (min-width: $breakpoint--lg) {
     background-color: transparent;
     box-shadow: none;
@@ -125,10 +109,6 @@ export default {
     visibility: visible;
     width: auto;
     z-index: auto;
-
-    &::before {
-      display: none;
-    }
   }
 }
 
