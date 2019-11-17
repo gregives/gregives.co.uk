@@ -10,7 +10,10 @@
         class="projects__list-item"
       >
         <nuxt-link :to="project.link" class="projects__list-link">
-          <div class="projects__list-image">
+          <div
+            class="projects__list-image"
+            :data-title="project.titleShort || project.title"
+          >
             <lazy-image :src="project.image" :alt="project.title" />
           </div>
           <div class="projects__list-content">
@@ -118,6 +121,11 @@ export default {
     .projects__list-image {
       filter: saturate(0.5) brightness(1.2);
 
+      &::before {
+        animation-play-state: running;
+        opacity: 0.1;
+      }
+
       &::after {
         opacity: 0.6;
       }
@@ -154,6 +162,32 @@ export default {
   position: relative;
   transition: filter 300ms ease;
   width: calc(100% - 1.5rem);
+
+  &::before {
+    animation: 10s infinite linear scroll;
+    animation-play-state: paused;
+    bottom: -25%;
+    color: $color--body;
+    content: attr(data-title);
+    font-family: $font--fancy;
+    font-size: 10em;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 300ms ease;
+    white-space: nowrap;
+    width: 100%;
+    z-index: 1;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(100%);
+    }
+
+    to {
+      transform: translateX(-300%);
+    }
+  }
 
   &::after {
     background-color: $color--primary;
