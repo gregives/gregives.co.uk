@@ -18,7 +18,7 @@ export default {
   mode: 'universal',
   // Content of page head
   head: {
-    title: 'Software Developer',
+    title: 'Software Engineer',
     titleTemplate: '%s | Greg Ives',
     meta: [
       { charset: 'utf-8' },
@@ -27,7 +27,7 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          'Personal site and portfolio of software developer Greg Ives. Currently in his final year studying Computer Science at the University of Sheffield, Greg is looking for an opportunity in software development from June 2020.'
+          'Personal site and portfolio of software engineer Greg Ives. Currently in his final year studying Computer Science at the University of Sheffield, Greg is looking for an opportunity in software engineering from June 2020.'
       }
     ],
     link: [

@@ -4,4 +4,4 @@ I have a lot of experience building performant and accessible websites. Recently
 
 This summer I worked as an intern at [FinancialForce](https://financialforce.com), building an app on the Salesforce platform with Lightning Web Components. I volunteer as an instructor at [Code First: Girls](https://codefirstgirls.org.uk), teaching young women and non-binary people to build their first website. I am also a teaching assistant at the University of Sheffield, teaching various modules to first year students.
 
-I'm looking for an opportunity in software development after I graduate in June 2020. <nuxt-link to="/contact">Get in touch with me</nuxt-link> for a copy of my résumé and to have a chat!
+I'm looking for an opportunity in software engineering after I graduate in June 2020. <nuxt-link to="/contact">Get in touch with me</nuxt-link> for a copy of my résumé and to have a chat!

@@ -1,1 +1,1 @@
-If you like what you've seen on my site, I'd love for you to get in touch via my contact form! If you think I'd be a good fit at your company, I'm looking for a software development role from June 2020. I look forward to hearing from you.
+If you like what you've seen on my site, I'd love for you to get in touch via my contact form or social media! If you think I'd be a good fit at your company, I'm looking for an opportunity in software engineering from June 2020.
