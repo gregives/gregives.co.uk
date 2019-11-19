@@ -24,4 +24,4 @@ I worked on the frontend of the app in Android Studio, designing the user interf
 
 <lazy-image src="hype/icon.png" alt="Hype app icon" width="15rem" />
 
-We presented our app to more than one hundred attendees at the hackathon and talked about what we had learnt at our first hackathon. I found it an incredible experience and as such a became involved in the organising committee for hackSheffield. You can read more about <nuxt-link to="/projects/hacksheffield">my role in hackSheffield and the other hackathons I've attended</nuxt-link>.
+We presented our app to more than one hundred attendees at the hackathon and talked about what we had learnt at our first hackathon. I found it an incredible experience and as such a became involved in the organising committee for HackSheffield. You can read more about <nuxt-link to="/projects/hacksheffield">my role in HackSheffield and the other hackathons I've attended</nuxt-link>.
