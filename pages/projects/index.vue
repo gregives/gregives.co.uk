@@ -13,6 +13,10 @@
           <div
             class="projects__list-image"
             :data-title="project.titleShort || project.title"
+            :style="
+              `--scroll-speed: ${(project.titleShort || project.title).length /
+                1.5}s`
+            "
           >
             <lazy-image :src="project.image" :alt="project.title" />
           </div>
@@ -165,27 +169,29 @@ export default {
 
   &::before {
     animation: 10s infinite linear scroll;
+    animation-duration: var(--scroll-speed);
     animation-play-state: paused;
     bottom: -25%;
     color: $color--body;
-    content: attr(data-title);
+    content: '\00A0\00A0'attr(data-title) '\00A0\00A0'attr(data-title)
+      '\00A0\00A0'attr(data-title);
     font-family: $font--fancy;
     font-size: 10em;
+    left: 0;
     opacity: 0;
     position: absolute;
     transition: opacity 300ms ease;
     white-space: nowrap;
-    width: 100%;
     z-index: 1;
   }
 
   @keyframes scroll {
     from {
-      transform: translateX(100%);
+      transform: translateX(#{-1/3 * 100%});
     }
 
     to {
-      transform: translateX(-300%);
+      transform: translateX(#{-2/3 * 100%});
     }
   }
 
