@@ -5,8 +5,10 @@
     :title="theme === 'light' ? 'Dark theme' : 'Light theme'"
     @click="toggleTheme"
   >
-    <moon-icon v-if="theme === 'light'" title="Dark theme" />
-    <sun-icon v-else title="Light theme" />
+    <no-ssr>
+      <moon-icon v-if="theme === 'light'" title="Dark theme" />
+      <sun-icon v-else title="Light theme" />
+    </no-ssr>
   </button>
 </template>
 
