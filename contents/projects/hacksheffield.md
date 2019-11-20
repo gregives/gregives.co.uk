@@ -28,4 +28,4 @@ I'm the one third from the left, looking ecstatic that HackSheffield 4.0 had suc
 
 I've attended loads of hackathons since starting university --- you can see some of the projects I've created at hackathons [on Devpost](https://devpost.com/gregives). I decided to create a map to showcase the amazing places I've had the chance to visit for hackathons, including Bordeaux, St Gallen and Barcelona!
 
-<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1TPa-VDk3oQ1qIfv2efqFSsRUzG5Zj2p0" width="640" height="480"></iframe>
+<iframe title="Greg's Hackathons – Google My Maps" src="https://www.google.com/maps/d/u/0/embed?mid=1TPa-VDk3oQ1qIfv2efqFSsRUzG5Zj2p0" width="640" height="480"></iframe>
