@@ -1,9 +1,9 @@
 <template>
   <header class="header">
     <div class="header__content">
-      <span class="header__logo">
+      <div class="header__logo">
         <nuxt-link to="/">Greg Ives</nuxt-link>
-      </span>
+      </div>
       <hamburger />
       <theme-toggle />
       <nav class="nav">
