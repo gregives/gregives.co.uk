@@ -1,18 +1,20 @@
 <template>
   <div class="error">
-    <h1 v-if="statusCode === 404" class="error__title">
-      Page <span class="error__title--primary">Not Found</span>
-    </h1>
-    <h1 v-else class="error__title">
-      An <span class="error__title--primary">Error</span> Occurred
-    </h1>
+    <client-only>
+      <h1 v-if="statusCode === 404" class="error__title">
+        Page <span class="error__title--primary">Not Found</span>
+      </h1>
+      <h1 v-else class="error__title">
+        An <span class="error__title--primary">Error</span> Occurred
+      </h1>
+    </client-only>
     <p class="error__message">
       If you think there's something wrong with my website, please could you
       <nuxt-link to="/contact">let me know</nuxt-link>? Otherwise you can head
       back over to the home page!
     </p>
     <nuxt-link to="/" class="error__safety">Take me to safety</nuxt-link>
-    <picture v-if="statusCode === 404" class="error__headshot">
+    <picture v-show="statusCode === 404" class="error__headshot">
       <source :srcset="head.webp" type="image/webp" />
       <source :srcset="head.png" type="image/png" />
       <img :src="head.png" alt="Greg Ives looking worried" />
