@@ -1,12 +1,5 @@
 <template>
   <div class="lazy">
-    <noscript>
-      <picture :style="{ width }">
-        <source :srcset="webp" type="image/webp" />
-        <source :srcset="responsive" :type="type" />
-        <img :src="original" class="lazy__image" :alt="alt" />
-      </picture>
-    </noscript>
     <picture :style="{ width }">
       <source :data-srcset="webp" type="image/webp" />
       <source :data-srcset="responsive" :type="type" />
