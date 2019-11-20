@@ -1,15 +1,15 @@
 <template>
-  <button
-    class="theme-toggle"
-    :aria-label="theme === 'light' ? 'Dark theme' : 'Light theme'"
-    :title="theme === 'light' ? 'Dark theme' : 'Light theme'"
-    @click="toggleTheme"
-  >
-    <client-only>
+  <client-only>
+    <button
+      class="theme-toggle"
+      :aria-label="theme === 'light' ? 'Dark theme' : 'Light theme'"
+      :title="theme === 'light' ? 'Dark theme' : 'Light theme'"
+      @click="toggleTheme"
+    >
       <moon-icon v-if="theme === 'light'" title="Dark theme" />
       <sun-icon v-else title="Light theme" />
-    </client-only>
-  </button>
+    </button>
+  </client-only>
 </template>
 
 <script>
