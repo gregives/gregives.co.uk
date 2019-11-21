@@ -1,7 +1,7 @@
 # [gregives.co.uk](https://gregives.co.uk)
 
-[![Travis Status](https://travis-ci.org/gregives/gregives.co.uk.svg?branch=master)](https://travis-ci.org/gregives/gregives.co.uk)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9d27f2de-e50e-4a8c-a262-6a24e4a663a8/deploy-status)](https://app.netlify.com/sites/gregives/deploys)
+![Travis Status](https://img.shields.io/travis/gregives/gregives.co.uk)
+![Netlify Status](https://img.shields.io/netlify/9d27f2de-e50e-4a8c-a262-6a24e4a663a8?color=%2300C7B7)
 
 Personal site and portfolio of software engineer Greg Ives, built with [Nuxt](https://nuxtjs.org) and deployed with Travis and Netlify.
 
