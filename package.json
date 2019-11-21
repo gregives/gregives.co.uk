@@ -9,12 +9,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "deploy:checks": "git diff-index --quiet HEAD && rimraf pages/resume",
-    "deploy:generate": "cross-env NODE_ENV=production nuxt generate",
-    "deploy:commit": "git checkout -B deploy && git add -A && git commit --no-verify -m \"Deploy static site\"",
-    "deploy:push": "git push -f origin deploy:deploy && git checkout - && git branch -D deploy",
-    "deploy": "npm run deploy:checks && npm run deploy:generate && npm run deploy:commit && npm run deploy:push"
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "lint-staged": {
     "*.{js,vue}": "eslint"
