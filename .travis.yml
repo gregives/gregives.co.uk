@@ -13,7 +13,7 @@ install:
   - npm install
 
 script:
-  - npm run generate
+  - travis_wait npm run generate
 
 deploy:
   provider: pages
