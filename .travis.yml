@@ -1,0 +1,27 @@
+language: node_js
+
+git:
+  submodules: false
+
+cache:
+  directories:
+    - "node_modules"
+
+branches:
+  only:
+  - master
+
+install:
+  - npm install
+
+script:
+  - npm run generate
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_ACCESS_TOKEN
+  target-branch: test
+  local-dir: dist
+  on:
+    branch: master
