@@ -89,6 +89,10 @@ export default {
         type: 'image/png'
       },
       twitterCard: 'summary_large_image'
+    },
+    manifest: {
+      name: 'Greg Ives',
+      short_name: 'Greg Ives'
     }
   },
   sitemap: {
