@@ -14,7 +14,7 @@
       back over to the home page!
     </p>
     <nuxt-link to="/" class="error__safety">Take me to safety</nuxt-link>
-    <picture v-show="statusCode === 404" class="error__headshot">
+    <picture v-if="statusCode === 404" class="error__headshot">
       <source :srcset="head.webp" type="image/webp" />
       <source :srcset="head.png" type="image/png" />
       <img :src="head.png" alt="Greg Ives looking worried" />
