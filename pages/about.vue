@@ -35,8 +35,10 @@ export default {
   $clip-path: polygon(0% 10%, 200% 45%, 0% 35%);
   @include page;
   @include dots($clip-path);
+}
 
-  @media (min-width: $breakpoint--md) {
+@media (min-width: $breakpoint--md) {
+  .about {
     $clip-path: polygon(
       0% 10%,
       30% 30%,
