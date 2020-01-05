@@ -1,5 +1,5 @@
 <template>
-  <div class="error">
+  <main class="error">
     <client-only>
       <h1 v-if="statusCode === 404" class="error__title">
         Page <span class="error__title--primary">Not Found</span>
@@ -19,7 +19,7 @@
       <source :srcset="head.png" type="image/png" />
       <img :src="head.png" alt="Greg Ives looking worried" />
     </picture>
-  </div>
+  </main>
 </template>
 
 <script>
