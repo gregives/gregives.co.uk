@@ -102,7 +102,8 @@ export default {
     exclude: ['/resume']
   },
   generate: {
-    routes: ['/404', ...projectNames.map((project) => `/projects/${project}`)]
+    fallback: true,
+    routes: [...projectNames.map((project) => `/projects/${project}`)]
   },
   // Build configuration
   build: {
