@@ -209,12 +209,12 @@ export default {
 
   img {
     bottom: 0;
-    filter: none !important;
     height: 100%;
     left: 0;
     object-fit: cover;
     object-position: top left;
     position: absolute;
+    top: 0;
     transition: transform 300ms ease;
     width: 100%;
   }

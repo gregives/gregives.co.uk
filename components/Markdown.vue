@@ -74,14 +74,6 @@ export default {
     }
   }
 
-  img {
-    border-radius: $border-radius;
-    max-height: 2/3 * 100vh;
-    object-fit: contain;
-    object-position: top left;
-    width: 100%;
-  }
-
   iframe {
     border-radius: $border-radius;
     box-shadow: $box-shadow;

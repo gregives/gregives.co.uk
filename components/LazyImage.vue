@@ -66,27 +66,20 @@ export default {
 </script>
 
 <style lang="scss">
+.lazy {
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  overflow: hidden;
+  width: 100%;
+}
+
 .lazy__image {
-  filter: drop-shadow(0 0 0.5rem transparentize(black, 0.9));
+  display: block;
+  filter: blur(1rem);
+  width: 100%;
+}
 
-  &:not([src]) {
-    &::before,
-    &::after {
-      content: '';
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 100%;
-    }
-
-    &::before {
-      background-color: $color--body;
-    }
-
-    &::after {
-      background-color: $color--primary-muted;
-    }
-  }
+.lazy__image--loaded {
+  filter: none;
 }
 </style>

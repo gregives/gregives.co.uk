@@ -4,11 +4,12 @@
       A Little <span class="about__title--primary">About</span> Me
     </h1>
     <div class="about__text">
-      <lazy-image
-        class="about__image"
-        src="about/hacksheffield.jpg"
-        alt="Greg Ives at HackSheffield"
-      />
+      <div class="about__image">
+        <lazy-image
+          src="about/hacksheffield.jpg"
+          alt="Greg Ives at HackSheffield"
+        />
+      </div>
       <markdown :vue="vue" />
     </div>
   </main>
@@ -76,10 +77,6 @@ export default {
 .about__image {
   position: relative;
   width: calc(100% - 1.5rem) !important;
-
-  img {
-    border-radius: $border-radius;
-  }
 
   &::before {
     background-color: $color--body-overlay;
