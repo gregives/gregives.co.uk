@@ -45,7 +45,6 @@
     "nuxt": "^2.9.0",
     "responsive-loader": "^1.2.0",
     "sass-loader": "^7.3.1",
-    "sqip-loader": "^0.2.0",
     "vue-material-design-icons": "^4.1.0",
     "vue-scrollto": "^2.17.1",
     "vue-tabbing": "^0.1.0",

@@ -4,7 +4,7 @@
       <source :data-srcset="webp" type="image/webp" />
       <source :data-srcset="responsive" :type="type" />
       <img
-        :src="sqip"
+        :src="preview"
         :data-src="original"
         class="lazy__image lazy__image--load"
         :alt="alt"
@@ -34,20 +34,32 @@ export default {
       return `image/${this.src.split('.').pop()}`
     },
     webp() {
-      if (!this.src) return false
-      return require(`~/assets/images/lazy/${this.src}?webp`)
+      try {
+        return require(`~/assets/images/lazy/${this.src}?webp`)
+      } catch (error) {
+        return false
+      }
     },
     responsive() {
-      if (!this.src || this.src.endsWith('.gif')) return false
-      return require(`~/assets/images/lazy/${this.src}?resize`).srcSet
+      try {
+        return require(`~/assets/images/lazy/${this.src}?resize`).srcSet
+      } catch (error) {
+        return false
+      }
     },
-    sqip() {
-      if (!this.src) return false
-      return require(`~/assets/images/lazy/${this.src}?sqip`)
+    preview() {
+      try {
+        return require(`~/assets/images/lazy/${this.src}?resize`).placeholder
+      } catch (error) {
+        return false
+      }
     },
     original() {
-      if (!this.src) return false
-      return require(`~/assets/images/lazy/${this.src}`)
+      try {
+        return require(`~/assets/images/lazy/${this.src}`)
+      } catch (error) {
+        return false
+      }
     }
   }
 }

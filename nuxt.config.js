@@ -75,7 +75,8 @@ export default {
         ? '[path][name]--[width][hash:optimized].[ext]'
         : 'img/[hash:7].[ext]',
     responsive: {
-      sizes: [640, 768, 1024, 1366, 1600, 1920]
+      sizes: [320, 640, 1280, 1920],
+      placeholder: true
     }
   },
   pwa: {
