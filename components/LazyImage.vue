@@ -74,8 +74,9 @@ export default {
 }
 
 .lazy__image {
+  background-color: $color--body-overlay;
   display: block;
-  filter: blur(1rem);
+  filter: blur(0.5rem);
   width: 100%;
 }
 
