@@ -169,13 +169,20 @@ code {
   background-color: $color--primary !important;
 }
 
-.page-enter-active, .page-leave-active {
+.page-enter-active,
+.page-leave-active,
+.layout-enter-active,
+.layout-leave-active {
+  transform-origin: top;
   transition: opacity 300ms ease-out, transform 300ms ease-out;
 }
 
-.page-enter, .page-leave-to {
+.page-enter,
+.page-leave-to,
+.layout-enter,
+.layout-leave-to {
   opacity: 0 !important;
-  transform: translateY(0.5rem);
+  transform: translateY(0.5rem) scale(1.01);
 }
 
 .material-design-icon svg {
