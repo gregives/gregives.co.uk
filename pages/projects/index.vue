@@ -11,12 +11,12 @@
       >
         <nuxt-link :to="project.link" class="projects__list-link">
           <div
-            class="projects__list-image"
             :data-title="project.titleShort || project.title"
             :style="
               `--scroll-speed: ${(project.titleShort || project.title).length /
                 1.5}s`
             "
+            class="projects__list-image"
           >
             <lazy-image :src="project.image" :alt="project.title" />
           </div>
@@ -28,8 +28,8 @@
               {{ project.date.getFullYear() }}
             </small>
             <p
-              class="projects__list-description"
               v-html="project.description"
+              class="projects__list-description"
             ></p>
           </div>
         </nuxt-link>

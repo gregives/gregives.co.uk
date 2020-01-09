@@ -3,9 +3,9 @@
     <picture
       v-for="head in heads"
       :key="head.png"
-      class="headshots__image"
       :data-x="head.x"
       :data-y="head.y"
+      class="headshots__image"
     >
       <source :srcset="head.lazy ? false : head.webp" type="image/webp" />
       <source :srcset="head.lazy ? false : head.png" type="image/png" />

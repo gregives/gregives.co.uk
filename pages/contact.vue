@@ -56,10 +56,10 @@
       </div>
       <div class="contact__form">
         <form
+          @submit.prevent="sendMessage"
           class="form"
           action="https://formsubmit.co/dea5c6258093cbf621aeec513dcdbaec"
           method="POST"
-          @submit.prevent="sendMessage"
         >
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="box" />
@@ -82,10 +82,10 @@
             <span>Subject</span>
           </label>
           <label class="form__input">
-            <textarea name="message" required @input="autoHeight"></textarea>
+            <textarea @input="autoHeight" name="message" required></textarea>
             <span>Say hello</span>
           </label>
-          <button class="form__submit" type="submit" :disabled="message === 1">
+          <button :disabled="message === 1" class="form__submit" type="submit">
             Send message
           </button>
           <span class="form__feedback">

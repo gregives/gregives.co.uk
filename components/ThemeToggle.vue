@@ -1,10 +1,10 @@
 <template>
   <client-only>
     <button
-      class="theme-toggle"
       :aria-label="theme === 'light' ? 'Dark theme' : 'Light theme'"
       :title="theme === 'light' ? 'Dark theme' : 'Light theme'"
       @click="toggleTheme"
+      class="theme-toggle"
     >
       <moon-icon v-if="theme === 'light'" title="Dark theme" />
       <sun-icon v-else title="Light theme" />

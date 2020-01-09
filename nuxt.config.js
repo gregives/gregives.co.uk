@@ -125,13 +125,7 @@ export default {
         useShortDoctype: true
       }
     },
-    extend(
-      config,
-      {
-        isClient,
-        loaders: { vue }
-      }
-    ) {
+    extend(config, { isClient, loaders: { vue } }) {
       // Lazyloading images
       if (isClient) {
         vue.transformAssetUrls.img = ['data-src', 'src']

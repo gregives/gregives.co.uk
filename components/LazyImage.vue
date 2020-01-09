@@ -6,8 +6,8 @@
       <img
         :src="preview"
         :data-src="original"
-        class="lazy__image lazy__image--load"
         :alt="alt"
+        class="lazy__image lazy__image--load"
       />
     </picture>
   </div>
