@@ -83,10 +83,11 @@ export default {
   );
   display: block;
   filter: blur(0.5rem);
+  transition: filter 150ms ease-out;
   width: 100%;
-}
 
-.lazy__image--loaded {
-  filter: none;
+  &--loaded {
+    filter: none;
+  }
 }
 </style>
