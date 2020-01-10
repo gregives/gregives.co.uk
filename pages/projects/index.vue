@@ -42,13 +42,18 @@
 export default {
   computed: {
     projects() {
-      return this.$store.state.projects
+      return this.$store.state.projects.projects.filter(
+        (project) => project !== undefined
+      )
     }
   },
   head() {
     return {
       title: 'Projects'
     }
+  },
+  async fetch({ store }) {
+    await store.dispatch('projects/getProjects')
   }
 }
 </script>
