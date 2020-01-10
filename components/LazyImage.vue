@@ -67,20 +67,18 @@ export default {
 
 <style lang="scss">
 .lazy {
+  background-color: $color--body;
   border-radius: $border-radius;
-  box-shadow: $box-shadow;
-  overflow: hidden;
   width: 100%;
+
+  picture {
+    border-radius: $border-radius;
+    filter: drop-shadow(0 0 0.5rem transparentize(black, 0.8));
+    overflow: hidden;
+  }
 }
 
 .lazy__image {
-  background-image: repeating-linear-gradient(
-    45deg,
-    $color--body-blur,
-    $color--body-blur 0.25rem,
-    transparent 0.25rem,
-    transparent 0.5rem
-  );
   display: block;
   filter: blur(0.5rem);
   transition: filter 150ms ease-out;

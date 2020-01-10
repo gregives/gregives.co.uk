@@ -110,18 +110,16 @@ export default {
     }
 
     .projects__list-image {
-      filter: saturate(0.5) brightness(1.2);
-
       &::before {
         animation-play-state: running;
-        opacity: 0.1;
+        opacity: 0.2;
       }
 
       &::after {
         opacity: 0.6;
       }
 
-      img {
+      .lazy {
         transform: scale(1.02);
       }
     }
@@ -145,13 +143,12 @@ export default {
 }
 
 .projects__list-image {
-  box-shadow: $box-shadow;
   border-radius: $border-radius;
+  box-shadow: $box-shadow;
   margin-right: 1.5rem;
   overflow: hidden;
   padding-bottom: calc(50% - 0.75rem);
   position: relative;
-  transition: filter 300ms ease;
   width: calc(100% - 1.5rem);
 
   &::before {
@@ -194,16 +191,24 @@ export default {
     width: 100%;
   }
 
-  img {
+  .lazy {
     bottom: 0;
     height: 100%;
     left: 0;
-    object-fit: cover;
-    object-position: top left;
     position: absolute;
     top: 0;
     transition: transform 300ms ease;
     width: 100%;
+
+    picture {
+      height: 100%;
+
+      .lazy__image {
+        height: 100%;
+        object-fit: cover;
+        object-position: top left;
+      }
+    }
   }
 }
 
@@ -218,5 +223,6 @@ export default {
   position: relative;
   transition: background-color 150ms ease-out, box-shadow 150ms ease-out,
     border-color 150ms ease-out;
+  z-index: 1;
 }
 </style>
