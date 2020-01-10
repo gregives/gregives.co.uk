@@ -4,8 +4,8 @@ import path from 'path'
 // Modes for frontmatter-markdown-loader
 import Mode from 'frontmatter-markdown-loader/mode'
 
-// Load projects for generate.routes
-import projectNames from './contents/projects'
+// Load routes for dynamic content
+import routes from './contents/routes'
 
 // Load primary color from scss
 const primaryColor = fs
@@ -103,7 +103,7 @@ export default {
   },
   generate: {
     fallback: true,
-    routes: [...projectNames.map((project) => `/projects/${project}`)]
+    routes
   },
   // Build configuration
   build: {
