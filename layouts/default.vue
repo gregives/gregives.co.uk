@@ -65,9 +65,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-#__app {
-  overflow: hidden;
-}
-</style>
