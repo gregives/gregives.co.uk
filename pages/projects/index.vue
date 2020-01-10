@@ -39,26 +39,10 @@
 </template>
 
 <script>
-import projectNames from '~/contents/projects'
-
 export default {
-  async asyncData() {
-    // Import all projects
-    const projects = await Promise.all(
-      projectNames.map(async (project) => {
-        const { attributes } = await import(`~/contents/projects/${project}.md`)
-        const date = attributes.date.split('/')
-        return {
-          ...attributes,
-          date: new Date(date[1], date[0]),
-          link: `/projects/${project}`
-        }
-      })
-    )
-
-    projects.sort((projectA, projectB) => projectB.date - projectA.date)
-    return {
-      projects
+  computed: {
+    projects() {
+      return this.$store.state.projects
     }
   },
   head() {

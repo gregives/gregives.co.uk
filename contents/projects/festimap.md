@@ -1,6 +1,6 @@
 ---
 title: Festimap
-date: 04/2019
+date: 2019-04-01
 image: festimap/screenshots1.png
 description: >-
   Progressive web app designed to share photos at festivals around the world, created for a university module on modern web development.

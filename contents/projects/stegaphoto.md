@@ -1,6 +1,6 @@
 ---
 title: StegaPhoto
-date: 09/2017
+date: 2017-09-01
 image: stegaphoto/screenshot.png
 description: >-
   Cyber security research project on steganography — created a web application which can hide any number of files inside an image.

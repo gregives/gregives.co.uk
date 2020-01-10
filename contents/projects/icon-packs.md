@@ -1,6 +1,6 @@
 ---
 title: Icon Packs
-date: 08/2016
+date: 2016-08-01
 image: android/squircle7.png
 description: >-
   My first foray into programming and design. Icon packs for custom Android launchers, so you can make your phone homescreen look pretty.

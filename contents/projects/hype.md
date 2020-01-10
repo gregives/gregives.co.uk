@@ -1,6 +1,6 @@
 ---
 title: Hype
-date: 10/2016
+date: 2016-10-01
 image: hype/screenshots1.png
 description: >-
   Product of my first hackathon. Hype, an Android app to 'hype' a location or event, which can be viewed on an interactive map.

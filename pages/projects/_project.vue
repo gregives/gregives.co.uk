@@ -8,7 +8,7 @@
           </nuxt-link>
         </div>
       </div>
-      <h2 class="project__title">{{ project.attributes.title }}</h2>
+      <h2 class="project__title">{{ project.title }}</h2>
       <div class="project__details">
         <div class="project__sticky">
           <div class="project__back">
@@ -17,11 +17,11 @@
             </nuxt-link>
           </div>
           <div class="project__date">
-            <div>{{ project.attributes.date }}</div>
+            <div>{{ date }}</div>
           </div>
           <ul class="project__tag-list">
             <li
-              v-for="tag in project.attributes.tags"
+              v-for="tag in project.tags"
               :key="tag"
               class="project__tag-list-item"
             >
@@ -39,36 +39,33 @@
 
 <script>
 export default {
-  async asyncData({ params, error }) {
-    try {
-      const { attributes, vue } = await import(
-        `~/contents/projects/${params.project}.md`
-      )
-      const date = attributes.date.split('/')
+  computed: {
+    date() {
+      return this.project.date.toLocaleString('en-GB', {
+        year: 'numeric',
+        month: 'long'
+      })
+    }
+  },
+  asyncData({ store, params, error }) {
+    const projects = store.state.projects
+    const project = projects.find((project) => project.slug === params.project)
+    if (project) {
       return {
-        project: {
-          attributes: {
-            ...attributes,
-            date: new Date(date[1], date[0]).toLocaleString('en-GB', {
-              year: 'numeric',
-              month: 'long'
-            })
-          },
-          vue
-        }
+        project
       }
-    } catch (e) {
+    } else {
       error({ statusCode: 404, message: 'This project could not be found' })
     }
   },
   head() {
     return {
-      title: this.project.attributes.title,
+      title: this.project.title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.project.attributes.description
+          content: this.project.description
         }
       ]
     }
@@ -78,12 +75,12 @@ export default {
 
 <style lang="scss">
 .project {
-  $clip-path: polygon(100% 0%, 100% 100%, 40% 30%);
+  $clip-path: polygon(60% 0%, 100% 0%, 100% 100%, 30% 40%);
   @include page;
   @include dots($clip-path);
 
   &::before {
-    height: 20rem;
+    height: 15rem;
   }
 }
 
