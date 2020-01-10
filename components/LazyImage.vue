@@ -36,28 +36,28 @@ export default {
     webp() {
       try {
         return require(`~/assets/images/lazy/${this.src}?webp`)
-      } catch (error) {
+      } catch (e) {
         return false
       }
     },
     responsive() {
       try {
         return require(`~/assets/images/lazy/${this.src}?resize`).srcSet
-      } catch (error) {
+      } catch (e) {
         return false
       }
     },
     preview() {
       try {
         return require(`~/assets/images/lazy/${this.src}?resize`).placeholder
-      } catch (error) {
+      } catch (e) {
         return false
       }
     },
     original() {
       try {
         return require(`~/assets/images/lazy/${this.src}`)
-      } catch (error) {
+      } catch (e) {
         return false
       }
     }
@@ -74,7 +74,13 @@ export default {
 }
 
 .lazy__image {
-  background-color: $color--body-overlay;
+  background-image: repeating-linear-gradient(
+    45deg,
+    $color--body-blur,
+    $color--body-blur 0.25rem,
+    transparent 0.25rem,
+    transparent 0.5rem
+  );
   display: block;
   filter: blur(0.5rem);
   width: 100%;
