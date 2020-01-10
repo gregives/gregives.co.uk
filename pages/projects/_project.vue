@@ -1,6 +1,6 @@
 <template>
   <main class="project">
-    <div v-if="project" class="project__content">
+    <div class="project__content">
       <div>
         <div class="project__back project__back--mobile">
           <nuxt-link to="/projects">
@@ -41,22 +41,18 @@
 export default {
   computed: {
     project() {
-      return this.$store.state.project.project
+      return this.$store.state.currentProject
     },
     date() {
-      if (this.project) {
-        return this.project.date.toLocaleString('en-GB', {
-          year: 'numeric',
-          month: 'long'
-        })
-      } else {
-        return ''
-      }
+      return this.project.date.toLocaleString('en-GB', {
+        year: 'numeric',
+        month: 'long'
+      })
     }
   },
   async fetch({ store, params, error }) {
     try {
-      await store.dispatch('project/getProjectBySlug', params.project)
+      await store.dispatch('setCurrentProject', params.project)
     } catch {
       error({ statusCode: 404, message: 'This project could not be found' })
     }
