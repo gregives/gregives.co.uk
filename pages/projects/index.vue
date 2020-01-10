@@ -42,7 +42,7 @@
 export default {
   computed: {
     projects() {
-      return this.$store.state.projects
+      return this.$store.state.projects.projects
     }
   },
   head() {
@@ -51,7 +51,7 @@ export default {
     }
   },
   async fetch({ store }) {
-    await store.dispatch('setProjects')
+    await store.dispatch('projects/setProjects')
   }
 }
 </script>
