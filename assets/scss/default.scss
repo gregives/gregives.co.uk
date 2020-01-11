@@ -148,6 +148,7 @@ code {
 
 ::selection {
   background-color: $color--primary-muted;
+  text-shadow: none;
 }
 
 :root.tabbing :focus {
