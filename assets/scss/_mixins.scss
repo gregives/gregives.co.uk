@@ -63,7 +63,7 @@ $link-weight: 0.08rem;
   background-position: bottom left;
   box-shadow: 0 #{-$link-weight} $color--primary-muted inset;
   color: $color--primary;
-  transition: background-size 300ms ease-out;
+  transition: background-size 300ms ease-out, text-shadow 150ms ease-out;
 
   &:hover {
     @include link--active;
