@@ -199,7 +199,7 @@ export default {
     color: $color--primary;
 
     .contact__social-text {
-      @include link-active;
+      @include link--active;
     }
   }
 
