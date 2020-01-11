@@ -153,12 +153,16 @@ export default {
 
   span {
     @include link;
+
+    @media (min-width: $breakpoint--lg) {
+      @include link($color--body-overlay);
+    }
   }
 
   &:hover,
   &.nuxt-link-exact-active {
     span {
-      @include link-active;
+      @include link--active;
     }
   }
 }
