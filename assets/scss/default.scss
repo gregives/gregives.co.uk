@@ -10,18 +10,11 @@
   transition: background-color 150ms ease-out;
 }
 
-html {
-  overflow-x: hidden;
-}
-
-body {
-  background-color: $color--body;
-}
-
 :root {
   color: $color--text;
   font-family: $font--body;
   font-size: calc(70% + 1vmin);
+  overflow-x: hidden;
   overflow-y: scroll;
 
   // Bound font-size on larger screens
@@ -36,6 +29,10 @@ body {
   @media print and (min-width: $breakpoint--xl) {
     font-size: calc(40% + 1vh);
   }
+}
+
+body {
+  background-color: $color--body;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -194,14 +191,6 @@ main {
 }
 
 :root[data-menu='open'] {
-  body {
-    overflow-y: hidden;
-
-    @media (min-width: $breakpoint--lg) {
-      overflow-y: auto;
-    }
-  }
-
   main,
   .header__logo {
     opacity: 0.1;
