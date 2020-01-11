@@ -1,7 +1,7 @@
 // Fonts
-$font--fancy: 'Tiempos Headline', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+$font--fancy: 'Tiempos Headline', Georgia, Times, 'Times New Roman', serif;
 $font--body: 'IBM Plex Sans', Arial, Helvetica, sans-serif;
-$font--code: 'IBM Plex Mono', 'Consolas', 'Lucida Console', Monaco, monospace;
+$font--code: 'IBM Plex Mono', Consolas, 'Lucida Console', Monaco, monospace;
 
 :root {
   $color--primary: #35f;
@@ -52,6 +52,7 @@ $font--code: 'IBM Plex Mono', 'Consolas', 'Lucida Console', Monaco, monospace;
   }
 }
 
+// Colours
 $color--primary: var(--color--primary);
 $color--primary-muted: var(--color--primary-muted);
 $color--primary-hue: var(--color--primary-hue);
@@ -62,17 +63,18 @@ $color--text: var(--color--text);
 $color--text-muted: var(--color--text-muted);
 $color--text-muter: var(--color--text-muter);
 
+// Shadows
 $box-shadow: var(--box-shadow);
 $box-shadow--small: var(--box-shadow--small);
 $box-shadow--primary: var(--box-shadow--primary);
 $box-shadow--primary-small: var(--box-shadow--primary-small);
-
-// Let's round things off a bit
-$border-radius: 0.2rem;
-$border-weight: 0.1rem;
 
 // Breakpoints
 $breakpoint--sm: 576px;
 $breakpoint--md: 768px;
 $breakpoint--lg: 992px;
 $breakpoint--xl: 1200px;
+
+// Let's round things off
+$border-radius: 0.2rem;
+$border-weight: 0.1rem;
