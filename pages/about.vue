@@ -36,10 +36,8 @@ export default {
   $clip-path: polygon(0% 10%, 200% 45%, 0% 35%);
   @include page;
   @include dots($clip-path);
-}
 
-@media (min-width: $breakpoint--md) {
-  .about {
+  @media (min-width: $breakpoint--md) {
     $clip-path: polygon(
       0% 10%,
       30% 30%,
@@ -53,6 +51,9 @@ export default {
       0% 80%
     );
     @include dots($clip-path);
+
+    // HACK: Arbitrary property needed to keep breakpoint when minified
+    color: inherit;
   }
 }
 
