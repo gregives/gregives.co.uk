@@ -105,6 +105,14 @@ export default {
     fallback: true,
     routes
   },
+  render: {
+    bundleRenderer: {
+      shouldPreload(file, type) {
+        const woff2 = type === 'font' && path.extname(file) === '.woff2'
+        return ['script', 'style'].includes(type) || woff2
+      }
+    }
+  },
   // Build configuration
   build: {
     html: {
