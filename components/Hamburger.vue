@@ -58,37 +58,44 @@ export default {
 
 <style lang="scss">
 $speed: 150ms;
-$width: 2px;
+$thickness: 2px;
 
 .hamburger {
   background: none;
   border: none;
   cursor: pointer;
-  float: right;
   height: 100%;
-  padding: 1rem 0.5rem;
+  padding: 0 0.5rem;
+  position: relative;
   margin: 0 -0.5rem;
   outline: none;
 
   @media (min-width: $breakpoint--lg) {
     display: none;
   }
+
+  &::before {
+    content: '\00A0';
+    display: block;
+    height: 100%;
+    width: 1.5rem;
+  }
 }
 
 .hamburger__icon {
   background-color: $color--text;
-  border-radius: $width / 2;
-  height: $width;
-  position: relative;
-  right: 0;
-  top: calc(50% - #{$width / 2});
+  border-radius: $thickness / 2;
+  height: $thickness;
+  position: absolute;
+  right: 0.5rem;
+  top: calc(50% - #{$thickness / 2});
   transition: transform $speed ease-in;
-  width: calc(15px + 2vw);
+  width: calc(100% - 1rem);
 
   &::before,
   &::after {
     background-color: $color--text;
-    border-radius: $width / 2;
+    border-radius: $thickness / 2;
     content: '';
     height: 100%;
     left: 0;
@@ -97,29 +104,31 @@ $width: 2px;
   }
 
   &::before {
-    top: calc(-4px - 0.5vw);
+    top: 0.5rem;
     transition: top $speed $speed ease-out;
   }
 
   &::after {
-    bottom: calc(-4px - 0.5vw);
+    bottom: 0.5rem;
     transition: bottom $speed $speed ease-out, transform $speed ease-in;
   }
 }
 
-:root[data-menu='open'] .hamburger__icon {
-  transform: rotate(45deg);
-  transition: transform $speed $speed ease-out;
+:root[data-menu='open'] {
+  .hamburger__icon {
+    transform: rotate(45deg);
+    transition: transform $speed $speed ease-out;
 
-  &::before {
-    top: 0;
-    transition: top $speed ease-in;
-  }
+    &::before {
+      top: 0;
+      transition: top $speed ease-in;
+    }
 
-  &::after {
-    bottom: 0;
-    transform: rotate(-90deg);
-    transition: bottom $speed ease-in, transform $speed $speed ease-out;
+    &::after {
+      bottom: 0;
+      transform: rotate(-90deg);
+      transition: bottom $speed ease-in, transform $speed $speed ease-out;
+    }
   }
 }
 </style>

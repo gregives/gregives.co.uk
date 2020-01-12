@@ -4,8 +4,6 @@
       <div class="header__logo">
         <nuxt-link to="/">Greg Ives</nuxt-link>
       </div>
-      <hamburger />
-      <theme-toggle />
       <nav class="nav">
         <ol class="nav__list">
           <li class="nav__list-item">
@@ -30,6 +28,10 @@
           </li>
         </ol>
       </nav>
+      <div class="header__buttons">
+        <theme-toggle />
+        <hamburger />
+      </div>
     </div>
   </header>
 </template>
@@ -50,7 +52,6 @@ export default {
 .header {
   background-color: $color--body-overlay;
   box-shadow: $box-shadow;
-  clear: both;
   line-height: 2rem;
   padding: 1rem 0;
   position: fixed;
@@ -70,10 +71,12 @@ export default {
 
 .header__content {
   @include container;
+
+  display: flex;
 }
 
 .header__logo {
-  display: inline-block;
+  flex-grow: 1;
   font-family: $font--fancy;
   font-size: 130%;
   font-weight: 500;
@@ -82,6 +85,10 @@ export default {
   &:hover {
     color: $color--primary;
   }
+}
+
+.header__buttons {
+  height: 100%;
 }
 
 .nav {
@@ -93,7 +100,8 @@ export default {
   top: 0;
   transform: translateX(100%) skewX(20deg);
   transform-origin: top left;
-  transition: transform 300ms ease-in, visibility 0s 300ms;
+  transition: background-color 150ms ease-out, transform 300ms ease-in,
+    visibility 0s 300ms;
   visibility: hidden;
   width: calc(90% - 5rem);
   z-index: -1;
@@ -105,7 +113,7 @@ export default {
     height: auto;
     position: relative;
     transform: none;
-    transition: none;
+    transition: background-color 150ms ease-out;
     visibility: visible;
     width: auto;
     z-index: auto;
@@ -170,11 +178,12 @@ export default {
 :root[data-menu='open'] .nav {
   visibility: visible;
   transform: none;
-  transition: transform 400ms ease-out, visibility 0s;
+  transition: background-color 150ms ease-out, transform 400ms ease-out,
+    visibility 0s;
 
   @media (min-width: $breakpoint--lg) {
     transform: none;
-    transition: none;
+    transition: background-color 150ms ease-out;
   }
 }
 </style>

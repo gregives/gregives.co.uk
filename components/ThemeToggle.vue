@@ -28,6 +28,7 @@ export default {
   },
   computed: {
     color() {
+      if (!process.client) return false
       return getComputedStyle(document.documentElement)
         .getPropertyValue(
           this.theme === 'light' ? '--color--primary' : '--color--body-overlay'
@@ -36,13 +37,9 @@ export default {
     }
   },
   head() {
-    return process.client
-      ? {
-          meta: [
-            { hid: 'theme-color', name: 'theme-color', content: this.color }
-          ]
-        }
-      : {}
+    return {
+      meta: [{ hid: 'theme-color', name: 'theme-color', content: this.color }]
+    }
   },
   watch: {
     theme() {
@@ -67,9 +64,10 @@ export default {
   border: none;
   color: $color--text;
   cursor: pointer;
-  float: right;
-  margin-right: 2rem;
   outline: none;
+  margin: 0 -0.5rem;
+  margin-right: 1rem;
+  padding: 0 0.5rem;
   transition: color 150ms ease-out;
 
   svg {
@@ -82,7 +80,7 @@ export default {
 
   @media (min-width: $breakpoint--lg) {
     margin-right: -0.5rem;
-    margin-left: 1.5rem;
+    margin-left: 1rem;
   }
 }
 </style>
