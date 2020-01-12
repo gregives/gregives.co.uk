@@ -66,6 +66,10 @@ export default {
     margin-bottom: 1rem;
   }
 
+  a {
+    @include link;
+  }
+
   .lazy {
     margin-top: 2rem;
 

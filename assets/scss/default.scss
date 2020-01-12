@@ -95,10 +95,6 @@ a {
   text-decoration: none;
 }
 
-p a {
-  @include link;
-}
-
 img,
 picture {
   max-width: 100%;
