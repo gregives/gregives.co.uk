@@ -94,6 +94,10 @@ export default {
     manifest: {
       name: 'Greg Ives',
       short_name: 'Greg Ives'
+    },
+    workbox: {
+      workboxURL:
+        'https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js'
     }
   },
   sitemap: {
