@@ -3,22 +3,18 @@
     <script v-html="script"></script>
     <navbar />
     <nuxt />
-    <lazy-fonts v-if="loadFonts" />
   </div>
 </template>
 
 <script>
-import LazyFonts from '~/components/LazyFonts'
 import Navbar from '~/components/Navbar'
 
 export default {
   components: {
-    LazyFonts,
     Navbar
   },
   data() {
     return {
-      loadFonts: false,
       script: (() => {
         const content = function() {
           // Set theme and theme-color as soon as possible
@@ -59,9 +55,6 @@ export default {
     if (hash) {
       this.scrollToHash(hash)
     }
-
-    // Load fonts
-    this.loadFonts = true
   },
   methods: {
     scrollToHash(hash) {
