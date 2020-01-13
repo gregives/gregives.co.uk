@@ -66,7 +66,7 @@ export default {
     margin-bottom: 1rem;
   }
 
-  a {
+  a:not(.header-anchor) {
     @include link;
   }
 
