@@ -57,7 +57,7 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 1000;
 
   @supports (backdrop-filter: blur(5px)) {
     backdrop-filter: blur(5px);
