@@ -75,7 +75,7 @@ export default {
     opacity: 0;
     position: absolute;
     top: 0;
-    transition: background-color 150ms ease-out, opacity 300ms ease-out,
+    transition: background-color 150ms ease-out, opacity 300ms ease-in,
       visibility 0s 300ms;
     visibility: hidden;
     width: 100vw;

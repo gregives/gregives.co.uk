@@ -104,12 +104,12 @@ $thickness: 2px;
   }
 
   &::before {
-    top: 0.5rem;
+    top: 0.425rem;
     transition: top $speed $speed ease-out;
   }
 
   &::after {
-    bottom: 0.5rem;
+    bottom: 0.425rem;
     transition: bottom $speed $speed ease-out, transform $speed ease-in;
   }
 }
