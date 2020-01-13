@@ -7,12 +7,12 @@ import Mode from 'frontmatter-markdown-loader/mode'
 // Load routes for dynamic content
 import routes from './contents/routes'
 
-// Load primary color from scss
-const primaryColor = fs
+// Load primary color from sass
+const [, primaryColor] = fs
   .readFileSync(path.join(__dirname, 'assets', 'scss', '_variables.scss'), {
     encoding: 'utf8'
   })
-  .match(/\$color--primary:\s*([^;]+);/)[1]
+  .match(/\$color__primary:\s*([^;]+);/)
 
 export default {
   mode: 'universal',
@@ -40,20 +40,20 @@ export default {
       { rel: 'dns-prefetch', href: 'https://www.google-analytics.com' }
     ]
   },
-  // Progress-bar color and theme color
+  // Loading bar
   loading: {
     color: primaryColor,
     duration: 3000
   },
   // Global CSS
   css: ['~/assets/scss/default.scss'],
-  // Plugins to load before mounting the App
+  // Plugins to load before mounting the app
   plugins: [
     '~/plugins/lazysizes.client.js',
     '~/plugins/tabbing.client.js',
     '~/plugins/components.js'
   ],
-  // Nuxt.js dev-modules
+  // Nuxt.js build modules
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/google-analytics'],
   // Nuxt.js modules
   modules: [
@@ -63,6 +63,7 @@ export default {
     '@nuxtjs/style-resources',
     '@nuxtjs/sitemap'
   ],
+  // Instead of importing into every component
   styleResources: {
     scss: [
       '~/assets/scss/_variables.scss',
@@ -70,19 +71,24 @@ export default {
       '~/assets/scss/_typography.scss'
     ]
   },
+  // Google Analytics configuration
   googleAnalytics: {
     id: 'UA-115006226-1'
   },
+  // Optimized images configuration
   optimizedImages: {
-    responsiveImagesName: ({ isDev }) =>
-      isDev
+    responsiveImagesName({ isDev }) {
+      return isDev
         ? '[path][name]--[width][hash:optimized].[ext]'
-        : 'img/[hash:7].[ext]',
+        : 'img/[hash:7].[ext]'
+    },
+    // Sizes of responsive image to generate
     responsive: {
       sizes: [320, 640, 1280, 1920],
       placeholder: true
     }
   },
+  // Nuxt.js PWA configuration
   pwa: {
     meta: {
       name: 'Greg Ives',
@@ -99,16 +105,18 @@ export default {
       name: 'Greg Ives',
       short_name: 'Greg Ives'
     },
+    // Use googleapis.com CDN for Workbox
     workbox: {
       workboxURL:
         'https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js'
     }
   },
+  // Generate sitemap
   sitemap: {
     hostname: 'https://gregives.co.uk',
-    gzip: true,
-    exclude: ['/resume']
+    gzip: true
   },
+  // Generate dynamic routes and 404 fallback
   generate: {
     fallback: true,
     routes
@@ -116,6 +124,7 @@ export default {
   // Build configuration
   build: {
     html: {
+      // Configuration for minifying HTML
       minify: {
         collapseBooleanAttributes: true,
         collapseInlineTagWhitespace: true,
@@ -134,19 +143,19 @@ export default {
       }
     },
     extend(config, { isClient, loaders: { vue } }) {
-      // Lazyloading images
+      // Make sure Vue knows about lazy loaded images
       if (isClient) {
         vue.transformAssetUrls.img = ['data-src', 'src']
         vue.transformAssetUrls.source = ['data-srcset', 'srcset']
       }
 
-      // Resolve material design icons
+      // Resolve path to material design icons
       config.resolve.alias.icons = path.resolve(
         __dirname,
         'node_modules/vue-material-design-icons'
       )
 
-      // Markdown formatter
+      // Configuration for Markdown formatter
       const hljs = require('highlight.js')
       const markdown = require('markdown-it')({
         html: true,

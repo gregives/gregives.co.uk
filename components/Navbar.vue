@@ -50,7 +50,7 @@ export default {
 
 <style lang="scss">
 .header {
-  background-color: $color--body-overlay;
+  background-color: $color__body--overlay;
   box-shadow: $box-shadow;
   line-height: 2rem;
   padding: 1rem 0;
@@ -61,7 +61,7 @@ export default {
 
   @supports (backdrop-filter: blur(5px)) {
     backdrop-filter: blur(5px);
-    background-color: $color--body-blur;
+    background-color: $color__body--blur;
   }
 
   @media print {
@@ -69,7 +69,7 @@ export default {
   }
 
   &::before {
-    background-color: $color--body;
+    background-color: $color__body;
     content: '';
     height: 100vh;
     opacity: 0;
@@ -104,13 +104,13 @@ export default {
 
 .header__logo {
   flex-grow: 1;
-  font-family: $font--fancy;
+  font-family: $font__fancy;
   font-size: 130%;
   font-weight: 500;
   transition: color 150ms ease-out, opacity 300ms ease-out;
 
   &:hover {
-    color: $color--primary;
+    color: $color__primary;
   }
 }
 
@@ -120,7 +120,7 @@ export default {
 }
 
 .nav {
-  background-color: $color--body;
+  background-color: $color__body;
   box-shadow: $box-shadow;
   height: 100vh;
   left: 100%;
@@ -191,7 +191,7 @@ export default {
     @include link;
 
     @media (min-width: $breakpoint--md) {
-      @include link($color--body-overlay);
+      @include link($color__body--overlay);
     }
   }
 

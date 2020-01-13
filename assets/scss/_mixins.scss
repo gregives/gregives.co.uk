@@ -22,7 +22,7 @@
 @mixin dots($clip-path) {
   @supports (clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)) {
     &::before {
-      background-image: radial-gradient($color--primary-muted 10%, transparent 10%);
+      background-image: radial-gradient($color__primary--muted 10%, transparent 10%);
       background-size: 1rem 1rem;
       clip-path: $clip-path;
       content: '';
@@ -39,12 +39,12 @@
 
 @mixin title {
   font-weight: 500;
-  -webkit-text-stroke: 0.2vmin $color--primary;
+  -webkit-text-stroke: 0.2vmin $color__primary;
   -webkit-text-fill-color: transparent;
 }
 
 @mixin title--primary {
-  color: $color--primary;
+  color: $color__primary;
   font-size: 110%;
   font-weight: 900;
   line-height: 1;
@@ -54,15 +54,15 @@
 
 $link-weight: 0.08rem;
 
-@mixin link($color: $color--body) {
+@mixin link($color: $color__body) {
   @include link--shadow($color);
 
-  background-image: linear-gradient($color--primary, $color--primary);
+  background-image: linear-gradient($color__primary, $color__primary);
   background-size: 0% $link-weight;
   background-repeat: no-repeat;
   background-position: bottom left;
-  box-shadow: 0 #{-$link-weight} $color--primary-muted inset;
-  color: $color--primary;
+  box-shadow: 0 #{-$link-weight} $color__primary--muted inset;
+  color: $color__primary;
   transition: background-size 300ms ease-out, text-shadow 150ms ease-out;
 
   &:hover {
@@ -86,13 +86,13 @@ $link-weight: 0.08rem;
 
 @mixin button {
   $border-size: $border-weight;
-  background-color: $color--body;
-  border: $border-size solid $color--primary;
+  background-color: $color__body;
+  border: $border-size solid $color__primary;
   border-radius: $border-radius;
-  color: $color--primary;
+  color: $color__primary;
   cursor: pointer;
   font-size: 120%;
-  font-family: $font--fancy;
+  font-family: $font__fancy;
   opacity: 1;
   padding: 0.5rem 1rem;
   position: relative;
@@ -136,8 +136,8 @@ $link-weight: 0.08rem;
 }
 
 @mixin button--primary {
-  background-color: $color--primary;
-  color: $color--body;
+  background-color: $color__primary;
+  color: $color__body;
 
   &::before {
     opacity: 1;

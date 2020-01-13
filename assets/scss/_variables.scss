@@ -1,67 +1,67 @@
 // Fonts
-$font--fancy: 'Tiempos Headline', Georgia, Times, 'Times New Roman', serif;
-$font--body: 'IBM Plex Sans', Arial, Helvetica, sans-serif;
-$font--code: 'IBM Plex Mono', Consolas, 'Lucida Console', Monaco, monospace;
+$font__fancy: 'Tiempos Headline', Georgia, Times, 'Times New Roman', serif;
+$font__body: 'IBM Plex Sans', Arial, Helvetica, sans-serif;
+$font__code: 'IBM Plex Mono', Consolas, 'Lucida Console', Monaco, monospace;
 
 :root {
-  $color--primary: #35f;
-  --color--primary: #{$color--primary};
-  --color--primary-muted: #{transparentize($color--primary, 0.7)};
-  --color--primary-hue: #{hue($color--primary)};
+  $color__primary: #35f;
+  --color__primary: #{$color__primary};
+  --color__primary--muted: #{transparentize($color__primary, 0.7)};
+  --color__primary--hue: #{hue($color__primary)};
 
-  $color--body: hsl(hue($color--primary), 40%, 98%);
-  --color--body: #{$color--body};
-  $color--body-overlay: lighten($color--body, 2%);
-  --color--body-overlay: #{$color--body-overlay};
-  --color--body-blur: #{transparentize($color--body-overlay, 0.1)};
-  --color--text: #{transparentize(black, 0.13)};
-  --color--text-muted: #{transparentize(black, 0.4)};
-  --color--text-muter: #{transparentize(black, 0.98)};
+  $color__body: hsl(hue($color__primary), 40%, 98%);
+  $color__body--overlay: lighten($color__body, 2%);
+  --color__body: #{$color__body};
+  --color__body--overlay: #{$color__body--overlay};
+  --color__body--blur: #{transparentize($color__body--overlay, 0.1)};
+  --color__text: #{transparentize(black, 0.13)};
+  --color__text--muted: #{transparentize(black, 0.4)};
+  --color__text--muter: #{transparentize(black, 0.98)};
 
   --box-shadow: 0 0 2rem -1rem #{transparentize(black, 0.8)};
   --box-shadow--small: 0 0 0.5rem -0.25rem #{transparentize(black, 0.8)};
-  --box-shadow--primary: 0 0.5rem 1rem -0.5rem #{$color--primary};
-  --box-shadow--primary-small: 0 0.25rem 0.5rem -0.25rem #{$color--primary};
+  --box-shadow--primary: 0 0.5rem 1rem -0.5rem #{$color__primary};
+  --box-shadow--primary-small: 0 0.25rem 0.5rem -0.25rem #{$color__primary};
 
   @media screen {
     &[data-theme='dark'] {
-      $color--primary: #9af;
-      --color--primary: #{$color--primary};
-      --color--primary-muted: #{transparentize($color--primary, 0.7)};
-      --color--primary-hue: #{hue($color--primary)};
+      $color__primary: #9af;
+      --color__primary: #{$color__primary};
+      --color__primary--muted: #{transparentize($color__primary, 0.7)};
+      --color__primary--hue: #{hue($color__primary)};
   
-      $color--body: hsl(hue($color--primary), 30%, 14%);
-      --color--body: #{$color--body};
-      $color--body-overlay: lighten($color--body, 4%);
-      --color--body-overlay: #{$color--body-overlay};
-      --color--body-blur: #{transparentize($color--body-overlay, 0.1)};
-      --color--text: #{transparentize(white, 0.13)};
-      --color--text-muted: #{transparentize(white, 0.4)};
-      --color--text-muter: #{transparentize(white, 0.95)};
+      $color__body: hsl(hue($color__primary), 30%, 14%);
+      $color__body--overlay: lighten($color__body, 4%);
+      --color__body: #{$color__body};
+      --color__body--overlay: #{$color__body--overlay};
+      --color__body--blur: #{transparentize($color__body--overlay, 0.1)};
+      --color__text: #{transparentize(white, 0.13)};
+      --color__text--muted: #{transparentize(white, 0.4)};
+      --color__text--muter: #{transparentize(white, 0.95)};
   
       --box-shadow: 0 0 2rem -1rem #{transparentize(black, 0.6)};
       --box-shadow--small: 0 0 0.5rem -0.25rem #{transparentize(black, 0.6)};
-      --box-shadow--primary: 0 0.5rem 1rem -0.5rem #{$color--body-overlay};
-      --box-shadow--primary-small: 0 0.25rem 0.5rem -0.25rem #{$color--body-overlay};
+      --box-shadow--primary: 0 0.5rem 1rem -0.5rem #{$color__body--overlay};
+      --box-shadow--primary-small: 0 0.25rem 0.5rem -0.25rem #{$color__body--overlay};
     }
   }
 
   @media print {
-    $color--body: white;
-    --color--body: #{$color--body};
+    $color__body: white;
+    --color__body: #{$color__body};
   }
 }
 
 // Colours
-$color--primary: var(--color--primary);
-$color--primary-muted: var(--color--primary-muted);
-$color--primary-hue: var(--color--primary-hue);
-$color--body: var(--color--body);
-$color--body-overlay: var(--color--body-overlay);
-$color--body-blur: var(--color--body-blur);
-$color--text: var(--color--text);
-$color--text-muted: var(--color--text-muted);
-$color--text-muter: var(--color--text-muter);
+$color__primary: var(--color__primary);
+$color__primary--muted: var(--color__primary--muted);
+$color__primary--hue: var(--color__primary--hue);
+$color__body: var(--color__body);
+$color__body--overlay: var(--color__body--overlay);
+$color__body--blur: var(--color__body--blur);
+$color__text: var(--color__text);
+$color__text--muted: var(--color__text--muted);
+$color__text--muter: var(--color__text--muter);
 
 // Shadows
 $box-shadow: var(--box-shadow);

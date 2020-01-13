@@ -113,13 +113,13 @@ export default {
 }
 
 .project__back {
-  color: $color--text-muted;
+  color: $color__text--muted;
   display: none;
   margin-bottom: 1rem;
   transition: color 150ms ease-out;
 
   &:hover {
-    color: $color--primary;
+    color: $color__primary;
   }
 
   &--mobile {
@@ -137,13 +137,13 @@ export default {
 }
 
 .project__date {
-  font-family: $font--fancy;
+  font-family: $font__fancy;
   font-size: 120%;
   margin-bottom: 1rem;
 }
 
 .project__tag-list {
-  color: $color--text-muted;
+  color: $color__text--muted;
   display: none;
   margin-left: 1rem;
 

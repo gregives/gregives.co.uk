@@ -101,12 +101,12 @@ export default {
 
   &:hover {
     .projects__list-content {
-      border-color: $color--primary;
+      border-color: $color__primary;
       box-shadow: $box-shadow--small;
     }
 
     .projects__list-title {
-      color: $color--primary;
+      color: $color__primary;
     }
 
     .projects__list-image {
@@ -132,8 +132,8 @@ export default {
 }
 
 .projects__list-date {
-  color: $color--text-muted;
-  font-family: $font--fancy;
+  color: $color__text--muted;
+  font-family: $font__fancy;
   font-size: 90%;
   transition: color 150ms ease-out;
 
@@ -156,10 +156,10 @@ export default {
     animation-duration: var(--scroll-speed);
     animation-play-state: paused;
     bottom: -25%;
-    color: $color--body;
+    color: $color__body;
     content: '\00A0\00A0'attr(data-title) '\00A0\00A0'attr(data-title)
       '\00A0\00A0'attr(data-title);
-    font-family: $font--fancy;
+    font-family: $font__fancy;
     font-size: 10em;
     left: 0;
     opacity: 0;
@@ -180,7 +180,7 @@ export default {
   }
 
   &::after {
-    background-color: $color--primary;
+    background-color: $color__primary;
     content: '';
     height: 100%;
     left: 0;
@@ -213,8 +213,8 @@ export default {
 }
 
 .projects__list-content {
-  background-color: $color--body-overlay;
-  border: $border-weight solid $color--primary-muted;
+  background-color: $color__body--overlay;
+  border: $border-weight solid $color__primary--muted;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
   margin-top: -1.5rem;

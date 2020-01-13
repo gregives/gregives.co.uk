@@ -90,7 +90,7 @@ $thickness: 2px;
 }
 
 .hamburger__icon {
-  background-color: $color--text;
+  background-color: $color__text;
   border-radius: $thickness / 2;
   height: $thickness;
   position: absolute;
@@ -101,7 +101,7 @@ $thickness: 2px;
 
   &::before,
   &::after {
-    background-color: $color--text;
+    background-color: $color__text;
     border-radius: $thickness / 2;
     content: '';
     height: 100%;

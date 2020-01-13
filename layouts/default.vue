@@ -23,7 +23,7 @@ export default {
           const color = getComputedStyle(
             document.documentElement
           ).getPropertyValue(
-            theme === 'light' ? '--color--primary' : '--color--body-overlay'
+            theme === 'light' ? '--color__primary' : '--color__body--overlay'
           )
           document
             .querySelector('meta[name="theme-color"]')

@@ -31,7 +31,7 @@ export default {
       if (!process.client) return false
       return getComputedStyle(document.documentElement)
         .getPropertyValue(
-          this.theme === 'light' ? '--color--primary' : '--color--body-overlay'
+          this.theme === 'light' ? '--color__primary' : '--color__body--overlay'
         )
         .trim()
     }
@@ -62,7 +62,7 @@ export default {
 .theme-toggle {
   background: none;
   border: none;
-  color: $color--text;
+  color: $color__text;
   cursor: pointer;
   outline: none;
   margin: 0 -0.5rem;
@@ -75,7 +75,7 @@ export default {
   }
 
   &:hover {
-    color: $color--primary;
+    color: $color__primary;
   }
 
   @media (min-width: $breakpoint--md) {

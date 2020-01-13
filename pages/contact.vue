@@ -196,7 +196,7 @@ export default {
   transition: color 150ms ease-out;
 
   &:hover {
-    color: $color--primary;
+    color: $color__primary;
 
     .contact__social-text {
       @include link--active;
@@ -236,11 +236,11 @@ export default {
 
   input,
   textarea {
-    background: $color--body-overlay;
+    background: $color__body--overlay;
     border-radius: $border-radius;
-    border: $border-weight solid $color--primary-muted;
+    border: $border-weight solid $color__primary--muted;
     box-shadow: $box-shadow--small;
-    color: $color--text;
+    color: $color__text;
     display: block;
     padding: 1rem;
     padding-bottom: 0.75rem;
@@ -249,11 +249,11 @@ export default {
     width: 100%;
 
     &:focus {
-      border-color: $color--primary;
+      border-color: $color__primary;
       outline: none !important;
 
       ~ span {
-        color: $color--primary;
+        color: $color__primary;
       }
     }
   }
@@ -264,7 +264,7 @@ export default {
 
   span {
     bottom: 100%;
-    color: $color--text-muted;
+    color: $color__text--muted;
     left: 0.5rem;
     margin-bottom: -0.75rem;
     overflow: hidden;
@@ -273,7 +273,7 @@ export default {
     z-index: 1;
 
     &::before {
-      background-color: $color--body;
+      background-color: $color__body;
       bottom: -0.5rem;
       content: '';
       filter: blur(0.125rem);
@@ -285,7 +285,7 @@ export default {
     }
 
     &::after {
-      background-color: $color--body-overlay;
+      background-color: $color__body--overlay;
       bottom: -60%;
       content: '';
       filter: blur(0.125rem);

@@ -80,8 +80,8 @@ export default {
   width: calc(100% - 1.5rem) !important;
 
   &::before {
-    background-color: $color--body-overlay;
-    border: $border-weight solid $color--primary-muted;
+    background-color: $color__body--overlay;
+    border: $border-weight solid $color__primary--muted;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
     content: '';

@@ -81,7 +81,7 @@ export default {
 
 .error__headshot {
   bottom: 0;
-  filter: sepia(1) hue-rotate(-45deg) hue-rotate($color--primary-hue)
+  filter: sepia(1) hue-rotate(-45deg) hue-rotate($color__primary--hue)
     saturate(1.5);
   height: calc(20vh + 30vw);
   overflow-y: hidden;
@@ -98,6 +98,6 @@ export default {
 
 :root[data-theme='dark'] .error__headshot {
   filter: invert(0.5) sepia(1) hue-rotate(-45deg)
-    hue-rotate($color--primary-hue) brightness(0.5) saturate(3);
+    hue-rotate($color__primary--hue) brightness(0.5) saturate(3);
 }
 </style>
