@@ -16,7 +16,7 @@ During Summer 2017, I undertook a cyber security research project, creating a we
 
 <lazy-image src="stegaphoto/hide.png" alt="Screenshot of the user interface to hide files" />
 
-# How StegaPhoto Works
+## How StegaPhoto Works
 
 StegaPhoto is built in vanilla JavaScript using SubtleCrypto, Web Workers, JSZip and Bootstrap ---  StegaPhoto does not send any data to a server, it uses only client-side JavaScript. There were two viable methods to hide files inside images:
 

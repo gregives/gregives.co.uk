@@ -20,11 +20,11 @@ Festimap is a progressive web app designed to share photos from festivals around
 <lazy-image src="festimap/screenshots1.png" alt="Screenshots of Festimap app" />
 <lazy-image src="festimap/screenshots2.png" alt="Screenshots of Festimap app" />
 
-# Requirements
+## Requirements
 
 We were tasked with creating a progressive web app for use at festivals, which must work both offline and online. Users should be able to take photos using the app and upload the photos to the festival they are attending, along with an optional description. Users should be able to browse festivals on a map and create a new festival at a given location (which would then be verified). In order to satisfy the requirements of the system, we created 6 pages including: a login/signup page; a home page which displays a typical social media feed of users' posts; a page to create a post and take a photo; a profile page for each user; a map of all current festivals; and a page to create new festivals.
 
-# Implementation
+## Implementation
 
 The server uses Node.js and Express for the routing of the application and MongoDB for our document-driven database. We use both AJAX and socket.io for communicating between the client and the server. We used Passport, an authentication middleware for Express, in order to create and validate users' authentication when logging into the app.
 

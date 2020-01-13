@@ -1,0 +1,49 @@
+@mixin h1 {
+  font-size: calc(120% + 4vw);
+  margin-bottom: 2rem;
+
+  @media (min-width: $breakpoint--xl) {
+    font-size: calc(120% + #{$breakpoint--xl * 4 / 100});
+  }
+}
+
+@mixin h2 {
+  font-size: calc(120% + 2vw);
+  margin-bottom: 1.75rem;
+
+  @media (min-width: $breakpoint--xl) {
+    font-size: calc(120% + #{$breakpoint--xl * 2 / 100});
+  }
+}
+
+@mixin h3 {
+  font-size: calc(120% + 1vw);
+  margin-bottom: 1.5rem;
+
+  @media (min-width: $breakpoint--xl) {
+    font-size: calc(120% + #{$breakpoint--xl * 1 / 100});
+  }
+}
+
+@mixin h4 {
+  font-size: calc(120% + 0.5vw);
+  margin-bottom: 1.25rem;
+
+  @media (min-width: $breakpoint--xl) {
+    font-size: calc(120% + #{$breakpoint--xl * 0.5 / 100});
+  }
+}
+
+@mixin h5 {
+  font-size: calc(120% + 0.25vw);
+  margin-bottom: 1rem;
+
+  @media (min-width: $breakpoint--xl) {
+    font-size: calc(120% + #{$breakpoint--xl * 0.25 / 100});
+  }
+}
+
+@mixin h6 {
+  font-size: 120%;
+  margin-bottom: 0.75rem;
+}

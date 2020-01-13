@@ -22,10 +22,10 @@ export default {
 
 <style lang="scss">
 .markdown {
+  h1,
+  h2,
   h3,
-  h4,
-  h5,
-  h6 {
+  h4 {
     border-bottom: 1px solid $color--text-muted;
     padding-bottom: 0.25rem;
     position: relative;
@@ -46,19 +46,27 @@ export default {
     }
   }
 
-  h3:not(:first-child) {
+  h1:not(:first-child) {
+    @include h3;
+
     margin-top: 1.75rem;
   }
 
-  h4:not(:first-child) {
+  h2:not(:first-child) {
+    @include h4;
+
     margin-top: 1.5rem;
   }
 
-  h5:not(:first-child) {
+  h3:not(:first-child) {
+    @include h5;
+
     margin-top: 1.25rem;
   }
 
-  h6:not(:first-child) {
+  h4:not(:first-child) {
+    @include h6;
+
     margin-top: 1rem;
   }
 

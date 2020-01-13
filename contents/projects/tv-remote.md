@@ -21,13 +21,13 @@ With my lab partner, we decided to create a TV remote using the unPhone, capable
 
 <lazy-image src="tv-remote/interface.png" alt="Screenshot of the interface and final TV remote" />
 
-# Making the Remote
+## Making the Remote
 
 One of the most important aspects of a remote is its layout. Therefore, our first step was to design what our remote would look like; we based our remote on a typical Sony remote, however, due to the unphone's size we decided to only show the most relevant buttons on the remote screen. We were constrained to a black and white bitmap, in order to render the design on the unPhone using Adafruit's GFX `drawBitmap` function. The GFX library required our design in the frustrating C++ 'byte array' format of our design --- first we designed the GUI in Photoshop, before using the convenient [image2cpp](http://javl.github.io/image2cpp/) tool.
 
 Essential to the IR remote was the ability to accurately transmit IR signals to the target device. In order to this, we used the [IR remote library by z3t0](https://github.com/SensorsIot/Definitive-Guide-to-IR). However, this only supports receiving of IR signals on the ESP32: [a fork of this library by Andreas Speiss](https://github.com/SensorsIot/Definitive-Guide-to-IR) provides the missing send functionality.
 
-# Testing the Remote
+## Testing the Remote
 
 In order to test our unPhone remote, we created a receiver using an Arduino Uno and an LCD screen. We tested both the range and the angle of operation of the unphone remote. We found that the angle of operation, i.e. the angle between axes of the IR LEDs and the IR receiver, made little difference to the remote's performance: the only caveat being the IR LEDs needed to be in direct line of sight to the receiver. This meant that the remote actually performed better without the unphone case on, as the case protruded around the LEDs, blocking the IR signal at extreme angles.
 

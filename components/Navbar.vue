@@ -201,8 +201,8 @@ export default {
 :root[data-menu='open'] .nav {
   visibility: visible;
   transform: none;
-  transition: background-color 150ms ease-out, transform 400ms ease-out,
-    visibility 0s;
+  transition: background-color 150ms ease-out,
+    transform 400ms cubic-bezier(0.77, 0, 0.175, 1), visibility 0s;
 
   @media (min-width: $breakpoint--lg) {
     transform: none;

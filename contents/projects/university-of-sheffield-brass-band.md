@@ -16,7 +16,7 @@ I have been a member of the University of Sheffield Brass Band for three years, 
 
 <lazy-image src="usbb/website2.png" alt="Screenshot of the home page of USBB's website" />
 
-# Requirements
+## Requirements
 
 An essential requirement of the brass band’s website was that people with only a little technical experience would be able to edit it, or even people who had no prior experience. The website was designed with four pages in mind:
 
@@ -25,7 +25,7 @@ An essential requirement of the brass band’s website was that people with only
 - Members of the band should be able to upload images to the gallery page with little configuration.
 - Finally, the contact page allows potential customers to enquire about the band.
 
-# Technology
+## Technology
 
 Jekyll seemed a perfect static site generator for the job as future members of the band would be able to edit the website simply by editing or adding markdown files. News posts and concerts would be easily handled by Jekyll's built in blog functionality.
 

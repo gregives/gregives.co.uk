@@ -18,7 +18,7 @@ The first hackathon I attended was HackSheffield 2.0, in my first month at unive
 
 <lazy-image src="hype/screenshots1.png" alt="Screenshots of the Hype app" />
 
-# Making the App
+## Making the App
 
 I worked on the frontend of the app in Android Studio, designing the user interface and the icon and logo. It was the first time I had created an Android app from scratch and connected it to a backend, which was a great challenge for me. I enjoyed working in such a fast-paced environment --- hackathons are great for learning new stuff! The backend of Hype was written using Express and MongoDB, in order to store the events, their locations and how 'hyped' each event was. The more people who hyped an event, the larger the event would show up on the heatmap.
 

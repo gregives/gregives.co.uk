@@ -8,7 +8,7 @@
           </nuxt-link>
         </div>
       </div>
-      <h2 class="project__title">{{ project.title }}</h2>
+      <h1 class="project__title">{{ project.title }}</h1>
       <div class="project__details">
         <div class="project__sticky">
           <div class="project__back">
@@ -90,6 +90,10 @@ export default {
   @media (min-width: $breakpoint--lg) {
     grid-template-columns: 1fr 3fr;
   }
+}
+
+.project__title {
+  @include h2;
 }
 
 .project__details {

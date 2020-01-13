@@ -64,7 +64,11 @@ export default {
     '@nuxtjs/sitemap'
   ],
   styleResources: {
-    scss: ['~/assets/scss/_variables.scss', '~/assets/scss/_mixins.scss']
+    scss: [
+      '~/assets/scss/_variables.scss',
+      '~/assets/scss/_mixins.scss',
+      '~/assets/scss/_typography.scss'
+    ]
   },
   googleAnalytics: {
     id: 'UA-115006226-1'
@@ -186,16 +190,8 @@ export default {
           vue: {
             root: 'markdown'
           },
-          markdown: (body) => {
-            return markdown
-              .render(body)
-              .replace(
-                /<h(\d)([^>]*?)>([\s\S]*?)<\/h\1>/g,
-                (_substring, header, attrs, inner) => {
-                  const newHeader = parseInt(header) + 2
-                  return `<h${newHeader}${attrs}>${inner}</h${newHeader}>`
-                }
-              )
+          markdown(body) {
+            return markdown.render(body)
           }
         }
       })
