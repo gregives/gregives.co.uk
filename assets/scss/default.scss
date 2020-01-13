@@ -182,30 +182,3 @@ code {
 .material-design-icon svg {
   vertical-align: middle;
 }
-
-main {
-  transition: opacity 300ms ease-out, transform 300ms ease-out;
-}
-
-:root[data-menu='open'] {
-  main,
-  .header__logo {
-    opacity: 0.1;
-    pointer-events: none;
-
-    @media (min-width: $breakpoint--lg) {
-      opacity: 1;
-      pointer-events: all;
-    }
-  }
-
-  main {
-    transform: translate(-30%);
-    transition: opacity 300ms ease-out, transform 400ms ease-out;
-
-    @media (min-width: $breakpoint--lg) {
-      transform: none;
-      transition: none;
-    }
-  }
-}

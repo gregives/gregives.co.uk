@@ -57,7 +57,7 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 2;
+  z-index: 1;
 
   @supports (backdrop-filter: blur(5px)) {
     backdrop-filter: blur(5px);
@@ -66,6 +66,29 @@ export default {
 
   @media print {
     display: none;
+  }
+
+  &::before {
+    background-color: $color--body;
+    content: '';
+    height: 100vh;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: background-color 150ms ease-out, opacity 300ms ease-out,
+      visibility 0s 300ms;
+    visibility: hidden;
+    width: 100vw;
+    z-index: 1;
+  }
+}
+
+:root[data-menu='open'] .header {
+  &::before {
+    opacity: 0.9;
+    transition: background-color 150ms ease-out, opacity 400ms ease-out,
+      visibility 0s;
+    visibility: visible;
   }
 }
 
@@ -89,6 +112,7 @@ export default {
 
 .header__buttons {
   height: 100%;
+  z-index: 3;
 }
 
 .nav {
@@ -104,7 +128,7 @@ export default {
     visibility 0s 300ms;
   visibility: hidden;
   width: calc(90% - 5rem);
-  z-index: -1;
+  z-index: 2;
 
   @media (min-width: $breakpoint--lg) {
     background-color: transparent;
@@ -116,7 +140,6 @@ export default {
     transition: background-color 150ms ease-out;
     visibility: visible;
     width: auto;
-    z-index: auto;
   }
 }
 
