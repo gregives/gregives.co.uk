@@ -78,7 +78,7 @@ export default {
     color: $color--primary;
   }
 
-  @media (min-width: $breakpoint--lg) {
+  @media (min-width: $breakpoint--md) {
     margin-right: -0.5rem;
     margin-left: 1rem;
   }

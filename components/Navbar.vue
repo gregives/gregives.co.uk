@@ -81,7 +81,7 @@ export default {
     width: 100vw;
     z-index: 1;
 
-    @media (min-width: $breakpoint--lg) {
+    @media (min-width: $breakpoint--md) {
       visibility: hidden !important;
     }
   }
@@ -134,7 +134,7 @@ export default {
   width: calc(90% - 5rem);
   z-index: 2;
 
-  @media (min-width: $breakpoint--lg) {
+  @media (min-width: $breakpoint--md) {
     background-color: transparent;
     box-shadow: none;
     height: auto;
@@ -155,7 +155,7 @@ export default {
   top: 50%;
   transform: translate(-50%, -50%);
 
-  @media (min-width: $breakpoint--lg) {
+  @media (min-width: $breakpoint--md) {
     float: right;
     left: auto;
     position: relative;
@@ -172,7 +172,7 @@ export default {
     margin-top: 2rem;
   }
 
-  @media (min-width: $breakpoint--lg) {
+  @media (min-width: $breakpoint--md) {
     display: inline-block;
     font-size: 100%;
 
@@ -190,7 +190,7 @@ export default {
   span {
     @include link;
 
-    @media (min-width: $breakpoint--lg) {
+    @media (min-width: $breakpoint--md) {
       @include link($color--body-overlay);
     }
   }
@@ -209,7 +209,7 @@ export default {
   transition: background-color 150ms ease-out, transform 400ms ease-out,
     visibility 0s;
 
-  @media (min-width: $breakpoint--lg) {
+  @media (min-width: $breakpoint--md) {
     transform: none;
     transition: background-color 150ms ease-out;
   }

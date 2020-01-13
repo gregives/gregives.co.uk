@@ -20,7 +20,32 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('click', (event) => {
+    window.matchMedia('(min-width: 768px)').addListener((event) => {
+      if (event.matches) {
+        this.closeMenu() // If screen is larger than md breakpoint
+      }
+    })
+  },
+  methods: {
+    menuIsOpen() {
+      return document.documentElement.dataset.menu === 'open'
+    },
+    openMenu() {
+      document.documentElement.dataset.menu = 'open'
+      window.addEventListener('click', this.handleClick)
+    },
+    closeMenu() {
+      document.documentElement.dataset.menu = 'closed'
+      window.removeEventListener('click', this.handleClick)
+    },
+    toggleMenu() {
+      if (this.menuIsOpen()) {
+        this.closeMenu()
+      } else {
+        this.openMenu()
+      }
+    },
+    handleClick(event) {
       const link = event.target.closest('a.nuxt-link-exact-active')
       if (link !== null) {
         if (!this.changingRoute && this.menuIsOpen()) {
@@ -32,24 +57,6 @@ export default {
       const nav = document.querySelector('nav').getBoundingClientRect()
       if (event.clientX < nav.left && this.menuIsOpen()) {
         this.closeMenu() // If clicking outside the nav
-      }
-    })
-  },
-  methods: {
-    menuIsOpen() {
-      return document.documentElement.dataset.menu === 'open'
-    },
-    openMenu() {
-      document.documentElement.dataset.menu = 'open'
-    },
-    closeMenu() {
-      document.documentElement.dataset.menu = 'closed'
-    },
-    toggleMenu() {
-      if (this.menuIsOpen()) {
-        this.closeMenu()
-      } else {
-        this.openMenu()
       }
     }
   }
@@ -70,7 +77,7 @@ $thickness: 2px;
   margin: 0 -0.5rem;
   outline: none;
 
-  @media (min-width: $breakpoint--lg) {
+  @media (min-width: $breakpoint--md) {
     display: none;
   }
 
