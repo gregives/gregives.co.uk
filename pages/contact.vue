@@ -166,6 +166,8 @@ export default {
 
 .contact__title {
   @include title;
+
+  text-shadow: 0.125rem 0.125rem $color__primary--muted;
 }
 
 .contact__title--primary {
