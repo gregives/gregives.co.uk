@@ -80,6 +80,10 @@ export default {
     visibility: hidden;
     width: 100vw;
     z-index: 1;
+
+    @media (min-width: $breakpoint--lg) {
+      visibility: hidden !important;
+    }
   }
 }
 
@@ -119,10 +123,10 @@ export default {
   background-color: $color--body;
   box-shadow: $box-shadow;
   height: 100vh;
-  right: 0;
+  left: 100%;
   position: fixed;
   top: 0;
-  transform: translateX(100%);
+  transform: translateX(0);
   transform-origin: top left;
   transition: background-color 150ms ease-out, transform 300ms ease-in,
     visibility 0s 300ms;
@@ -133,11 +137,12 @@ export default {
   @media (min-width: $breakpoint--lg) {
     background-color: transparent;
     box-shadow: none;
-    float: right;
     height: auto;
+    left: auto;
     position: relative;
-    transform: translateX(0);
-    transition: background-color 150ms ease-out;
+    top: auto;
+    transform: none;
+    transition: none;
     visibility: visible;
     width: auto;
   }
@@ -200,9 +205,9 @@ export default {
 
 :root[data-menu='open'] .nav {
   visibility: visible;
-  transform: none;
-  transition: background-color 150ms ease-out,
-    transform 400ms cubic-bezier(0.77, 0, 0.175, 1), visibility 0s;
+  transform: translateX(-100%);
+  transition: background-color 150ms ease-out, transform 400ms ease-out,
+    visibility 0s;
 
   @media (min-width: $breakpoint--lg) {
     transform: none;
