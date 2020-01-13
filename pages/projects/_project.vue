@@ -94,8 +94,6 @@ export default {
 
 .project__title {
   @include h2;
-
-  text-shadow: 0.5rem 0.5rem $color__primary--muted;
 }
 
 .project__details {
