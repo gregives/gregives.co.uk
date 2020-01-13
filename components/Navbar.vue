@@ -64,6 +64,11 @@ export default {
     background-color: $color__body--blur;
   }
 
+  @media (min-width: $breakpoint--md) {
+    backdrop-filter: none !important;
+    background-color: $color__body--overlay !important;
+  }
+
   @media print {
     display: none;
   }
