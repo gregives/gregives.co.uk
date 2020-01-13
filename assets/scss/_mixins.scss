@@ -39,7 +39,7 @@
 
 @mixin title {
   font-weight: 500;
-  -webkit-text-stroke: 0.2vmin $color__primary;
+  -webkit-text-stroke: $border-weight $color__primary;
   -webkit-text-fill-color: transparent;
 }
 
@@ -52,16 +52,14 @@
   -webkit-text-fill-color: currentColor;
 }
 
-$link-weight: 0.08rem;
-
 @mixin link($color: $color__body) {
   @include link--shadow($color);
 
   background-image: linear-gradient($color__primary, $color__primary);
-  background-size: 0% $link-weight;
+  background-size: 0% $border-weight;
   background-repeat: no-repeat;
   background-position: bottom left;
-  box-shadow: 0 #{-$link-weight} $color__primary--muted inset;
+  box-shadow: 0 #{-$border-weight} $color__primary--muted inset;
   color: $color__primary;
   transition: background-size 300ms ease-out, text-shadow 150ms ease-out;
 
@@ -71,7 +69,7 @@ $link-weight: 0.08rem;
 }
 
 @mixin link--active {
-  background-size: 100% $link-weight;
+  background-size: 100% $border-weight;
 }
 
 @mixin link--shadow($color) {

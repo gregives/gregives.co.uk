@@ -87,7 +87,7 @@ strong {
 
 code {
   background-color: $color__text--muter;
-  border-radius: min(0.25rem, $border-radius);
+  border-radius: $border-radius;
   box-shadow: $box-shadow--small inset;
   font-family: $font__code;
   font-size: 90%;
