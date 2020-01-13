@@ -143,6 +143,7 @@ export default {
 }
 
 .projects__list-image {
+  background-color: $color__body;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
   margin-right: 1.5rem;
@@ -192,12 +193,13 @@ export default {
   }
 
   .lazy {
+    background: $color__primary--muted;
     bottom: 0;
     height: 100%;
     left: 0;
     position: absolute;
     top: 0;
-    transition: transform 300ms ease;
+    transition: background-color 150ms ease-out, transform 300ms ease;
     width: 100%;
 
     picture {
