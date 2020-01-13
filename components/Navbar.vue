@@ -122,7 +122,7 @@ export default {
   right: 0;
   position: fixed;
   top: 0;
-  transform: translateX(100%) skewX(20deg);
+  transform: translateX(100%);
   transform-origin: top left;
   transition: background-color 150ms ease-out, transform 300ms ease-in,
     visibility 0s 300ms;
@@ -136,7 +136,7 @@ export default {
     float: right;
     height: auto;
     position: relative;
-    transform: none;
+    transform: translateX(0);
     transition: background-color 150ms ease-out;
     visibility: visible;
     width: auto;
