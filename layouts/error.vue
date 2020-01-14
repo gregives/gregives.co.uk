@@ -55,8 +55,6 @@ export default {
 
 .error__title {
   @include title;
-
-  text-shadow: 0.125rem 0.125rem $color__primary--muted;
 }
 
 .error__title--primary {

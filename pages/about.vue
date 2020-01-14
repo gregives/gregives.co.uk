@@ -59,8 +59,6 @@ export default {
 
 .about__title {
   @include title;
-
-  text-shadow: 0.125rem 0.125rem $color__primary--muted;
 }
 
 .about__title--primary {

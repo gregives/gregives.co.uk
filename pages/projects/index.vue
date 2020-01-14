@@ -79,9 +79,6 @@ export default {
 
 .projects__title {
   @include title;
-  transition: color 150ms ease-out;
-
-  text-shadow: 0.125rem 0.125rem $color__primary--muted;
 }
 
 .projects__title--primary {

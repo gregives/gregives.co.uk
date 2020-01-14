@@ -41,8 +41,6 @@ export default {
 
 .home__title {
   @include title;
-
-  text-shadow: 0.125rem 0.125rem $color__primary--muted;
 }
 
 .home__title--primary {
