@@ -111,13 +111,13 @@ $thickness: 2px;
   }
 
   &::before {
-    top: 0.425rem;
-    transition: top $speed $speed ease-out;
+    bottom: 0.425rem;
+    transition: bottom $speed $speed ease-out, opacity 0s $speed;
   }
 
   &::after {
-    bottom: 0.425rem;
-    transition: bottom $speed $speed ease-out, transform $speed ease-in;
+    top: 0.425rem;
+    transition: top $speed $speed ease-out, transform $speed ease-in;
   }
 }
 
@@ -127,14 +127,15 @@ $thickness: 2px;
     transition: transform $speed $speed ease-out;
 
     &::before {
-      top: 0;
-      transition: top $speed ease-in;
+      bottom: 0;
+      opacity: 0;
+      transition: bottom $speed ease-in, opacity 0s $speed;
     }
 
     &::after {
-      bottom: 0;
+      top: 0;
       transform: rotate(-90deg);
-      transition: bottom $speed ease-in, transform $speed $speed ease-out;
+      transition: top $speed ease-in, transform $speed $speed ease-out;
     }
   }
 }
