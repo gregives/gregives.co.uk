@@ -84,10 +84,12 @@ export default {
       visibility 0s 300ms;
     visibility: hidden;
     width: 100vw;
+    will-change: opacity, visibility;
     z-index: 1;
 
     @media (min-width: $breakpoint--md) {
-      visibility: hidden !important;
+      display: none;
+      will-change: auto;
     }
   }
 }
@@ -137,6 +139,7 @@ export default {
     visibility 0s 300ms;
   visibility: hidden;
   width: calc(90% - 5rem);
+  will-change: transform, visibility;
   z-index: 2;
 
   @media (min-width: $breakpoint--md) {
@@ -150,6 +153,7 @@ export default {
     transition: none;
     visibility: visible;
     width: auto;
+    will-change: auto;
   }
 }
 
