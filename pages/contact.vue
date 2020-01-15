@@ -58,7 +58,7 @@
         <form
           @submit.prevent="sendMessage"
           class="form"
-          action="https://formsubmit.co/dea5c6258093cbf621aeec513dcdbaec"
+          action="https://formsubmit.co/greg@gregives.co.uk"
           method="POST"
         >
           <input type="hidden" name="_captcha" value="false" />
@@ -98,7 +98,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import EmailIcon from 'icons/EmailVariant'
 import TwitterIcon from 'icons/Twitter'
 import GithubIcon from 'icons/GithubCircle'
@@ -137,10 +136,11 @@ export default {
       textarea.style.height = textarea.scrollHeight + borders + 'px'
     },
     sendMessage(event) {
-      const formData = new FormData(event.target)
       this.message = 0
-      axios
-        .post('https://formsubmit.co/ajax/greg@gregives.co.uk', formData)
+      fetch('https://formsubmit.co/ajax/greg@gregives.co.uk', {
+        method: 'POST',
+        body: new FormData(event.target)
+      })
         .then(() => {
           this.message = 1
         })
