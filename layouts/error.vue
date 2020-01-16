@@ -10,10 +10,10 @@
     </client-only>
     <p class="error__message">
       If you think there's something wrong with my website, please could you
-      <nuxt-link to="/contact">let me know</nuxt-link>? Otherwise you can head
-      back over to the home page!
+      <nuxt-link to="/contact" class="error__contact">let me know</nuxt-link>?
+      Otherwise you can head back over to the home page!
     </p>
-    <nuxt-link to="/" class="error__safety">Take me to safety</nuxt-link>
+    <nuxt-link to="/" class="error__home">Take me home</nuxt-link>
     <picture v-if="statusCode === 404" class="error__headshot">
       <source :srcset="head.webp" type="image/webp" />
       <source :srcset="head.png" type="image/png" />
@@ -74,7 +74,11 @@ export default {
   }
 }
 
-.error__safety {
+.error__contact {
+  @include link;
+}
+
+.error__home {
   @include button;
   @include button--primary;
 }
