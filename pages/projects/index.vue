@@ -119,7 +119,7 @@ export default {
       }
 
       .lazy {
-        transform: scale(1.02);
+        transform: scale(1.05);
       }
     }
   }
@@ -192,7 +192,6 @@ export default {
   }
 
   .lazy {
-    background: $color__primary--muted;
     bottom: 0;
     height: 100%;
     left: 0;
