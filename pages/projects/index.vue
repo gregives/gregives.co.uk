@@ -134,7 +134,6 @@ export default {
   color: $color__text--muted;
   font-family: $font__fancy;
   font-size: 90%;
-  transition: color 150ms ease-out;
 
   &::before {
     content: '\2014';
@@ -187,7 +186,7 @@ export default {
     opacity: 0;
     position: absolute;
     top: 0;
-    transition: opacity 300ms ease;
+    transition: $transition__theme, opacity 300ms ease;
     width: 100%;
   }
 
@@ -197,7 +196,7 @@ export default {
     left: 0;
     position: absolute;
     top: 0;
-    transition: background-color 150ms ease-out, transform 300ms ease;
+    transition: $transition__theme, transform 300ms ease;
     width: 100%;
 
     picture {
@@ -221,7 +220,7 @@ export default {
   margin-left: 1.5rem;
   padding: 1.5rem;
   position: relative;
-  transition: background-color 150ms ease-out, box-shadow 150ms ease-out,
+  transition: $transition__theme, box-shadow 150ms ease-out,
     border-color 150ms ease-out;
   z-index: 1;
 }

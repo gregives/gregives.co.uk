@@ -62,7 +62,8 @@
   background-position: bottom left;
   box-shadow: 0 #{-$border-weight} $color__primary--muted inset;
   color: $color__primary;
-  transition: background-size 300ms ease-out, text-shadow 150ms ease-out;
+  transition: text-shadow $transition__theme--time $transition__theme--ease,
+    background-size 300ms ease-out;
 
   &:hover {
     @include link--active;
@@ -95,8 +96,7 @@
   opacity: 1;
   padding: 0.5rem 1rem;
   position: relative;
-  transition: border-color 150ms ease-out, background-color 150ms ease-out,
-    opacity 150ms ease, transform 150ms ease;
+  transition: $transition__theme, opacity 150ms ease, transform 150ms ease;
 
   &::before {
     content: '';
@@ -137,6 +137,7 @@
 @mixin button--primary {
   background-color: $color__primary;
   color: $color__body;
+  transition: opacity 150ms ease, transform 150ms ease;
 
   &::before {
     opacity: 1;
