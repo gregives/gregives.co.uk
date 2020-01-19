@@ -33,9 +33,9 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'preconnect', href: 'https://www.google-analytics.com' },
-      { rel: 'preconnect', href: 'https://storage.googleapis.com' },
+      { rel: 'preconnect', href: 'https://cdn.jsdelivr.net' },
       { rel: 'dns-prefetch', href: 'https://www.google-analytics.com' },
-      { rel: 'dns-prefetch', href: 'https://storage.googleapis.com' }
+      { rel: 'dns-prefetch', href: 'https://cdn.jsdelivr.net' }
     ]
   },
   // Loading bar
@@ -103,11 +103,6 @@ export default {
       name: 'Greg Ives',
       short_name: 'Greg Ives',
       start_url: '/'
-    },
-    // Use googleapis.com CDN for Workbox
-    workbox: {
-      workboxURL:
-        'https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js'
     }
   },
   // Generate sitemap
