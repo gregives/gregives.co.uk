@@ -37,7 +37,13 @@ export default {
         href: 'https://www.google-analytics.com',
         crossorigin: true
       },
-      { rel: 'dns-prefetch', href: 'https://www.google-analytics.com' }
+      { rel: 'dns-prefetch', href: 'https://www.google-analytics.com' },
+      {
+        rel: 'preconnect',
+        href: 'https://storage.googleapis.com',
+        crossorigin: true
+      },
+      { rel: 'dns-prefetch', href: 'https://storage.googleapis.com' }
     ]
   },
   // Loading bar
