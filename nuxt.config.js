@@ -32,17 +32,9 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'preconnect',
-        href: 'https://www.google-analytics.com',
-        crossorigin: true
-      },
+      { rel: 'preconnect', href: 'https://www.google-analytics.com' },
+      { rel: 'preconnect', href: 'https://storage.googleapis.com' },
       { rel: 'dns-prefetch', href: 'https://www.google-analytics.com' },
-      {
-        rel: 'preconnect',
-        href: 'https://storage.googleapis.com',
-        crossorigin: true
-      },
       { rel: 'dns-prefetch', href: 'https://storage.googleapis.com' }
     ]
   },
