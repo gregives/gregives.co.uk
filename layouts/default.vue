@@ -45,11 +45,6 @@ export default {
     }
   },
   mounted() {
-    // Disable install prompt for PWA
-    window.addEventListener('beforeinstallprompt', (event) => {
-      event.preventDefault()
-    })
-
     // Check if the page should scroll to hash
     const hash = this.$route.hash
     if (hash) {

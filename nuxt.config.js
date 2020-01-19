@@ -101,7 +101,8 @@ export default {
     },
     manifest: {
       name: 'Greg Ives',
-      short_name: 'Greg Ives'
+      short_name: 'Greg Ives',
+      display: 'browser'
     },
     // Use googleapis.com CDN for Workbox
     workbox: {
