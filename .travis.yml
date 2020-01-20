@@ -16,10 +16,10 @@ script:
 
 deploy:
   provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_ACCESS_TOKEN
-  target-branch: deploy
-  local-dir: dist
+  skip_cleanup: true
+  github_token: $GITHUB_ACCESS_TOKEN
+  target_branch: deploy
+  local_dir: dist
   on:
     branch: master
 
