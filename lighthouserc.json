@@ -1,0 +1,17 @@
+{
+  "ci": {
+    "collect": {
+      "url": [
+        "https://gregives.co.uk",
+        "https://gregives.co.uk/projects",
+        "https://gregives.co.uk/projects/dissertation",
+        "https://gregives.co.uk/about",
+        "https://gregives.co.uk/contact"
+      ],
+      "numberOfRuns": 3
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}

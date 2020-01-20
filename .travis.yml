@@ -1,5 +1,8 @@
 language: node_js
-node_js: node
+node_js: lts/*
+
+addons:  
+  chrome: stable
 
 git:
   submodules: false
@@ -7,9 +10,6 @@ git:
 branches:
   only:
   - master
-
-install:
-  - npm install
 
 script:
   - travis_wait npm run generate
@@ -22,3 +22,7 @@ deploy:
   local-dir: dist
   on:
     branch: master
+
+after_deploy:
+  - npm install -g @lhci/cli
+  - lhci autorun
