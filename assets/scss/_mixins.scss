@@ -85,9 +85,8 @@
 }
 
 @mixin button {
-  $border-size: $border-weight;
-  background-color: $color__body;
-  border: $border-size solid $color__primary;
+  background-color: $color__body--overlay;
+  border: $border-weight solid $color__primary;
   border-radius: $border-radius;
   color: $color__primary;
   cursor: pointer;
@@ -100,23 +99,32 @@
 
   &::before {
     content: '';
-    border: $border-size solid transparent;
     border-radius: $border-radius;
     box-shadow: $box-shadow--primary-small;
-    box-sizing: content-box;
-    height: 100%;
-    left: -$border-size; // Account for border
+    height: calc(100% + #{2 * $border-weight});
+    left: -$border-weight; // Account for border
     opacity: 0.5;
     position: absolute;
-    top: -$border-size;
+    top: -$border-weight;
     transition: box-shadow 150ms ease;
-    width: 100%;
+    width: calc(100% + #{2 * $border-weight});
     z-index: -1;
   }
 
+  &::after {
+    background-image: linear-gradient(transparent 50%, #{transparentize(black, 0.9)});
+    content: '';
+    border-radius: $border-radius;
+    height: calc(100% + #{2 * $border-weight});
+    left: -$border-weight;
+    position: absolute;
+    top: -$border-weight;
+    width: calc(100% + #{2 * $border-weight});
+    z-index: 1;
+  }
+
   &:hover {
-    opacity: 0.8;
-    transform: scale(1.05);
+    opacity: 0.9;
 
     &::before {
       box-shadow: $box-shadow--primary;
@@ -141,5 +149,9 @@
 
   &::before {
     opacity: 1;
+  }
+
+  &::after {
+    background-image: linear-gradient(#{transparentize(white, 0.7)} 20%, transparent);
   }
 }

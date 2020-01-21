@@ -92,5 +92,18 @@ export default {
     width: 100%;
     z-index: -1;
   }
+
+  &::after {
+    background-image: linear-gradient($color__primary--muted, transparent);
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    content: '';
+    left: 1.5rem;
+    padding-bottom: 2 / 3 * 100%;
+    position: absolute;
+    top: 1.5rem;
+    width: 100%;
+    z-index: -1;
+  }
 }
 </style>

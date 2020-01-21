@@ -223,5 +223,20 @@ export default {
   transition: $transition__theme, box-shadow 150ms ease-out,
     border-color 150ms ease-out;
   z-index: 1;
+
+  &::before {
+    background-image: linear-gradient(
+      transparent 75%,
+      #{transparentize(black, 0.95)}
+    );
+    border-radius: $border-radius;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+  }
 }
 </style>
