@@ -1,15 +1,13 @@
 <template>
-  <client-only>
-    <button
-      :aria-label="theme === 'light' ? 'Dark theme' : 'Light theme'"
-      :title="theme === 'light' ? 'Dark theme' : 'Light theme'"
-      @click="toggleTheme"
-      class="theme-toggle"
-    >
-      <moon-icon v-if="theme === 'light'" title="Dark theme" />
-      <sun-icon v-else title="Light theme" />
-    </button>
-  </client-only>
+  <button
+    :aria-label="theme === 'light' ? 'Dark theme' : 'Light theme'"
+    :title="theme === 'light' ? 'Dark theme' : 'Light theme'"
+    @click="toggleTheme"
+    class="theme-toggle"
+  >
+    <moon-icon v-if="theme === 'light'" title="Dark theme" />
+    <sun-icon v-else title="Light theme" />
+  </button>
 </template>
 
 <script>
@@ -42,9 +40,9 @@ export default {
     }
   },
   watch: {
-    theme() {
-      document.documentElement.dataset.theme = this.theme
-      localStorage.setItem('theme', this.theme)
+    theme(theme) {
+      document.documentElement.dataset.theme = theme
+      localStorage.setItem('theme', theme)
     }
   },
   mounted() {
@@ -60,7 +58,7 @@ export default {
 
 <style lang="scss">
 .theme-toggle {
-  background: none;
+  background-color: transparent;
   border: none;
   color: $color__text;
   cursor: pointer;
