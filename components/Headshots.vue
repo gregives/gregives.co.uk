@@ -121,7 +121,7 @@ export default {
 .headshots {
   bottom: 0;
   filter: sepia(1) hue-rotate(-45deg) hue-rotate($color__primary--hue)
-    saturate(1.5);
+    saturate(1.5) brightness(1.2);
   height: calc(20vh + 30vw);
   overflow-y: hidden;
   pointer-events: none;
@@ -136,8 +136,8 @@ export default {
 }
 
 :root[data-theme='dark'] .headshots {
-  filter: invert(0.5) sepia(1) hue-rotate(-45deg)
-    hue-rotate($color__primary--hue) brightness(0.5) saturate(3);
+  filter: contrast(0) sepia(1) hue-rotate(-45deg)
+    hue-rotate($color__primary--hue) saturate(3) brightness(0.8);
 }
 
 .headshots__image {

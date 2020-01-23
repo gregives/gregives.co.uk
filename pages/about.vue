@@ -96,7 +96,6 @@ export default {
   &::after {
     background-image: linear-gradient($color__primary--muted, transparent);
     border-radius: $border-radius;
-    box-shadow: $box-shadow;
     content: '';
     left: 1.5rem;
     padding-bottom: 2 / 3 * 100%;

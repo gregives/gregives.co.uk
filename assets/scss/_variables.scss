@@ -9,7 +9,7 @@ $font__code: 'IBM Plex Mono', Consolas, 'Lucida Console', Monaco, monospace;
   --color__primary--muted: #{transparentize($color__primary, 0.7)};
   --color__primary--hue: #{hue($color__primary)};
 
-  $color__body: hsl(hue($color__primary), 40%, 98%);
+  $color__body: hsl(hue($color__primary), 16%, 98%);
   $color__body--overlay: lighten($color__body, 2%);
   --color__body: #{$color__body};
   --color__body--overlay: #{$color__body--overlay};
@@ -30,7 +30,7 @@ $font__code: 'IBM Plex Mono', Consolas, 'Lucida Console', Monaco, monospace;
       --color__primary--muted: #{transparentize($color__primary, 0.7)};
       --color__primary--hue: #{hue($color__primary)};
   
-      $color__body: hsl(hue($color__primary), 30%, 14%);
+      $color__body: hsl(hue($color__primary), 16%, 12%);
       $color__body--overlay: lighten($color__body, 4%);
       --color__body: #{$color__body};
       --color__body--overlay: #{$color__body--overlay};
