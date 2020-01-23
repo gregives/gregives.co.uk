@@ -182,7 +182,7 @@ export default {
     opacity: 0;
     position: absolute;
     top: 0;
-    transition: $transition__theme, opacity 300ms ease;
+    transition: opacity 300ms ease;
     width: 100%;
   }
 
@@ -216,8 +216,7 @@ export default {
   margin-left: 1.5rem;
   padding: 1.5rem;
   position: relative;
-  transition: $transition__theme, box-shadow 150ms ease-out,
-    border-color 150ms ease-out;
+  transition: box-shadow 150ms ease-out, border-color 150ms ease-out;
   z-index: 1;
 }
 </style>

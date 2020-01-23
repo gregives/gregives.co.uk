@@ -62,8 +62,7 @@
   background-position: bottom left;
   box-shadow: 0 #{-$border-weight} $color__primary--muted inset;
   color: $color__primary;
-  transition: text-shadow $transition__theme--time $transition__theme--ease,
-    background-size 300ms ease-out;
+  transition: background-size 300ms ease-out;
 
   &:hover {
     @include link--active;
@@ -95,7 +94,7 @@
   opacity: 1;
   padding: 0.5rem 1rem;
   position: relative;
-  transition: $transition__theme, opacity 150ms ease, transform 150ms ease;
+  transition: opacity 150ms ease, transform 150ms ease;
 
   &::before {
     content: '';
