@@ -12,6 +12,11 @@
             </nuxt-link>
           </li>
           <li class="nav__list-item">
+            <nuxt-link class="nav__link" to="/blog">
+              <span>Blog</span>
+            </nuxt-link>
+          </li>
+          <li class="nav__list-item">
             <nuxt-link class="nav__link" to="/projects">
               <span>Projects</span>
             </nuxt-link>
