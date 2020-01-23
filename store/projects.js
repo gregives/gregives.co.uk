@@ -19,7 +19,6 @@ async function loadProject(projectSlug) {
   project.attributes.slug = projectSlug
   project.attributes.date = new Date(project.attributes.date)
   project.attributes.link = `/projects/${projectSlug}`
-  project.attributes.mins = project.vue.render.split(' ').length / 265
 
   return project
 }
