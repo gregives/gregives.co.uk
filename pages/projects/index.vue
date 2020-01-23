@@ -21,9 +21,9 @@
             <lazy-image :src="project.image" :alt="project.title" />
           </div>
           <div class="projects__list-content">
-            <h4 class="projects__list-title">
+            <h3 class="projects__list-title">
               {{ project.titleShort || project.title }}
-            </h4>
+            </h3>
             <small class="projects__list-date">
               {{ project.date.getFullYear() }}
             </small>
@@ -101,7 +101,7 @@ export default {
   &:hover {
     .projects__list-content {
       border-color: $color__primary;
-      box-shadow: $box-shadow--small;
+      box-shadow: $box-shadow;
     }
 
     .projects__list-title {
@@ -111,15 +111,11 @@ export default {
     .projects__list-image {
       &::before {
         animation-play-state: running;
-        opacity: 0.2;
+        opacity: 0.3;
       }
 
       &::after {
         opacity: 0.6;
-      }
-
-      .lazy {
-        transform: scale(1.05);
       }
     }
   }
@@ -155,7 +151,7 @@ export default {
     animation-duration: var(--scroll-speed);
     animation-play-state: paused;
     bottom: -25%;
-    color: $color__body;
+    color: $color__body--overlay;
     content: '\00A0\00A0'attr(data-title) '\00A0\00A0'attr(data-title)
       '\00A0\00A0'attr(data-title);
     font-family: $font__fancy;
@@ -196,7 +192,6 @@ export default {
     left: 0;
     position: absolute;
     top: 0;
-    transition: $transition__theme, transform 300ms ease;
     width: 100%;
 
     picture {
@@ -212,10 +207,11 @@ export default {
 }
 
 .projects__list-content {
-  background-color: $color__body--overlay;
+  background: linear-gradient(transparent 75%, #{transparentize(black, 0.95)}),
+    $color__body--overlay;
   border: $border-weight solid $color__primary--muted;
   border-radius: $border-radius;
-  box-shadow: $box-shadow;
+  box-shadow: $box-shadow--small;
   margin-top: -1.5rem;
   margin-left: 1.5rem;
   padding: 1.5rem;
@@ -223,20 +219,5 @@ export default {
   transition: $transition__theme, box-shadow 150ms ease-out,
     border-color 150ms ease-out;
   z-index: 1;
-
-  &::before {
-    background-image: linear-gradient(
-      transparent 75%,
-      #{transparentize(black, 0.95)}
-    );
-    border-radius: $border-radius;
-    content: '';
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: -1;
-  }
 }
 </style>
