@@ -81,7 +81,6 @@ export default {
 .lazy__image {
   display: block;
   filter: blur(0.5rem);
-  transition: filter 150ms ease-out;
   width: 100%;
 
   &--loaded {
