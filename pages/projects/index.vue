@@ -115,7 +115,11 @@ export default {
       }
 
       &::after {
-        opacity: 0.6;
+        opacity: 1;
+      }
+
+      .lazy {
+        filter: grayscale(0.8);
       }
     }
   }
@@ -175,7 +179,8 @@ export default {
   }
 
   &::after {
-    background-color: $color__primary;
+    background-color: $color__primary--muted;
+    background-image: linear-gradient(transparent, $color__primary);
     content: '';
     height: 100%;
     left: 0;
@@ -192,6 +197,7 @@ export default {
     left: 0;
     position: absolute;
     top: 0;
+    transition: filter 300ms ease-out;
     width: 100%;
 
     picture {
