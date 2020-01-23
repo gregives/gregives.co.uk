@@ -63,11 +63,6 @@ $color__text: var(--color__text);
 $color__text--muted: var(--color__text--muted);
 $color__text--muter: var(--color__text--muter);
 
-// Transitions
-$transition__theme--time: 150ms;
-$transition__theme--ease: ease-out;
-$transition__theme: background-color $transition__theme--time $transition__theme--ease;
-
 // Shadows
 $box-shadow: var(--box-shadow);
 $box-shadow--small: var(--box-shadow--small);

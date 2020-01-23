@@ -5,12 +5,6 @@
 @import "mixins";
 @import "typography";
 
-*,
-*::before,
-*::after {
-  transition: $transition__theme;
-}
-
 :root {
   color: $color__text;
   font-family: $font__body;

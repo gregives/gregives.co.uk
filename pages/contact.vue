@@ -245,7 +245,7 @@ export default {
     padding: 1rem;
     padding-bottom: 0.75rem;
     resize: none;
-    transition: $transition__theme, border-color 150ms ease-out;
+    transition: border-color 150ms ease-out;
     width: 100%;
 
     &:focus {
