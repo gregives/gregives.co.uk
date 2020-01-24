@@ -87,6 +87,17 @@ $thickness: 2px;
     height: 100%;
     width: 1.5rem;
   }
+
+  &:hover {
+    .hamburger__icon {
+      background-color: $color__primary;
+
+      &::before,
+      &::after {
+        background-color: $color__primary;
+      }
+    }
+  }
 }
 
 .hamburger__icon {

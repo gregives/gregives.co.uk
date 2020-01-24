@@ -193,8 +193,6 @@ export default {
 }
 
 .contact__social-icon {
-  transition: color 150ms ease-out;
-
   &:hover {
     color: $color__primary;
 
