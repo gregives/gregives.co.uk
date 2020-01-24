@@ -117,9 +117,8 @@ export default {
   font-family: $font__fancy;
   font-size: 130%;
   font-weight: 500;
-  transition: color 150ms ease-out, opacity 300ms ease-out;
 
-  &:hover {
+  a:hover {
     color: $color__primary;
   }
 }

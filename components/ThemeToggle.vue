@@ -66,7 +66,6 @@ export default {
   margin: 0 -0.5rem;
   margin-right: 1rem;
   padding: 0 0.5rem;
-  transition: color 150ms ease-out;
 
   svg {
     margin-top: -0.25rem;
