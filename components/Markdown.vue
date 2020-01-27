@@ -26,9 +26,18 @@ export default {
   h2,
   h3,
   h4 {
-    border-bottom: 1px solid $color__text--muted;
     padding-bottom: 0.25rem;
     position: relative;
+
+    &::after {
+      background: linear-gradient(to right, $color__text--muted, transparent);
+      bottom: 0;
+      content: '';
+      height: $border-weight;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
 
     .header-anchor {
       color: $color__text--muted;
@@ -47,27 +56,33 @@ export default {
   }
 
   h1:not(:first-child) {
-    @include h3;
+    @include h2;
 
     margin-top: 1.75rem;
   }
 
   h2:not(:first-child) {
-    @include h4;
+    @include h3;
 
     margin-top: 1.5rem;
   }
 
   h3:not(:first-child) {
-    @include h5;
+    @include h4;
 
     margin-top: 1.25rem;
   }
 
   h4:not(:first-child) {
-    @include h6;
+    @include h5;
 
     margin-top: 1rem;
+  }
+
+  h5:not(:first-child) {
+    @include h6;
+
+    margin-top: 0.75rem;
   }
 
   p:not(:last-child) {
