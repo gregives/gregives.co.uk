@@ -1,6 +1,41 @@
+code {
+  background-color: $color__text--muter;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow--small inset;
+  font-family: $font__code;
+  font-size: 90%;
+  font-weight: 500;
+  padding: 0.15rem 0.3rem;
+  text-rendering: optimizeLegibility;
+  white-space: pre;
+}
+
 .hljs {
-  display: block;
-  overflow-x: auto;
+  margin: 1.5rem 0rem;
+  position: relative;
+  width: 100%;
+  
+  code {
+    box-shadow: $box-shadow inset;
+    display: block;
+    font-weight: inherit;
+    overflow-x: auto;
+    padding: 0.75rem 0.5rem;
+    width: 100%;
+  }
+
+  &[data-language]::after {
+    background-color: $color__body--overlay;
+    box-shadow: $box-shadow--small;
+    border-radius: $border-radius;
+    content: '.' attr(data-language);
+    font-size: 80%;
+    font-weight: 500;
+    padding: 0.15rem 0.5rem;
+    position: absolute;
+    right: 0;
+    top: -0.75rem;
+  }
 }
 
 .hljs-keyword,
@@ -8,7 +43,7 @@
 .hljs-literal,
 .hljs-section,
 .hljs-link {
-  color:  $color__text;
+  color: $color__text;
 }
 
 .hljs,

@@ -7,6 +7,9 @@ import Mode from 'frontmatter-markdown-loader/mode'
 // Load routes for dynamic content
 import routes from './contents/routes'
 
+// Import configuration for markdown formatter
+import markdown from './config/markdown'
+
 // Load primary color from sass
 const [, primaryColor] = fs
   .readFileSync(path.join(__dirname, 'assets', 'scss', '_variables.scss'), {
@@ -149,41 +152,6 @@ export default {
         'node_modules/vue-material-design-icons'
       )
 
-      // Configuration for Markdown formatter
-      const hljs = require('highlight.js')
-      const markdown = require('markdown-it')({
-        html: true,
-        xhtmlOut: false,
-        breaks: false,
-        typographer: true,
-        highlight(str, lang) {
-          if (lang && hljs.getLanguage(lang)) {
-            try {
-              return `<pre class="hljs"><code>${
-                hljs.highlight(lang, str, true).value
-              }</code></pre>`
-            } catch (e) {}
-          }
-
-          return `<pre class="hljs"><code>${markdown.utils.escapeHtml(
-            str
-          )}</code></pre>`
-        }
-      })
-        .use(require('markdown-it-anchor'), {
-          permalink: true,
-          permalinkSymbol: '#',
-          permalinkSpace: false
-        })
-        .use(require('markdown-it-task-lists'), {
-          label: true
-        })
-        .use(require('markdown-it-abbr'))
-        .use(require('markdown-it-sup'))
-        .use(require('markdown-it-sub'))
-        .use(require('markdown-it-mark'))
-        .use(require('markdown-it-ins'))
-
       // Markdown loader
       config.module.rules.push({
         test: /\.md$/,
@@ -193,9 +161,7 @@ export default {
           vue: {
             root: 'markdown'
           },
-          markdown(body) {
-            return markdown.render(body)
-          }
+          markdown
         }
       })
     }
