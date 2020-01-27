@@ -79,38 +79,6 @@ strong {
   font-weight: 500;
 }
 
-code {
-  background-color: $color__text--muter;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow--small inset;
-  font-family: $font__code;
-  font-size: 90%;
-  padding: 0.15rem 0.3rem;
-  text-rendering: optimizeLegibility;
-  white-space: pre;
-}
-
-.hljs {
-  background-color: $color__text--muter;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow inset;
-  line-height: 1.25;
-  font-size: 90%;
-  margin: 1rem 0rem;
-  padding: 0.75rem 0.5rem;
-  width: 100%;
-
-  code {
-    padding: 0;
-    background-color: transparent;
-    border-radius: 0;
-    font-family: $font__code;
-    font-weight: inherit;
-    font-size: inherit;
-    box-shadow: none;
-  }
-}
-
 ::selection {
   background-color: $color__primary--muted;
   text-shadow: none;
