@@ -37,7 +37,7 @@ $font__code: 'IBM Plex Mono', Consolas, 'Lucida Console', Monaco, monospace;
       --color__body--blur: #{transparentize($color__body--overlay, 0.1)};
       --color__text: #{transparentize(white, 0.13)};
       --color__text--muted: #{transparentize(white, 0.4)};
-      --color__text--muter: #{transparentize(white, 0.95)};
+      --color__text--muter: #{transparentize(white, 0.96)};
   
       --box-shadow: 0 0 2rem -1rem #{transparentize(black, 0.6)};
       --box-shadow--small: 0 0 0.5rem -0.25rem #{transparentize(black, 0.6)};
