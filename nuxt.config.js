@@ -85,6 +85,7 @@ export default {
     },
     // Sizes of responsive image to generate
     responsive: {
+      disable: process.env.NODE_ENV !== 'production',
       sizes: [320, 640, 1280, 1920],
       placeholder: true
     }
