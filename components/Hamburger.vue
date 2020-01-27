@@ -11,11 +11,23 @@
 
 <script>
 export default {
+  data() {
+    return {
+      menu: 'closed'
+    }
+  },
   watch: {
-    $route(to, from) {
+    $route() {
       this.changingRoute = true
-      if (this.menuIsOpen()) {
+      if (this.menu === 'open') {
         setTimeout(this.closeMenu, 300) // If link clicked to other route
+      }
+    }
+  },
+  head() {
+    return {
+      htmlAttrs: {
+        'data-menu': this.menu
       }
     }
   },
@@ -27,19 +39,16 @@ export default {
     })
   },
   methods: {
-    menuIsOpen() {
-      return document.documentElement.dataset.menu === 'open'
-    },
     openMenu() {
-      document.documentElement.dataset.menu = 'open'
+      this.menu = 'open'
       window.addEventListener('click', this.handleClick)
     },
     closeMenu() {
-      document.documentElement.dataset.menu = 'closed'
+      this.menu = 'closed'
       window.removeEventListener('click', this.handleClick)
     },
     toggleMenu() {
-      if (this.menuIsOpen()) {
+      if (this.menu === 'open') {
         this.closeMenu()
       } else {
         this.openMenu()
@@ -48,14 +57,14 @@ export default {
     handleClick(event) {
       const link = event.target.closest('a.nuxt-link-exact-active')
       if (link !== null) {
-        if (!this.changingRoute && this.menuIsOpen()) {
+        if (!this.changingRoute && this.menu === 'open') {
           this.closeMenu() // If link clicked to current route
         }
         this.changingRoute = false
       }
 
       const nav = document.querySelector('nav').getBoundingClientRect()
-      if (event.clientX < nav.left && this.menuIsOpen()) {
+      if (event.clientX < nav.left && this.menu === 'open') {
         this.closeMenu() // If clicking outside the nav
       }
     }

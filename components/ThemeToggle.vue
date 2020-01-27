@@ -36,12 +36,14 @@ export default {
   },
   head() {
     return {
-      meta: [{ hid: 'theme-color', name: 'theme-color', content: this.color }]
+      meta: [{ hid: 'theme-color', name: 'theme-color', content: this.color }],
+      htmlAttrs: {
+        'data-theme': this.theme
+      }
     }
   },
   watch: {
     theme(theme) {
-      document.documentElement.dataset.theme = theme
       localStorage.setItem('theme', theme)
     }
   },

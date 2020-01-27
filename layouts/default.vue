@@ -20,6 +20,7 @@ export default {
           // Set theme and theme-color as soon as possible
           const theme = localStorage.getItem('theme') || 'light'
           document.documentElement.dataset.theme = theme
+
           const color = getComputedStyle(
             document.documentElement
           ).getPropertyValue(
@@ -39,6 +40,9 @@ export default {
           }
           window.addEventListener('resize', updateVH)
           updateVH()
+
+          // Remove data-n-head
+          delete document.documentElement.dataset.nHead
         }
         return `(${content.toString()})()`
       })()
