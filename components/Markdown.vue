@@ -3,15 +3,13 @@ export default {
   props: {
     vue: {
       type: Object,
-      default() {
-        return {}
-      }
+      required: true
     }
   },
   created() {
-    // eslint-disable-next-line
+    // eslint-disable-next-line no-new-func
     this.templateRender = new Function(this.vue.render)()
-    // eslint-disable-next-line
+    // eslint-disable-next-line no-new-func
     this.$options.staticRenderFns = new Function(this.vue.staticRenderFns)()
   },
   render(createElement) {
