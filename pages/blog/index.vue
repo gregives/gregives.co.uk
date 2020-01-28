@@ -87,13 +87,13 @@ export default {
   }
 
   &::after {
-    background: linear-gradient(to right, $color__body, transparent);
+    background: linear-gradient(to right, $color__body 2rem, transparent);
     content: '';
     height: calc(100% + 2rem);
-    left: -1rem;
+    left: -2rem;
     position: absolute;
     top: -1rem;
-    width: 100%;
+    width: calc(100% + 2rem);
     z-index: -1;
   }
 
