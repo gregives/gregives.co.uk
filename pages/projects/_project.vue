@@ -1,44 +1,16 @@
 <template>
   <main class="project">
-    <div class="project__content">
-      <div>
-        <div class="project__back project__back--mobile">
-          <nuxt-link to="/projects">
-            Back to projects&nbsp;&nbsp;&#x2190;
-          </nuxt-link>
-        </div>
-      </div>
-      <h1 class="project__title">{{ project.title }}</h1>
-      <div class="project__details">
-        <div class="project__sticky">
-          <div class="project__back">
-            <nuxt-link to="/projects">
-              Back to projects&nbsp;&nbsp;&#x2190;
-            </nuxt-link>
-          </div>
-          <div class="project__date">
-            <div>{{ date }}</div>
-          </div>
-          <ul class="project__tag-list">
-            <li
-              v-for="tag in project.tags"
-              :key="tag"
-              class="project__tag-list-item"
-            >
-              {{ tag }}
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="project__text">
-        <markdown :vue="project.vue" />
-      </div>
-    </div>
+    <post-article :post="project" :project="true" />
   </main>
 </template>
 
 <script>
+import PostArticle from '~/components/PostArticle'
+
 export default {
+  components: {
+    PostArticle
+  },
   computed: {
     project() {
       return this.$store.state.projects.project
