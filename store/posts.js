@@ -1,15 +1,15 @@
 import postSlugs from '~/contents/blog'
 
 export const state = () => ({
-  currentPost: {},
+  post: {},
   posts: []
 })
 
 export const mutations = {
-  setCurrentPost(state, post) {
-    state.currentPost = post
+  SET_POST(state, post) {
+    state.post = post
   },
-  setPosts(state, posts) {
+  SET_POSTS(state, posts) {
     state.posts = posts
   }
 }
@@ -19,18 +19,18 @@ async function loadPost(postSlug) {
   post.attributes.slug = postSlug
   post.attributes.date = new Date(post.attributes.date)
   post.attributes.link = `/blog/${postSlug}`
-  post.attributes.mins =
-    Math.round((post.vue.render.split(' ').length - 10) / 265) || 1
+  post.attributes.mins = Math.round(post.vue.render.split(' ').length / 265)
+  post.attributes.mins = post.attributes.mins || 0 // Minutes >= 1
 
   return post
 }
 
 export const actions = {
-  async setCurrentPost({ commit }, postSlug) {
+  async GET_POST({ commit }, postSlug) {
     try {
       const post = await loadPost(postSlug)
 
-      commit('setCurrentPost', {
+      commit('SET_POST', {
         ...post.attributes,
         vue: post.vue
       })
@@ -38,11 +38,10 @@ export const actions = {
       throw new Error('Post not found')
     }
   },
-  async setPosts({ commit }) {
+  async GET_POSTS({ commit }) {
     const posts = await Promise.all(
       postSlugs.map(async (postSlug) => {
         const post = await loadPost(postSlug)
-
         return {
           ...post.attributes
         }
@@ -50,6 +49,6 @@ export const actions = {
     )
     posts.sort((postA, postB) => postB.date - postA.date)
 
-    commit('setPosts', posts)
+    commit('SET_POSTS', posts)
   }
 }

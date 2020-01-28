@@ -1,15 +1,15 @@
 import projectSlugs from '~/contents/projects'
 
 export const state = () => ({
-  currentProject: {},
+  project: {},
   projects: []
 })
 
 export const mutations = {
-  setCurrentProject(state, project) {
-    state.currentProject = project
+  SET_PROJECT(state, project) {
+    state.project = project
   },
-  setProjects(state, projects) {
+  SET_PROJECTS(state, projects) {
     state.projects = projects
   }
 }
@@ -24,11 +24,11 @@ async function loadProject(projectSlug) {
 }
 
 export const actions = {
-  async setCurrentProject({ commit }, projectSlug) {
+  async GET_PROJECT({ commit }, projectSlug) {
     try {
       const project = await loadProject(projectSlug)
 
-      commit('setCurrentProject', {
+      commit('SET_PROJECT', {
         ...project.attributes,
         vue: project.vue
       })
@@ -36,11 +36,10 @@ export const actions = {
       throw new Error('Project not found')
     }
   },
-  async setProjects({ commit }) {
+  async GET_PROJECTS({ commit }) {
     const projects = await Promise.all(
       projectSlugs.map(async (projectSlug) => {
         const project = await loadProject(projectSlug)
-
         return {
           ...project.attributes
         }
@@ -48,6 +47,6 @@ export const actions = {
     )
     projects.sort((projectA, projectB) => projectB.date - projectA.date)
 
-    commit('setProjects', projects)
+    commit('SET_PROJECTS', projects)
   }
 }

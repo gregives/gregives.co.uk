@@ -37,7 +37,7 @@
 export default {
   computed: {
     post() {
-      return this.$store.state.posts.currentPost
+      return this.$store.state.posts.post
     },
     date() {
       return this.post.date.toLocaleString('en-GB', {
@@ -49,7 +49,7 @@ export default {
   },
   async fetch({ store, params, error }) {
     try {
-      await store.dispatch('posts/setCurrentPost', params.post)
+      await store.dispatch('posts/GET_POST', params.post)
     } catch {
       error({ statusCode: 404, message: 'This post could not be found' })
     }

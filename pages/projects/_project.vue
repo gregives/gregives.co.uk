@@ -41,7 +41,7 @@
 export default {
   computed: {
     project() {
-      return this.$store.state.projects.currentProject
+      return this.$store.state.projects.project
     },
     date() {
       return this.project.date.toLocaleString('en-GB', {
@@ -52,7 +52,7 @@ export default {
   },
   async fetch({ store, params, error }) {
     try {
-      await store.dispatch('projects/setCurrentProject', params.project)
+      await store.dispatch('projects/GET_PROJECT', params.project)
     } catch {
       error({ statusCode: 404, message: 'This project could not be found' })
     }
