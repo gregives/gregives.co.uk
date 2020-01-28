@@ -51,7 +51,7 @@ export default {
     }
   },
   async fetch({ store }) {
-    await store.dispatch('projects/setProjects')
+    await store.dispatch('projects/GET_PROJECTS')
   }
 }
 </script>

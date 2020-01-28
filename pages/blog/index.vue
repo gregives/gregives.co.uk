@@ -39,7 +39,7 @@ export default {
     }
   },
   async fetch({ store }) {
-    await store.dispatch('posts/setPosts')
+    await store.dispatch('posts/GET_POSTS')
   }
 }
 </script>
