@@ -61,7 +61,7 @@ export default {
   grid-template-columns: 100%;
 
   @media (min-width: $breakpoint--lg) {
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 1fr minmax(0, 3fr);
   }
 }
 
