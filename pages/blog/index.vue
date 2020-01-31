@@ -27,19 +27,28 @@
 </template>
 
 <script>
+import { postLoader, postSlugs } from '~/contents/blog'
+
 export default {
-  computed: {
-    posts() {
-      return this.$store.state.posts.posts
-    }
-  },
   head() {
     return {
       title: 'Blog'
     }
   },
-  async fetch({ store }) {
-    await store.dispatch('posts/GET_POSTS')
+  async asyncData() {
+    const posts = await Promise.all(
+      postSlugs.map(async (postSlug) => {
+        const post = await postLoader(postSlug)
+        return {
+          ...post.attributes
+        }
+      })
+    )
+    posts.sort((postA, postB) => postB.date - postA.date)
+
+    return {
+      posts
+    }
   }
 }
 </script>

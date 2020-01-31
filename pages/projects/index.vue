@@ -39,19 +39,28 @@
 </template>
 
 <script>
+import { projectLoader, projectSlugs } from '~/contents/projects'
+
 export default {
-  computed: {
-    projects() {
-      return this.$store.state.projects.projects
-    }
-  },
   head() {
     return {
       title: 'Projects'
     }
   },
-  async fetch({ store }) {
-    await store.dispatch('projects/GET_PROJECTS')
+  async asyncData() {
+    const projects = await Promise.all(
+      projectSlugs.map(async (projectSlug) => {
+        const project = await projectLoader(projectSlug)
+        return {
+          ...project.attributes
+        }
+      })
+    )
+    projects.sort((projectA, projectB) => projectB.date - projectA.date)
+
+    return {
+      projects
+    }
   }
 }
 </script>
