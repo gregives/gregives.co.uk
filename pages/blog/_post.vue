@@ -6,19 +6,21 @@
 
 <script>
 import PostArticle from '~/components/PostArticle'
+import { postLoader } from '~/contents/blog'
 
 export default {
   components: {
     PostArticle
   },
-  computed: {
-    post() {
-      return this.$store.state.posts.post
-    }
-  },
-  async fetch({ store, params, error }) {
+  async asyncData({ params, error }) {
     try {
-      await store.dispatch('posts/GET_POST', params.post)
+      const post = await postLoader(params.post)
+      return {
+        post: {
+          ...post.attributes,
+          vue: post.vue
+        }
+      }
     } catch {
       error({ statusCode: 404, message: 'This post could not be found' })
     }

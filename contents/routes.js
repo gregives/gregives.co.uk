@@ -1,5 +1,5 @@
-import projectSlugs from './projects'
-import postSlugs from './blog'
+import { projectSlugs } from './projects'
+import { postSlugs } from './blog'
 
 export default [
   ...projectSlugs.map((projectSlug) => `/projects/${projectSlug}`),

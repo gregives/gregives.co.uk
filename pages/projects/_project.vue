@@ -6,19 +6,21 @@
 
 <script>
 import PostArticle from '~/components/PostArticle'
+import { projectLoader } from '~/contents/projects'
 
 export default {
   components: {
     PostArticle
   },
-  computed: {
-    project() {
-      return this.$store.state.projects.project
-    }
-  },
-  async fetch({ store, params, error }) {
+  async asyncData({ params, error }) {
     try {
-      await store.dispatch('projects/GET_PROJECT', params.project)
+      const project = await projectLoader(params.project)
+      return {
+        project: {
+          ...project.attributes,
+          vue: project.vue
+        }
+      }
     } catch {
       error({ statusCode: 404, message: 'This project could not be found' })
     }
