@@ -38,10 +38,10 @@ export default {
   },
   computed: {
     date() {
-      return this.post.date.toLocaleString('en-US', {
+      return this.post.date.toLocaleString('en-GB', {
         ...(!this.project && { day: 'numeric' }),
-        year: 'numeric',
-        month: 'long'
+        month: 'long',
+        year: 'numeric'
       })
     }
   }

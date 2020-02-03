@@ -1,20 +1,13 @@
 <template>
   <li class="post-card">
-    <h3>
+    <h3 class="post-card__title">
       <nuxt-link :to="post.link" class="post-card__link">
         {{ post.title }}
       </nuxt-link>
     </h3>
-    <p class="post-card__details">
-      {{
-        post.date.toLocaleString('en-US', {
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric'
-        })
-      }}
-      &mdash; {{ post.mins }} minute read
-    </p>
+    <small class="post-card__details">
+      {{ date }} &mdash; {{ post.mins }} minute read
+    </small>
     <p class="post-card__description">{{ post.description }}</p>
   </li>
 </template>
@@ -25,6 +18,15 @@ export default {
     post: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    date() {
+      return this.post.date.toLocaleString('en-GB', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      })
     }
   }
 }
@@ -66,14 +68,14 @@ export default {
     z-index: -1;
   }
 
-  > h3 {
-    margin-bottom: 0.5rem;
-  }
-
   &:hover::before {
     border-color: $color__primary;
     box-shadow: $box-shadow;
   }
+}
+
+.post-card__title {
+  margin-bottom: 0.5rem;
 }
 
 .post-card__link {
@@ -91,6 +93,7 @@ export default {
 
 .post-card__details {
   color: $color__text--muted;
+  display: block;
   margin-bottom: 0.5rem;
 }
 </style>
