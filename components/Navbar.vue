@@ -7,7 +7,7 @@
       <nav class="nav">
         <ol class="nav__list">
           <li class="nav__list-item">
-            <nuxt-link class="nav__link" to="/">
+            <nuxt-link class="nav__link" to="/" exact>
               <span>Home</span>
             </nuxt-link>
           </li>
@@ -206,7 +206,7 @@ export default {
   }
 
   &:hover,
-  &.nuxt-link-exact-active {
+  &.nuxt-link-active {
     span {
       @include link--active;
     }
