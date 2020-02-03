@@ -5,7 +5,7 @@
     </h1>
     <div class="contact__layout">
       <div class="contact__text">
-        <markdown :vue="vue" />
+        <markdown :vue="markdown.vue" />
         <div class="contact__social">
           <div class="contact__social-item">
             <a
@@ -125,7 +125,9 @@ export default {
   async asyncData() {
     const { vue } = await import('~/contents/contact.md')
     return {
-      vue
+      markdown: {
+        vue
+      }
     }
   },
   methods: {

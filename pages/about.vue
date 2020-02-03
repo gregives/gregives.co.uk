@@ -10,7 +10,7 @@
           alt="Greg Ives at HackSheffield"
         />
       </div>
-      <markdown :vue="vue" />
+      <markdown :vue="markdown.vue" />
     </div>
   </main>
 </template>
@@ -20,7 +20,9 @@ export default {
   async asyncData() {
     const { vue } = await import('~/contents/about.md')
     return {
-      vue
+      markdown: {
+        vue
+      }
     }
   },
   head() {
