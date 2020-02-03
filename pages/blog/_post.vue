@@ -42,12 +42,6 @@ export default {
 
 <style lang="scss">
 .post {
-  $clip-path: polygon(60% 0%, 100% 0%, 100% 100%, 30% 40%);
   @include page;
-  @include dots($clip-path);
-
-  &::before {
-    height: 15rem;
-  }
 }
 </style>
