@@ -22,8 +22,12 @@
 @mixin dots($clip-path) {
   @supports (clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)) {
     &::before {
-      background-image: radial-gradient($color__primary--muted 10%, transparent 10%);
-      background-size: 1rem 1rem;
+      $background-size: 0.75rem;
+      $background-dots: radial-gradient($color__primary--muted 0.05rem, transparent 0.05rem);
+
+      background-image: $background-dots, $background-dots;
+      background-size: $background-size $background-size;
+      background-position: 0 0, $background-size / 2 $background-size / 2;
       clip-path: $clip-path;
       content: '';
       height: 100%;

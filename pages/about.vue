@@ -33,22 +33,21 @@ export default {
 
 <style lang="scss">
 .about {
-  $clip-path: polygon(0% 10%, 200% 45%, 0% 35%);
+  $clip-path: polygon(0% 15%, 100% 20%, 100% 30%, 0% 35%);
   @include page;
   @include dots($clip-path);
 
   @media (min-width: $breakpoint--md) {
     $clip-path: polygon(
-      0% 10%,
+      0% 20%,
       30% 30%,
       30% 50%,
       0% 60%,
-      0% 80%,
-      20% 60%,
+      0% 70%,
+      30% 60%,
       40% 70%,
       30% 200%,
-      20% 60%,
-      0% 80%
+      0% 100%
     );
     @include dots($clip-path);
 
