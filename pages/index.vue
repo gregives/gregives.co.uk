@@ -5,7 +5,7 @@
       Hi, I’m <span class="home__title--primary">Greg Ives</span>
     </h1>
     <div class="home__description">
-      <markdown :vue="vue" />
+      <markdown :vue="markdown.vue" />
     </div>
     <nuxt-link class="home__projects" to="/projects">
       See my projects
@@ -26,7 +26,9 @@ export default {
   async asyncData() {
     const { vue } = await import('~/contents/index.md')
     return {
-      vue
+      markdown: {
+        vue
+      }
     }
   }
 }
