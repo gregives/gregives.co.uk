@@ -7,8 +7,9 @@ import Mode from 'frontmatter-markdown-loader/mode'
 // Load routes for dynamic content
 import routes from './contents/routes'
 
-// Import configuration for markdown formatter
+// Import configuration
 import markdown from './config/markdown'
+import minify from './config/minify'
 
 // Load primary color from sass
 const [, primaryColor] = fs
@@ -122,23 +123,7 @@ export default {
   // Build configuration
   build: {
     html: {
-      // Configuration for minifying HTML
-      minify: {
-        collapseBooleanAttributes: true,
-        collapseInlineTagWhitespace: true,
-        collapseWhitespace: true,
-        conservativeCollapse: true,
-        decodeEntities: true,
-        minifyCSS: true,
-        minifyJS: true,
-        processConditionalComments: true,
-        removeEmptyAttributes: true,
-        removeRedundantAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        trimCustomFragments: true,
-        useShortDoctype: true
-      }
+      minify
     },
     extend(config, { isClient, loaders: { vue } }) {
       // Make sure Vue knows about lazy loaded images
