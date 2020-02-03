@@ -79,6 +79,10 @@ strong {
   font-weight: 500;
 }
 
+small {
+  font-size: 90%;
+}
+
 ::selection {
   background-color: $color__primary--muted;
   text-shadow: none;
