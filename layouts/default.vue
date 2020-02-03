@@ -1,17 +1,17 @@
 <template>
   <div id="__app">
     <script v-html="script"></script>
-    <navbar />
+    <top-bar />
     <nuxt />
   </div>
 </template>
 
 <script>
-import Navbar from '~/components/navbar/Navbar'
+import TopBar from '~/components/layout/TopBar'
 
 export default {
   components: {
-    Navbar
+    TopBar
   },
   data() {
     return {
