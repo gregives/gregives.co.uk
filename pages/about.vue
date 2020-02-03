@@ -93,10 +93,11 @@ export default {
   }
 
   &::after {
-    background-image: linear-gradient($color__primary--muted, transparent);
+    background-image: linear-gradient(transparent, $color__primary--muted);
     border-radius: $border-radius;
     content: '';
     left: 1.5rem;
+    margin-top: 2 * $border-weight;
     padding-bottom: 2 / 3 * 100%;
     position: absolute;
     top: 1.5rem;

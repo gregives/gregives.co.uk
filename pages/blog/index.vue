@@ -12,10 +12,10 @@
         </h3>
         <p class="blog__post-details">
           {{
-            post.date.toLocaleString('en-GB', {
-              year: 'numeric',
+            post.date.toLocaleString('en-US', {
+              day: 'numeric',
               month: 'long',
-              day: '2-digit'
+              year: 'numeric'
             })
           }}
           &mdash; {{ post.mins }} minute read
