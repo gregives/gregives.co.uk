@@ -42,8 +42,8 @@
 </template>
 
 <script>
-import Hamburger from '~/components/Hamburger'
-import ThemeToggle from '~/components/ThemeToggle'
+import Hamburger from '~/components/navbar/Hamburger'
+import ThemeToggle from '~/components/navbar/ThemeToggle'
 
 export default {
   components: {
