@@ -19,7 +19,7 @@
       <p v-if="!project" class="article__description">
         <em>{{ post.description }}</em>
       </p>
-      <markdown :vue="post.vue" />
+      <markdown :markdown="post" />
     </div>
   </article>
 </template>
