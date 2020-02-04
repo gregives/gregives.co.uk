@@ -8,9 +8,12 @@
       <div class="home__description">
         <markdown :vue="markdown.vue" />
       </div>
-      <a v-scroll-to="'#stuff'" class="home__cta" href="#stuff">
+      <a v-scroll-to="'#stuff'" class="home__stuff" href="#stuff">
         See my stuff
       </a>
+      <nuxt-link class="home__contact" to="/contact">
+        Contact me
+      </nuxt-link>
       <div id="stuff"></div>
     </div>
     <ol class="home__posts">
@@ -83,9 +86,9 @@ export default {
 .home {
   $clip-path: polygon(
     100% 20%,
-    40% 30%,
-    50% 40%,
-    100% 60%,
+    35% 35%,
+    50% 45%,
+    100% 55%,
     100% 100%,
     50% 100%,
     0% 70%,
@@ -122,9 +125,24 @@ export default {
   }
 }
 
-.home__cta {
+.home__stuff {
   @include button;
   @include button--primary;
+
+  float: left;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.home__contact {
+  @include button;
+
+  clear: both;
+  float: left;
+
+  @media (min-width: $breakpoint--md) {
+    clear: none;
+  }
 }
 
 #stuff {

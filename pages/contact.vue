@@ -93,7 +93,7 @@
           <button :disabled="message === 1" class="form__submit" type="submit">
             Send message
           </button>
-          <span class="form__feedback">
+          <span v-if="message !== null" class="form__feedback">
             {{ message === null ? '' : messages[message] }}
           </span>
         </form>
@@ -166,7 +166,7 @@ export default {
 
 <style lang="scss">
 .contact {
-  $clip-path: polygon(100% 30%, 80% 30%, 50% 60%, 80% 100%, 100% 100%);
+  $clip-path: polygon(100% 35%, 80% 30%, 55% 55%, 100% 95%);
   @include page;
   @include dots($clip-path);
 }
