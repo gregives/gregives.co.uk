@@ -25,6 +25,11 @@ const markdown = require('markdown-it')({
     permalinkSymbol: '#',
     permalinkSpace: false
   })
+  .use(require('markdown-it-external-links'), {
+    externalClassName: null,
+    externalRel: 'noopener noreferrer',
+    externalTarget: '_blank'
+  })
   .use(require('markdown-it-task-lists'), {
     label: true
   })
