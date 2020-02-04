@@ -6,7 +6,7 @@
         Hi, I’m <span class="home__title--primary">Greg Ives</span>
       </h1>
       <div class="home__description">
-        <markdown :vue="markdown.vue" />
+        <markdown :markdown="markdown" />
       </div>
       <a v-scroll-to="'#stuff'" class="home__stuff" href="#stuff">
         See my stuff
@@ -100,7 +100,7 @@ export default {
 }
 
 .home__banner {
-  height: calc(100vh - 9rem);
+  height: calc(100vh - 10rem);
   position: relative;
 }
 
@@ -117,11 +117,11 @@ export default {
   width: 100%;
 
   @media (min-width: $breakpoint--md) {
-    width: 70%;
+    width: 75%;
   }
 
-  @media (min-width: $breakpoint--md) {
-    width: 60%;
+  @media (min-width: $breakpoint--lg) {
+    width: 65%;
   }
 }
 

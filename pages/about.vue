@@ -10,7 +10,7 @@
           alt="Greg Ives at HackSheffield"
         />
       </div>
-      <markdown :vue="markdown.vue" />
+      <markdown :markdown="markdown" />
     </div>
   </main>
 </template>

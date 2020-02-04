@@ -5,7 +5,7 @@
     </h1>
     <div class="contact__layout">
       <div class="contact__text">
-        <markdown :vue="markdown.vue" />
+        <markdown :markdown="markdown" />
         <div class="contact__social">
           <div class="contact__social-item">
             <a class="contact__social-icon" href="mailto:greg@gregives.co.uk">

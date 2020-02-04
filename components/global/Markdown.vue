@@ -1,19 +1,21 @@
 <script>
 export default {
   props: {
-    vue: {
+    markdown: {
       type: Object,
       required: true
     }
   },
   created() {
     // eslint-disable-next-line no-new-func
-    this.templateRender = new Function(this.vue.render)()
+    this.templateRender = new Function(this.markdown.vue.render)()
     // eslint-disable-next-line no-new-func
-    this.$options.staticRenderFns = new Function(this.vue.staticRenderFns)()
+    this.$options.staticRenderFns = new Function(
+      this.markdown.vue.staticRenderFns
+    )()
   },
   render(createElement) {
-    return this.templateRender ? this.templateRender() : createElement('div')
+    return this.templateRender()
   }
 }
 </script>
