@@ -110,6 +110,10 @@ small {
 .layout-leave-active {
   transform-origin: top;
   transition: opacity 300ms ease-out, transform 300ms ease-out;
+
+  + .footer {
+    transition: opacity 300ms ease-out;
+  }
 }
 
 .page-enter,
@@ -118,6 +122,10 @@ small {
 .layout-leave-to {
   opacity: 0 !important;
   transform: translateY(-0.5rem) scale(1.01);
+
+  + .footer {
+    opacity: 0 !important;
+  }
 }
 
 .material-design-icon svg {

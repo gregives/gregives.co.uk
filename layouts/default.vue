@@ -3,15 +3,18 @@
     <script v-html="script"></script>
     <top-bar />
     <nuxt />
+    <bottom-bar />
   </div>
 </template>
 
 <script>
 import TopBar from '~/components/layout/TopBar'
+import BottomBar from '~/components/layout/BottomBar'
 
 export default {
   components: {
-    TopBar
+    TopBar,
+    BottomBar
   },
   data() {
     return {
