@@ -1,24 +1,31 @@
 code {
-  background-color: $color__text--muter;
+  background-color: $color__body;
+  background-image: linear-gradient($color__text--muter, $color__text--muter);
+  border: $border-weight solid $color__body;
   border-radius: $border-radius;
   box-shadow: $box-shadow--small inset;
   font-family: $font__code;
   font-size: 90%;
   padding: 0.075rem 0.3rem;
+  margin: -$border-weight;
+  margin-bottom: 0;
   text-rendering: optimizeLegibility;
+  text-shadow: none;
   white-space: pre;
 }
 
-.hljs {
+.highlight {
   margin: 1.5rem 0rem;
   position: relative;
   width: 100%;
   
   code {
+    border: none;
     box-shadow: $box-shadow inset;
     display: block;
     font-weight: inherit;
     line-height: 1.3;
+    margin: 0;
     overflow-x: auto;
     padding: 0.75rem 0.5rem;
     padding-right: 1rem;
@@ -40,53 +47,53 @@ code {
   }
 }
 
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-section,
-.hljs-link {
+.highlight__keyword,
+.highlight__selector-tag,
+.highlight__literal,
+.highlight__section,
+.highlight__link {
   color: $color__text;
 }
 
 .hljs,
-.hljs-subst {
+.highlight__subst {
   color: $color__text;
 }
 
-.hljs-string,
-.hljs-title,
-.hljs-name,
-.hljs-type,
-.hljs-attribute,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-built_in,
-.hljs-addition,
-.hljs-variable,
-.hljs-template-tag,
-.hljs-template-variable {
+.highlight__string,
+.highlight__title,
+.highlight__name,
+.highlight__type,
+.highlight__attribute,
+.highlight__symbol,
+.highlight__bullet,
+.highlight__built_in,
+.highlight__addition,
+.highlight__variable,
+.highlight__template-tag,
+.highlight__template-variable {
   color: $color__primary;
 }
 
-.hljs-comment,
-.hljs-quote,
-.hljs-deletion,
-.hljs-meta {
+.highlight__comment,
+.highlight__quote,
+.highlight__deletion,
+.highlight__meta {
   color: $color__text--muted;
 }
 
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-title,
-.hljs-section,
-.hljs-doctag,
-.hljs-type,
-.hljs-name,
-.hljs-strong {
+.highlight__keyword,
+.highlight__selector-tag,
+.highlight__literal,
+.highlight__title,
+.highlight__section,
+.highlight__doctag,
+.highlight__type,
+.highlight__name,
+.highlight__strong {
   font-weight: 500;
 }
 
-.hljs-emphasis {
+.highlight__emphasis {
   font-style: italic;
 }
