@@ -13,7 +13,7 @@ tags:
   - Vue
 ---
 
-I completed my dissertation as part of my 3^rd^ year of university. Entitled "A Computer Vision System for a Chess-Playing Robot", my dissertation aimed to infer the state of a chessboard from a webcam placed above the board. You can [download the report here](/projects/dissertation/dissertation.pdf). Here's what the finished system looks like!
+I completed my dissertation as part of my 3^rd^ year of university. Entitled "A Computer Vision System for a Chess-Playing Robot", my dissertation aimed to infer the state of a chessboard from a webcam placed above the board. You can [download the report here](https://gregives.co.uk/projects/dissertation/dissertation.pdf). Here's what the finished system looks like!
 
 <lazy-image src="dissertation/demonstration.png" alt="Demonstration page of the system" />
 

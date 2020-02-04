@@ -20,6 +20,8 @@
             <a
               class="contact__social-icon contact__social-icon--linkedin"
               href="https://www.linkedin.com/in/gregiv-es/"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <linkedin-icon title="LinkedIn" />
               <span class="contact__social-text">Connect with me</span>
@@ -29,6 +31,8 @@
             <a
               class="contact__social-icon contact__social-icon--github"
               href="https://github.com/gregives"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <github-icon title="GitHub" />
               <span class="contact__social-text">Check out my projects</span>
@@ -38,6 +42,8 @@
             <a
               class="contact__social-icon contact__social-icon--devpost"
               href="https://devpost.com/gregives"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <devpost-icon title="Devpost" />
               <span class="contact__social-text">Hackathon submissions</span>
@@ -47,6 +53,8 @@
             <a
               class="contact__social-icon contact__social-icon--twitter"
               href="https://twitter.com/gregiv_es"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <twitter-icon title="Twitter" />
               <span class="contact__social-text">Follow me on Twitter</span>
