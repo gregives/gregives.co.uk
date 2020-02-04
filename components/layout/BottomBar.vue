@@ -124,5 +124,11 @@ export default {
   &:hover {
     color: $color__primary;
   }
+
+  &[href*='devpost.com'] {
+    svg {
+      transform: rotate(90deg);
+    }
+  }
 }
 </style>
