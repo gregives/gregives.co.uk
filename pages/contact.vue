@@ -8,17 +8,14 @@
         <markdown :vue="markdown.vue" />
         <div class="contact__social">
           <div class="contact__social-item">
-            <a
-              class="contact__social-icon contact__social-icon--email"
-              href="mailto:greg@gregives.co.uk"
-            >
+            <a class="contact__social-icon" href="mailto:greg@gregives.co.uk">
               <email-icon title="Email" />
               <span class="contact__social-text">Email me for a chat</span>
             </a>
           </div>
           <div class="contact__social-item">
             <a
-              class="contact__social-icon contact__social-icon--linkedin"
+              class="contact__social-icon"
               href="https://www.linkedin.com/in/gregiv-es/"
               rel="noopener noreferrer"
               target="_blank"
@@ -29,7 +26,7 @@
           </div>
           <div class="contact__social-item">
             <a
-              class="contact__social-icon contact__social-icon--github"
+              class="contact__social-icon"
               href="https://github.com/gregives"
               rel="noopener noreferrer"
               target="_blank"
@@ -40,7 +37,7 @@
           </div>
           <div class="contact__social-item">
             <a
-              class="contact__social-icon contact__social-icon--devpost"
+              class="contact__social-icon"
               href="https://devpost.com/gregives"
               rel="noopener noreferrer"
               target="_blank"
@@ -51,7 +48,7 @@
           </div>
           <div class="contact__social-item">
             <a
-              class="contact__social-icon contact__social-icon--twitter"
+              class="contact__social-icon"
               href="https://twitter.com/gregiv_es"
               rel="noopener noreferrer"
               target="_blank"
@@ -220,7 +217,7 @@ export default {
     width: 2rem;
   }
 
-  &--devpost {
+  &[href*='devpost.com'] {
     svg {
       transform: rotate(90deg);
     }
