@@ -1,34 +1,79 @@
 <template>
   <main class="home">
-    <headshots />
-    <h1 class="home__title">
-      Hi, I’m <span class="home__title--primary">Greg Ives</span>
-    </h1>
-    <div class="home__description">
-      <markdown :vue="markdown.vue" />
+    <div class="home__banner">
+      <headshots />
+      <h1 class="home__title">
+        Hi, I’m <span class="home__title--primary">Greg Ives</span>
+      </h1>
+      <div class="home__description">
+        <markdown :vue="markdown.vue" />
+      </div>
+      <a v-scroll-to="'#stuff'" class="home__cta" href="#stuff">
+        See my stuff
+      </a>
+      <div id="stuff"></div>
     </div>
-    <nuxt-link class="home__projects" to="/projects">
-      See my projects
-    </nuxt-link>
-    <nuxt-link class="home__contact" to="/contact">
-      Contact me
-    </nuxt-link>
+    <ol class="home__posts">
+      <post-card v-for="post in posts" :key="post.title" :post="post" />
+    </ol>
+    <div class="home__posts-more">
+      <nuxt-link to="/blog">See more blog posts</nuxt-link>
+    </div>
+    <ol class="home__projects">
+      <project-card
+        v-for="project in projects"
+        :key="project.title"
+        :project="project"
+      />
+    </ol>
+    <div class="home__projects-more">
+      <nuxt-link to="/projects">See more projects</nuxt-link>
+    </div>
   </main>
 </template>
 
 <script>
 import Headshots from '~/components/Headshots'
+import PostCard from '~/components/PostCard'
+import ProjectCard from '~/components/ProjectCard'
+import { projectLoader, projectSlugs } from '~/contents/projects'
+import { postLoader, postSlugs } from '~/contents/blog'
 
 export default {
   components: {
-    Headshots
+    Headshots,
+    PostCard,
+    ProjectCard
   },
   async asyncData() {
     const { vue } = await import('~/contents/index.md')
+
+    const posts = await Promise.all(
+      postSlugs.map(async (postSlug) => {
+        const post = await postLoader(postSlug)
+        return {
+          ...post.attributes
+        }
+      })
+    )
+    posts.sort((postA, postB) => postB.date - postA.date)
+
+    const projects = await Promise.all(
+      projectSlugs.map(async (projectSlug) => {
+        const project = await projectLoader(projectSlug)
+        return {
+          ...project.attributes
+        }
+      })
+    )
+    projects.sort((projectA, projectB) => projectB.date - projectA.date)
+
     return {
       markdown: {
         vue
-      }
+      },
+      posts: posts.slice(0, 3),
+      projects: projects.slice(0, 2)
     }
   }
 }
@@ -36,9 +81,24 @@ export default {
 
 <style lang="scss">
 .home {
-  $clip-path: polygon(0% 90%, 100% 50%, 100% 90%, 70% 100%, 0% 100%);
+  $clip-path: polygon(
+    100% 20%,
+    40% 30%,
+    50% 40%,
+    100% 60%,
+    100% 100%,
+    50% 100%,
+    0% 70%,
+    0% 100%,
+    100% 100%
+  );
   @include page;
   @include dots($clip-path);
+}
+
+.home__banner {
+  height: calc(100vh - 9rem);
+  position: relative;
 }
 
 .home__title {
@@ -62,21 +122,48 @@ export default {
   }
 }
 
-.home__projects {
+.home__cta {
   @include button;
   @include button--primary;
-  float: left;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
 }
 
-.home__contact {
-  @include button;
-  clear: both;
-  float: left;
+#stuff {
+  position: absolute;
+  bottom: 6rem;
+}
+
+.home__posts {
+  display: grid;
+  grid-gap: 1.5rem;
+  margin-top: $border-weight;
+
+  &-more {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    text-align: right;
+
+    > a {
+      @include link;
+    }
+  }
+}
+
+.home__projects {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 3rem;
 
   @media (min-width: $breakpoint--md) {
-    clear: none;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &-more {
+    margin-top: 1rem;
+    text-align: right;
+
+    > a {
+      @include link;
+    }
   }
 }
 </style>
