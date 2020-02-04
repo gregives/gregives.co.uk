@@ -1,4 +1,9 @@
 const hljs = require('highlight.js')
+hljs.configure({
+  classPrefix: 'highlight__'
+})
+hljs.registerLanguage('vue', () => hljs.getLanguage('html'))
+
 const markdown = require('markdown-it')({
   html: true,
   xhtmlOut: true,
@@ -7,7 +12,7 @@ const markdown = require('markdown-it')({
   highlight(str, lang) {
     if (lang && hljs.getLanguage(lang)) {
       try {
-        return `<pre class="hljs" data-language="${lang.toUpperCase()}"><code>${
+        return `<pre class="highlight" data-language="${lang.toUpperCase()}"><code>${
           hljs.highlight(lang, str, true).value
         }</code></pre>`
       } finally {
