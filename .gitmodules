@@ -1,7 +1,3 @@
 [submodule "pages/resume"]
 	path = pages/resume
 	url = git@github.com:gregives/resume.git
-
-[submodule "pages/preview"]
-	path = pages/preview
-	url = git@github.com:gregives/preview.git
