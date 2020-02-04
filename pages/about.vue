@@ -35,7 +35,7 @@ export default {
 
 <style lang="scss">
 .about {
-  $clip-path: polygon(0% 15%, 100% 20%, 100% 30%, 0% 35%);
+  $clip-path: polygon(0% 15%, 100% 25%, 100% 35%, 0% 40%);
   @include page;
   @include dots($clip-path);
 
@@ -68,10 +68,11 @@ export default {
 
 .about__text {
   display: grid;
-  grid-gap: 3rem;
+  grid-gap: 4.5rem;
   grid-template-columns: 100%;
 
   @media (min-width: $breakpoint--md) {
+    grid-gap: 3rem;
     grid-template-columns: 1fr 1fr;
   }
 }
