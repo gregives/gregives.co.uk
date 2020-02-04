@@ -66,9 +66,9 @@ export default {
   border-radius: $border-radius;
   box-shadow: $box-shadow;
   overflow: hidden;
-  padding-bottom: calc(50% - 0.75rem);
+  padding-bottom: 50%;
   position: relative;
-  width: calc(100% - 1.5rem);
+  width: 100%;
   z-index: -1;
 
   &::before {
