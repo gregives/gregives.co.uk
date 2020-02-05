@@ -32,6 +32,11 @@ code {
     width: 100%;
   }
 
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: $border-radius;
+  }
+
   &[data-language]::after {
     background-color: $color__body--overlay;
     border-radius: $border-radius;
