@@ -23,9 +23,7 @@ export default {
 <style lang="scss">
 .markdown {
   h1,
-  h2,
-  h3,
-  h4 {
+  h2 {
     padding-bottom: 0.25rem;
     position: relative;
 
@@ -38,7 +36,12 @@ export default {
       position: absolute;
       width: 100%;
     }
+  }
 
+  h1,
+  h2,
+  h3,
+  h4 {
     .header-anchor {
       color: $color__text--muted;
       margin-left: 0.5rem;
