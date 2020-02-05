@@ -3,8 +3,7 @@ export async function postLoader(postSlug) {
   post.attributes.slug = postSlug
   post.attributes.date = new Date(post.attributes.date)
   post.attributes.link = `/blog/${postSlug}`
-  post.attributes.mins =
-    Math.round(post.vue.render.split(' ').length / 265) || 1
+  post.attributes.mins = Math.round(post.body.length / 1250) || 1
 
   return post
 }
