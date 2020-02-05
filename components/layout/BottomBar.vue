@@ -77,6 +77,7 @@ export default {
   box-shadow: $box-shadow;
   color: $color__text--muted;
   font-size: 90%;
+  line-height: 2rem;
   padding: 1.5rem 0;
   width: 100%;
 
