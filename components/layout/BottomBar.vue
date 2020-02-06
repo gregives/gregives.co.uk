@@ -78,7 +78,7 @@ export default {
   color: $color__text--muted;
   font-size: 90%;
   line-height: 2rem;
-  padding: 1rem 0;
+  padding: 1rem 0 1.5rem;
   width: 100%;
 
   @media (min-width: $breakpoint--md) {
