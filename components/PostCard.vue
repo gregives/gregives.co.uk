@@ -44,6 +44,7 @@ export default {
   position: relative;
 
   &::before {
+    background-color: $color__body;
     box-shadow: $box-shadow--small;
     border: $border-weight solid $color__primary--muted;
     border-radius: $border-radius;
