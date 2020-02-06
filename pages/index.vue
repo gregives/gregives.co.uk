@@ -100,7 +100,8 @@ export default {
 }
 
 .home__banner {
-  height: calc(100vh - 10rem);
+  min-height: calc(100vh - 10rem);
+  min-height: calc(var(--vh, 1vh) * 100 - 10rem);
   position: relative;
 }
 
