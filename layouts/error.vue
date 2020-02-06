@@ -14,28 +14,21 @@
       Otherwise you can head back over to the home page!
     </p>
     <nuxt-link to="/" class="error__home">Take me home</nuxt-link>
-    <picture v-if="statusCode === 404" class="error__headshot">
-      <source :srcset="head.webp" type="image/webp" />
-      <source :srcset="head.png" type="image/png" />
-      <img :src="head.png" alt="Greg Ives looking worried" />
-    </picture>
+    <headshots v-if="statusCode === 404" :error="true" />
   </main>
 </template>
 
 <script>
+import Headshots from '~/components/Headshots'
+
 export default {
+  components: {
+    Headshots
+  },
   props: {
     error: {
       type: Object,
       default: null
-    }
-  },
-  data() {
-    return {
-      head: {
-        png: require('~/assets/images/error.png'),
-        webp: require('~/assets/images/error.png?webp')
-      }
     }
   },
   computed: {
@@ -66,11 +59,11 @@ export default {
   width: 100%;
 
   @media (min-width: $breakpoint--md) {
-    width: 70%;
+    width: 75%;
   }
 
   @media (min-width: $breakpoint--md) {
-    width: 60%;
+    width: 65%;
   }
 }
 
@@ -81,27 +74,5 @@ export default {
 .error__home {
   @include button;
   @include button--primary;
-}
-
-.error__headshot {
-  bottom: 0;
-  filter: sepia(1) hue-rotate(-45deg) hue-rotate($color__primary--hue)
-    saturate(1.5);
-  height: calc(20vh + 30vw);
-  overflow-y: hidden;
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  width: calc(15vh + 22.5vw); // Aspect ratio of 4:3
-
-  @media (min-width: $breakpoint--xl) {
-    height: calc(20vh + #{30 / 100 * $breakpoint--xl});
-    width: calc(15vh + #{22.5 / 100 * $breakpoint--xl});
-  }
-}
-
-:root[data-theme='dark'] .error__headshot {
-  filter: invert(0.5) sepia(1) hue-rotate(-45deg)
-    hue-rotate($color__primary--hue) brightness(0.5) saturate(3);
 }
 </style>
