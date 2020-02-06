@@ -22,50 +22,39 @@ export default {
       if (this.menu === 'open') {
         setTimeout(this.closeMenu, 300) // If link clicked to other route
       }
-    }
-  },
-  head() {
-    return {
-      htmlAttrs: {
-        'data-menu': this.menu
+    },
+    menu(menu) {
+      document.documentElement.dataset.menu = menu
+      if (menu === 'open') {
+        window.addEventListener('click', this.handleClick)
+      } else {
+        window.removeEventListener('click', this.handleClick)
       }
     }
   },
   mounted() {
     window.matchMedia('(min-width: 768px)').addListener((event) => {
       if (event.matches) {
-        this.closeMenu() // If screen is larger than md breakpoint
+        this.menu = 'closed' // If screen is larger than md breakpoint
       }
     })
   },
   methods: {
-    openMenu() {
-      this.menu = 'open'
-      window.addEventListener('click', this.handleClick)
-    },
-    closeMenu() {
-      this.menu = 'closed'
-      window.removeEventListener('click', this.handleClick)
-    },
     toggleMenu() {
-      if (this.menu === 'open') {
-        this.closeMenu()
-      } else {
-        this.openMenu()
-      }
+      this.menu = this.menu === 'open' ? 'closed' : 'open'
     },
     handleClick(event) {
       const link = event.target.closest('a.nuxt-link-exact-active')
       if (link !== null) {
         if (!this.changingRoute && this.menu === 'open') {
-          this.closeMenu() // If link clicked to current route
+          this.menu = 'closed' // If link clicked to current route
         }
         this.changingRoute = false
       }
 
       const nav = document.querySelector('nav').getBoundingClientRect()
       if (event.clientX < nav.left && this.menu === 'open') {
-        this.closeMenu() // If clicking outside the nav
+        this.menu = 'closed' // If clicking outside the nav
       }
     }
   }

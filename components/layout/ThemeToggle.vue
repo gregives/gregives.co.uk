@@ -26,25 +26,23 @@ export default {
   },
   computed: {
     color() {
-      if (!process.client) return false
+      if (process.server) return false
+
+      const color = this.theme === 'light' ? 'primary' : 'body--overlay'
       return getComputedStyle(document.documentElement)
-        .getPropertyValue(
-          this.theme === 'light' ? '--color__primary' : '--color__body--overlay'
-        )
+        .getPropertyValue(`--color__${color}`)
         .trim()
     }
   },
   head() {
     return {
-      meta: [{ hid: 'theme-color', name: 'theme-color', content: this.color }],
-      htmlAttrs: {
-        'data-theme': this.theme
-      }
+      meta: [{ hid: 'theme-color', name: 'theme-color', content: this.color }]
     }
   },
   watch: {
     theme(theme) {
       localStorage.setItem('theme', theme)
+      document.documentElement.dataset.theme = theme
     }
   },
   mounted() {
