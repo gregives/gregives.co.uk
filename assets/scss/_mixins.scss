@@ -7,10 +7,16 @@
 
 @mixin page {
   @include container;
-  min-height: calc(100vh - 4rem);
-  min-height: calc(var(--vh, 1vh) * 100 - 4rem);
+
+  min-height: calc(100vh - 6.5rem);
+  min-height: calc(var(--vh, 1vh) * 100 - 6.5rem);
   padding-top: 6rem;
   padding-bottom: 3rem;
+
+  @media (min-width: $breakpoint--md) {
+    min-height: calc(100vh - 4rem);
+    min-height: calc(var(--vh, 1vh) * 100 - 4rem);
+  }
 
   @media print {
     margin: 0;
