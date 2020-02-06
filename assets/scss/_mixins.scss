@@ -23,7 +23,7 @@
   @supports (clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)) {
     &::before {
       $background-size: 0.75rem;
-      $background-dots: radial-gradient($color__primary--muted 0.05rem, transparent 0.05rem);
+      $background-dots: radial-gradient($color__primary--muted 0.075rem, transparent 0.075rem);
 
       background-image: $background-dots, $background-dots;
       background-size: $background-size $background-size;
