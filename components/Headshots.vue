@@ -1,6 +1,12 @@
 <template>
   <div ref="headshots" class="headshots">
+    <picture v-if="error" class="error__headshot">
+      <source :srcset="head.webp" type="image/webp" />
+      <source :srcset="head.png" type="image/png" />
+      <img :src="head.png" alt="Greg Ives looking worried" />
+    </picture>
     <picture
+      v-else
       v-for="head in heads"
       :key="head.png"
       :data-x="head.x"
@@ -9,15 +15,25 @@
     >
       <source :srcset="head.lazy ? false : head.webp" type="image/webp" />
       <source :srcset="head.lazy ? false : head.png" type="image/png" />
-      <img :src="head.lazy ? false : head.png" alt="Headshot of Greg Ives" />
+      <img :src="head.lazy ? false : head.png" alt="Greg Ives looking around" />
     </picture>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    error: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
+      head: {
+        png: require('~/assets/images/error.png'),
+        webp: require('~/assets/images/error.png?webp')
+      },
       heads: (() => {
         const path = require('path')
         const files = require.context(
