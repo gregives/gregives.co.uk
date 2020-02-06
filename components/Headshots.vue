@@ -1,8 +1,8 @@
 <template>
   <div ref="headshots" class="headshots">
     <picture v-if="error" class="error__headshot">
-      <source :srcset="head.webp" type="image/webp" />
-      <source :srcset="head.png" type="image/png" />
+      <source :srcset="errorHead.webp" type="image/webp" />
+      <source :srcset="errorHead.png" type="image/png" />
       <img :src="head.png" alt="Greg Ives looking worried" />
     </picture>
     <picture
@@ -30,7 +30,7 @@ export default {
   },
   data() {
     return {
-      head: {
+      errorHead: {
         png: require('~/assets/images/error.png'),
         webp: require('~/assets/images/error.png?webp')
       },
