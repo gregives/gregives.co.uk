@@ -8,13 +8,13 @@
 :root {
   color: $color__text;
   font-family: $font__body;
-  font-size: calc(70% + 1vmin);
+  font-size: calc(60% + 1vmin);
   overflow-x: hidden;
   overflow-y: scroll;
 
   // Bound font-size on larger screens
   @media (min-width: $breakpoint--xl) {
-    font-size: calc(70% + 1vh);
+    font-size: calc(60% + 1vh);
   }
 
   @media print {
