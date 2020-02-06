@@ -11,50 +11,52 @@
 
 <script>
 export default {
-  data() {
-    return {
-      menu: 'closed'
-    }
-  },
   watch: {
     $route() {
       this.changingRoute = true
-      if (this.menu === 'open') {
-        setTimeout(() => (this.menu = 'closed'), 300) // If link clicked to other route
-      }
-    },
-    menu(menu) {
-      document.documentElement.dataset.menu = menu
-      if (menu === 'open') {
-        window.addEventListener('click', this.handleClick)
-      } else {
-        window.removeEventListener('click', this.handleClick)
+      if (this.menuIsOpen()) {
+        setTimeout(this.closeMenu, 300) // If link clicked to other route
       }
     }
   },
   mounted() {
     window.matchMedia('(min-width: 768px)').addListener((event) => {
       if (event.matches) {
-        this.menu = 'closed' // If screen is larger than md breakpoint
+        this.closeMenu() // If screen is larger than md breakpoint
       }
     })
   },
   methods: {
+    menuIsOpen() {
+      return document.documentElement.dataset.menu === 'open'
+    },
+    openMenu() {
+      document.documentElement.dataset.menu = 'open'
+      window.addEventListener('click', this.handleClick)
+    },
+    closeMenu() {
+      document.documentElement.dataset.menu = 'closed'
+      window.removeEventListener('click', this.handleClick)
+    },
     toggleMenu() {
-      this.menu = this.menu === 'open' ? 'closed' : 'open'
+      if (this.menuIsOpen()) {
+        this.closeMenu()
+      } else {
+        this.openMenu()
+      }
     },
     handleClick(event) {
       const link = event.target.closest('a.nuxt-link-exact-active')
       if (link !== null) {
-        if (!this.changingRoute && this.menu === 'open') {
-          this.menu = 'closed' // If link clicked to current route
+        if (!this.changingRoute && this.menuIsOpen()) {
+          this.closeMenu() // If link clicked to current route
         }
         this.changingRoute = false
       }
 
       const nav = document.querySelector('nav').getBoundingClientRect()
-      if (event.clientX < nav.left && this.menu === 'open') {
-        this.menu = 'closed' // If clicking outside the nav
+      if (event.clientX < nav.left && this.menuIsOpen()) {
+        this.closeMenu() // If clicking outside the nav
       }
     }
   }
@@ -84,17 +86,6 @@ $thickness: 2px;
     display: block;
     height: 100%;
     width: 1.5rem;
-  }
-
-  &:hover {
-    .hamburger__icon {
-      background-color: $color__primary;
-
-      &::before,
-      &::after {
-        background-color: $color__primary;
-      }
-    }
   }
 }
 

@@ -27,18 +27,22 @@ export default {
   computed: {
     color() {
       if (process.server) return false
-
-      const color = this.theme === 'light' ? 'primary' : 'body--overlay'
       return getComputedStyle(document.documentElement)
-        .getPropertyValue(`--color__${color}`)
+        .getPropertyValue(
+          this.theme === 'light' ? '--color__primary' : '--color__body--overlay'
+        )
         .trim()
+    }
+  },
+  head() {
+    return {
+      meta: [{ hid: 'theme-color', name: 'theme-color', content: this.color }]
     }
   },
   watch: {
     theme(theme) {
-      localStorage.setItem('theme', theme)
       document.documentElement.dataset.theme = theme
-      document.querySelector('meta[name="theme-color"]').content = this.color
+      localStorage.setItem('theme', theme)
     }
   },
   mounted() {
