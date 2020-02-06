@@ -20,7 +20,7 @@ export default {
     $route() {
       this.changingRoute = true
       if (this.menu === 'open') {
-        setTimeout(this.closeMenu, 300) // If link clicked to other route
+        setTimeout(() => (this.menu = 'closed'), 300) // If link clicked to other route
       }
     },
     menu(menu) {

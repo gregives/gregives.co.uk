@@ -34,15 +34,11 @@ export default {
         .trim()
     }
   },
-  head() {
-    return {
-      meta: [{ hid: 'theme-color', name: 'theme-color', content: this.color }]
-    }
-  },
   watch: {
     theme(theme) {
       localStorage.setItem('theme', theme)
       document.documentElement.dataset.theme = theme
+      document.querySelector('meta[name="theme-color"]').content = this.color
     }
   },
   mounted() {
