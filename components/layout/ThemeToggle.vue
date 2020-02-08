@@ -1,7 +1,6 @@
 <template>
   <button
     :aria-label="theme === 'light' ? 'Dark theme' : 'Light theme'"
-    :title="theme === 'light' ? 'Dark theme' : 'Light theme'"
     @click="toggleTheme"
     :class="{ 'theme-toggle--splash': splash }"
     class="theme-toggle"
@@ -46,11 +45,11 @@ export default {
       document.documentElement.dataset.theme = theme
       localStorage.setItem('theme', theme)
       this.splash = true
-      setTimeout(() => (this.splash = false), 0)
     }
   },
   mounted() {
     this.theme = localStorage.getItem('theme') || 'light'
+    this.$el.addEventListener('animationend', () => (this.splash = false))
   },
   methods: {
     toggleTheme() {
@@ -85,26 +84,50 @@ export default {
     margin-left: 1rem;
   }
 
+  @keyframes splashDown {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(100%);
+    }
+  }
+
+  @keyframes splashLeft {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
   &::after {
     backdrop-filter: invert(1) contrast(0.5) sepia(1) hue-rotate(-45deg)
       hue-rotate($color__primary--hue);
     content: '';
     height: 100vh;
     left: 0;
-    pointer-events: none;
     position: fixed;
     top: 0;
-    transform: translateX(-100%);
-    transition: transform 600ms $transition--snappy;
+    transform: translateY(100%);
     width: 100vw;
-    will-change: transform;
     z-index: 1000000;
     -webkit-tap-highlight-color: transparent;
+
+    @media (min-width: $breakpoint--md) {
+      transform: translateX(-100%);
+    }
   }
 
   &--splash::after {
-    transition: none;
-    transform: translate(0);
+    animation: splashDown 600ms $transition__snappy;
+
+    @media (min-width: $breakpoint--md) {
+      animation: splashLeft 600ms $transition__snappy;
+    }
   }
 }
 </style>
