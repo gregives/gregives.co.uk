@@ -96,7 +96,7 @@ $thickness: 2px;
   position: absolute;
   right: 0.5rem;
   top: calc(50% - #{$thickness / 2});
-  transition: transform $speed ease-in;
+  transition: transform $speed $transition__snappy--in;
   width: calc(100% - 1rem);
 
   &::before,
@@ -112,30 +112,32 @@ $thickness: 2px;
 
   &::before {
     bottom: 0.425rem;
-    transition: bottom $speed $speed ease-out, opacity 0s $speed;
+    transition: bottom $speed $speed $transition__snappy--out, opacity 0s $speed;
   }
 
   &::after {
     top: 0.425rem;
-    transition: top $speed $speed ease-out, transform $speed ease-in;
+    transition: top $speed $speed $transition__snappy--out,
+      transform $speed $transition__snappy--in;
   }
 }
 
 :root[data-menu='open'] {
   .hamburger__icon {
     transform: rotate(45deg);
-    transition: transform $speed $speed ease-out;
+    transition: transform $speed $speed $transition__snappy--out;
 
     &::before {
       bottom: 0;
       opacity: 0;
-      transition: bottom $speed ease-in, opacity 0s $speed;
+      transition: bottom $speed $transition__snappy--in, opacity 0s $speed;
     }
 
     &::after {
       top: 0;
       transform: rotate(-90deg);
-      transition: top $speed ease-in, transform $speed $speed ease-out;
+      transition: top $speed $transition__snappy--in,
+        transform $speed $speed $transition__snappy--out;
     }
   }
 }

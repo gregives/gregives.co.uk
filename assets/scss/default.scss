@@ -100,7 +100,7 @@ small {
   &:vertical {
     background-image: linear-gradient(to right, $color__body--overlay, $color__primary--muted);
   }
-  
+
   &:hover {
     background-color: $color__primary--muted;
   }
@@ -140,10 +140,10 @@ small {
 .layout-enter-active,
 .layout-leave-active {
   transform-origin: top;
-  transition: opacity 300ms ease-out, transform 300ms ease-out;
+  transition: opacity 300ms $transition__normal--out, transform 300ms $transition__normal--out;
 
   + .footer {
-    transition: opacity 300ms ease-out;
+    transition: opacity 300ms $transition__normal--out;
   }
 }
 

@@ -73,7 +73,7 @@
   background-position: bottom left;
   box-shadow: 0 #{-$border-weight} $color__primary--muted inset;
   color: $color__primary;
-  transition: background-size 300ms ease-out;
+  transition: background-size 300ms $transition__snappy;
 
   &:hover {
     @include link--active;
@@ -105,7 +105,7 @@
   opacity: 1;
   padding: 0.5rem 1rem;
   position: relative;
-  transition: opacity 150ms ease, transform 150ms ease;
+  transition: opacity 150ms $transition__normal, transform 150ms $transition__normal;
 
   &::before {
     content: '';
@@ -116,7 +116,7 @@
     opacity: 0.5;
     position: absolute;
     top: -$border-weight;
-    transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms $transition__normal;
     width: calc(100% + #{2 * $border-weight});
     z-index: -1;
   }
@@ -155,7 +155,7 @@
 @mixin button--primary {
   background-color: $color__primary;
   color: $color__body;
-  transition: opacity 150ms ease, transform 150ms ease;
+  transition: opacity 150ms $transition__normal, transform 150ms $transition__normal;
 
   &::before {
     opacity: 1;

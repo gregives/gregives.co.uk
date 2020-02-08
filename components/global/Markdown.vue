@@ -46,7 +46,7 @@ export default {
       color: $color__text--muted;
       margin-left: 0.5rem;
       opacity: 0;
-      transition: opacity 150ms ease;
+      transition: opacity 150ms $transition__normal;
 
       &:focus {
         opacity: 1;

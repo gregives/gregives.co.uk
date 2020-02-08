@@ -80,7 +80,7 @@ export default {
     opacity: 0;
     position: absolute;
     top: 0;
-    transition: opacity 300ms ease-in, visibility 0s 300ms;
+    transition: opacity 300ms $transition__snappy--out, visibility 0s 300ms;
     visibility: hidden;
     width: 100vw;
     will-change: opacity, visibility;
@@ -96,7 +96,7 @@ export default {
 :root[data-menu='open'] .header {
   &::before {
     opacity: 0.9;
-    transition: opacity 400ms ease-out, visibility 0s;
+    transition: opacity 400ms $transition__snappy--out, visibility 0s;
     visibility: visible;
   }
 }
@@ -132,7 +132,7 @@ export default {
   top: 0;
   transform: translateX(0);
   transform-origin: top left;
-  transition: transform 300ms ease-in, visibility 0s 300ms;
+  transition: transform 300ms $transition__snappy--out, visibility 0s 300ms;
   visibility: hidden;
   width: calc(90% - 5rem);
   will-change: transform, visibility;
@@ -211,7 +211,7 @@ export default {
 :root[data-menu='open'] .nav {
   visibility: visible;
   transform: translateX(-100%);
-  transition: transform 400ms ease-out, visibility 0s;
+  transition: transform 400ms $transition__snappy--out, visibility 0s;
 
   @media (min-width: $breakpoint--md) {
     transform: none;

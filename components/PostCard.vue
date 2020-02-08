@@ -53,7 +53,8 @@ export default {
     left: 0;
     position: absolute;
     top: -$border-weight;
-    transition: box-shadow 150ms ease-out, border-color 150ms ease-out;
+    transition: box-shadow 150ms $transition__normal,
+      border-color 150ms $transition__normal;
     width: calc(100% + #{$border-weight});
     z-index: -1;
   }

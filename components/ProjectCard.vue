@@ -83,7 +83,7 @@ export default {
     left: 0;
     opacity: 0;
     position: absolute;
-    transition: opacity 300ms ease;
+    transition: opacity 300ms $transition__normal;
     white-space: nowrap;
     z-index: 1;
   }
@@ -107,7 +107,7 @@ export default {
     opacity: 0;
     position: absolute;
     top: 0;
-    transition: opacity 300ms ease;
+    transition: opacity 300ms $transition__normal;
     width: 100%;
   }
 
@@ -117,7 +117,7 @@ export default {
     left: 0;
     position: absolute;
     top: 0;
-    transition: filter 300ms ease-out;
+    transition: filter 300ms $transition__normal;
     width: 100%;
 
     picture {
@@ -142,7 +142,8 @@ export default {
   margin-left: 1.5rem;
   padding: 1.5rem;
   padding-top: 1rem;
-  transition: box-shadow 150ms ease-out, border-color 150ms ease-out;
+  transition: box-shadow 150ms $transition__normal,
+    border-color 150ms $transition__normal;
 
   &:hover {
     border-color: $color__primary;
