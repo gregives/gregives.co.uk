@@ -3,6 +3,7 @@
     :aria-label="theme === 'light' ? 'Dark theme' : 'Light theme'"
     :title="theme === 'light' ? 'Dark theme' : 'Light theme'"
     @click="toggleTheme"
+    :class="{ 'theme-toggle--splash': splash }"
     class="theme-toggle"
   >
     <moon-icon v-if="theme === 'light'" title="Dark theme" />
@@ -21,6 +22,7 @@ export default {
   },
   data() {
     return {
+      splash: false,
       theme: 'light'
     }
   },
@@ -43,6 +45,8 @@ export default {
     theme(theme) {
       document.documentElement.dataset.theme = theme
       localStorage.setItem('theme', theme)
+      this.splash = true
+      setTimeout(() => (this.splash = false), 0)
     }
   },
   mounted() {
@@ -66,6 +70,7 @@ export default {
   margin: 0 -0.5rem;
   margin-right: 1rem;
   padding: 0 0.5rem;
+  position: relative;
 
   svg {
     margin-top: -0.25rem;
@@ -78,6 +83,28 @@ export default {
   @media (min-width: $breakpoint--md) {
     margin-right: -0.5rem;
     margin-left: 1rem;
+  }
+
+  &::after {
+    backdrop-filter: invert(1) contrast(0.5) sepia(1) hue-rotate(-45deg)
+      hue-rotate($color__primary--hue);
+    content: '';
+    height: 100vh;
+    left: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    transform: translateX(-100%);
+    transition: transform 600ms $transition--snappy;
+    width: 100vw;
+    will-change: transform;
+    z-index: 1000000;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  &--splash::after {
+    transition: none;
+    transform: translate(0);
   }
 }
 </style>

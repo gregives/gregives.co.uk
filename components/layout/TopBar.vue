@@ -59,16 +59,6 @@ export default {
   width: 100%;
   z-index: 1000;
 
-  @supports (backdrop-filter: blur(5px)) {
-    backdrop-filter: blur(5px);
-    background-color: $color__body--blur;
-  }
-
-  @media (min-width: $breakpoint--md) {
-    backdrop-filter: none !important;
-    background-color: $color__body--overlay !important;
-  }
-
   @media print {
     display: none;
   }
