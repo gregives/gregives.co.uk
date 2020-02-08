@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       splash: false,
-      theme: 'light'
+      theme: (process.client && localStorage.getItem('theme')) || 'light'
     }
   },
   computed: {
@@ -48,7 +48,6 @@ export default {
     }
   },
   mounted() {
-    this.theme = localStorage.getItem('theme') || 'light'
     this.$el.addEventListener('animationend', () => (this.splash = false))
   },
   methods: {
@@ -86,21 +85,21 @@ export default {
 
   @keyframes splashDown {
     from {
-      transform: translateY(0);
+      transform: translateY(-100%);
     }
 
     to {
-      transform: translateY(100%);
+      transform: translateY(0);
     }
   }
 
   @keyframes splashLeft {
     from {
-      transform: translateX(0);
+      transform: translateX(100%);
     }
 
     to {
-      transform: translateX(-100%);
+      transform: translateX(0);
     }
   }
 
@@ -109,16 +108,16 @@ export default {
       hue-rotate($color__primary--hue);
     content: '';
     height: 100vh;
-    left: 0;
+    right: 0;
     position: fixed;
-    top: 0;
-    transform: translateY(100%);
+    top: 100%;
     width: 100vw;
     z-index: 1000000;
     -webkit-tap-highlight-color: transparent;
 
     @media (min-width: $breakpoint--md) {
-      transform: translateX(-100%);
+      top: 0;
+      right: 100%;
     }
   }
 
