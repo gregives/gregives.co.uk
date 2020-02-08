@@ -86,8 +86,8 @@ export default {
 .home {
   $clip-path: polygon(
     100% 20%,
-    35% 35%,
-    50% 45%,
+    45% 35%,
+    40% 45%,
     100% 55%,
     100% 100%,
     50% 100%,
@@ -100,9 +100,14 @@ export default {
 }
 
 .home__banner {
-  min-height: calc(100vh - 10rem);
-  min-height: calc(var(--vh, 1vh) * 100 - 10rem);
+  min-height: calc(100vh - 11.5rem);
+  min-height: calc(var(--vh, 1vh) * 100 - 11.5rem);
   position: relative;
+
+  @media (min-width: $breakpoint--md) {
+    min-height: calc(100vh - 13rem);
+    min-height: calc(var(--vh, 1vh) * 100 - 13rem);
+  }
 }
 
 .home__title {
@@ -118,11 +123,7 @@ export default {
   width: 100%;
 
   @media (min-width: $breakpoint--md) {
-    width: 75%;
-  }
-
-  @media (min-width: $breakpoint--lg) {
-    width: 65%;
+    width: 50%;
   }
 }
 
