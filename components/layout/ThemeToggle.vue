@@ -105,8 +105,9 @@ export default {
 
   &::after {
     backdrop-filter: invert(1) contrast(0.5) sepia(1) hue-rotate(-45deg)
-      hue-rotate($color__primary--hue);
+      hue-rotate($color__primary--hue) saturate(2);
     content: '';
+    display: none;
     height: 100vh;
     right: 0;
     position: fixed;
@@ -123,6 +124,7 @@ export default {
 
   &--splash::after {
     animation: splashDown 600ms $transition__snappy;
+    display: block;
 
     @media (min-width: $breakpoint--md) {
       animation: splashLeft 600ms $transition__snappy;
