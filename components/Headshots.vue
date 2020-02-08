@@ -3,7 +3,7 @@
     <picture v-if="error" class="error__headshot">
       <source :srcset="errorHead.webp" type="image/webp" />
       <source :srcset="errorHead.png" type="image/png" />
-      <img :src="head.png" alt="Greg Ives looking worried" />
+      <img :src="errorHead.png" alt="Greg Ives looking worried" />
     </picture>
     <picture
       v-else
