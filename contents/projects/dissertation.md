@@ -55,7 +55,7 @@ After a move had been played, each square of the chessboard was classified into 
 
 ## Designing the User Interface
 
-I envisaged a dashboard-like system which would provide an overview of the current state of the game and  briefly show how the application worked. As the application would be very interactive, for example controlling video playback and annotating moves as the game progressed, I opted to use [Vue.js](https://vuejs.org) as my front-end framework of choice: Vue would handle the data layer on the front-end without me having to worry about DOM manipulation or state management. The application would connect to the Python server in order to live stream the video playback and recieve information about the game being played.
+I envisaged a dashboard-like system which would provide an overview of the current state of the game and  briefly show how the application worked. As the application would be very interactive, for example controlling video playback and annotating moves as the game progressed, I opted to use [Vue.js](https://vuejs.org) as my front-end framework of choice: Vue would handle the data layer on the front-end without me having to worry about DOM manipulation or state management. The application would connect to the Python server in order to live stream the video playback and receive information about the game being played.
 
 For the user interface, [Bootstrap](https://getbootstrap.com) seemed the most obvious choice for a framework as it would allow me to rapidly prototype ideas without worrying about the maintenance of the CSS for the components. [BootstrapVue](https://bootstrap-vue.js.org) allowed plug-and-play components within the application.
 
