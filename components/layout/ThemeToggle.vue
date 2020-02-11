@@ -2,7 +2,6 @@
   <button
     :aria-label="theme === 'light' ? 'Dark theme' : 'Light theme'"
     @click="toggleTheme"
-    :class="{ 'theme-toggle--splash': splash }"
     class="theme-toggle"
   >
     <moon-icon v-if="theme === 'light'" title="Dark theme" />
@@ -21,7 +20,6 @@ export default {
   },
   data() {
     return {
-      splash: false,
       theme: (process.client && localStorage.getItem('theme')) || 'light'
     }
   },
@@ -44,11 +42,7 @@ export default {
     theme(theme) {
       document.documentElement.dataset.theme = theme
       localStorage.setItem('theme', theme)
-      this.splash = true
     }
-  },
-  mounted() {
-    this.$el.addEventListener('animationend', () => (this.splash = false))
   },
   methods: {
     toggleTheme() {
@@ -81,54 +75,6 @@ export default {
   @media (min-width: $breakpoint--md) {
     margin-right: -0.5rem;
     margin-left: 1rem;
-  }
-
-  @keyframes splashDown {
-    from {
-      transform: translateY(-100%);
-    }
-
-    to {
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes splashLeft {
-    from {
-      transform: translateX(100%);
-    }
-
-    to {
-      transform: translateX(0);
-    }
-  }
-
-  &::after {
-    backdrop-filter: invert(1) contrast(0.5) sepia(1) hue-rotate(-45deg)
-      hue-rotate($color__primary--hue) saturate(2);
-    content: '';
-    display: none;
-    height: 100vh;
-    right: 0;
-    position: fixed;
-    top: 100%;
-    width: 100vw;
-    z-index: 1000000;
-    -webkit-tap-highlight-color: transparent;
-
-    @media (min-width: $breakpoint--md) {
-      top: 0;
-      right: 100%;
-    }
-  }
-
-  &--splash::after {
-    animation: splashDown 600ms $transition__snappy;
-    display: block;
-
-    @media (min-width: $breakpoint--md) {
-      animation: splashLeft 600ms $transition__snappy;
-    }
   }
 }
 </style>
