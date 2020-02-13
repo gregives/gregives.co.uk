@@ -88,7 +88,8 @@ export default {
     responsive: {
       disable: process.env.NODE_ENV !== 'production',
       sizes: [320, 640, 1280, 1920],
-      placeholder: true
+      placeholder: true,
+      placeholderSize: 20
     }
   },
   // Nuxt.js PWA configuration
