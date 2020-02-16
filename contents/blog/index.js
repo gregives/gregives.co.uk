@@ -8,4 +8,7 @@ export async function postLoader(postSlug) {
   return post
 }
 
-export const postSlugs = ['build-a-blog-with-nuxt-and-markdown']
+export const postSlugs = [
+  'build-a-blog-with-nuxt-and-markdown',
+  'my-markdown-it-configuration'
+]
