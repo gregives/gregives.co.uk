@@ -157,7 +157,7 @@ export default {
 }
 
 .project-card__link {
-  @include link;
+  @include link($color__body--overlay);
 
   &::after {
     position: absolute;
