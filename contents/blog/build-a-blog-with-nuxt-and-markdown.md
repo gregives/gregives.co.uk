@@ -1,6 +1,6 @@
 ---
 title: Build a Blog with Nuxt and Markdown
-date: 2020-02-05
+date: 2020-02-08
 description: >-
   Learn how to build a blog with Nuxt and Markdown. This first blog post of the series will explain how to load Markdown files and display them using a Markdown component.
 ---
