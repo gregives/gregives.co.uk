@@ -185,7 +185,7 @@ export default {
   grid-gap: 3rem;
 
   @media (min-width: $breakpoint--md) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 }
 
