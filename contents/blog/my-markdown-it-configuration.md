@@ -8,7 +8,7 @@ description: >-
 I use [markdown-it](https://github.com/markdown-it/markdown-it) and [highlight.js](https://highlightjs.org) to render my blog posts. Out of the box, markdown-it and highlight.js may provide all the functionality you need, however, customising them enables you to do stuff like:
 
 - Display the language of code blocks
-- Use my own language aliases
+- Add new language aliases for syntax highlighting
 - Use [BEM](http://getbem.com/naming) class names
 - Add heading anchors
 - Use proper quote characters e.g. “”
@@ -17,7 +17,7 @@ I use [markdown-it](https://github.com/markdown-it/markdown-it) and [highlight.j
 
 ## The Configuration
 
-I've been slowly tinkering with my configuration and I'll keep updating this blog post as I change it. I'll explain everything in the configuration, but before I do that, here's the whole configuration:
+I've been slowly tinkering with my configuration and I'll keep updating this blog post as I change it. In this short blog post I'll explain everything in the configuration, but before I do that, here's the whole thing:
 
 ```js
 const hljs = require('highlight.js')
@@ -69,7 +69,7 @@ const markdown = require('markdown-it')({
 
 ### Configuring Highlight.js
 
-Firstly, I configure highlight.js. You can use the syntax highlighter of your choice in conjunction with highlight.js; the most popular syntax highlighting libraries are [highlight.js and Prism](https://github.com/search?l=JavaScript&o=desc&q=syntax+highlighting&s=stars&type=Repositories), it's up to you which you use. I do two things in setting up syntax highlighting:
+Firstly, I configure highlight.js. You can use the syntax highlighter of your choice in conjunction with markdown-it; the most popular syntax highlighting libraries are [highlight.js and Prism](https://github.com/search?l=JavaScript&o=desc&q=syntax+highlighting&s=stars&type=Repositories), it's up to you which you use. I do two things in setting up syntax highlighting:
 
 1. Change the `classPrefix` to `highlight__`. All my other class names use BEM so I felt the need to do this for consistency's sake.
 2. Set up language aliases. I've only needed one alias, namely highlighting `vue` code blocks as `html`.
@@ -88,7 +88,7 @@ Secondly, I pass some configuration options to markdown-it:
 
 - `html: true` allows me to put raw HTML into my Markdown files. This also allows me to put Vue components into my Markdown files, as explained in my previous blog post, <nuxt-link to="/blog/build-a-blog-with-nuxt-and-markdown">Build a Blog with Nuxt and Markdown</nuxt-link>.
 - `xhtmlOut: true` converts newlines `\n` in paragraphs into break tags `<br/>`.
-- `typographer: true`, according to the documentation, allows some 'language-neutral replacement', I have no idea what that does! And also beautifies quotation marks.
+- `typographer: true` enables some 'language-neutral replacement' and beautifies quotation marks.
 
 ```js
 const markdown = require('markdown-it')({
