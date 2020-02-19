@@ -42,7 +42,7 @@ module.exports = function(source) {
                   null,
                   `module.exports = {
                     format: "${output.format}",
-                    lqip: ${output.lqip},
+                    lqip: "${output.lqip}",
                     srcSet: ${output.srcSet.join(' + ", " + ')},
                     webpSrcSet: ${output.webpSrcSet.join(' + ", " + ')}
                   }`
@@ -72,8 +72,9 @@ function generateLQIP(context, source, output, callback) {
     .blur()
     .toBuffer()
     .then((lqip) => {
-      const path = emitFile(context, lqip)
-      output.lqip = path
+      output.lqip = `data:image/${output.format};base64,${lqip.toString(
+        'base64'
+      )}`
       callback()
     })
 }
@@ -83,7 +84,9 @@ function generateSrcSet(context, source, output, callback) {
   Promise.all(
     SIZES.map((size) => {
       return sharp(source)
-        .resize(size)
+        .resize(size, null, {
+          withoutEnlargement: true
+        })
         .toBuffer()
     })
   ).then((srcSet) => {
