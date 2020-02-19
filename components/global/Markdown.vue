@@ -104,7 +104,8 @@ export default {
     }
   }
 
-  iframe {
+  iframe,
+  video {
     border-radius: $border-radius;
     box-shadow: $box-shadow;
     display: block;
