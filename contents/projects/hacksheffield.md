@@ -1,7 +1,7 @@
 ---
 title: HackSheffield
 date: 2019-04-01
-image: hacksheffield/committee.jpg
+image: projects/hacksheffield/committee.jpg
 description: >-
   Hackathon society which I have been involved in since starting university. See which hackathons I have attended and organised.
 tags:
@@ -20,7 +20,7 @@ The first hackathon I attended was HackSheffield 2.0, less than a month after I 
 
 Less than a year after attending my first hackathon, I was elected the President of HackSheffield, ensuring that everything was ran smoothly by the team and directing the vision of the society. As President of the society, one of my priorities was to get more people involved in hackathons, so I championed a series of workshops at the University of Sheffield --- entitled "An Introduction to Hackathons" --- to teach people some technology which they might find useful in a hackathon environment. I stepped down from the role as President in 2018 and ran instead for the role of Technical Officer. As Technical Officer, I was in charge of the society's infrastructure, including the society's website, email server and the society's many accounts on various platforms. I feel massively privileged to have played such a big part in shaping the society's direction and I am excited to see what they accomplish in future, as one of the UK's largest hackathons!
 
-<lazy-image src="hacksheffield/committee.jpg" alt="Photo of the HackSheffield committee" />
+<lazy-image src="projects/hacksheffield/committee.jpg" alt="Photo of the HackSheffield committee" />
 
 I'm the one third from the left, looking ecstatic that HackSheffield 4.0 had such an impressive turn-out and (almost) everything went exactly as planned.
 

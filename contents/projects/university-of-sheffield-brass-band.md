@@ -2,7 +2,7 @@
 title: University of Sheffield Brass Band
 titleShort: USBB
 date: 2019-03-01
-image: usbb/website1.png
+image: projects/usbb/website1.png
 description: >-
   Website for the University of Sheffield Brass Band to showcase concerts, news and photos. Uses Jekyll for easy content management.
 tags:
@@ -14,7 +14,7 @@ tags:
 
 I have been a member of the University of Sheffield Brass Band for three years, and decided to create a website for them to promote concerts, news and photos. Check out the website at [usbb.org.uk](https://usbb.org.uk)!
 
-<lazy-image src="usbb/website2.png" alt="Screenshot of the home page of USBB's website" />
+<lazy-image src="projects/usbb/website2.png" alt="Screenshot of the home page of USBB's website" />
 
 ## Requirements
 
@@ -31,5 +31,5 @@ Jekyll seemed a perfect static site generator for the job as future members of t
 
 I designed the website using [Bootstrap](https://getbootstrap.com) and some custom styles, nothing too fancy! The resulting design looks clean and intuitive, whilst maintaining the band's branding. The contact form uses [formcarry](https://formcarry.com), a free backend for static forms, and the footer includes a Facebook banner so people can easily connect with us.
 
-<lazy-image src="usbb/website3.png" alt="Screenshot of the concerts page of USBB's website" />
-<lazy-image src="usbb/website4.png" alt="Screenshot of the contact page of USBB's website" />
+<lazy-image src="projects/usbb/website3.png" alt="Screenshot of the concerts page of USBB's website" />
+<lazy-image src="projects/usbb/website4.png" alt="Screenshot of the contact page of USBB's website" />

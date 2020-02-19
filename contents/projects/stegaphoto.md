@@ -1,7 +1,7 @@
 ---
 title: StegaPhoto
 date: 2017-09-01
-image: stegaphoto/screenshot.png
+image: projects/stegaphoto/screenshot.png
 description: >-
   Cyber security research project on steganography — created a web application which can hide any number of files inside an image.
 tags:
@@ -14,7 +14,7 @@ tags:
 
 During Summer 2017, I undertook a cyber security research project, creating a web application which can hide files inside an image, a form of _steganography_. Steganography is the practice of concealing a file, message, image, or video within another file, message, image, or video. The advantage of steganography over cryptography alone is that the intended secret message does not attract attention to itself as an object of scrutiny.
 
-<lazy-image src="stegaphoto/hide.png" alt="Screenshot of the user interface to hide files" />
+<lazy-image src="projects/stegaphoto/hide.png" alt="Screenshot of the user interface to hide files" />
 
 ## How StegaPhoto Works
 

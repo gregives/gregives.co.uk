@@ -1,21 +1,21 @@
 <template>
   <div ref="headshots" class="headshots">
     <picture v-if="error" class="error__headshot">
-      <source :srcset="errorHead.webp" type="image/webp" />
-      <source :srcset="errorHead.png" type="image/png" />
-      <img :src="errorHead.png" alt="Greg Ives looking worried" />
+      <source :srcset="errorHead.webpSrcSet" type="image/webp" />
+      <source :srcset="errorHead.srcSet" type="image/png" />
+      <img :src="errorHead.lqip" alt="Greg Ives looking worried" />
     </picture>
     <picture
       v-else
       v-for="head in heads"
-      :key="head.png"
+      :key="head.lqip"
       :data-x="head.x"
       :data-y="head.y"
       class="headshots__image"
     >
-      <source :srcset="head.lazy ? false : head.webp" type="image/webp" />
-      <source :srcset="head.lazy ? false : head.png" type="image/png" />
-      <img :src="head.lazy ? false : head.png" alt="Greg Ives looking around" />
+      <source :srcset="!head.lazy && head.webpSrcSet" type="image/webp" />
+      <source :srcset="!head.lazy && head.srcSet" type="image/png" />
+      <img :src="!head.lazy && head.lqip" alt="Greg Ives looking around" />
     </picture>
   </div>
 </template>
@@ -30,10 +30,7 @@ export default {
   },
   data() {
     return {
-      errorHead: {
-        png: require('~/assets/images/error.png'),
-        webp: require('~/assets/images/error.png?webp')
-      },
+      errorHead: require('~/assets/images/error.png?lazy'),
       heads: (() => {
         const path = require('path')
         const files = require.context(
@@ -45,10 +42,9 @@ export default {
           const basename = path.basename(file)
           const coords = basename.match(/[^.]+/)[0].split('_')
           return {
+            ...require(`~/assets/images/headshots/${basename}?lazy`),
             x: parseInt(coords[0]),
             y: parseInt(coords[1]),
-            png: require(`~/assets/images/headshots/${basename}?original`),
-            webp: require(`~/assets/images/headshots/${basename}?webp`),
             lazy: true
           }
         })

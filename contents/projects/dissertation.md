@@ -2,7 +2,7 @@
 title: Computer Vision System for a Chess-Playing Robot
 titleShort: Dissertation
 date: 2019-05-01
-image: dissertation/demonstration.png
+image: projects/dissertation/demonstration.png
 description: >-
   A computer vision system for a chess-playing robot. Tracks the state of a chessboard over time, using Python, scikit-learn and OpenCV.
 tags:
@@ -15,7 +15,7 @@ tags:
 
 I completed my dissertation as part of my 3^rd^ year of university. Entitled "A Computer Vision System for a Chess-Playing Robot", my dissertation aimed to infer the state of a chessboard from a webcam placed above the board. You can [download the report here](https://gregives.co.uk/projects/dissertation/dissertation.pdf). Here's what the finished system looks like!
 
-<lazy-image src="dissertation/demonstration.png" alt="Demonstration page of the system" />
+<lazy-image src="projects/dissertation/demonstration.png" alt="Demonstration page of the system" />
 
 ## Impetus
 
@@ -23,7 +23,7 @@ Isn't it easy to detect moves being played on a chessboard? In general, a move c
 
 Here is a storyboard of a pawn being moved from square `e2` to square `e4`. The leftmost image is before, the middle image is after and the rightmost image is the difference between the two. As you can see, it is not as simple as finding the square which has changed the most.
 
-<lazy-image src="dissertation/e2e4.png" alt="Storyboard showing chess move e2e4" />
+<lazy-image src="projects/dissertation/e2e4.png" alt="Storyboard showing chess move e2e4" />
 
 The motivation for the project was to create a computer vision system which could successfully detect moves being played regardless of the lighting conditions and environment. The abstract is as follows:
 
@@ -33,7 +33,7 @@ The motivation for the project was to create a computer vision system which coul
 
 As seen previously, it is not possible to simply use the difference between keyframes in order to determine which piece has been moved. After some experimentation, the Canny edge detection provided by OpenCV proved to be incredibly valuable, identifying the edges of pieces even when they could barely be seen. Here you can see the effect of Canny edge detection on the previous storyboard of move `e2e4`. The image on the right is taken by the difference of the sums of each square in the board --- a higher difference denotes more change in the square.
 
-<lazy-image src="dissertation/canny.png" alt="Canny edge detection on move e2e4" />
+<lazy-image src="projects/dissertation/canny.png" alt="Canny edge detection on move e2e4" />
 
 The result of Canny edge detection alone is not enough to infer the move which has been made, however, it does clearly show which squares have changed the most. I combine this with two other metrics:
 
@@ -59,9 +59,9 @@ I envisaged a dashboard-like system which would provide an overview of the curre
 
 For the user interface, [Bootstrap](https://getbootstrap.com) seemed the most obvious choice for a framework as it would allow me to rapidly prototype ideas without worrying about the maintenance of the CSS for the components. [BootstrapVue](https://bootstrap-vue.js.org) allowed plug-and-play components within the application.
 
-<lazy-image src="dissertation/demonstration.png" alt="Demonstration page of the system" />
-<lazy-image src="dissertation/annotation.png" alt="Annotation page of the system" />
-<lazy-image src="dissertation/testing.png" alt="Testing page of the system" />
+<lazy-image src="projects/dissertation/demonstration.png" alt="Demonstration page of the system" />
+<lazy-image src="projects/dissertation/annotation.png" alt="Annotation page of the system" />
+<lazy-image src="projects/dissertation/testing.png" alt="Testing page of the system" />
 
 ## Conclusion of the Report
 
