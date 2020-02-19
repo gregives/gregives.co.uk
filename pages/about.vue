@@ -6,7 +6,7 @@
     <div class="about__text">
       <div class="about__image">
         <lazy-image
-          src="about/hacksheffield.jpg"
+          :src="require('~/assets/images/about.jpg?lazy')"
           alt="Greg Ives at HackSheffield"
         />
       </div>

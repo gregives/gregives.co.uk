@@ -60,7 +60,6 @@ export default {
   // Nuxt.js modules
   modules: [
     'vue-scrollto/nuxt',
-    '@bazzite/nuxt-optimized-images',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     '@nuxtjs/sitemap'
@@ -76,21 +75,6 @@ export default {
   // Google Analytics configuration
   googleAnalytics: {
     id: 'UA-115006226-1'
-  },
-  // Optimized images configuration
-  optimizedImages: {
-    responsiveImagesName({ isDev }) {
-      return isDev
-        ? '[path][name]--[width][hash:optimized].[ext]'
-        : 'img/[hash:7].[ext]'
-    },
-    // Sizes of responsive image to generate
-    responsive: {
-      disable: process.env.NODE_ENV !== 'production',
-      sizes: [320, 640, 1280, 1920],
-      placeholder: true,
-      placeholderSize: 20
-    }
   },
   // Nuxt.js PWA configuration
   pwa: {
@@ -150,6 +134,21 @@ export default {
           },
           markdown
         }
+      })
+
+      config.module.rules = config.module.rules.map((rule) => {
+        if (String(rule.test) === String(/\.(png|jpe?g|gif|svg|webp)$/i)) {
+          rule.resourceQuery = {
+            not: [/(webp|lazy)/]
+          }
+        }
+        return rule
+      })
+
+      config.module.rules.push({
+        test: /\.(jpe?g|png|webp|gif|svg|tiff)$/i,
+        loader: path.resolve(__dirname, 'loaders', 'sharp'),
+        resourceQuery: /(webp|lazy)/
       })
     }
   }

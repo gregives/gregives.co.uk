@@ -1,7 +1,7 @@
 ---
 title: Picnic Spots
 date: 2019-04-01
-image: picnic-spots/screenshot.png
+image: projects/picnic-spots/screenshot.png
 description: >-
   Website created at HackBordeaux in 24 hours. View, add and review the best places to eat your tuna sweetcorn sandwiches.
 tags:
@@ -15,7 +15,7 @@ tags:
 
 Picnic Spots was created at HackBordeaux with another member of HackSheffield, in 24 hours. Picnic Spots allows you to find a perfect spot for your lunch, courtesy of user-submitted spots and reviews.
 
-<lazy-image src="picnic-spots/screenshot.png" alt="Screenshot of Picnic Spots, showing a map with locations and ratings" />
+<lazy-image src="projects/picnic-spots/screenshot.png" alt="Screenshot of Picnic Spots, showing a map with locations and ratings" />
 
 ## The Idea
 

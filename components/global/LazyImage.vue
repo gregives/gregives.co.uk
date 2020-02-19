@@ -1,14 +1,9 @@
 <template>
   <div class="lazy">
     <picture :style="{ width }">
-      <source :data-srcset="webp" type="image/webp" />
-      <source :data-srcset="responsive" :type="type" />
-      <img
-        :src="preview"
-        :data-src="original"
-        :alt="alt"
-        class="lazy__image lazy__image--load"
-      />
+      <source :data-srcset="image.webpSrcSet" type="image/webp" />
+      <source :data-srcset="image.srcSet" :type="image.format" />
+      <img :src="image.lqip" :alt="alt" class="lazy__image lazy__image--load" />
     </picture>
   </div>
 </template>
@@ -17,7 +12,7 @@
 export default {
   props: {
     src: {
-      type: String,
+      type: [String, Object],
       required: true
     },
     alt: {
@@ -30,36 +25,9 @@ export default {
     }
   },
   computed: {
-    type() {
-      return `image/${this.src.split('.').pop()}`
-    },
-    webp() {
-      try {
-        return require(`~/assets/images/lazy/${this.src}?webp`)
-      } catch (e) {
-        return false
-      }
-    },
-    responsive() {
-      try {
-        return require(`~/assets/images/lazy/${this.src}?resize`).srcSet
-      } catch (e) {
-        return false
-      }
-    },
-    preview() {
-      try {
-        return require(`~/assets/images/lazy/${this.src}?resize`).placeholder
-      } catch (e) {
-        return false
-      }
-    },
-    original() {
-      try {
-        return require(`~/assets/images/lazy/${this.src}`)
-      } catch (e) {
-        return false
-      }
+    image() {
+      const src = typeof this.src === 'object' && this.src
+      return src || require(`~/assets/images/dynamic/${this.src}?lazy`)
     }
   }
 }
