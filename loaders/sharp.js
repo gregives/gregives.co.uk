@@ -17,6 +17,25 @@ module.exports = function(source) {
   const params = this.resourceQuery ? parseQuery(this.resourceQuery) : {}
   const options = Object.assign({}, defaultOptions, getOptions(this))
 
+  // Helper function to emit files
+  const emitFile = (name, content) => {
+    const url = interpolateName(this, name, {
+      content,
+      context: this.rootContext
+    })
+    this.emitFile(url, content)
+    const path = stringifyRequest(this, url)
+    return `__webpack_public_path__ + ${path}`
+  }
+
+  // Disable in development
+  if (this.mode === 'development') {
+    const name = `[path][name].[ext]`
+    const path = emitFile(name, source)
+    callback(null, `module.exports = ${path}`)
+    return
+  }
+
   let images = [sharp(source)]
 
   images[0].metadata().then((metadata) => {
@@ -62,12 +81,7 @@ module.exports = function(source) {
       } else {
         // Emit files
         const name = `img/[contenthash:8].${format}`
-        const paths = buffers.map((buffer) => {
-          const url = interpolateName(this, name, { content: buffer })
-          this.emitFile(url, buffer)
-          const urlString = stringifyRequest(this, url)
-          return `__webpack_public_path__ + ${urlString}`
-        })
+        const paths = buffers.map((buffer) => emitFile(name, buffer))
 
         // Output srcset or individual path
         if (params.srcset) {
