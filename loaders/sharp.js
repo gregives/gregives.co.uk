@@ -48,7 +48,7 @@ module.exports = function(source) {
           withoutEnlargement: true
         })
       })
-    } else if (params.size && !Number.isNaN(parseInt(params.size))) {
+    } else if (params.size) {
       images = images.map((image) =>
         image.resize(parseInt(params.size), null, {
           withoutEnlargement: true
@@ -65,7 +65,7 @@ module.exports = function(source) {
     if (params.format) {
       images = images.map((image) => {
         return image.toFormat(params.format)[params.format]({
-          quality: params.quality || options.quality
+          quality: parseInt(params.quality) || options.quality
         })
       })
     }

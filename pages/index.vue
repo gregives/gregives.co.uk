@@ -1,7 +1,6 @@
 <template>
   <main class="home">
     <div class="home__banner">
-      <headshots />
       <h1 class="home__title">
         Hi, I’m <span class="home__title--primary">Greg Ives</span>
       </h1>
@@ -14,6 +13,7 @@
       <nuxt-link class="home__contact" to="/contact">
         Contact me
       </nuxt-link>
+      <headshots />
       <div id="stuff"></div>
     </div>
     <ol class="home__posts">
