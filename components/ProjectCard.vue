@@ -1,7 +1,11 @@
 <template>
   <li class="project-card">
     <div class="project-card__image">
-      <lazy-image :src="project.image" :alt="title" />
+      <lazy-image
+        :src="project.image"
+        :alt="title"
+        sizes="(min-width: 768px) 50vw, 100vw"
+      />
     </div>
     <div class="project-card__content">
       <h3 class="project-card__title">

@@ -1,8 +1,8 @@
 <template>
   <div class="lazy">
     <picture :style="{ width }">
-      <source :data-srcset="srcsetWebp" type="image/webp" />
-      <source :data-srcset="srcset" :type="format" />
+      <source :data-srcset="srcsetWebp" :sizes="sizes" type="image/webp" />
+      <source :data-srcset="srcset" :sizes="sizes" :type="format" />
       <img :src="lqip" :alt="alt" class="lazy__image lazy__image--load" />
     </picture>
   </div>
@@ -18,6 +18,10 @@ export default {
     alt: {
       type: String,
       required: true
+    },
+    sizes: {
+      type: String,
+      default: '100vw'
     },
     width: {
       type: String,
