@@ -124,9 +124,13 @@ export default {
       height: 100%;
 
       .lazy__image {
-        height: 100%;
+        height: calc(100% + 1rem);
         object-fit: cover;
         object-position: top left;
+
+        &--loaded {
+          height: 100%;
+        }
       }
     }
   }

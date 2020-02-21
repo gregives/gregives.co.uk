@@ -1,117 +1,86 @@
-const { interpolateName, parseQuery } = require('loader-utils')
+const {
+  getOptions,
+  interpolateName,
+  parseQuery,
+  stringifyRequest
+} = require('loader-utils')
+
 const sharp = require('sharp')
 
-// Sizes of srcset
-const SIZES = [320, 640, 1280, 1920]
+const defaultOptions = {
+  quality: 80,
+  sizes: [320, 640, 1280, 1920]
+}
 
 module.exports = function(source) {
   const callback = this.async()
-  const params = parseQuery(this.resourceQuery)
+  const params = this.resourceQuery ? parseQuery(this.resourceQuery) : {}
+  const options = Object.assign({}, defaultOptions, getOptions(this))
 
-  try {
-    if (params.webp) {
-      // Convert to webp
-      sharp(source)
-        .toFormat('webp')
-        .toBuffer()
-        .then((webp) => {
-          callback(null, webp)
-        })
-    } else if (!params.lazy) {
-      // Don't do anything
-      callback(null, source)
-    } else {
-      // Generate lazy image object
-      const output = {
-        format: false,
-        lqip: false,
-        srcSet: [],
-        webpSrcSet: []
-      }
+  let images = [sharp(source)]
 
-      sharp(source)
-        .metadata()
-        .then((metadata) => {
-          // Store the format, for mime type in srcset
-          output.format = metadata.format
+  images[0].metadata().then((metadata) => {
+    const format = params.format || metadata.format
 
-          generateLQIP(this, source, output, () => {
-            generateSrcSet(this, source, output, (srcSet) => {
-              generateWebpSrcSet(this, srcSet, output, () => {
-                callback(
-                  null,
-                  `module.exports = {
-                    format: "${output.format}",
-                    lqip: "${output.lqip}",
-                    srcSet: ${output.srcSet.join(' + ", " + ')},
-                    webpSrcSet: ${output.webpSrcSet.join(' + ", " + ')}
-                  }`
-                )
-              })
-            })
-          })
-        })
-    }
-  } catch (error) {
-    callback(null, source)
-  }
-}
-
-function emitFile(context, content, webp) {
-  const name = webp ? '[contenthash:8].webp' : '[contenthash:8].[ext]'
-  const url = interpolateName(context, name, { content })
-  context.emitFile(url, content)
-  const path = `__webpack_public_path__ + ${JSON.stringify(url)}`
-  return path
-}
-
-// Resize to 40px wide and blur
-function generateLQIP(context, source, output, callback) {
-  sharp(source)
-    .resize(40)
-    .blur()
-    .toBuffer()
-    .then((lqip) => {
-      output.lqip = `data:image/${output.format};base64,${lqip.toString(
-        'base64'
-      )}`
-      callback()
-    })
-}
-
-// Resize source to all sizes in srcset
-function generateSrcSet(context, source, output, callback) {
-  Promise.all(
-    SIZES.map((size) => {
-      return sharp(source)
-        .resize(size, null, {
+    // Generate srcset
+    if (params.srcset) {
+      images = options.sizes.map((size) => {
+        return images[0].resize(parseInt(size), null, {
           withoutEnlargement: true
         })
-        .toBuffer()
-    })
-  ).then((srcSet) => {
-    srcSet.map((src, index) => {
-      const path = emitFile(context, src)
-      output.srcSet.push(`${path} + " ${SIZES[index]}w"`)
-    })
-    callback(srcSet)
-  })
-}
+      })
+    } else if (params.size && !Number.isNaN(parseInt(params.size))) {
+      images = images.map((image) =>
+        image.resize(parseInt(params.size), null, {
+          withoutEnlargement: true
+        })
+      )
+    }
 
-// Convert resized srcset to webp
-function generateWebpSrcSet(context, srcSet, output, callback) {
-  Promise.all(
-    srcSet.map((src) => {
-      return sharp(src)
-        .toFormat('webp')
-        .toBuffer()
+    // Blur image
+    if (params.blur) {
+      images = images.map((image) => image.blur())
+    }
+
+    // Convert to given format
+    if (params.format) {
+      images = images.map((image) => {
+        return image.toFormat(params.format)[params.format]({
+          quality: params.quality || options.quality
+        })
+      })
+    }
+
+    // Convert to buffers
+    Promise.all(images.map((image) => image.toBuffer())).then((buffers) => {
+      if (params.inline && !params.srcset) {
+        // Output inline base64
+        const base64 = buffers[0].toString('base64')
+        const result = `data:image/${format};base64,${base64}`
+
+        callback(null, `module.exports = "${result}";`)
+      } else {
+        // Emit files
+        const name = `img/[contenthash:8].${format}`
+        const paths = buffers.map((buffer) => {
+          const url = interpolateName(this, name, { content: buffer })
+          this.emitFile(url, buffer)
+          const urlString = stringifyRequest(this, url)
+          return `__webpack_public_path__ + ${urlString}`
+        })
+
+        // Output srcset or individual path
+        if (params.srcset) {
+          const srcset = paths.map((path, index) => {
+            return `${path} + " ${options.sizes[index]}w"`
+          })
+
+          callback(null, `module.exports = ${srcset.join(' + "," + ')}`)
+        } else {
+          callback(null, `module.exports = ${paths[0]}`)
+        }
+      }
     })
-  ).then((webpSrcSet) => {
-    webpSrcSet.map((webpSrc, index) => {
-      const path = emitFile(context, webpSrc, true)
-      output.webpSrcSet.push(`${path} + " ${SIZES[index]}w"`)
-    })
-    callback()
   })
 }
 

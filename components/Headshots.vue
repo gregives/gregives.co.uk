@@ -1,21 +1,21 @@
 <template>
   <div ref="headshots" class="headshots">
-    <picture v-if="error" class="error__headshot">
-      <source :srcset="errorHead.webpSrcSet" type="image/webp" />
-      <source :srcset="errorHead.srcSet" type="image/png" />
-      <img :src="errorHead.lqip" alt="Greg Ives looking worried" />
+    <picture v-if="error" class="headshots__error">
+      <source :srcset="errorHead.srcWebp" type="image/webp" />
+      <source :srcset="errorHead.src" type="image/png" />
+      <img :src="errorHead.src" alt="Greg Ives looking worried" />
     </picture>
     <picture
       v-else
       v-for="head in heads"
-      :key="head.lqip"
+      :key="head.src"
       :data-x="head.x"
       :data-y="head.y"
       class="headshots__image"
     >
-      <source :srcset="!head.lazy && head.webpSrcSet" type="image/webp" />
-      <source :srcset="!head.lazy && head.srcSet" type="image/png" />
-      <img :src="!head.lazy && head.lqip" alt="Greg Ives looking around" />
+      <source :srcset="!head.lazy && head.srcWebp" type="image/webp" />
+      <source :srcset="!head.lazy && head.src" type="image/png" />
+      <img :src="!head.lazy && head.src" alt="Greg Ives looking around" />
     </picture>
   </div>
 </template>
@@ -30,7 +30,10 @@ export default {
   },
   data() {
     return {
-      errorHead: require('~/assets/images/error.png?lazy'),
+      errorHead: {
+        src: require('~/assets/images/error.png'),
+        srcWebp: require('~/assets/images/error.png?format=webp')
+      },
       heads: (() => {
         const path = require('path')
         const files = require.context(
@@ -42,7 +45,8 @@ export default {
           const basename = path.basename(file)
           const coords = basename.match(/[^.]+/)[0].split('_')
           return {
-            ...require(`~/assets/images/headshots/${basename}?lazy`),
+            src: require(`~/assets/images/headshots/${basename}`),
+            srcWebp: require(`~/assets/images/headshots/${basename}?format=webp`),
             x: parseInt(coords[0]),
             y: parseInt(coords[1]),
             lazy: true

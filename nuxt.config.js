@@ -123,28 +123,19 @@ export default {
         'node_modules/vue-material-design-icons'
       )
 
+      // Replace default image loaders with custom loader
       config.module.rules = config.module.rules.map((rule) => {
         if (String(rule.test) === String(/\.(png|jpe?g|gif|svg|webp)$/i)) {
           rule.use = [
             {
-              loader: require('imagemin-webpack').loader,
+              loader: path.resolve(__dirname, 'loaders', 'sharp'),
               options: {
-                imageminOptions: {
-                  bail: false,
-                  plugins: ['gifsicle', 'mozjpeg', 'pngquant', 'svgo', 'webp']
-                }
+                quality: 50
               }
             }
           ]
         }
         return rule
-      })
-
-      // Responsive image loader
-      config.module.rules.unshift({
-        test: /\.(jpe?g|png|webp|gif|svg|tiff)$/i,
-        loader: path.resolve(__dirname, 'loaders', 'sharp'),
-        resourceQuery: /(webp|lazy)/
       })
 
       // Markdown loader
