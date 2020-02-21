@@ -1,6 +1,6 @@
 <template>
   <li class="project-card">
-    <div :data-title="title" :style="scrollSpeed" class="project-card__image">
+    <div class="project-card__image">
       <lazy-image :src="project.image" :alt="title" />
     </div>
     <div class="project-card__content">
@@ -32,9 +32,6 @@ export default {
         month: 'long',
         year: 'numeric'
       })
-    },
-    scrollSpeed() {
-      return `--scroll-speed: ${this.title.length / 1.5}s`
     }
   }
 }
@@ -46,10 +43,6 @@ export default {
 
   &:hover {
     .project-card__image {
-      &::before {
-        opacity: 0.3;
-      }
-
       &::after {
         opacity: 1;
       }
@@ -71,33 +64,6 @@ export default {
   width: 100%;
   z-index: -1;
 
-  &::before {
-    animation: 10s infinite linear scroll;
-    animation-duration: var(--scroll-speed);
-    bottom: -1.5rem;
-    color: $color__body--overlay;
-    content: '\00A0\00A0'attr(data-title) '\00A0\00A0'attr(data-title)
-      '\00A0\00A0'attr(data-title);
-    font-family: $font__fancy;
-    font-size: 10rem;
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    transition: opacity 300ms $transition__normal;
-    white-space: nowrap;
-    z-index: 1;
-  }
-
-  @keyframes scroll {
-    from {
-      transform: translateX(#{-1/3 * 100%});
-    }
-
-    to {
-      transform: translateX(#{-2/3 * 100%});
-    }
-  }
-
   &::after {
     background-color: $color__primary--muted;
     background-image: linear-gradient(transparent, $color__primary);
@@ -107,7 +73,7 @@ export default {
     opacity: 0;
     position: absolute;
     top: 0;
-    transition: opacity 300ms $transition__normal;
+    transition: opacity 150ms $transition__normal;
     width: 100%;
   }
 
@@ -117,7 +83,7 @@ export default {
     left: 0;
     position: absolute;
     top: 0;
-    transition: filter 300ms $transition__normal;
+    transition: filter 150ms $transition__normal;
     width: 100%;
 
     picture {
