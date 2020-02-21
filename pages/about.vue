@@ -5,10 +5,7 @@
     </h1>
     <div class="about__text">
       <div class="about__image">
-        <lazy-image
-          :src="require('~/assets/images/about.jpg?lazy')"
-          alt="Greg Ives at HackSheffield"
-        />
+        <lazy-image src="about.jpg" alt="Greg Ives at HackSheffield" />
       </div>
       <markdown :markdown="markdown" />
     </div>

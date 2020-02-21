@@ -1,9 +1,9 @@
 <template>
   <div class="lazy">
     <picture :style="{ width }">
-      <source :data-srcset="image.webpSrcSet" type="image/webp" />
-      <source :data-srcset="image.srcSet" :type="image.format" />
-      <img :src="image.lqip" :alt="alt" class="lazy__image lazy__image--load" />
+      <source :data-srcset="srcsetWebp" type="image/webp" />
+      <source :data-srcset="srcset" :type="format" />
+      <img :src="lqip" :alt="alt" class="lazy__image lazy__image--load" />
     </picture>
   </div>
 </template>
@@ -12,7 +12,7 @@
 export default {
   props: {
     src: {
-      type: [String, Object],
+      type: String,
       required: true
     },
     alt: {
@@ -21,13 +21,21 @@ export default {
     },
     width: {
       type: String,
-      default: '100%'
+      default: null
     }
   },
   computed: {
-    image() {
-      const src = typeof this.src === 'object' && this.src
-      return src || require(`~/assets/images/dynamic/${this.src}?lazy`)
+    format() {
+      return this.src.split('.').pop()
+    },
+    srcset() {
+      return require(`~/assets/images/dynamic/${this.src}?srcset`)
+    },
+    srcsetWebp() {
+      return require(`~/assets/images/dynamic/${this.src}?srcset&format=webp`)
+    },
+    lqip() {
+      return require(`~/assets/images/dynamic/${this.src}?size=20&format=jpeg&inline`)
     }
   }
 }
@@ -49,10 +57,14 @@ export default {
 .lazy__image {
   display: block;
   filter: blur(0.5rem);
-  width: 100%;
+  margin: -0.5rem;
+  max-width: none;
+  width: calc(100% + 1rem);
 
   &--loaded {
     filter: none;
+    margin: 0;
+    width: 100%;
   }
 }
 </style>
