@@ -44,7 +44,7 @@ module.exports = function(source) {
     // Generate srcset
     if (params.srcset) {
       images = options.sizes.map((size) => {
-        return images[0].resize(parseInt(size), null, {
+        return images[0].clone().resize(parseInt(size), null, {
           withoutEnlargement: true
         })
       })
