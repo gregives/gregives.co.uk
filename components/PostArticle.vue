@@ -12,7 +12,7 @@
         <li v-for="tag in post.tags" :key="tag">{{ tag }}</li>
       </ul>
       <nuxt-link :to="project ? '/projects' : '/blog'" class="article__back">
-        Back to {{ project ? 'projects' : 'blog' }}
+        See more {{ project ? 'projects' : 'blog posts' }}
       </nuxt-link>
     </div>
     <div class="article__body">
@@ -20,6 +20,12 @@
         <em>{{ post.description }}</em>
       </p>
       <markdown :markdown="post" />
+      <nuxt-link
+        :to="project ? '/projects' : '/blog'"
+        class="article__back article__back--mobile"
+      >
+        See more {{ project ? 'projects' : 'blog posts' }}
+      </nuxt-link>
     </div>
   </article>
 </template>
@@ -99,6 +105,15 @@ export default {
     display: inline;
     position: sticky;
     top: 6rem;
+  }
+
+  &--mobile {
+    display: inline-block;
+    margin-top: 1.5rem;
+
+    @media (min-width: $breakpoint--lg) {
+      display: none;
+    }
   }
 }
 
