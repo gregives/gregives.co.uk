@@ -38,7 +38,7 @@ export default {
 
           // Update VH units for Android
           const updateVH = () => {
-            const vh = document.documentElement.clientHeight * 0.01
+            const vh = (document.documentElement.clientHeight / 100).toFixed(3)
             document.documentElement.style.setProperty('--vh', `${vh}px`)
           }
           window.addEventListener('resize', updateVH)
