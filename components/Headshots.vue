@@ -96,7 +96,7 @@ export default {
   bottom: 0;
   filter: sepia(1) hue-rotate(-45deg) hue-rotate($color__primary--hue)
     saturate(1.5) brightness(1.2) contrast(0.9);
-  height: calc(20vh + 30vw - 0.5rem);
+  height: calc(20vh + 30vw - 1rem);
   overflow: hidden;
   pointer-events: none;
   position: absolute;
@@ -119,7 +119,7 @@ export default {
   background-image: url('~assets/images/headshots.png?format=webp&quality=70');
   background-repeat: no-repeat;
   background-size: 700%;
-  bottom: 0;
+  bottom: -0.5rem;
   height: calc(100% + 0.5rem);
   right: 0;
   position: absolute;
