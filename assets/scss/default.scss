@@ -125,11 +125,21 @@ small {
   outline-offset: 0.1rem;
 }
 
-:target::before {
-  content: '';
-  display: block;
-  height: 5rem;
-  margin-top: -5rem;
+:target {
+  &::before {
+    content: '';
+    display: block;
+    height: 5rem;
+    margin-top: -5rem;
+  }
+
+  @supports (scroll-margin-top: 5rem) {
+    scroll-margin-top: 5rem;
+
+    &::before {
+      display: none;
+    }
+  }
 }
 
 .nuxt-progress {
