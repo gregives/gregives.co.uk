@@ -7,15 +7,20 @@ const {
 
 const sharp = require('sharp')
 
-const defaultOptions = {
-  quality: 80,
-  sizes: [320, 640, 1280, 1920]
-}
-
 module.exports = function(source) {
   const callback = this.async()
   const params = this.resourceQuery ? parseQuery(this.resourceQuery) : {}
-  const options = Object.assign({}, defaultOptions, getOptions(this))
+
+  // Override default options
+  const options = Object.assign(
+    {},
+    {
+      disable: this.mode === 'development',
+      quality: 80,
+      sizes: [320, 640, 1280, 1920]
+    },
+    getOptions(this)
+  )
 
   // Helper function to emit files
   const emitFile = (name, content) => {
@@ -29,7 +34,7 @@ module.exports = function(source) {
   }
 
   // Disable in development
-  if (this.mode === 'development') {
+  if (options.disable) {
     const name = `[path][name].[ext]`
     const path = emitFile(name, source)
     callback(null, `module.exports = ${path}`)
