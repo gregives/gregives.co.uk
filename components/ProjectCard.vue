@@ -48,7 +48,7 @@ export default {
   &:hover {
     .project-card__image {
       &::after {
-        opacity: 1;
+        opacity: 0.5;
       }
 
       .lazy {
@@ -69,8 +69,7 @@ export default {
   z-index: -1;
 
   &::after {
-    background-color: $color__primary--muted;
-    background-image: linear-gradient(transparent, $color__primary);
+    background-image: linear-gradient($color__primary--muted, $color__primary);
     content: '';
     height: 100%;
     left: 0;
