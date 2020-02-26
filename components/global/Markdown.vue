@@ -183,9 +183,14 @@ export default {
     border: 1px solid $color__text--muted;
     border-collapse: separate;
     border-radius: $border-radius;
+    margin-top: 2rem;
     max-width: 100%;
     overflow: auto;
     text-align: left;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
 
     th {
       font-weight: 500;
@@ -204,6 +209,16 @@ export default {
     th:first-child,
     td:first-child {
       border-left: none;
+    }
+
+    thead:first-child,
+    tbody:first-child {
+      tr:first-child {
+        th,
+        td {
+          border-top: none;
+        }
+      }
     }
   }
 }

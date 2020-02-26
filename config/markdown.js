@@ -12,7 +12,7 @@ const markdown = require('markdown-it')({
   highlight(str, lang) {
     if (lang && hljs.getLanguage(lang)) {
       try {
-        return `<pre class="highlight" data-language="${lang.toUpperCase()}"><code>${
+        return `<pre class="highlight" data-language="${lang}"><code>${
           hljs.highlight(lang, str, true).value
         }</code></pre>`
       } finally {

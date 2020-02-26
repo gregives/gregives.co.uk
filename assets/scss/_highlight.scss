@@ -18,7 +18,7 @@ code {
   margin: 1.5rem 0rem;
   position: relative;
   width: 100%;
-  
+
   code {
     border: none;
     box-shadow: $box-shadow inset;
@@ -49,6 +49,7 @@ code {
     padding: 0.15rem 0.5rem;
     position: absolute;
     right: 0;
+    text-transform: uppercase;
   }
 }
 
