@@ -1,7 +1,7 @@
 ---
 title: Festimap
 date: 2019-04-01
-image: projects/festimap/screenshots1.png
+image: /assets/images/dynamic/festimap/screenshots1.png
 description: >-
   Progressive web app designed to share photos at festivals around the world, created for a university module on modern web development.
 tags:
@@ -17,8 +17,9 @@ tags:
 
 Festimap is a progressive web app designed to share photos from festivals around the world. Created as a university project with [Tom Croasdale](https://tomcroasdale.dev), Festimap was built with Express, Node.js, MongoDB and Vue.
 
-<lazy-image src="projects/festimap/screenshots1.png" alt="Screenshots of Festimap app" />
-<lazy-image src="projects/festimap/screenshots2.png" alt="Screenshots of Festimap app" />
+![Screenshots of Festimap app](/assets/images/dynamic/festimap/screenshots1.png)
+
+![Screenshots of Festimap app](/assets/images/dynamic/festimap/screenshots2.png)
 
 ## Requirements
 
@@ -32,4 +33,4 @@ The front-end uses Vue and Bootstrap for the interface, with some custom brandin
 
 A focus of the project was to make the app a fully-fledged progressive web app, which works both offline and online. Key to this was the service worker which would cache resources and the IndexedDB. The IndexedDB was designed to mirror the MongoDB server, with very similar documents for stories and events --- when the app was online, it would sync the IndexedDB with the MongoDB, so that when the app went offline it would fallback to the mirrored version on the device. When taking a photo on the device, it was first stored into the IndexedDB; if there was no internet connection it would then sync the photo at a later date and upload the photo to the server.
 
-<lazy-image src="projects/festimap/diagram.png" alt="Diagram showing the layout of the progressive web app's pages and data flow" />
+![Diagram showing the layout of the progressive web app's pages and data flow](/assets/images/dynamic/festimap/diagram.png)

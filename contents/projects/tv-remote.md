@@ -1,7 +1,7 @@
 ---
 title: TV Remote
 date: 2018-12-01
-image: projects/tv-remote/unphone.jpg
+image: /assets/images/dynamic/tv-remote/unphone.jpg
 description: >-
   Firmware for the unPhone, a souped-up ESP32 with an LCD touchscreen, to control televisions from a number of manufacturers.
 tags:
@@ -19,7 +19,7 @@ During my third year of university, I undertook a module on the Internet of Thin
 
 With my lab partner, we decided to create a TV remote using the unPhone, capable of controlling many different models of televisions.
 
-<lazy-image src="projects/tv-remote/interface.png" alt="Screenshot of the interface and final TV remote" />
+![Screenshot of the interface and final TV remote](/assets/images/dynamic/tv-remote/interface.png)
 
 ## Making the Remote
 
@@ -33,7 +33,4 @@ In order to test our unPhone remote, we created a receiver using an Arduino Uno 
 
 If in direct line of sight to the receiever, the range of the unphone remote was impressive. We took measurements every 50cm all the way from 0cm to 500cm, where the signal eventually failed. At each distance, we pressed 30 random buttons on the remote, and recorded whether the IR receiver measured the correct signal. We also used a standard Sony remote at each distance to act as a control, and to ensure that any errors were the cause of the transmitter, not the receiver.
 
-<lazy-image src="projects/tv-remote/testing.png" alt="Graph showing the accuracy of the remote at varying range" />
-
-
-
+![Graph showing the accuracy of the remote at varying range](/assets/images/dynamic/tv-remote/testing.png)

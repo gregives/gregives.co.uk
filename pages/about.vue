@@ -6,7 +6,7 @@
     <div class="about__text">
       <div class="about__image">
         <lazy-image
-          src="about.jpg"
+          src="/assets/images/dynamic/about.jpg"
           alt="Greg Ives at HackSheffield"
           sizes="(min-width: 768px) 50vw, 100vw"
         />

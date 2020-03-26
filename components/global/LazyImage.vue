@@ -1,6 +1,6 @@
 <template>
   <div class="lazy">
-    <picture :style="{ width }">
+    <picture :style="width ? { width } : false">
       <source :data-srcset="srcsetWebp" :sizes="sizes" type="image/webp" />
       <source :data-srcset="srcset" :sizes="sizes" :type="format" />
       <img :src="lqip" :alt="alt" class="lazy__image lazy__image--load" />
@@ -21,25 +21,28 @@ export default {
     },
     sizes: {
       type: String,
-      default: '100vw'
+      default: '(min-width: 992px) 75vw, 100vw'
     },
     width: {
       type: String,
-      default: null
+      default: ''
     }
   },
   computed: {
     format() {
       return this.src.split('.').pop()
     },
+    srcRel() {
+      return this.src.replace(/^\/assets\/images\/dynamic\//, '')
+    },
     srcset() {
-      return require(`~/assets/images/dynamic/${this.src}?srcset`)
+      return require(`~/assets/images/dynamic/${this.srcRel}?srcset`)
     },
     srcsetWebp() {
-      return require(`~/assets/images/dynamic/${this.src}?srcset&format=webp`)
+      return require(`~/assets/images/dynamic/${this.srcRel}?srcset&format=webp`)
     },
     lqip() {
-      return require(`~/assets/images/dynamic/${this.src}?size=20&format=jpeg&inline`)
+      return require(`~/assets/images/dynamic/${this.srcRel}?size=20&format=jpeg&inline`)
     }
   }
 }
@@ -68,6 +71,7 @@ export default {
   &--loaded {
     filter: none;
     margin: 0;
+    max-width: 100%;
     width: 100%;
   }
 }

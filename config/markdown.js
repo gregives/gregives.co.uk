@@ -43,7 +43,29 @@ const markdown = require('markdown-it')({
   .use(require('markdown-it-sub'))
   .use(require('markdown-it-mark'))
   .use(require('markdown-it-ins'))
+  .use(function(md) {
+    // Plugin to switch images for custom component
+    md.renderer.rules.image = function(tokens, index) {
+      const token = tokens[index]
+      const src = token.attrs[token.attrIndex('src')][1]
+      const alt = token.attrs[token.attrIndex('alt')][1]
+
+      // Render lazy image component
+      if (token.attrIndex('title') !== -1) {
+        // Use the title as the image width
+        const width = token.attrs[token.attrIndex('title')][1]
+        return `<lazy-image src="${src}" alt="${alt}" width="${width}" />`
+      } else {
+        return `<lazy-image src="${src}" alt="${alt}" />`
+      }
+    }
+  })
+
+// Remove wrapper paragraph, from markdown-it inline image
+const replaceInlineImages = (html) => {
+  return html.replace(/<p>(<lazy-image[^>]*>)<\/p>/g, '$1')
+}
 
 export default function(body) {
-  return markdown.render(body)
+  return replaceInlineImages(markdown.render(body))
 }
