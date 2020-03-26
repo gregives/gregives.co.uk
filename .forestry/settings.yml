@@ -1,0 +1,34 @@
+---
+new_page_extension: md
+auto_deploy: false
+admin_path: ''
+webhook_url: 
+sections:
+- type: directory
+  path: contents/projects
+  label: Projects
+  create: documents
+  match: "*.md"
+  new_doc_ext: md
+  templates:
+  - project
+- type: directory
+  path: contents/blog
+  label: Blog
+  create: documents
+  match: "*.md"
+  new_doc_ext: md
+  templates:
+  - blog-post
+upload_dir: assets
+public_path: "/assets"
+front_matter_path: ''
+use_front_matter_path: false
+file_template: ":filename:"
+build:
+  preview_output_directory: ".nuxt"
+  install_dependencies_command: npm install
+  preview_docker_image: node:10
+  mount_path: "/srv"
+  working_dir: "/srv"
+  instant_preview_command: npm run dev

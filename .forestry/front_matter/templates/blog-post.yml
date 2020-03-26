@@ -1,0 +1,21 @@
+---
+label: Blog post
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: Title
+- type: datetime
+  name: date
+  label: Date
+- type: textarea
+  name: description
+  label: Description
+- name: tags
+  type: tag_list
+  default: []
+  label: Tags
+pages:
+- contents/blog/build-a-blog-with-nuxt-and-markdown.md
+- contents/blog/my-markdown-it-configuration.md
+- contents/blog/why-you-should-learn-regex.md

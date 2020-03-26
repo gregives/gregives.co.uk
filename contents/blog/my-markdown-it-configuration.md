@@ -1,10 +1,11 @@
 ---
 title: My Markdown-It Configuration
 date: 2020-02-16
-description: >-
-  An overview of the markdown-it and highlight.js configurations used on my website.
----
+description: An overview of the markdown-it and highlight.js configurations used on
+  my website.
+tags: []
 
+---
 I use [markdown-it](https://github.com/markdown-it/markdown-it) and [highlight.js](https://highlightjs.org) to render my blog posts. Out of the box, markdown-it and highlight.js may provide all the functionality you need, however, customising them enables you to do stuff like:
 
 - Display the language of code blocks

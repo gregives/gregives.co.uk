@@ -2,17 +2,17 @@
 title: Computer Vision System for a Chess-Playing Robot
 titleShort: Dissertation
 date: 2019-05-01
-image: /assets/images/dynamic/dissertation/demonstration.png
-description: >-
-  A computer vision system for a chess-playing robot. Tracks the state of a chessboard over time, using Python, scikit-learn and OpenCV.
+image: "/assets/images/dynamic/dissertation/demonstration.png"
+description: A computer vision system for a chess-playing robot. Tracks the state
+  of a chessboard over time, using Python, scikit-learn and OpenCV.
 tags:
-  - Python
-  - OpenCV
-  - scikit-learn
-  - Flask
-  - Vue
----
+- Python
+- OpenCV
+- scikit-learn
+- Flask
+- Vue
 
+---
 I completed my dissertation as part of my 3^rd^ year of university. Entitled "A Computer Vision System for a Chess-Playing Robot", my dissertation aimed to infer the state of a chessboard from a webcam placed above the board. You can [download the report here](https://gregives.co.uk/projects/dissertation/dissertation.pdf). Here's what the finished system looks like!
 
 ![Demonstration page of the system](/assets/images/dynamic/dissertation/demonstration.png)

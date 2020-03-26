@@ -1,19 +1,20 @@
 ---
 title: Hype
+titleShort: ''
 date: 2016-10-01
-image: /assets/images/dynamic/hype/screenshots1.png
-description: >-
-  Product of my first hackathon. Hype, an Android app to 'hype' a location or event, which can be viewed on an interactive map.
+image: "/assets/images/dynamic/hype/screenshots1.png"
+description: Product of my first hackathon. Hype, an Android app to 'hype' a location
+  or event, which can be viewed on an interactive map.
 tags:
-  - Hackathon
-  - Android
-  - Java
-  - Google Maps
-  - Node.js
-  - Express
-  - MongoDB
----
+- Hackathon
+- Android
+- Java
+- Google Maps
+- Node.js
+- Express
+- MongoDB
 
+---
 The first hackathon I attended was HackSheffield 2.0, in my first month at university. I formed a team with three other people from my course, and we started brainstorming something to build at our first hackathon! We decided on an app to share events with other people, with the focus point of the app being an interactive map to view all events happening around you, and 'hype' up events which you attended.
 
 ![Screenshots of the Hype app](/assets/images/dynamic/hype/screenshots1.png)

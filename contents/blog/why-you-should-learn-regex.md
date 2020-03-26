@@ -1,10 +1,11 @@
 ---
 title: Why You Should Learn Regex
 date: 2020-02-26
-description: >-
-  Learning how to write regular expressions has been a great investment of my time, you should learn regex too!
----
+description: Learning how to write regular expressions has been a great investment
+  of my time, you should learn regex too!
+tags: []
 
+---
 I often find myself needing to do bulk *find and replace*s, usually when refactoring my code. The other day, I needed to change a number of class names, something like this:
 
 ```css
