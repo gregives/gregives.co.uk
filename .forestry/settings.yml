@@ -4,14 +4,9 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
-- type: directory
-  path: contents/projects
-  label: Projects
-  create: documents
-  match: "*.md"
-  new_doc_ext: md
-  templates:
-  - project
+- type: document
+  path: contents/index.md
+  label: Home
 - type: directory
   path: contents/blog
   label: Blog
@@ -20,8 +15,22 @@ sections:
   new_doc_ext: md
   templates:
   - blog-post
-upload_dir: assets
-public_path: "/assets"
+- type: directory
+  path: contents/projects
+  label: Projects
+  create: documents
+  match: "*.md"
+  new_doc_ext: md
+  templates:
+  - project
+- type: document
+  path: contents/about.md
+  label: About
+- type: document
+  path: contents/contact.md
+  label: Contact
+upload_dir: assets/images/dynamic
+public_path: "/assets/images/dynamic"
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
