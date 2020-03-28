@@ -27,7 +27,7 @@ const markdown = require('markdown-it')({
 })
   .use(require('markdown-it-anchor'), {
     permalink: true,
-    permalinkSymbol: '#',
+    permalinkSymbol: '&nbsp;#',
     permalinkSpace: false
   })
   .use(require('markdown-it-external-links'), {

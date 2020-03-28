@@ -44,7 +44,6 @@ export default {
   h4 {
     .header-anchor {
       color: $color__text--muted;
-      margin-left: 0.5rem;
       opacity: 0;
       transition: opacity 150ms $transition__normal;
 
