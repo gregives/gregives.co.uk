@@ -36,17 +36,16 @@
 </template>
 
 <script>
-import Headshots from '~/components/Headshots'
-import PostCard from '~/components/PostCard'
-import ProjectCard from '~/components/ProjectCard'
+import { hydrateSsrOnly, hydrateWhenIdle } from 'vue-lazy-hydration'
 import { projectLoader, projectSlugs } from '~/contents/projects'
 import { postLoader, postSlugs } from '~/contents/blog'
 
 export default {
   components: {
-    Headshots,
-    PostCard,
-    ProjectCard
+    Headshots: hydrateWhenIdle(() => import('~/components/Headshots')),
+    Markdown: hydrateSsrOnly(() => import('~/components/Markdown')),
+    PostCard: hydrateWhenIdle(() => import('~/components/PostCard')),
+    ProjectCard: hydrateWhenIdle(() => import('~/components/ProjectCard'))
   },
   async asyncData() {
     const { vue } = await import('~/contents/index.md')

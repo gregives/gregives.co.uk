@@ -17,7 +17,13 @@
 </template>
 
 <script>
+import { hydrateSsrOnly } from 'vue-lazy-hydration'
+
 export default {
+  components: {
+    LazyImage: hydrateSsrOnly(() => import('~/components/LazyImage')),
+    Markdown: hydrateSsrOnly(() => import('~/components/Markdown'))
+  },
   async asyncData() {
     const { vue } = await import('~/contents/about.md')
     return {

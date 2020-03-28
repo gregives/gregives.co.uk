@@ -5,12 +5,11 @@
 </template>
 
 <script>
-import PostArticle from '~/components/PostArticle'
 import { postLoader } from '~/contents/blog'
 
 export default {
   components: {
-    PostArticle
+    PostArticle: () => import('~/components/PostArticle')
   },
   async asyncData({ params, error }) {
     try {

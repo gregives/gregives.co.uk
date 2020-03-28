@@ -14,12 +14,11 @@
 </template>
 
 <script>
-import ProjectCard from '~/components/ProjectCard'
 import { projectLoader, projectSlugs } from '~/contents/projects'
 
 export default {
   components: {
-    ProjectCard
+    ProjectCard: () => import('~/components/ProjectCard')
   },
   head() {
     return {

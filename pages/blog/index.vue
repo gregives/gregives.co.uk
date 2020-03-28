@@ -10,12 +10,11 @@
 </template>
 
 <script>
-import PostCard from '~/components/PostCard'
 import { postLoader, postSlugs } from '~/contents/blog'
 
 export default {
   components: {
-    PostCard
+    PostCard: () => import('~/components/PostCard')
   },
   head() {
     return {
