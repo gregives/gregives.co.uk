@@ -17,5 +17,6 @@ fields:
   label: Tags
 pages:
 - contents/blog/build-a-blog-with-nuxt-and-markdown.md
+- contents/blog/choosing-a-cms-for-your-website.md
 - contents/blog/my-markdown-it-configuration.md
 - contents/blog/why-you-should-learn-regex.md
