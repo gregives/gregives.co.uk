@@ -1,8 +1,8 @@
 ---
-tags: []
 title: Choosing a CMS for Your Website
-date: 2020-03-27T00:00:00Z
+date: 2020-03-28
 description: Why I decided to use a CMS for my website and why I chose to use Forestry.io
+tags: []
 
 ---
 I'm writing this blog post on my phone and when I'm finished I'll click save, which will automatically trigger a build of my website. I think that's really cool! A few months ago, I didn't see the appeal in content management systems — in this blog post I'm going to explain why I've changed my mind and how to choose the right CMS for you.
@@ -25,7 +25,7 @@ When I started thinking about using a CMS on my website, I'd already created my 
 
 After you edit content in your Git-based CMS, your changes will be pushed to the repository, which will trigger a build of your website (or application). Essentially, all of your content is stored in your Git repository.
 
-#### Pros
+**Pros:**
 
 - Version control straight out-of-the-box
 - Easily revert changes (using your version control system)
@@ -33,7 +33,7 @@ After you edit content in your Git-based CMS, your changes will be pushed to the
 - No change to the workflow for developers
 - It's really simple!
 
-#### Cons
+**Cons:**
 
 - Flat-file storage like Markdown isn't suited to lots of content
 - New content will trigger a build every time
@@ -42,13 +42,13 @@ After you edit content in your Git-based CMS, your changes will be pushed to the
 
 An API-based CMS stores all your content in their database. When you edit content, nothing implicitly changes, although you may want to send a webhook to your build process. When you build your website, you will make a request to the API (usually REST or GraphQL) to retrieve the content.
 
-#### Pros
+**Pros:**
 
 - You can use the content for multiple websites and/or applications
 - It can easily handle large amounts of data
 - Add new content as often as you want, without necessarily triggering a build
 
-#### Cons
+**Cons:**
 
 - Version control of your content is now down to the CMS
 - API-based CMSs usually have storage and usage limits, which can cost
