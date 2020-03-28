@@ -32,9 +32,6 @@
 
 <script>
 export default {
-  components: {
-    Markdown: () => import('~/components/Markdown')
-  },
   props: {
     post: {
       type: Object,

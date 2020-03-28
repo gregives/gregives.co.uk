@@ -20,12 +20,7 @@
 </template>
 
 <script>
-import { hydrateSsrOnly } from 'vue-lazy-hydration'
-
 export default {
-  components: {
-    LazyImage: hydrateSsrOnly(() => import('~/components/LazyImage'))
-  },
   props: {
     project: {
       type: Object,

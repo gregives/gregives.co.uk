@@ -1,4 +1,6 @@
 import Vue from 'vue'
-import LazyHydrate from 'vue-lazy-hydration'
+import LazyImage from '~/components/global/LazyImage'
+import Markdown from '~/components/global/Markdown'
 
-Vue.component('LazyHydrate', LazyHydrate)
+Vue.component('LazyImage', LazyImage)
+Vue.component('Markdown', Markdown)
