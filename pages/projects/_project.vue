@@ -33,6 +33,26 @@ export default {
           hid: 'description',
           name: 'description',
           content: this.project.description
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.project.title
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.project.description
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `https://gregives.co.uk${this.project.link}`
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `https://gregives.co.uk${this.project.link}/og.png`
         }
       ]
     }

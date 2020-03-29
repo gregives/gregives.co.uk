@@ -33,6 +33,26 @@ export default {
           hid: 'description',
           name: 'description',
           content: this.post.description
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.post.title
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.post.description
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `https://gregives.co.uk${this.post.link}`
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `https://gregives.co.uk${this.post.link}/og.png`
         }
       ]
     }
