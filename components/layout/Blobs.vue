@@ -27,11 +27,11 @@ $transition-length: 1200ms;
 .blobs__blob {
   background-color: $color__body--overlay;
   mask-size: contain;
-  padding-bottom: 20%;
+  padding-bottom: 20rem;
   position: absolute;
   transform: translate(-50%, -50%) scale(0);
   transition: transform $transition-length $transition__normal;
-  width: 20%;
+  width: 20rem;
 
   &:nth-child(1) {
     left: 20%;

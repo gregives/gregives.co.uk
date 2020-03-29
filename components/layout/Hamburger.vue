@@ -12,7 +12,7 @@
 <script>
 export default {
   watch: {
-    $route() {
+    '$route.path'() {
       this.changingRoute = true
       if (this.menuIsOpen()) {
         setTimeout(this.closeMenu, 800) // If link clicked to other route
@@ -52,11 +52,6 @@ export default {
           this.closeMenu() // If link clicked to current route
         }
         this.changingRoute = false
-      }
-
-      const nav = document.querySelector('nav').getBoundingClientRect()
-      if (event.clientX < nav.left && this.menuIsOpen()) {
-        this.closeMenu() // If clicking outside the nav
       }
     }
   }

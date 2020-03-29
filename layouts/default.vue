@@ -57,7 +57,7 @@ export default {
     }
   },
   watch: {
-    $route() {
+    '$route.path'(...args) {
       setTimeout(() => {
         this.$refs.wrapper.scrollTo(0, 0)
       }, 800)
@@ -88,6 +88,7 @@ export default {
 <style lang="scss">
 #__wrapper {
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   overflow-y: scroll;
   overflow-x: hidden;
 }
