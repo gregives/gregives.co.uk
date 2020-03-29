@@ -54,7 +54,7 @@ const openGraphTags = [
   {
     hid: 'og:image',
     property: 'og:image',
-    content: 'https://gregives.co.uk/opengraph'
+    content: 'https://gregives.co.uk/og.png'
   },
   {
     hid: 'og:image:type',
