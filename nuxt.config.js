@@ -92,9 +92,9 @@ export default {
   },
   // Generate sitemap
   sitemap: {
+    gzip: true,
     hostname: 'https://gregives.co.uk',
-    exclude: ['/meta'],
-    gzip: true
+    routes
   },
   // Generate dynamic routes and 404 fallback
   generate: {
