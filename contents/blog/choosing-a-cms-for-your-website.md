@@ -15,7 +15,7 @@ This separation between code and content allows me to focus more on writing cont
 
 ## Which Type of CMS Is Right for You?
 
-When you think of a Content Management System, you'll probably think of WordPress, which is used on a staggering 36.2% of all websites [at the time of writing](https://w3techs.com/technologies/overview/content_management). If you used WordPress as your CMS of choice, you typically had to use WordPress to create your website as well as the content, this is known as a monolithic or traditional CMS. However, **headless** content management systems are becoming much more popular: headless CMSs allow you to manage your content on the CMS but _use your chosen technology_, for example, a static site generator like Gatsby or Hugo, to build your website.
+When you think of a Content Management System, you'll probably think of WordPress, which is used on a staggering [36.2% of all websites](https://w3techs.com/technologies/overview/content_management) at the time of writing. If you used WordPress as your CMS of choice, you typically had to use WordPress to create your website as well as the content, this is known as a monolithic or traditional CMS. However, **headless** content management systems are becoming much more popular: headless CMSs allow you to manage your content on the CMS but _use your chosen technology_, for example, a static site generator like Gatsby or Hugo, to build your website.
 
 When I started thinking about using a CMS on my website, I'd already created my blog <nuxt-link to="/blog/build-a-blog-with-nuxt-and-markdown">using Nuxt.js and Markdown</nuxt-link>, so I knew I needed to use a headless CMS. Which brought me to my next decision: should I use a Git-based or API-based headless CMS?
 
@@ -27,16 +27,16 @@ After you edit content in your Git-based CMS, your changes will be pushed to the
 
 **Pros:**
 
-- Version control straight out-of-the-box
-- Easily revert changes (using your version control system)
-- You can easily switch between Git-based CMSs
-- No change to the workflow for developers
-- It's really simple!
+* Version control straight out-of-the-box
+* Easily revert changes (using your version control system)
+* You can easily switch between Git-based CMSs
+* No change to the workflow for developers
+* It's really simple!
 
 **Cons:**
 
-- Flat-file storage like Markdown isn't suited to lots of content
-- New content will trigger a build every time
+* Flat-file storage like Markdown isn't suited to lots of content
+* New content will trigger a build every time
 
 ### API-Based CMSs
 
@@ -44,23 +44,23 @@ An API-based CMS stores all your content in their database. When you edit conten
 
 **Pros:**
 
-- You can use the content for multiple websites and/or applications
-- It can easily handle large amounts of data
-- Add new content as often as you want, without necessarily triggering a build
+* You can use the content for multiple websites and/or applications
+* It can easily handle large amounts of data
+* Add new content as often as you want, without necessarily triggering a build
 
 **Cons:**
 
-- Version control of your content is now down to the CMS
-- API-based CMSs usually have storage and usage limits, which can cost
-- Changing your API-based CMS will require changes to how you retrieve your content
+* Version control of your content is now down to the CMS
+* API-based CMSs usually have storage and usage limits, which can cost
+* Changing your API-based CMS will require changes to how you retrieve your content
 
 ## Why I Chose Forestry.io
 
 As all of the content on my website was already stored in the `contents` directory of my Git repository, it seemed obvious to use a Git-based CMS. I found a number of options, including [Forestry.io](https://forestry.io/), [Publii](https://getpublii.com/) and [Netlify CMS](https://www.netlifycms.org/). Each of these uses a different way of accessing the CMS:
 
-- Forestry.io provides a hosted dashboard
-- Publii needs to be downloaded as a local application
-- Netlify CMS is hosted by you, on your website
+* Forestry.io provides a hosted dashboard
+* Publii needs to be downloaded as a local application
+* Netlify CMS is hosted by you, on your website
 
 I wanted to be able to edit my content online but I didn't want the hassle (although it's probably very straightforward) of setting up Netlify CMS. So I decided to use Forestry.io!
 
