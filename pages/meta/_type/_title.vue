@@ -1,0 +1,80 @@
+<template>
+  <main class="preview">
+    <h1 v-if="text" class="preview__title">
+      <span class="preview__title--primary">{{ text }}</span>
+    </h1>
+    <h1 v-else class="preview__title">
+      Hi, I’m <span class="preview__title--primary">Greg Ives</span>
+    </h1>
+  </main>
+</template>
+
+<script>
+import { postLoader } from '~/contents/blog'
+import { projectLoader } from '~/contents/projects'
+
+export default {
+  async asyncData({ params }) {
+    if (params.type === 'blog') {
+      try {
+        const post = await postLoader(params.title)
+        return {
+          text: post.attributes.title
+        }
+      } catch {
+        return {
+          text: null
+        }
+      }
+    } else {
+      try {
+        const project = await projectLoader(params.title)
+        return {
+          text: project.attributes.title
+        }
+      } catch {
+        return {
+          text: null
+        }
+      }
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+.preview {
+  $clip-path: polygon(10% 0%, 50% 100%, 100% 100%, 100% 0%);
+  @include page;
+  @include dots($clip-path);
+
+  min-height: 100vh !important;
+}
+
+.preview__title {
+  @include title;
+
+  bottom: 5%;
+  position: absolute;
+  width: 65%;
+}
+
+.preview__title--primary {
+  @include title--primary;
+}
+
+// Override external styles
+body {
+  overflow: hidden;
+}
+
+#__app {
+  transform: scale(1.5);
+  transform-origin: bottom left;
+}
+
+.header,
+.footer {
+  display: none;
+}
+</style>

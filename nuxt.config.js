@@ -98,12 +98,13 @@ export default {
   // Generate sitemap
   sitemap: {
     hostname: 'https://gregives.co.uk',
+    exclude: ['/meta'],
     gzip: true
   },
   // Generate dynamic routes and 404 fallback
   generate: {
     fallback: true,
-    routes
+    routes: [...routes, ...routes.map((route) => `/meta${route}`)]
   },
   // Build configuration
   build: {
