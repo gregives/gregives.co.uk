@@ -11,6 +11,12 @@ import routes from './contents/routes'
 import markdown from './config/markdown'
 import minify from './config/minify'
 
+// Open Graph
+import { generateImages, openGraphTags } from './config/opengraph'
+
+// Generate tags for Open Graph
+generateImages(routes)
+
 // Load primary color from sass
 const [, primaryColor] = fs
   .readFileSync(path.join(__dirname, 'assets', 'scss', '_variables.scss'), {
@@ -30,9 +36,9 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content:
-          'Personal site and portfolio of software engineer Greg Ives. Currently in his final year studying Computer Science at the University of Sheffield, Greg is looking for an opportunity in software engineering from June 2020.'
-      }
+        content: 'Personal site and portfolio of software engineer Greg Ives.'
+      },
+      ...openGraphTags
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -78,17 +84,6 @@ export default {
   },
   // Nuxt.js PWA configuration
   pwa: {
-    meta: {
-      name: 'Greg Ives',
-      ogHost: 'https://gregives.co.uk',
-      ogImage: {
-        path: '/og.png',
-        width: 1910,
-        height: 1000,
-        type: 'image/png'
-      },
-      twitterCard: 'summary_large_image'
-    },
     manifest: {
       name: 'Greg Ives',
       short_name: 'Greg Ives',
