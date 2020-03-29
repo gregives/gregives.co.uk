@@ -9,8 +9,7 @@
   color: $color__text;
   font-family: $font__body;
   font-size: calc(60% + 1vmin);
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden;
 
   // Bound font-size on larger screens
   @media (min-width: $breakpoint--xl) {
@@ -144,30 +143,6 @@ small {
 
 .nuxt-progress {
   background-color: $color__primary !important;
-}
-
-.page-enter-active,
-.page-leave-active,
-.layout-enter-active,
-.layout-leave-active {
-  transform-origin: top;
-  transition: opacity 300ms $transition__normal--out, transform 300ms $transition__normal--out;
-
-  + .footer {
-    transition: opacity 300ms $transition__normal--out;
-  }
-}
-
-.page-enter,
-.page-leave-to,
-.layout-enter,
-.layout-leave-to {
-  opacity: 0 !important;
-  transform: translateY(-0.5rem) scale(1.01);
-
-  + .footer {
-    opacity: 0 !important;
-  }
 }
 
 .material-design-icon svg {

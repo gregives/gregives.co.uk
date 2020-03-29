@@ -10,13 +10,13 @@
 
   min-height: calc(100vh - 6.5rem);
   min-height: calc(var(--vh, 1vh) * 100 - 6.5rem);
-  padding-top: 7.5rem;
+  padding-top: 3.5rem;
   padding-bottom: 4.5rem;
 
   @media (min-width: $breakpoint--md) {
     min-height: calc(100vh - 4rem);
     min-height: calc(var(--vh, 1vh) * 100 - 4rem);
-    padding-top: 9rem;
+    padding-top: 5rem;
   }
 
   @media print {

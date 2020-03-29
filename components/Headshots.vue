@@ -41,14 +41,15 @@ export default {
       requestAnimationFrame(() => {
         let clientX
         let clientY
+        let rect
         try {
           clientX = event.clientX || event.changedTouches[0].clientX
           clientY = event.clientY || event.changedTouches[0].clientY
+          rect = this.$refs.headshot.getBoundingClientRect()
         } catch (error) {
           return
         }
 
-        const rect = this.$refs.headshot.getBoundingClientRect()
         const mouseX = ((clientX - rect.left) * 10) / rect.width
         const mouseY = ((clientY - rect.top) * 10) / rect.height
 

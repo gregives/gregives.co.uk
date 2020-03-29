@@ -1,20 +1,25 @@
 <template>
   <div id="__app">
     <script v-html="script"></script>
-    <top-bar />
-    <nuxt />
-    <bottom-bar />
+    <div id="__wrapper" ref="wrapper">
+      <top-bar />
+      <nuxt />
+      <bottom-bar />
+      <blobs />
+    </div>
   </div>
 </template>
 
 <script>
 import TopBar from '~/components/layout/TopBar'
 import BottomBar from '~/components/layout/BottomBar'
+import Blobs from '~/components/layout/Blobs'
 
 export default {
   components: {
     TopBar,
-    BottomBar
+    BottomBar,
+    Blobs
   },
   data() {
     return {
@@ -51,6 +56,13 @@ export default {
       })()
     }
   },
+  watch: {
+    $route() {
+      setTimeout(() => {
+        this.$refs.wrapper.scrollTo(0, 0)
+      }, 800)
+    }
+  },
   mounted() {
     // Disable install prompt for PWA
     window.addEventListener('beforeinstallprompt', (event) => {
@@ -72,3 +84,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+#__wrapper {
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+</style>
