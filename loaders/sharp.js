@@ -66,14 +66,12 @@ module.exports = function(source) {
       images = images.map((image) => image.blur())
     }
 
-    // Convert to given format
-    if (params.format) {
-      images = images.map((image) => {
-        return image.toFormat(params.format)[params.format]({
-          quality: parseInt(params.quality) || options.quality
-        })
+    // Convert to given format and quality
+    images = images.map((image) => {
+      return image.toFormat(format)[format]({
+        quality: parseInt(params.quality) || options.quality
       })
-    }
+    })
 
     // Convert to buffers
     Promise.all(images.map((image) => image.toBuffer())).then((buffers) => {
