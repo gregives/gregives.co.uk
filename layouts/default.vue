@@ -63,7 +63,7 @@ export default {
     '$route.path'(...args) {
       setTimeout(() => {
         this.$refs.wrapper.scrollTo(0, 0)
-      }, 1200)
+      }, 600)
     }
   },
   mounted() {
@@ -79,11 +79,14 @@ export default {
     }
 
     // Loading blobs
-    document.documentElement.dataset.loading = 'loaded'
     setTimeout(() => {
-      // Remove loading attribute after a while
-      delete document.documentElement.dataset.loading
-    }, 2000)
+      document.documentElement.dataset.loading = 'loaded'
+
+      setTimeout(() => {
+        // Remove loading attribute after a while
+        delete document.documentElement.dataset.loading
+      }, 1800)
+    }, 600)
   },
   methods: {
     scrollToHash(hash) {
