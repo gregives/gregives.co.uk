@@ -98,4 +98,24 @@ $transition-length: 1200ms;
     transform: scale(1.5);
   }
 }
+
+:root {
+  &[data-loading] {
+    .blobs__blob {
+      background-color: $color__primary;
+    }
+  }
+
+  &[data-loading='loading'] {
+    .blobs__blob {
+      transform: translate(-50%, -50%) scale(15);
+    }
+  }
+
+  &[data-loading='loaded'] {
+    .blobs {
+      transform: scale(1.5);
+    }
+  }
+}
 </style>

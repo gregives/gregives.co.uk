@@ -29,6 +29,9 @@ export default {
           const theme = localStorage.getItem('theme') || 'light'
           document.documentElement.dataset.theme = theme
 
+          // Set loading attribute
+          document.documentElement.dataset.loading = 'loading'
+
           const color = getComputedStyle(
             document.documentElement
           ).getPropertyValue(
@@ -60,7 +63,7 @@ export default {
     '$route.path'(...args) {
       setTimeout(() => {
         this.$refs.wrapper.scrollTo(0, 0)
-      }, 800)
+      }, 1200)
     }
   },
   mounted() {
@@ -74,6 +77,13 @@ export default {
     if (hash) {
       this.scrollToHash(hash)
     }
+
+    // Loading blobs
+    document.documentElement.dataset.loading = 'loaded'
+    setTimeout(() => {
+      // Remove loading attribute after a while
+      delete document.documentElement.dataset.loading
+    }, 2000)
   },
   methods: {
     scrollToHash(hash) {

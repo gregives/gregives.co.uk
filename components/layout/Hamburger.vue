@@ -15,7 +15,7 @@ export default {
     '$route.path'() {
       this.changingRoute = true
       if (this.menuIsOpen()) {
-        setTimeout(this.closeMenu, 800) // If link clicked to other route
+        setTimeout(this.closeMenu, 1200) // If link clicked to other route
       }
     }
   },
