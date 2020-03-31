@@ -16,6 +16,7 @@ $transition-length: 1500ms;
 .blobs {
   display: none;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   left: 0;
   position: fixed;
   top: 0;
