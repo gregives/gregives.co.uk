@@ -79,14 +79,14 @@ export default {
     }
 
     // Loading blobs
-    setTimeout(() => {
+    requestAnimationFrame(() => {
       document.documentElement.dataset.loading = 'loaded'
 
       setTimeout(() => {
         // Remove loading attribute after a while
         delete document.documentElement.dataset.loading
       }, 1500)
-    }, 4000)
+    })
   },
   methods: {
     scrollToHash(hash) {

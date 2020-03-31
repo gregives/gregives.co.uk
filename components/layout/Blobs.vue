@@ -6,7 +6,6 @@
     <div class="blobs__blob"></div>
     <div class="blobs__blob"></div>
     <div class="blobs__blob"></div>
-    <div class="blobs__date"></div>
   </div>
 </template>
 
@@ -77,40 +76,6 @@ $transition-length: 1500ms;
   }
 }
 
-.blobs__date {
-  filter: blur(1rem) opacity(0);
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  transition: filter $transition-length $transition__normal;
-
-  $birth: 1998;
-  $years: 2020 - $birth;
-  @keyframes dates {
-    @for $i from 0 through $years {
-      #{($i * 100 / $years) + '%'} {
-        content: '#{$i + 1998}';
-      }
-    }
-  }
-
-  &::after {
-    @include h1;
-
-    animation: dates ($transition-length * 2) $transition-length
-      $transition__snappy forwards;
-    color: $color__body--overlay;
-    content: '#{$birth}';
-    display: block;
-    font-family: $font__fancy;
-    font-variant: lining-nums tabular-nums;
-    text-align: left;
-    margin-bottom: 0;
-    width: 3.75ch;
-  }
-}
-
 .page-enter-active,
 .page-leave-active,
 .layout-enter-active,
@@ -153,10 +118,6 @@ $transition-length: 1500ms;
 
       .blobs__blob {
         transform: translate(-50%, -50%) scale(10);
-      }
-
-      .blobs__date {
-        filter: none;
       }
     }
   }
