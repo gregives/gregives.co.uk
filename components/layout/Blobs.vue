@@ -93,7 +93,7 @@ $transition-length: 1500ms;
 .layout-leave-to {
   ~ .blobs {
     .blobs__blob {
-      transform: translate(-50%, -50%) scale(10);
+      transform: translate(-50%, -50%) scale(12);
     }
   }
 }
@@ -102,30 +102,6 @@ $transition-length: 1500ms;
 .layout-enter-active {
   ~ .blobs {
     transform: scale(1.5);
-  }
-}
-
-:root {
-  &[data-loading] {
-    .blobs__blob {
-      background-color: $color__primary;
-    }
-  }
-
-  &[data-loading='loading'] {
-    .blobs {
-      pointer-events: all;
-
-      .blobs__blob {
-        transform: translate(-50%, -50%) scale(10);
-      }
-    }
-  }
-
-  &[data-loading='loaded'] {
-    .blobs {
-      transform: scale(1.5);
-    }
   }
 }
 </style>
