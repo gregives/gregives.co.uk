@@ -46,7 +46,11 @@ export default {
       { rel: 'preconnect', href: 'https://cdn.jsdelivr.net' },
       { rel: 'dns-prefetch', href: 'https://www.google-analytics.com' },
       { rel: 'dns-prefetch', href: 'https://cdn.jsdelivr.net' }
-    ]
+    ],
+    noscript: [
+      { innerHTML: '<style>.lazy>picture>img{display:none;}</style>' }
+    ],
+    __dangerouslyDisableSanitizers: ['noscript']
   },
   // Loading bar
   loading: {

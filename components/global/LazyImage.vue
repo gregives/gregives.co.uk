@@ -4,6 +4,14 @@
       <source :data-srcset="srcsetWebp" :sizes="sizes" type="image/webp" />
       <source :data-srcset="srcset" :sizes="sizes" :type="format" />
       <img :src="lqip" :alt="alt" class="lazy__image lazy__image--load" />
+      <!-- Fallback image -->
+      <noscript inline-template>
+        <img
+          :src="original"
+          :alt="alt"
+          class="lazy__image lazy__image--loaded"
+        />
+      </noscript>
     </picture>
   </div>
 </template>
@@ -43,6 +51,9 @@ export default {
     },
     lqip() {
       return require(`~/assets/images/dynamic/${this.srcRel}?size=20&format=jpeg&inline`)
+    },
+    original() {
+      return require(`~/assets/images/dynamic/${this.srcRel}`)
     }
   }
 }
