@@ -6,20 +6,21 @@
     <div class="blobs__blob"></div>
     <div class="blobs__blob"></div>
     <div class="blobs__blob"></div>
+    <div class="blobs__date"></div>
   </div>
 </template>
 
 <style lang="scss">
-$transition-length: 1200ms;
+$transition-length: 1500ms;
 
 .blobs {
+  display: none;
   height: 100vh;
   left: 0;
-  pointer-events: none;
   position: fixed;
   top: 0;
   transform: none;
-  transition: transform ($transition-length / 2) $transition__normal;
+  transition: transform $transition-length $transition__normal;
   width: 100vw;
   z-index: 10000;
 }
@@ -70,6 +71,40 @@ $transition-length: 1200ms;
   }
 }
 
+.blobs__date {
+  filter: blur(1rem) opacity(0);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: filter $transition-length $transition__normal;
+
+  $birth: 1998;
+  $years: 2020 - $birth;
+  @keyframes dates {
+    @for $i from 0 through $years {
+      #{($i * 100 / $years) + '%'} {
+        content: '#{$i + 1998}';
+      }
+    }
+  }
+
+  &::after {
+    @include h1;
+
+    animation: dates ($transition-length * 2) $transition-length
+      $transition__snappy forwards;
+    color: $color__body--overlay;
+    content: '#{$birth}';
+    display: block;
+    font-family: $font__fancy;
+    font-variant: lining-nums tabular-nums;
+    text-align: left;
+    margin-bottom: 0;
+    width: 3.75ch;
+  }
+}
+
 .page-enter-active,
 .page-leave-active,
 .layout-enter-active,
@@ -77,7 +112,7 @@ $transition-length: 1200ms;
   transition-delay: ($transition-length / 2);
 
   ~ .blobs {
-    visibility: visible;
+    display: block;
   }
 }
 
@@ -87,7 +122,7 @@ $transition-length: 1200ms;
 .layout-leave-to {
   ~ .blobs {
     .blobs__blob {
-      transform: translate(-50%, -50%) scale(15);
+      transform: translate(-50%, -50%) scale(10);
     }
   }
 }
@@ -101,14 +136,24 @@ $transition-length: 1200ms;
 
 :root {
   &[data-loading] {
-    .blobs__blob {
-      background-color: $color__primary;
+    .blobs {
+      display: block;
+
+      .blobs__blob {
+        background-color: $color__primary;
+      }
     }
   }
 
   &[data-loading='loading'] {
-    .blobs__blob {
-      transform: translate(-50%, -50%) scale(15);
+    .blobs {
+      .blobs__blob {
+        transform: translate(-50%, -50%) scale(10);
+      }
+
+      .blobs__date {
+        filter: none;
+      }
     }
   }
 
