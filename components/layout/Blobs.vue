@@ -18,12 +18,17 @@ $transition-length: 1500ms;
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
   left: 0;
+  pointer-events: none;
   position: fixed;
   top: 0;
   transform: none;
   transition: transform $transition-length $transition__normal;
   width: 100vw;
   z-index: 10000;
+
+  @supports (pointer-events: none) {
+    display: block;
+  }
 }
 
 .blobs__blob {
@@ -113,7 +118,7 @@ $transition-length: 1500ms;
   transition-delay: ($transition-length / 2);
 
   ~ .blobs {
-    display: block;
+    pointer-events: all;
   }
 }
 
@@ -137,17 +142,15 @@ $transition-length: 1500ms;
 
 :root {
   &[data-loading] {
-    .blobs {
-      display: block;
-
-      .blobs__blob {
-        background-color: $color__primary;
-      }
+    .blobs__blob {
+      background-color: $color__primary;
     }
   }
 
   &[data-loading='loading'] {
     .blobs {
+      pointer-events: all;
+
       .blobs__blob {
         transform: translate(-50%, -50%) scale(10);
       }
