@@ -67,13 +67,13 @@
 </template>
 
 <script>
+import { hydrateWhenIdle } from 'vue-lazy-hydration'
+
 import EmailIcon from 'icons/EmailVariant'
 import TwitterIcon from 'icons/Twitter'
 import GithubIcon from 'icons/GithubCircle'
 import DevpostIcon from 'icons/HexagonOutline'
 import LinkedinIcon from 'icons/LinkedinBox'
-
-import ContactForm from '~/components/ContactForm'
 
 export default {
   components: {
@@ -82,7 +82,7 @@ export default {
     GithubIcon,
     DevpostIcon,
     LinkedinIcon,
-    ContactForm
+    ContactForm: hydrateWhenIdle(() => import('~/components/ContactForm'))
   },
   async asyncData() {
     const { vue } = await import('~/contents/contact.md')

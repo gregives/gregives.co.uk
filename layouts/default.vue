@@ -57,7 +57,7 @@ export default {
     }
   },
   watch: {
-    '$route.path'(...args) {
+    '$route.path'() {
       setTimeout(() => {
         this.$refs.wrapper.scrollTo(0, 0)
       }, 750)

@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import PostCard from '~/components/PostCard'
+import { hydrateWhenIdle } from 'vue-lazy-hydration'
 import { postLoader, postSlugs } from '~/contents/blog'
 
 export default {
   components: {
-    PostCard
+    PostCard: hydrateWhenIdle(() => import('~/components/PostCard'))
   },
   head() {
     return {

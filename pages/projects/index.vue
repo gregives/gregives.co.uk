@@ -14,12 +14,12 @@
 </template>
 
 <script>
-import ProjectCard from '~/components/ProjectCard'
+import { hydrateWhenIdle } from 'vue-lazy-hydration'
 import { projectLoader, projectSlugs } from '~/contents/projects'
 
 export default {
   components: {
-    ProjectCard
+    ProjectCard: hydrateWhenIdle(() => import('~/components/ProjectCard'))
   },
   head() {
     return {

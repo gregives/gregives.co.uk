@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import PostArticle from '~/components/PostArticle'
+import { hydrateWhenIdle } from 'vue-lazy-hydration'
 import { postLoader } from '~/contents/blog'
 
 export default {
   components: {
-    PostArticle
+    PostArticle: hydrateWhenIdle(() => import('~/components/PostArticle'))
   },
   async asyncData({ params, error }) {
     try {
