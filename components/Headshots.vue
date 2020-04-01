@@ -18,7 +18,8 @@ export default {
     return {
       closestHeadshot: 'fd',
       x: null,
-      y: null
+      y: null,
+      rAF: null
     }
   },
   computed: {
@@ -32,13 +33,17 @@ export default {
       window.addEventListener('touchstart', this.storeMousePosition)
       window.addEventListener('touchmove', this.storeMousePosition)
 
-      requestAnimationFrame(this.changeHeadshot)
+      this.rAF = requestAnimationFrame(this.changeHeadshot)
     }
   },
   beforeDestroy() {
-    window.removeEventListener('mousemove', this.storeMousePosition)
-    window.removeEventListener('touchstart', this.storeMousePosition)
-    window.removeEventListener('touchmove', this.storeMousePosition)
+    if (!this.error) {
+      window.removeEventListener('mousemove', this.storeMousePosition)
+      window.removeEventListener('touchstart', this.storeMousePosition)
+      window.removeEventListener('touchmove', this.storeMousePosition)
+
+      cancelAnimationFrame(this.rAF)
+    }
   },
   methods: {
     storeMousePosition(event) {
@@ -51,7 +56,7 @@ export default {
     },
     changeHeadshot() {
       if (this.x === null || this.y === null) {
-        requestAnimationFrame(this.changeHeadshot)
+        this.rAF = requestAnimationFrame(this.changeHeadshot)
         return
       }
 
@@ -59,7 +64,7 @@ export default {
       try {
         rect = this.$refs.headshot.getBoundingClientRect()
       } catch (error) {
-        requestAnimationFrame(this.changeHeadshot)
+        this.rAF = requestAnimationFrame(this.changeHeadshot)
         return
       }
 
@@ -100,7 +105,7 @@ export default {
         String.fromCharCode(97 + Math.abs(closestHeadshot[1]))
       ].join('')
 
-      requestAnimationFrame(this.changeHeadshot)
+      this.rAF = requestAnimationFrame(this.changeHeadshot)
     }
   }
 }
