@@ -10,6 +10,7 @@
   font-family: $font__body;
   font-size: calc(60% + 1vmin);
   overflow: hidden;
+  overscroll-behavior: none;
 
   // Bound font-size on larger screens
   @media (min-width: $breakpoint--xl) {

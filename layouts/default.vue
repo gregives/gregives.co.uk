@@ -91,5 +91,6 @@ export default {
   height: calc(var(--vh, 1vh) * 100);
   overflow-y: scroll;
   overflow-x: hidden;
+  overscroll-behavior: contain;
 }
 </style>
