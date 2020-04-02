@@ -81,7 +81,7 @@ export default {
 
     background-color: $color__body;
     box-shadow: 0.5rem 0 $color__body, -0.5rem 0 $color__body,
-      0.5rem 0.5rem $color__body, -0.5rem 0.5rem $color__body;
+      0.5rem 0.75rem $color__body, -0.5rem 0.75rem $color__body;
     display: inline;
   }
 
