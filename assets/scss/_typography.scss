@@ -1,3 +1,29 @@
+// Display font to preload
+@font-face {
+  font-display: swap;
+  font-family: 'DM Serif Text';
+  font-style: normal;
+  font-weight: 400;
+  src: local('DM Serif Text Regular'), local('DMSerifText-Regular'),
+       url('~assets/fonts/DMSerifText-Regular-Latin.woff2') format('woff2'),
+       url('~assets/fonts/DMSerifText-Regular-Latin.woff') format('woff');
+}
+
+// Font mixins
+@mixin font__fancy {
+  font-family: 'DM Serif Text', Georgia, serif;
+  letter-spacing: calc(0.05em - 0.05rem);
+}
+
+@mixin font__body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+@mixin font__code {
+  font-family: Monaco, Consolas, 'Lucida Console', monospace;
+}
+
+// Type sizes
 @mixin h1 {
   font-size: calc(120% + 4vw);
   margin-bottom: 2rem;

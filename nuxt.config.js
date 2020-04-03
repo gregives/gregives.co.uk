@@ -105,6 +105,16 @@ export default {
     fallback: true,
     routes: [...routes, ...routes.map((route) => `/meta${route}`)]
   },
+  // Renderer options for preloading
+  render: {
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        // Check hash to preload display font
+        if (type === 'font') return /bf5d89e/.test(file)
+        return ['script', 'style'].includes(type)
+      }
+    }
+  },
   // Build configuration
   build: {
     html: {

@@ -15,6 +15,11 @@ import TopBar from '~/components/layout/TopBar'
 import BottomBar from '~/components/layout/BottomBar'
 import Blobs from '~/components/layout/Blobs'
 
+const fontFiles = {
+  woff: require('~/assets/fonts/DMSerifText-Regular-Latin-Ext.woff'),
+  woff2: require('~/assets/fonts/DMSerifText-Regular-Latin-Ext.woff2')
+}
+
 export default {
   components: {
     TopBar,
@@ -51,8 +56,22 @@ export default {
 
           // Remove data-n-head
           delete document.documentElement.dataset.nHead
+
+          // Load full display font
+          if ('fonts' in document) {
+            const font = new FontFace(
+              'DM Serif Text',
+              "url('<WOFF2>') format('woff2'), url('<WOFF>') format('woff')"
+            )
+
+            font.load().then((font) => {
+              document.fonts.add(font)
+            })
+          }
         }
         return `(${content.toString()})()`
+          .replace('<WOFF>', fontFiles.woff)
+          .replace('<WOFF2>', fontFiles.woff2)
       })()
     }
   },

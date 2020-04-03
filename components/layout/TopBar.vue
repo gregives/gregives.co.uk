@@ -50,10 +50,10 @@ export default {
 }
 
 .header__logo {
+  @include font__fancy;
+
   flex-grow: 1;
-  font-family: $font__fancy;
   font-size: 130%;
-  font-weight: 500;
 
   a:hover {
     color: $color__primary;

@@ -1,8 +1,4 @@
-// Fonts
-$font__fancy: 'Tiempos Headline', 'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif;
-$font__body: 'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$font__code: 'IBM Plex Mono', Monaco, Consolas, 'Lucida Console', monospace;
-
+// CSS variables
 :root {
   $color__primary: #35f;
   --color__primary: #{$color__primary};
@@ -23,6 +19,7 @@ $font__code: 'IBM Plex Mono', Monaco, Consolas, 'Lucida Console', monospace;
   --box-shadow--primary: 0 0.5rem 1rem -0.5rem #{$color__primary};
   --box-shadow--primary-small: 0 0.25rem 0.5rem -0.25rem #{$color__primary};
 
+  // Dark mode
   @media screen {
     &[data-theme='dark'] {
       $color__primary: #89f;

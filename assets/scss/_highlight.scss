@@ -1,10 +1,11 @@
 code {
+  @include font__code;
+
   background-color: $color__body;
   background-image: linear-gradient($color__text--muter, $color__text--muter);
   border: $border-weight solid $color__body;
   border-radius: $border-radius;
   box-shadow: $box-shadow--small inset;
-  font-family: $font__code;
   font-size: 90%;
   padding: 0 0.25rem;
   margin: -$border-weight;

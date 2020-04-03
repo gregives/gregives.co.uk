@@ -1,13 +1,13 @@
 @import "reset";
-@import "fonts";
 @import "variables";
+@import "typography";
 @import "highlight";
 @import "mixins";
-@import "typography";
 
 :root {
+  @include font__body;
+
   color: $color__text;
-  font-family: $font__body;
   font-size: calc(60% + 1vmin);
   overflow: hidden;
   overscroll-behavior: none;
@@ -31,8 +31,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font__fancy;
-  font-weight: 500;
+  @include font__fancy;
+  font-weight: 400;
 }
 
 h1 {
