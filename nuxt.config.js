@@ -103,7 +103,7 @@ export default {
   // Generate dynamic routes and 404 fallback
   generate: {
     fallback: true,
-    routes: [...routes, ...routes.map((route) => `/meta${route}`)]
+    routes: [...routes, '/meta', ...routes.map((route) => `/meta${route}`)]
   },
   // Renderer options for preloading
   render: {
