@@ -13,6 +13,7 @@
 @mixin font__fancy {
   font-family: 'DM Serif Text', Georgia, serif;
   letter-spacing: calc(0.05em - 0.05rem);
+  line-height: 1.4;
 }
 
 @mixin font__body {
