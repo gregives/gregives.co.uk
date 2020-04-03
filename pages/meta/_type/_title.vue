@@ -1,10 +1,10 @@
 <template>
-  <main class="preview">
-    <h1 v-if="text" class="preview__title">
-      <span class="preview__title--primary">{{ text }}</span>
+  <main class="meta">
+    <h1 v-if="text" class="meta__title">
+      <span class="meta__title--primary">{{ text }}</span>
     </h1>
-    <h1 v-else class="preview__title">
-      Hi, I’m <span class="preview__title--primary">Greg Ives</span>
+    <h1 v-else class="meta__title">
+      Hi, I’m <span class="meta__title--primary">Greg Ives</span>
     </h1>
   </main>
 </template>
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss">
-.preview {
+.meta {
   $clip-path: polygon(10% 0%, 50% 100%, 100% 100%, 100% 0%);
   @include page;
   @include dots($clip-path);
@@ -51,7 +51,7 @@ export default {
   min-height: 100vh !important;
 }
 
-.preview__title {
+.meta__title {
   @include title;
 
   bottom: 5%;
@@ -59,7 +59,7 @@ export default {
   width: 65%;
 }
 
-.preview__title--primary {
+.meta__title--primary {
   @include title--primary;
 }
 
