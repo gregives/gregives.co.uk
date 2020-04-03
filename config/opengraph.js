@@ -15,7 +15,7 @@ function generateImages(routes) {
       // URL to corresponding meta page
       const url = encodeURIComponent(`https://gregives.co.uk/meta${route}`)
       // ApiFlash endpoint
-      const api = `https://api.apiflash.com/v1/urltoimage?access_key=${API_KEY}&format=png&fresh=true&height=630&response_type=image&ttl=2592000&url=${url}&width=1200`
+      const api = `https://api.apiflash.com/v1/urltoimage?access_key=${API_KEY}&format=png&height=630&response_type=image&ttl=2592000&url=${url}&width=1200`
 
       // Write response to stream
       https.get(api, (response) => {
