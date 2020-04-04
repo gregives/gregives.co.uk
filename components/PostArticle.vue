@@ -96,22 +96,27 @@ export default {
   padding-right: 3rem;
 }
 
+.article__body {
+  .markdown {
+    margin-bottom: 1.5rem;
+  }
+}
+
 .article__back {
   @include link;
 
   display: none;
 
+  &--mobile {
+    display: inline;
+  }
+
   @media (min-width: $breakpoint--lg) {
     display: inline;
     position: sticky;
     top: 6rem;
-  }
 
-  &--mobile {
-    display: inline-block;
-    margin-top: 1.5rem;
-
-    @media (min-width: $breakpoint--lg) {
+    &--mobile {
       display: none;
     }
   }

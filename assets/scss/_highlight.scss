@@ -44,7 +44,7 @@ code {
     bottom: calc(100% - 0.75rem);
     box-shadow: $box-shadow--small;
     color: $color__primary;
-    content: '.\202F' attr(data-language);
+    content: '.' attr(data-language);
     font-size: 80%;
     font-weight: 500;
     padding: 0.15rem 0.5rem;

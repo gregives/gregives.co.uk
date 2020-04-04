@@ -35,6 +35,7 @@
   background-color: $color__body;
   box-shadow: $box-shadow;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   left: 100%;
   position: fixed;
   top: 0;

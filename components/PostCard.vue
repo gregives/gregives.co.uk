@@ -81,7 +81,7 @@ export default {
 }
 
 .post-card__link {
-  @include link;
+  @include link($heading: true);
 
   &::after {
     position: absolute;

@@ -130,7 +130,7 @@ export default {
 }
 
 .project-card__link {
-  @include link($color__body--overlay);
+  @include link($color__body--overlay, $heading: true);
 
   &::after {
     position: absolute;

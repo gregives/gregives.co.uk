@@ -8,14 +8,15 @@
 @mixin page {
   @include container;
 
-  min-height: calc(100vh - 6.5rem);
-  min-height: calc(var(--vh, 1vh) * 100 - 6.5rem);
+  // 100vh minus height of header and footer
+  min-height: calc(100vh - 10.5rem);
+  min-height: calc(var(--vh, 1vh) * 100 - 10.5rem);
   padding-top: 3.5rem;
   padding-bottom: 4.5rem;
 
   @media (min-width: $breakpoint--md) {
-    min-height: calc(100vh - 4rem);
-    min-height: calc(var(--vh, 1vh) * 100 - 4rem);
+    min-height: calc(100vh - 8rem);
+    min-height: calc(var(--vh, 1vh) * 100 - 8rem);
     padding-top: 5rem;
   }
 
@@ -64,16 +65,22 @@
   -webkit-text-fill-color: currentColor;
 }
 
-@mixin link($color: $color__body) {
+@mixin link($color: $color__body, $heading: false) {
   @include link--shadow($color);
 
   background-image: linear-gradient($color__primary--muted, $color__primary--muted),
     linear-gradient($color__primary, $color__primary);
   background-size: 100% $border-weight, 0% $border-weight;
   background-repeat: no-repeat;
-  background-position: left calc(80% + 0.25rem);
+  
   color: $color__primary;
   transition: background-size 300ms $transition__snappy;
+
+  @if $heading {
+    background-position: bottom 0.25rem left;
+  } @else {
+    background-position: bottom left;
+  }
 
   &:hover {
     @include link--active;
