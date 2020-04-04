@@ -77,7 +77,7 @@
   transition: background-size 300ms $transition__snappy;
 
   @if $heading {
-    background-position: bottom 0.25rem left;
+    background-position: bottom 0.2rem left;
   } @else {
     background-position: bottom left;
   }
