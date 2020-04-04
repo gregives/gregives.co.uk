@@ -17,7 +17,7 @@ This separation between code and content allows me to focus more on writing cont
 
 When you think of a Content Management System, you'll probably think of WordPress, which is used on a staggering [36.2% of all websites](https://w3techs.com/technologies/overview/content_management) at the time of writing. If you used WordPress as your CMS of choice, you typically had to use WordPress to create your website as well as the content, this is known as a monolithic or traditional CMS. However, **headless** content management systems are becoming much more popular: headless CMSs allow you to manage your content on the CMS but _use your chosen technology_, for example, a static site generator like Gatsby or Hugo, to build your website.
 
-When I started thinking about using a CMS on my website, I'd already created my blog <nuxt-link to="/blog/build-a-blog-with-nuxt-and-markdown">using Nuxt.js and Markdown</nuxt-link>, so I knew I needed to use a headless CMS. Which brought me to my next decision: should I use a Git-based or API-based headless CMS?
+When I started thinking about using a CMS on my website, I'd already created my blog <nuxt-link to="/blog/build-a-blog-with-nuxt-and-markdown/">using Nuxt.js and Markdown</nuxt-link>, so I knew I needed to use a headless CMS. Which brought me to my next decision: should I use a Git-based or API-based headless CMS?
 
 ![Diagram showing the architecture of different CMSs](/assets/images/dynamic/which-cms/designs.png)
 

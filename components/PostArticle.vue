@@ -11,7 +11,7 @@
       <ul v-if="post.tags" class="article__tags">
         <li v-for="tag in post.tags" :key="tag">{{ tag }}</li>
       </ul>
-      <nuxt-link :to="project ? '/projects' : '/blog'" class="article__back">
+      <nuxt-link :to="project ? '/projects/' : '/blog/'" class="article__back">
         See more {{ project ? 'projects' : 'blog posts' }}
       </nuxt-link>
     </div>
@@ -21,7 +21,7 @@
       </p>
       <markdown :markdown="post" />
       <nuxt-link
-        :to="project ? '/projects' : '/blog'"
+        :to="project ? '/projects/' : '/blog/'"
         class="article__back article__back--mobile"
       >
         See more {{ project ? 'projects' : 'blog posts' }}

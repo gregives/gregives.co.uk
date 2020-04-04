@@ -10,7 +10,7 @@
       <a v-scroll-to="'#stuff'" class="home__stuff" href="#stuff">
         See my stuff
       </a>
-      <nuxt-link class="home__contact" to="/contact">
+      <nuxt-link class="home__contact" to="/contact/">
         Contact me
       </nuxt-link>
       <headshots />
@@ -20,7 +20,7 @@
       <post-card v-for="post in posts" :key="post.title" :post="post" />
     </ol>
     <div class="home__posts-more">
-      <nuxt-link to="/blog">See more blog posts</nuxt-link>
+      <nuxt-link to="/blog/">See more blog posts</nuxt-link>
     </div>
     <ol class="home__projects">
       <project-card
@@ -30,7 +30,7 @@
       />
     </ol>
     <div class="home__projects-more">
-      <nuxt-link to="/projects">See more projects</nuxt-link>
+      <nuxt-link to="/projects/">See more projects</nuxt-link>
     </div>
   </main>
 </template>

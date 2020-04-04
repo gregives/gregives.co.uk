@@ -229,6 +229,6 @@ export default {
 
 That's everything! When you've finished all of these steps, you'll be able to write blog posts in Markdown and see them appear in your `/blog` page. Clicking on a blog post will take you to `/blog/name-of-blog-post`, where you'll see your blog post compiled from the Markdown using Vue's render functions.
 
-Feel free to <nuxt-link to="/contact">contact me</nuxt-link> if you have any queries or feedback and keep an eye out for my next blog post!
+Feel free to <nuxt-link to="/contact/">contact me</nuxt-link> if you have any queries or feedback and keep an eye out for my next blog post!
 
 *[CDN]: Content Delivery Network

@@ -105,6 +105,10 @@ export default {
     fallback: true,
     routes: [...routes, '/meta', ...routes.map((route) => `/meta${route}`)]
   },
+  // Add trailing slashes to match Netlify
+  router: {
+    trailingSlash: true
+  },
   // Renderer options for preloading
   render: {
     bundleRenderer: {

@@ -10,7 +10,7 @@
     </client-only>
     <p class="error__message">
       If you think there's something wrong with my website, please could you
-      <nuxt-link to="/contact" class="error__contact">let me know</nuxt-link>?
+      <nuxt-link to="/contact/" class="error__contact">let me know</nuxt-link>?
       Otherwise you can head back over to the home page!
     </p>
     <nuxt-link to="/" class="error__home">Take me home</nuxt-link>
