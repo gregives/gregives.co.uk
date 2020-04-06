@@ -4,6 +4,7 @@
       <div class="header__logo">
         <nuxt-link to="/">Greg Ives</nuxt-link>
       </div>
+      <input id="__menu" type="checkbox" />
       <nav-bar />
       <div class="header__buttons">
         <theme-toggle />
@@ -52,6 +53,8 @@ export default {
 .header__logo {
   @include font__fancy;
 
+  align-items: center;
+  display: flex;
   flex-grow: 1;
   font-size: 130%;
 
@@ -63,5 +66,9 @@ export default {
 .header__buttons {
   height: 100%;
   z-index: 3;
+}
+
+#__menu {
+  display: none;
 }
 </style>

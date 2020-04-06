@@ -43,9 +43,6 @@ export default {
             .querySelector('meta[name="theme-color"]')
             .setAttribute('content', color.trim())
 
-          // Set menu to closed
-          document.documentElement.dataset.menu = 'closed'
-
           // Update VH units for Android
           const updateVH = () => {
             const vh = (document.documentElement.clientHeight / 100).toFixed(3)

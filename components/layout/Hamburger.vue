@@ -1,12 +1,7 @@
 <template>
-  <button
-    @click.stop="toggleMenu"
-    class="hamburger"
-    aria-label="Menu"
-    title="Menu"
-  >
+  <label class="hamburger" for="__menu" aria-label="Menu" title="Menu">
     <div class="hamburger__icon"></div>
-  </button>
+  </label>
 </template>
 
 <script>
@@ -14,9 +9,7 @@ export default {
   watch: {
     '$route.path'() {
       this.changingRoute = true
-      if (this.menuIsOpen()) {
-        setTimeout(this.closeMenu, 750) // If link clicked to other route
-      }
+      setTimeout(this.closeMenu, 750) // If link clicked to other route
     }
   },
   mounted() {
@@ -27,32 +20,8 @@ export default {
     })
   },
   methods: {
-    menuIsOpen() {
-      return document.documentElement.dataset.menu === 'open'
-    },
-    openMenu() {
-      document.documentElement.dataset.menu = 'open'
-      window.addEventListener('click', this.handleClick)
-    },
     closeMenu() {
-      document.documentElement.dataset.menu = 'closed'
-      window.removeEventListener('click', this.handleClick)
-    },
-    toggleMenu() {
-      if (this.menuIsOpen()) {
-        this.closeMenu()
-      } else {
-        this.openMenu()
-      }
-    },
-    handleClick(event) {
-      const link = event.target.closest('a.nuxt-link-exact-active')
-      if (link !== null) {
-        if (!this.changingRoute && this.menuIsOpen()) {
-          this.closeMenu() // If link clicked to current route
-        }
-        this.changingRoute = false
-      }
+      document.getElementById('__menu').checked = false
     }
   }
 }
@@ -63,14 +32,12 @@ $speed: 150ms;
 $thickness: 2px;
 
 .hamburger {
-  background: none;
-  border: none;
   cursor: pointer;
+  display: inline-block;
   height: 100%;
   padding: 0 0.5rem;
   position: relative;
   margin: 0 -0.5rem;
-  outline: none;
 
   @media (min-width: $breakpoint--md) {
     display: none;
@@ -117,7 +84,7 @@ $thickness: 2px;
   }
 }
 
-:root[data-menu='open'] {
+#__menu:checked ~ .header__buttons {
   .hamburger__icon {
     transform: rotate(45deg);
     transition: transform $speed $speed $transition__snappy--out;
