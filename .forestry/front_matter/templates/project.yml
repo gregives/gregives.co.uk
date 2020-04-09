@@ -11,6 +11,9 @@ fields:
 - type: datetime
   name: date
   label: Date
+  config:
+    date_format: MM/YYYY
+    export_format: YYYY-MM-01
 - type: file
   name: image
   label: Image
