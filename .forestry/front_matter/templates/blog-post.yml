@@ -8,6 +8,11 @@ fields:
 - type: datetime
   name: date
   label: Date
+  config:
+    date_format: MM/YYYY
+    time_format: " "
+    export_format: YYYY-MM-DD
+  default: now
 - type: textarea
   name: description
   label: Description
