@@ -103,7 +103,7 @@ export default {
   // Generate dynamic routes and 404 fallback
   generate: {
     fallback: true,
-    routes: [...routes, '/meta', ...routes.map((route) => `/meta${route}`)]
+    routes: [...routes, '/meta/', ...routes.map((route) => `/meta${route}`)]
   },
   // Add trailing slashes to match Netlify
   router: {
