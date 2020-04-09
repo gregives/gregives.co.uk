@@ -1,6 +1,22 @@
 <template>
   <div class="headshots">
-    <div ref="headshot" :class="headshot" class="headshots__image"></div>
+    <div ref="headshot" :class="headshot" class="headshots__image">
+      <picture>
+        <source
+          :srcset="previewWebp"
+          :data-srcset="srcsetWebp"
+          :sizes="sizes"
+          type="image/webp"
+        />
+        <source :data-srcset="srcsetWebp" :sizes="sizes" type="image/png" />
+        <img
+          :src="preview"
+          :class="{ 'lazy__image--load': mounted }"
+          alt="Interactive photo of Greg Ives"
+          class="lazy__image"
+        />
+      </picture>
+    </div>
   </div>
 </template>
 
@@ -17,17 +33,33 @@ export default {
   data() {
     return {
       closestHeadshot: 'fd',
+      mounted: false,
       x: null,
       y: null,
-      rAF: null
+      rAF: null,
+      sizes: '(min-width: 1200px) 25vw, (min-width: 992px) 33vw, 50vw'
     }
   },
   computed: {
     headshot() {
       return `headshots__image--${this.error ? 'error' : this.closestHeadshot}`
+    },
+    preview() {
+      return require('~/assets/images/headshots--fd.png')
+    },
+    previewWebp() {
+      return require('~/assets/images/headshots--fd.png?format=webp')
+    },
+    srcset() {
+      return require(`~/assets/images/headshots.png`)
+    },
+    srcsetWebp() {
+      return require(`~/assets/images/headshots.png?format=webp`)
     }
   },
   mounted() {
+    this.mounted = true
+
     if (!this.error) {
       window.addEventListener('mousemove', this.storeMousePosition)
       window.addEventListener('touchstart', this.storeMousePosition)
@@ -118,7 +150,6 @@ export default {
     saturate(1.5) brightness(1.2) contrast(0.9);
   height: calc(20vh + 30vw - 1rem);
   overflow: hidden;
-  pointer-events: none;
   position: absolute;
   right: 1.5rem;
   width: calc(15vh + 22.5vw); // Aspect ratio of 4:3
@@ -135,126 +166,134 @@ export default {
 }
 
 .headshots__image {
-  background-image: url('~assets/images/headshots.png');
-  background-image: url('~assets/images/headshots.png?format=webp&quality=70');
-  background-repeat: no-repeat;
-  background-size: 700%;
   bottom: -0.5rem;
   height: calc(100% + 0.5rem);
   right: 0;
   position: absolute;
   width: 100%;
+
+  .lazy__image {
+    display: block;
+    filter: none;
+    left: 0;
+    margin: 0;
+    max-width: none;
+    position: absolute;
+    top: 0;
+    transform: translate(-(400% / 7), -(300% / 4));
+    width: 700%;
+  }
 }
 
-.headshots__image--_k_f {
-  background-position: 0 0;
+.headshots__image--_k_f .lazy__image--loaded {
+  transform: translate(0, 0);
 }
 
-.headshots__image--_la {
-  background-position: (100% / 6) 0;
+.headshots__image--_la .lazy__image--loaded {
+  transform: translate(-(100% / 7), 0);
 }
 
-.headshots__image--_pd {
-  background-position: (200% / 6) 0;
+.headshots__image--_pd .lazy__image--loaded {
+  transform: translate(-(200% / 7), 0);
 }
 
-.headshots__image--_r_f {
-  background-position: (300% / 6) 0;
+.headshots__image--_r_f .lazy__image--loaded {
+  transform: translate(-(300% / 7), 0);
 }
 
-.headshots__image--_sa {
-  background-position: (400% / 6) 0;
+.headshots__image--_sa .lazy__image--loaded {
+  transform: translate(-(400% / 7), 0);
 }
 
-.headshots__image--_bd {
-  background-position: (500% / 6) 0;
+.headshots__image--_bd .lazy__image--loaded {
+  transform: translate(-(500% / 7), 0);
 }
 
-.headshots__image--ia {
-  background-position: (600% / 6) 0;
+.headshots__image--ia .lazy__image--loaded {
+  transform: translate(-(600% / 7), 0);
 }
 
-.headshots__image--_ug {
-  background-position: 0 (100% / 3);
+.headshots__image--_ug .lazy__image--loaded {
+  transform: translate(0, -(100% / 4));
 }
 
-.headshots__image--_xd {
-  background-position: (100% / 6) (100% / 3);
+.headshots__image--_xd .lazy__image--loaded {
+  transform: translate(-(100% / 7), -(100% / 4));
 }
 
-.headshots__image--_c_f {
-  background-position: (200% / 6) (100% / 3);
+.headshots__image--_c_f .lazy__image--loaded {
+  transform: translate(-(200% / 7), -(100% / 4));
 }
 
-.headshots__image--_da {
-  background-position: (300% / 6) (100% / 3);
+.headshots__image--_da .lazy__image--loaded {
+  transform: translate(-(300% / 7), -(100% / 4));
 }
 
-.headshots__image--_f_f {
-  background-position: (400% / 6) (100% / 3);
+.headshots__image--_f_f .lazy__image--loaded {
+  transform: translate(-(400% / 7), -(100% / 4));
 }
 
-.headshots__image--_hg {
-  background-position: (500% / 6) (100% / 3);
+.headshots__image--_hg .lazy__image--loaded {
+  transform: translate(-(500% / 7), -(100% / 4));
 }
 
-.headshots__image--id {
-  background-position: (600% / 6) (100% / 3);
+.headshots__image--id .lazy__image--loaded {
+  transform: translate(-(600% / 7), -(100% / 4));
 }
 
-.headshots__image--_jd {
-  background-position: 0 (200% / 3);
+.headshots__image--_jd .lazy__image--loaded {
+  transform: translate(0, -(200% / 4));
 }
 
-.headshots__image--ag {
-  background-position: (100% / 6) (200% / 3);
+.headshots__image--ag .lazy__image--loaded {
+  transform: translate(-(100% / 7), -(200% / 4));
 }
 
-.headshots__image--k_f {
-  background-position: (200% / 6) (200% / 3);
+.headshots__image--k_f .lazy__image--loaded {
+  transform: translate(-(200% / 7), -(200% / 4));
 }
 
-.headshots__image--ma {
-  background-position: (300% / 6) (200% / 3);
+.headshots__image--ma .lazy__image--loaded {
+  transform: translate(-(300% / 7), -(200% / 4));
 }
 
-.headshots__image--od {
-  background-position: (400% / 6) (200% / 3);
+.headshots__image--od .lazy__image--loaded {
+  transform: translate(-(400% / 7), -(200% / 4));
 }
 
-.headshots__image--og {
-  background-position: (500% / 6) (200% / 3);
+.headshots__image--og .lazy__image--loaded {
+  transform: translate(-(500% / 7), -(200% / 4));
 }
 
-.headshots__image--jg {
-  background-position: (600% / 6) (200% / 3);
+.headshots__image--jg .lazy__image--loaded {
+  transform: translate(-(600% / 7), -(200% / 4));
 }
 
-.headshots__image--c_f {
-  background-position: 0 (300% / 3);
+.headshots__image--c_f .lazy__image--loaded {
+  transform: translate(0, -(300% / 4));
 }
 
-.headshots__image--ca {
-  background-position: (100% / 6) (300% / 3);
+.headshots__image--ca .lazy__image--loaded {
+  transform: translate(-(100% / 7), -(300% / 4));
 }
 
-.headshots__image--ea {
-  background-position: (200% / 6) (300% / 3);
+.headshots__image--ea .lazy__image--loaded {
+  transform: translate(-(200% / 7), -(300% / 4));
 }
 
-.headshots__image--f_f {
-  background-position: (300% / 6) (300% / 3);
+.headshots__image--f_f .lazy__image--loaded {
+  transform: translate(-(300% / 7), -(300% / 4));
 }
 
-.headshots__image--fd {
-  background-position: (400% / 6) (300% / 3);
+.headshots__image--fd .lazy__image--loaded {
+  transform: translate(-(400% / 7), -(300% / 4));
 }
 
-.headshots__image--fg {
-  background-position: (500% / 6) (300% / 3);
+.headshots__image--fg .lazy__image--loaded {
+  transform: translate(-(500% / 7), -(300% / 4));
 }
 
-.headshots__image--error {
-  background-position: (600% / 6) (300% / 3) !important;
+.headshots__image--error .lazy__image--loaded {
+  transform: translate(-(600% / 7), -(300% / 4)) !important;
 }
 </style>
