@@ -10,7 +10,7 @@ fields:
   label: Date
   config:
     date_format: DD/MM/YYYY
-    time_format: " "
+    time_format: ''
     export_format: YYYY-MM-DD
   default: now
 - type: textarea
