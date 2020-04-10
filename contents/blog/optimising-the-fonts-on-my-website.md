@@ -20,11 +20,11 @@ Before I decided to optimise the fonts on my website, I was loading four web fon
 * IBM Plex Mono, 13.7kB
 * IBM Plex Mono Bold, 14.1kB
 
-Opening up the Network panel in Chrome DevTools showed the time taken to download all four web fonts on the home page. The waterfall graph below shows the times at which the fonts were requested, over a period of 600ms:
+Opening up the Network panel in Chrome DevTools showed the time taken to download all four web fonts on the home page. I disabled cache and loaded the page on a throttled Slow 3G network. The waterfall graph below shows the times taken for the fonts to load, over a period of 10 seconds:
 
-![A waterfall graph showing the four fonts taking just under 600ms to load](/assets/images/dynamic/optimising-fonts/waterfall1.png)
+![Waterfall graph showing four fonts loading after 8 seconds](/assets/images/dynamic/optimising-fonts/waterfall1.png)
 
-The first request for the body font (IBM Plex Sans) started at around 140ms and finished before 200ms, which isn't too bad! However, the other fonts took a further 200–300ms to download, which resulted in a nasty layout shift, as you can see here:
+The fonts were all requested just after 2 seconds, and the last font finished loading more than 6 seconds later. Because of the time taken to load the fonts, the page is initially rendered with fallback fonts, which then causes a layout shift when the web fonts finally load.
 
 <video src="/blog/optimising-the-fonts-on-my-website/loading1.webm" type="video/webm" autoplay muted loop></video>
 
@@ -109,8 +109,10 @@ Notice we retain the required layout features `ccmp,locl,mark,mkmk` which we cou
 
 The unicodes specify which characters we want to keep in our first stage font file. Google Fonts seems to use a sensible default for their 'Latin' fonts, so I stuck with that. If you want to have more control over which unicodes you include, [glyphhanger](https://github.com/filamentgroup/glyphhanger) seems like a great tool which can actually analyse your website to see which unicode ranges are used.
 
+Subsetting my new display font brought my first stage fonts down to **only 12.0kB** in size! That's a reduction of a whopping **133kB** on some pages, compared to the seven web fonts I was previously loading.
+
 :::aside
-Remember to generate your fonts in WOFF format as well as WOFF 2 for [the best browser support](https://caniuse.com/#feat=woff).
+Remember to generate your fonts in WOFF format as well as WOFF 2 for [the best browser support](https://caniuse.com/#feat=woff). Just specify `--flavor=woff` and make sure your `output-file` has a `.woff` extension.
 :::
 
 #### Second Stage Font
@@ -132,3 +134,46 @@ We need to load the first stage font as soon as possible in order to minimise th
 ```
 
 You can preload more than one first stage font if necessary, but keep in mind the more you choose to preload, the worse it will affect First Render times or FOUT which we are trying to avoid.
+
+After you've told the browser to preload the font, you can just use a normal `@font-face` rule in your CSS. Put this inline in your `<head>` to make sure that your font is used as soon as it has been preloaded!
+
+```css
+@font-face {
+  font-display: swap;
+  font-family: 'DM Serif Text';
+  font-weight: 400;
+  src: local('DM Serif Text Regular'), local('DMSerifText-Regular'),
+       url('DMSerifText-Regular-Latin.woff2') format('woff2'),
+       url('DMSerifText-Regular-Latin.woff') format('woff');
+}
+```
+
+### Loading the Second Stage Fonts with JavaScript
+
+We want to load the second stage fonts as soon as possible with JavaScript to minimise the delay before the layout shift will occur. I put this JavaScript in the `<head>` of my page:
+
+```js
+if ('fonts' in document) {
+  const font = new FontFace('DM Serif Text', "url('DMSerifText-Regular-Latin-Ext.woff2') format('woff2'), url('DMSerifText-Regular-Latin-Ext.woff') format('woff')")
+
+  font.load().then(function(font) {
+    document.fonts.add(font)
+  })
+}
+```
+
+Browser support for the [CSS Font Loading API](https://caniuse.com/#feat=font-loading) is pretty good but notably doesn't include Internet Explorer --- however, it's worth noting that our first stage font will still load in Internet Explorer, it will just be missing extras like kerning. If you do want to support Internet Explorer completely, you can just dump the second stage `@font-face` declarations into the document head, Zach explains how to do this [in his article](https://www.zachleat.com/web/css-tricks-web-fonts/).
+
+## After Optimising the Fonts
+
+Changing the font loading strategy on my website **massively** reduced the time for the fonts to load and improved first render times, as I was loading fewer resources. Here's the waterfall graph we saw earlier, showing the time taken to load fonts **before** optimising:
+
+![Waterfall graph showing four fonts loading after 8 seconds](/assets/images/dynamic/optimising-fonts/waterfall1.png)
+
+And here's the new waterfall graph showing the time taken for fonts to load **after** implementing a FOFT font loading strategy:
+
+![Waterfall graph showing two fonts loading after 6 seconds and 8 seconds](/assets/images/dynamic/optimising-fonts/waterfall2.png)
+
+**Wow!** That has made a huge difference to font loading times: the display font used for the headings of my website now loads after 6 seconds, compared to nearly 9 seconds before. These times were recorded whilst throttling the network; when I remove the throttling, there is **no FOUT** at all now I preload the first stage font.
+
+I've had a lot of fun experimenting with different font loading strategies on my website, I hope that you found this blog post useful and it inspires you to think about the fonts you're using on your website and how you load them. Happy fonting! 👋
