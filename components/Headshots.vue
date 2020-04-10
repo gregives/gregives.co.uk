@@ -8,7 +8,7 @@
           :sizes="sizes"
           type="image/webp"
         />
-        <source :data-srcset="srcsetWebp" :sizes="sizes" type="image/png" />
+        <source :data-srcset="srcset" :sizes="sizes" type="image/png" />
         <img
           :src="preview"
           :class="{ 'lazy__image--load': mounted }"

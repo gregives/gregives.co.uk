@@ -48,7 +48,7 @@ export default {
   },
   computed: {
     format() {
-      return this.src.split('.').pop()
+      return `image/${this.src.split('.').pop()}`
     },
     srcRel() {
       return this.src.replace(/^\/assets\/images\/dynamic\//, '')
