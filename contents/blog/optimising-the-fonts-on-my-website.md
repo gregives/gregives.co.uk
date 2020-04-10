@@ -6,7 +6,7 @@ description: How I changed my font loading strategy and reduced the first stage 
   by over 100 kB
 
 ---
-I'll admit, I visit my own website a lot more than I reasonably should. One of my biggest peeves about my website was the time taken to load the display font --- the titles would initially render in <span style="font-family: Georgia;">Georgia</span> and after a few seconds there would be a layout shift when my chosen font, Tiempos Headline, finally loaded! I read an excellent article by Zach Leatherman, [Developing a Robust Font Loading Strategy for CSS-Tricks](https://www.zachleat.com/web/css-tricks-web-fonts/), which inspired me to change my font loading strategy and massively reduce initial load times.
+I'll admit, I visit my own website a lot more than I reasonably should. One of my biggest peeves about my website was the time taken to load the display font --- the titles would initially render in Georgia and after a few seconds there would be a layout shift when my chosen font, Tiempos Headline, finally loaded! I read an excellent article by Zach Leatherman, [Developing a Robust Font Loading Strategy for CSS-Tricks](https://www.zachleat.com/web/css-tricks-web-fonts/), which inspired me to change my font loading strategy and massively reduce initial load times.
 
 ## Before Optimising the Fonts
 
@@ -34,7 +34,7 @@ Before we go any further, it's about time we talked about font loading strategie
 
 ### Flash of Invisible Text
 
-FOIT is the default browser behaviour which renders the text invisible whilst the font is loading. The text will be invisible during the _swap period_, up to 3 seconds, depending on the browser: this is a particularly poor experience for users as there may be up to 3 seconds when they cannot read the content of your website!
+FOIT is the default browser behaviour which renders the text invisible whilst the font is loading. The text will be invisible during the _swap period_, up to 3 seconds depending on the browser: this is a particularly poor experience for users as there may be up to 3 seconds when they cannot read the content of your website!
 
 ### Flash of Unstyled Text
 
@@ -81,7 +81,7 @@ I decided to implement the _flash of faux text_ font loading strategy for the di
 
 The number of fonts in [Google Fonts](https://fonts.google.com/) is increasing every day and is becoming the go-to for all web fonts. I was really excited that [Inter](https://rsms.me/inter/) had made its way to Google Fonts, where I expect it will make its way to being one of the most popular web fonts. But I wanted a fancy display font, something similar to Tiempos Headline which I was using previously.
 
-I settled on <span style="font-family: 'DM Serif Text';">DM Serif Text</span> by Colophon Foundry and Frank Grießhammer. There is also a higher contrast DM Serif Display, but I much preferred the thicker strokes of DM Serif Text on the relatively small headings on my website. Both fonts are licensed under the Open Font License, which importantly **allows for modification**.
+I settled on DM Serif Text by Colophon Foundry and Frank Grießhammer. There is also a higher contrast DM Serif Display, but I much preferred the thicker strokes of DM Serif Text on the relatively small headings on my website. Both fonts are licensed under the Open Font License, which importantly **allows for modification**.
 
 ![Details of DM Serif Text after uploading the font to Wakamai Fondue](/assets/images/dynamic/optimising-fonts/wakamaifondue.png)
 
@@ -170,7 +170,7 @@ Changing the font loading strategy on my website **massively** reduced the time 
 
 ![Waterfall graph showing four fonts loading after 8 seconds](/assets/images/dynamic/optimising-fonts/waterfall1.png)
 
-And here's the new waterfall graph showing the time taken for fonts to load **after** implementing a FOFT font loading strategy:
+And here's the new waterfall graph showing the time taken for fonts to load **after** switching to system fonts and implementing a FOFT font loading strategy:
 
 ![Waterfall graph showing two fonts loading after 6 seconds and 8 seconds](/assets/images/dynamic/optimising-fonts/waterfall2.png)
 

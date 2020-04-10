@@ -12,5 +12,6 @@ export const postSlugs = [
   'build-a-blog-with-nuxt-and-markdown',
   'choosing-a-cms-for-your-website',
   'my-markdown-it-configuration',
+  'optimising-the-fonts-on-my-website',
   'why-you-should-learn-regex'
 ]
