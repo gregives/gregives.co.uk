@@ -22,7 +22,7 @@ Before I decided to optimise the fonts on my website, I was loading four web fon
 
 Opening up the Network panel in Chrome DevTools showed the time taken to download all four web fonts on the home page. The waterfall graph below shows the times at which the fonts were requested, over a period of 600ms:
 
-![A waterfall graph showing the four fonts taking just under 600ms to load](https://app.forestry.io/sites/c9ypi1rb-tnfxq/body-media//assets/images/dynamic/optimising-fonts/waterfall1.png)
+![A waterfall graph showing the four fonts taking just under 600ms to load](/assets/images/dynamic/optimising-fonts/waterfall1.png)
 
 The first request for the body font (IBM Plex Sans) started at around 140ms and finished before 200ms, which isn't too bad! However, the other fonts took a further 200–300ms to download, which resulted in a nasty layout shift, as you can see here:
 
@@ -44,7 +44,7 @@ A FOUT occurs when the browser renders the fallback system font while the web fo
 
 FOFT is very similar to FOUT, in that you render text as soon as possible without waiting for the web font to load. However, instead of the browser rendering a fallback system font, the browser renders a 'Roman' web font. A 'Roman' web font is a subset of the full web font, which often supports exclusively Western European languages and a reduced set of features. The browser uses _font synthesis_ to render 'faux bold' and 'faux italic' text while the full web font continues to load.
 
-Zach Leatherman really is the authority on everything web fonts --- I encourage you to read his [Web Font Loading Glossary]() and [Guide to Font Loading Strategies]() for all the different ways of loading fonts!
+Zach Leatherman really is the authority on everything web fonts --- I encourage you to read his [Web Font Loading Glossary](https://www.zachleat.com/web/webfont-glossary/) and [Guide to Font Loading Strategies](https://www.zachleat.com/web/comprehensive-webfonts/) for all the different ways of loading fonts!
 
 ## Do I Really Need This Many Web Fonts?
 
@@ -54,7 +54,7 @@ Instead of browsing Google Fonts for new fonts on my website, I decided instead 
 
 * [CSS Font Stack](https://www.cssfontstack.com/) shows the percentage of Windows and Mac devices which support some common fallback system fonts.
 * [System Font Stack article](https://css-tricks.com/snippets/css/system-font-stack/) on CSS-Tricks which has some good snippets for body font.
-* [Using UI System Fonts]() a longer article on Smashing which explains which fonts target which systems.
+* [Using UI System Fonts](https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/) a longer article on Smashing which explains which fonts target which systems.
 
 In a surprise move, I decided to use system fonts for **both** the body font and monospace font on my website. Here's the fonts I chose to use:
 
@@ -83,6 +83,8 @@ The number of fonts in [Google Fonts](https://fonts.google.com/) is increasing e
 
 I settled on <span style="font-family: 'DM Serif Text';">DM Serif Text</span> by Colophon Foundry and Frank Grießhammer. There is also a higher contrast DM Serif Display, but I much preferred the thicker strokes of DM Serif Text on the relatively small headings on my website. Both fonts are licensed under the Open Font License, which importantly **allows for modification**.
 
+![Details of DM Serif Text after uploading the font to Wakamai Fondue](/assets/images/dynamic/optimising-fonts/wakamaifondue.png)
+
 I'd like to quickly draw your attention to a fabulous tool I discovered, which answers the question, "What can my font do?" Possibly the best-named website ever, [Wakamai Fondue](https://wakamaifondue.com/) provides a drag-and-drop interface for discovering what your font can do --- I dropped DM Serif Text onto Wakamai Fondue to find out which features it supported and how many characters it contained. This wasn't necessary but provided some nice context to the font sunsetting which was coming next!
 
 ### Subsetting a Font
@@ -107,7 +109,9 @@ Notice we retain the required layout features `ccmp,locl,mark,mkmk` which we cou
 
 The unicodes specify which characters we want to keep in our first stage font file. Google Fonts seems to use a sensible default for their 'Latin' fonts, so I stuck with that. If you want to have more control over which unicodes you include, [glyphhanger](https://github.com/filamentgroup/glyphhanger) seems like a great tool which can actually analyse your website to see which unicode ranges are used.
 
-Remember to generate your fonts in WOFF format as well as WOFF 2 for the best browser support.
+:::aside
+Remember to generate your fonts in WOFF format as well as WOFF 2 for [the best browser support](https://caniuse.com/#feat=woff).
+:::
 
 #### Second Stage Font
 
