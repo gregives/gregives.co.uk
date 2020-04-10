@@ -32,6 +32,7 @@
     "lazysizes": "^5.1.2",
     "markdown-it-abbr": "^1.0.4",
     "markdown-it-anchor": "^5.2.5",
+    "markdown-it-container": "^2.0.0",
     "markdown-it-external-links": "0.0.6",
     "markdown-it-ins": "^3.0.0",
     "markdown-it-mark": "^3.0.0",

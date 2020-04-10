@@ -1,5 +1,8 @@
 <script>
 export default {
+  components: {
+    PostAside: () => import('~/components/PostAside')
+  },
   props: {
     markdown: {
       type: Object,
@@ -170,11 +173,31 @@ export default {
   }
 
   blockquote {
-    border-left: 4px solid $color__primary--muted;
-    padding-left: 1rem;
+    background-color: $color__body--overlay;
+    border-radius: $border-radius;
+    font-style: italic;
+    margin-top: 2rem;
+    padding: 1.5rem 1rem 1.5rem 2rem;
+    position: relative;
 
     &:not(:last-child) {
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    &::before {
+      background-color: $color__primary--muted;
+      border-bottom-left-radius: $border-radius;
+      border-top-left-radius: $border-radius;
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: $border-radius;
+    }
+
+    a:not(.header-anchor) {
+      @include link;
     }
   }
 

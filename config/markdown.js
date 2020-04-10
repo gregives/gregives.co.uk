@@ -38,6 +38,11 @@ const markdown = require('markdown-it')({
   .use(require('markdown-it-task-lists'), {
     label: true
   })
+  .use(require('markdown-it-container'), 'aside', {
+    render(tokens, index) {
+      return tokens[index].nesting === 1 ? '<post-aside>' : '</post-aside>'
+    }
+  })
   .use(require('markdown-it-abbr'))
   .use(require('markdown-it-sup'))
   .use(require('markdown-it-sub'))
