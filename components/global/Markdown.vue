@@ -113,8 +113,11 @@ export default {
     display: block;
     margin-top: 2rem;
     width: 100%;
+  }
 
-    &:not(:last-child) {
+  p:not(:last-child) {
+    iframe,
+    video {
       margin-bottom: 2rem;
     }
   }

@@ -3,16 +3,20 @@ code {
 
   background-color: $color__body;
   background-image: linear-gradient($color__text--muter, $color__text--muter);
-  border: $border-weight solid $color__body;
   border-radius: $border-radius;
   box-shadow: $box-shadow--small inset;
   font-size: 95%;
   padding: 0 0.25rem;
-  margin: -$border-weight;
-  margin-bottom: 0;
+  margin: 0;
   text-rendering: optimizeLegibility;
   text-shadow: none;
   white-space: pre;
+}
+
+a > code {
+  border: $border-weight solid $color__body;
+  margin: -$border-weight;
+  margin-bottom: 0;
 }
 
 .highlight {
