@@ -16,13 +16,9 @@ code {
 }
 
 .highlight {
-  $bleed: 1rem;
-
   margin: 1.5rem 0;
-  margin-left: -$bleed;
-  overflow: hidden;
   position: relative;
-  width: calc(100% + #{2 * $bleed});
+  width: 100%;
 
   code {
     border: none;
@@ -32,7 +28,7 @@ code {
     line-height: 1.3;
     margin: 0;
     overflow-x: auto;
-    padding: 1.5rem $bleed;
+    padding: 1.5rem 1rem;
     width: 100%;
   }
 
@@ -43,8 +39,7 @@ code {
 
   &[data-language]::after {
     background-color: $color__body--overlay;
-    border-bottom-left-radius: $border-radius;
-    border-bottom-right-radius: $border-radius;
+    border-radius: $border-radius;
     box-shadow: $box-shadow--small;
     color: $color__primary;
     content: '.' attr(data-language);
@@ -52,9 +47,10 @@ code {
     font-weight: 500;
     padding: 0.05rem 0.5rem;
     position: absolute;
-    right: $bleed;
+    right: $border-radius;
     text-transform: uppercase;
     top: 0;
+    transform: translateY(-50%);
   }
 }
 
