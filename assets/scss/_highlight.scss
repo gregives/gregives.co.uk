@@ -51,7 +51,7 @@ a > code {
     font-weight: 500;
     padding: 0.05rem 0.5rem;
     position: absolute;
-    right: $border-radius;
+    right: 2 * $border-radius;
     text-transform: uppercase;
     top: 0;
     transform: translateY(-50%);

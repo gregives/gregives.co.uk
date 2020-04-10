@@ -1,7 +1,9 @@
 <script>
+import { hydrateSsrOnly } from 'vue-lazy-hydration'
+
 export default {
   components: {
-    PostAside: () => import('~/components/PostAside')
+    PostAside: hydrateSsrOnly(() => import('~/components/PostAside'))
   },
   props: {
     markdown: {
