@@ -9,8 +9,8 @@
 
   color: $color__text;
   font-size: calc(60% + 1vmin);
-  overflow: hidden;
-  overscroll-behavior: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   // Bound font-size on larger screens
   @media (min-width: $breakpoint--xl) {

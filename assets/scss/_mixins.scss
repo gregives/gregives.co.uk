@@ -9,15 +9,15 @@
   @include container;
 
   // 100vh minus height of header and footer
-  min-height: calc(100vh - 10.5rem);
-  min-height: calc(var(--vh, 1vh) * 100 - 10.5rem);
-  padding-top: 3.5rem;
+  min-height: calc(100vh - 6.5rem);
+  min-height: calc(var(--vh, 1vh) * 100 - 6.5rem);
+  padding-top: 7.5rem;
   padding-bottom: 4.5rem;
 
   @media (min-width: $breakpoint--md) {
-    min-height: calc(100vh - 8rem);
-    min-height: calc(var(--vh, 1vh) * 100 - 8rem);
-    padding-top: 5rem;
+    min-height: calc(100vh - 4rem);
+    min-height: calc(var(--vh, 1vh) * 100 - 4rem);
+    padding-top: 9rem;
   }
 
   @media print {

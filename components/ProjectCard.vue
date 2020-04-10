@@ -43,6 +43,8 @@ export default {
 
 <style lang="scss">
 .project-card {
+  display: flex;
+  flex-direction: column;
   position: relative;
 
   &:hover {
@@ -65,7 +67,7 @@ export default {
   overflow: hidden;
   padding-bottom: 50%;
   position: relative;
-  width: 100%;
+  width: calc(100% - 1.5rem);
   z-index: -1;
 
   &::after {
@@ -111,6 +113,7 @@ export default {
   border: $border-weight solid $color__primary--muted;
   border-radius: $border-radius;
   box-shadow: $box-shadow--small;
+  flex-grow: 1;
   margin-top: -3rem;
   margin-left: 1.5rem;
   padding: 1.5rem;

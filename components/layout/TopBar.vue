@@ -34,7 +34,7 @@ export default {
   box-shadow: $box-shadow;
   line-height: 2rem;
   padding: 1rem 0;
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;

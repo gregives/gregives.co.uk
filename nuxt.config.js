@@ -69,7 +69,7 @@ export default {
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/google-analytics'],
   // Nuxt.js modules
   modules: [
-    ['vue-scrollto/nuxt', { container: '#__wrapper' }],
+    'vue-scrollto/nuxt',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     '@nuxtjs/sitemap'

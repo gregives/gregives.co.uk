@@ -42,7 +42,7 @@ export default {
 
 <style lang="scss">
 .blog {
-  $clip-path: polygon(100% 20%, 60% 30%, 80% 80%, 100% 90%);
+  $clip-path: polygon(100% 20%, 70% 30%, 85% 80%, 100% 90%);
   @include page;
   @include dots($clip-path);
 }

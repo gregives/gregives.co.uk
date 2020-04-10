@@ -5,7 +5,6 @@
       <top-bar />
       <nuxt />
       <bottom-bar />
-      <blobs />
     </div>
   </div>
 </template>
@@ -13,7 +12,6 @@
 <script>
 import TopBar from '~/components/layout/TopBar'
 import BottomBar from '~/components/layout/BottomBar'
-import Blobs from '~/components/layout/Blobs'
 
 const fontFiles = {
   woff: require('~/assets/fonts/DMSerifText-Regular-Latin-Ext.woff'),
@@ -23,8 +21,7 @@ const fontFiles = {
 export default {
   components: {
     TopBar,
-    BottomBar,
-    Blobs
+    BottomBar
   },
   data() {
     return {
@@ -72,13 +69,6 @@ export default {
       })()
     }
   },
-  watch: {
-    '$route.path'() {
-      setTimeout(() => {
-        this.$refs.wrapper.scrollTo(0, 0)
-      }, 750)
-    }
-  },
   mounted() {
     // Disable install prompt for PWA
     window.addEventListener('beforeinstallprompt', (event) => {
@@ -102,11 +92,16 @@ export default {
 </script>
 
 <style lang="scss">
-#__wrapper {
-  height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
-  overflow-y: scroll;
-  overflow-x: hidden;
-  overscroll-behavior: contain;
+.page-enter-active {
+  transition: filter 250ms $transition__normal--in;
+}
+
+.page-leave-active {
+  transition: filter 250ms $transition__normal--out;
+}
+
+.page-enter,
+.page-leave-active {
+  filter: grayscale(1) opacity(0);
 }
 </style>

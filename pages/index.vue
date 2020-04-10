@@ -84,9 +84,9 @@ export default {
 .home {
   $clip-path: polygon(
     100% 15%,
-    40% 20%,
-    35% 25%,
-    100% 35%,
+    50% 25%,
+    45% 35%,
+    100% 45%,
     100% 100%,
     50% 100%,
     0% 70%,
@@ -95,24 +95,6 @@ export default {
   );
   @include page;
   @include dots($clip-path);
-
-  @media (min-width: $breakpoint--md) {
-    $clip-path: polygon(
-      100% 10%,
-      55% 20%,
-      50% 30%,
-      100% 55%,
-      100% 100%,
-      50% 100%,
-      0% 70%,
-      0% 100%,
-      100% 100%
-    );
-    @include dots($clip-path);
-
-    // HACK: Arbitrary property needed to keep breakpoint when minified
-    color: inherit;
-  }
 }
 
 .home__banner {
