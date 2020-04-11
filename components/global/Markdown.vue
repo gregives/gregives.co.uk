@@ -3,7 +3,8 @@ import { hydrateSsrOnly } from 'vue-lazy-hydration'
 
 export default {
   components: {
-    PostAside: hydrateSsrOnly(() => import('~/components/PostAside'))
+    PostAside: hydrateSsrOnly(() => import('~/components/PostAside')),
+    VideoCompat: hydrateSsrOnly(() => import('~/components/VideoCompat'))
   },
   props: {
     markdown: {

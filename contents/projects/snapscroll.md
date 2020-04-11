@@ -16,7 +16,7 @@ When creating my personal site in 2016, fullscreen scrolling websites were all t
 
 **Note:** There is considerable controversy over "scroll-hijacking", whereby a website overrides the native scrolling behavior of the browser to create its own interaction, which confuses some visitors. This is a very important note to consider, and the reason why my website no longer uses snapScroll.js.
 
-<video src="/projects/snapscroll/preview.webm" type="video/webm" autoplay muted loop></video>
+<video-compat src="snapscroll/preview" autoplay muted loop />
 
 ## Creating the Library
 

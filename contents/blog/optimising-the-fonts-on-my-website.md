@@ -26,7 +26,7 @@ Opening up the Network panel in Chrome DevTools showed the time taken to downloa
 
 The fonts were all requested just after 2 seconds, and the last font finished loading more than 6 seconds later. Because of the time taken to load the fonts, the page is initially rendered with fallback fonts, which then causes a layout shift when the web fonts finally load.
 
-<video src="/blog/optimising-the-fonts-on-my-website/loading1.webm" type="video/webm" autoplay muted loop></video>
+<video-compat src="optimising-fonts/loading1" autoplay muted loop />
 
 ## Font Loading Strategies
 
