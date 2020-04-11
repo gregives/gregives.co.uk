@@ -94,14 +94,26 @@ export default {
 <style lang="scss">
 .page-enter-active {
   transition: filter 250ms $transition__normal--in;
+
+  ~ .footer {
+    transition: filter 250ms $transition__normal--in;
+  }
 }
 
 .page-leave-active {
   transition: filter 250ms $transition__normal--out;
+
+  ~ .footer {
+    transition: filter 250ms $transition__normal--out;
+  }
 }
 
 .page-enter,
 .page-leave-active {
   filter: grayscale(1) opacity(0);
+
+  ~ .footer {
+    filter: grayscale(1) opacity(0);
+  }
 }
 </style>
