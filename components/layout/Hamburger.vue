@@ -9,7 +9,7 @@ export default {
   watch: {
     '$route.path'() {
       this.changingRoute = true
-      setTimeout(this.closeMenu, 750) // If link clicked to other route
+      setTimeout(this.closeMenu, 300) // If link clicked to other route
     }
   },
   mounted() {
