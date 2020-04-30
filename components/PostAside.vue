@@ -5,17 +5,6 @@
   </aside>
 </template>
 
-<script>
-export default {
-  props: {
-    type: {
-      type: String,
-      default: 'info'
-    }
-  }
-}
-</script>
-
 <style lang="scss">
 .aside {
   background-color: $color__body--overlay;
