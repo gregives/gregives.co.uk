@@ -7,16 +7,15 @@
       <div class="home__description">
         <markdown :markdown="markdown" />
       </div>
-      <a v-scroll-to="'#stuff'" class="home__stuff" href="#stuff">
+      <a class="home__stuff" href="#stuff">
         See my stuff
       </a>
       <nuxt-link class="home__contact" to="/contact/">
         Contact me
       </nuxt-link>
       <headshots />
-      <div id="stuff"></div>
     </div>
-    <ol class="home__posts">
+    <ol id="stuff" class="home__posts">
       <post-card v-for="post in posts" :key="post.title" :post="post" />
     </ol>
     <div class="home__posts-more">
@@ -143,11 +142,6 @@ export default {
   @media (min-width: $breakpoint--md) {
     clear: none;
   }
-}
-
-#stuff {
-  position: absolute;
-  bottom: 6rem;
 }
 
 .home__posts {

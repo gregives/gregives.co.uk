@@ -13,7 +13,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, picture, section {
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, picture, section {
   display: block;
 }
 
@@ -21,7 +21,6 @@ body {
   line-height: 1.5;
   min-height: 100vh;
   min-height: calc(var(--vh, 1vh) * 100);
-  scroll-behavior: smooth;
 }
 
 ol, ul {

@@ -68,12 +68,7 @@ export default {
   // Nuxt.js build modules
   buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/google-analytics'],
   // Nuxt.js modules
-  modules: [
-    'vue-scrollto/nuxt',
-    '@nuxtjs/pwa',
-    '@nuxtjs/style-resources',
-    '@nuxtjs/sitemap'
-  ],
+  modules: ['@nuxtjs/pwa', '@nuxtjs/style-resources', '@nuxtjs/sitemap'],
   // Instead of importing into every component
   styleResources: {
     scss: [
