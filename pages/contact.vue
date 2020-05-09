@@ -71,9 +71,9 @@ import { hydrateWhenIdle } from 'vue-lazy-hydration'
 
 import EmailIcon from 'icons/EmailVariant'
 import TwitterIcon from 'icons/Twitter'
-import GithubIcon from 'icons/Github'
+import GithubIcon from 'icons/GithubCircle'
 import DevpostIcon from 'icons/HexagonOutline'
-import LinkedinIcon from 'icons/Linkedin'
+import LinkedinIcon from 'icons/LinkedinBox'
 
 export default {
   components: {
