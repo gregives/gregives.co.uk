@@ -43,7 +43,11 @@ export default {
   },
   data() {
     return {
-      mounted: false
+      mounted: false,
+      srcset: false,
+      srcsetWebp: false,
+      lqip: false,
+      original: false
     }
   },
   computed: {
@@ -52,19 +56,19 @@ export default {
     },
     srcRel() {
       return this.src.replace(/^\/assets\/images\/dynamic\//, '')
-    },
-    srcset() {
-      return require(`~/assets/images/dynamic/${this.srcRel}?srcset`)
-    },
-    srcsetWebp() {
-      return require(`~/assets/images/dynamic/${this.srcRel}?srcset&format=webp`)
-    },
-    lqip() {
-      return require(`~/assets/images/dynamic/${this.srcRel}?size=20&format=jpeg&inline`)
-    },
-    original() {
-      return require(`~/assets/images/dynamic/${this.srcRel}`)
     }
+  },
+  async fetch() {
+    this.srcset = await import(`~/assets/images/dynamic/${this.srcRel}?srcset`)
+      .default
+    this.srcsetWebp = await import(
+      `~/assets/images/dynamic/${this.srcRel}?srcset&format=webp`
+    ).default
+    this.lqip = await import(
+      `~/assets/images/dynamic/${this.srcRel}?size=20&format=jpeg&inline`
+    ).default
+    this.original = await import(`~/assets/images/dynamic/${this.srcRel}`)
+      .default
   },
   mounted() {
     this.mounted = true
