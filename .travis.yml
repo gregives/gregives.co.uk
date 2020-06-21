@@ -12,7 +12,7 @@ branches:
   - master
 
 script:
-  - travis_wait npm run generate
+  - npm run build && npm run export
 
 deploy:
   provider: pages
