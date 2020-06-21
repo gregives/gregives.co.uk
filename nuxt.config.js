@@ -26,6 +26,7 @@ const [, primaryColor] = fs
 
 export default {
   mode: 'universal',
+  target: 'static',
   // Content of page head
   head: {
     title: 'Software Engineer',

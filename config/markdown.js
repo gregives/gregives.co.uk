@@ -30,6 +30,9 @@ const markdown = require('markdown-it')({
     permalinkSymbol: '&nbsp;#',
     permalinkSpace: false
   })
+  .use(require('markdown-it-table-of-contents'), {
+    includeLevel: [1, 2, 3]
+  })
   .use(require('markdown-it-external-links'), {
     externalClassName: null,
     externalRel: 'noopener noreferrer',
@@ -72,5 +75,5 @@ const replaceInlineImages = (html) => {
 }
 
 export default function(body) {
-  return replaceInlineImages(markdown.render(body))
+  return replaceInlineImages(markdown.render(`[[toc]]\n\n${body}`))
 }

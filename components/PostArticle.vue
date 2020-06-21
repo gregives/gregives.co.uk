@@ -11,27 +11,35 @@
       <ul v-if="post.tags" class="article__tags">
         <li v-for="tag in post.tags" :key="tag">{{ tag }}</li>
       </ul>
-      <nuxt-link :to="project ? '/projects/' : '/blog/'" class="article__back">
-        See more {{ project ? 'projects' : 'blog posts' }}
-      </nuxt-link>
+      <div ref="contents" class="article__contents">
+        <strong>Table of Contents</strong>
+      </div>
     </div>
     <div class="article__body">
       <p v-if="!project" class="article__description">
-        <em>{{ post.description }}</em>
+        {{ post.description }}
       </p>
       <markdown :markdown="post" />
-      <nuxt-link
-        :to="project ? '/projects/' : '/blog/'"
-        class="article__back article__back--mobile"
-      >
-        See more {{ project ? 'projects' : 'blog posts' }}
-      </nuxt-link>
+      <div class="article__footer">
+        <back-icon />
+        <nuxt-link v-if="project" to="/projects/" class="article__back">
+          See all projects
+        </nuxt-link>
+        <nuxt-link v-else to="/blog/" class="article__back">
+          See all blog posts
+        </nuxt-link>
+      </div>
     </div>
   </article>
 </template>
 
 <script>
+import BackIcon from 'icons/KeyboardBackspace'
+
 export default {
+  components: {
+    BackIcon
+  },
   props: {
     post: {
       type: Object,
@@ -50,6 +58,15 @@ export default {
         year: 'numeric'
       })
     }
+  },
+  mounted() {
+    const tableOfContents = this.$el.querySelector('.table-of-contents')
+
+    // Move table of contents to side bar
+    if (tableOfContents !== null) {
+      this.$refs.contents.appendChild(tableOfContents)
+      this.$refs.contents.style.display = 'block'
+    }
   }
 }
 </script>
@@ -60,7 +77,7 @@ export default {
   grid-template-columns: 100%;
 
   @media (min-width: $breakpoint--lg) {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+    grid-template-columns: minmax(0, 2fr) minmax(0, 5fr);
   }
 }
 
@@ -73,7 +90,7 @@ export default {
 
   @media (min-width: $breakpoint--lg) {
     grid-column: 1 / 3;
-    padding-left: 25%;
+    padding-left: (200% / 7);
   }
 
   h1 {
@@ -96,35 +113,83 @@ export default {
   padding-right: 3rem;
 }
 
+.article__contents {
+  display: none;
+  height: calc(100vh - 6rem);
+  opacity: 0.6;
+  overflow-y: auto;
+  margin-right: -1rem;
+  padding-right: 1rem;
+  padding-bottom: 2rem;
+  position: sticky;
+  top: 6rem;
+  transition: opacity 150ms $transition__normal;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $color__body;
+  }
+
+  @media (max-width: $breakpoint--lg) {
+    display: none !important;
+  }
+
+  .table-of-contents {
+    font-size: 90%;
+    margin-top: 1rem;
+
+    li {
+      filter: saturate(0);
+      margin-top: 0.5rem;
+
+      a {
+        @include link;
+
+        color: inherit;
+      }
+    }
+  }
+}
+
 .article__body {
   .markdown {
     margin-bottom: 1.5rem;
+  }
+
+  .table-of-contents {
+    display: none;
+  }
+}
+
+.article__footer {
+  display: inline-block;
+  position: relative;
+
+  .material-design-icon {
+    color: $color__primary;
+    vertical-align: top;
   }
 }
 
 .article__back {
   @include link;
 
-  display: none;
-
-  &--mobile {
-    display: inline;
-  }
-
-  @media (min-width: $breakpoint--lg) {
-    display: inline;
-    position: sticky;
-    top: 6rem;
-
-    &--mobile {
-      display: none;
-    }
+  &::after {
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 }
 
 .article__details {
   color: $color__text--muted;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .article__date {
@@ -166,6 +231,9 @@ export default {
 }
 
 .article__description {
+  @include h5;
+
+  color: $color__primary;
   margin-bottom: 3rem;
 }
 </style>

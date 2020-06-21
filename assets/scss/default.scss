@@ -8,21 +8,13 @@
   @include font__body;
 
   color: $color__text;
-  font-size: calc(0.6em + 1vmin);
+  font-size: calc(0.9em + 0.5vmin);
   overflow-y: scroll;
   overflow-x: hidden;
 
   // Bound font-size on larger screens
   @media (min-width: $breakpoint--xl) {
-    font-size: calc(0.6em + 1vh);
-  }
-
-  @media print {
-    font-size: calc(0.4em + 1vmin);
-  }
-
-  @media print and (min-width: $breakpoint--xl) {
-    font-size: calc(0.4em + 1vh);
+    font-size: calc(0.9em + 0.5vh);
   }
 }
 

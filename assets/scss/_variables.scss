@@ -75,10 +75,10 @@ $box-shadow--primary: var(--box-shadow--primary);
 $box-shadow--primary-small: var(--box-shadow--primary-small);
 
 // Breakpoints
-$breakpoint--sm: 576px;
-$breakpoint--md: 768px;
-$breakpoint--lg: 992px;
-$breakpoint--xl: 1200px;
+$breakpoint--sm: 640px;
+$breakpoint--md: 800px;
+$breakpoint--lg: 1024px;
+$breakpoint--xl: 1280px;
 
 // Let's round things off
 $border-radius: 0.75vmin;
