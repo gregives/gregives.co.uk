@@ -39,14 +39,34 @@ export default {
         name: 'description',
         content: 'Personal site and portfolio of software engineer Greg Ives.'
       },
+      { name: 'msapplication-TileColor', content: '#3355ff' },
+      { hid: 'theme-color', name: 'theme-color', content: '#3355ff' },
       ...openGraphTags
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'preconnect', href: 'https://www.google-analytics.com' },
       { rel: 'preconnect', href: 'https://cdn.jsdelivr.net' },
       { rel: 'dns-prefetch', href: 'https://www.google-analytics.com' },
-      { rel: 'dns-prefetch', href: 'https://cdn.jsdelivr.net' }
+      { rel: 'dns-prefetch', href: 'https://cdn.jsdelivr.net' },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/apple-touch-icon.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/favicon-32x32.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/favicon-16x16.png'
+      },
+      { rel: 'manifest', href: '/site.webmanifest' },
+      { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#3355ff' }
     ],
     noscript: [
       { innerHTML: '<style>.lazy>picture>img{display:none;}</style>' }
@@ -84,11 +104,9 @@ export default {
   },
   // Nuxt.js PWA configuration
   pwa: {
-    manifest: {
-      name: 'Greg Ives',
-      short_name: 'Greg Ives',
-      start_url: '/'
-    }
+    icon: false,
+    meta: false,
+    manifest: false
   },
   // Generate sitemap
   sitemap: {
