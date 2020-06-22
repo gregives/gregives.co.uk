@@ -1,10 +1,10 @@
 <template>
   <li class="post-card">
-    <h3 class="post-card__title">
+    <h2 class="post-card__title">
       <nuxt-link :to="post.link" class="post-card__link">
         {{ post.title }}
       </nuxt-link>
-    </h3>
+    </h2>
     <small class="post-card__details">
       {{ date }} &mdash; {{ post.mins }} minute read
     </small>
@@ -77,6 +77,8 @@ export default {
 }
 
 .post-card__title {
+  @include h3;
+
   margin-bottom: 0.5rem;
 }
 

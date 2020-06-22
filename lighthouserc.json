@@ -3,12 +3,12 @@
     "collect": {
       "url": [
         "https://gregives.co.uk",
-        "https://gregives.co.uk/blog",
-        "https://gregives.co.uk/blog/build-a-blog-with-nuxt-and-markdown",
-        "https://gregives.co.uk/projects",
-        "https://gregives.co.uk/projects/dissertation",
-        "https://gregives.co.uk/about",
-        "https://gregives.co.uk/contact"
+        "https://gregives.co.uk/blog/",
+        "https://gregives.co.uk/blog/build-a-blog-with-nuxt-and-markdown/",
+        "https://gregives.co.uk/projects/",
+        "https://gregives.co.uk/projects/dissertation/",
+        "https://gregives.co.uk/about/",
+        "https://gregives.co.uk/contact/"
       ],
       "numberOfRuns": 3
     },

@@ -8,11 +8,11 @@
       />
     </div>
     <div class="project-card__content">
-      <h3 class="project-card__title">
+      <h2 class="project-card__title">
         <nuxt-link :to="project.link" class="project-card__link">
           {{ title }}
         </nuxt-link>
-      </h3>
+      </h2>
       <small class="project-card__date">&mdash; {{ date }}</small>
       <p class="project-card__description">{{ project.description }}</p>
     </div>
@@ -128,6 +128,8 @@ export default {
 }
 
 .project-card__title {
+  @include h3;
+
   display: inline-block;
   margin-bottom: 0.5rem;
 }
