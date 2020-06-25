@@ -111,7 +111,10 @@ export default {
   }
 
   &::after {
-    background-image: linear-gradient(transparent, $color__primary--muted);
+    background-image: linear-gradient(
+      $color__transparent,
+      $color__primary--muted
+    );
     border-radius: $border-radius;
     content: '';
     left: 1.5rem;

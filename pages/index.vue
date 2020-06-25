@@ -147,7 +147,6 @@ export default {
 .home__posts {
   display: grid;
   grid-gap: 1.5rem;
-  margin-top: $border-weight;
 
   &-more {
     margin-top: 1rem;

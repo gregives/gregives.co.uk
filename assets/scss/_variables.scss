@@ -13,6 +13,7 @@
   --color__text: #{transparentize(black, 0.13)};
   --color__text--muted: #{transparentize(black, 0.4)};
   --color__text--muter: #{transparentize(black, 0.98)};
+  --color__transparent: #{transparentize($color__body, 1)};
 
   --box-shadow: 0 0 2rem -1rem #{transparentize(black, 0.8)};
   --box-shadow--small: 0 0 0.5rem -0.25rem #{transparentize(black, 0.8)};
@@ -59,6 +60,7 @@ $color__body--blur: var(--color__body--blur);
 $color__text: var(--color__text);
 $color__text--muted: var(--color__text--muted);
 $color__text--muter: var(--color__text--muter);
+$color__transparent: var(--color__transparent);
 
 // Transitions
 $transition__normal: cubic-bezier(0.445, 0.05, 0.55, 0.95);
@@ -81,5 +83,5 @@ $breakpoint--lg: 1024px;
 $breakpoint--xl: 1280px;
 
 // Let's round things off
-$border-radius: 0.75vmin;
+$border-radius: 0.5vmin;
 $border-weight: 0.25vmin;

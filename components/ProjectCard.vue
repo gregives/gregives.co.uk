@@ -108,8 +108,7 @@ export default {
 }
 
 .project-card__content {
-  background: linear-gradient(transparent 75%, #{transparentize(black, 0.95)}),
-    $color__body--overlay;
+  background-color: $color__body--overlay;
   border: $border-weight solid $color__primary--muted;
   border-radius: $border-radius;
   box-shadow: $box-shadow--small;

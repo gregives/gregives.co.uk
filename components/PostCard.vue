@@ -1,14 +1,16 @@
 <template>
   <li class="post-card">
-    <h2 class="post-card__title">
-      <nuxt-link :to="post.link" class="post-card__link">
-        {{ post.title }}
-      </nuxt-link>
-    </h2>
-    <small class="post-card__details">
-      {{ date }} &mdash; {{ post.mins }} minute read
-    </small>
-    <p class="post-card__description">{{ post.description }}</p>
+    <div class="post-card__content">
+      <h2 class="post-card__title">
+        <nuxt-link :to="post.link" class="post-card__link">
+          {{ post.title }}
+        </nuxt-link>
+      </h2>
+      <small class="post-card__details">
+        {{ date }} &mdash; {{ post.mins }} minute read
+      </small>
+      <p class="post-card__description">{{ post.description }}</p>
+    </div>
   </li>
 </template>
 
@@ -34,46 +36,41 @@ export default {
 
 <style lang="scss">
 .post-card {
-  background: linear-gradient(to right, $color__body, transparent),
-    linear-gradient(transparent 75%, #{transparentize(black, 0.95)}),
-    $color__body--overlay;
+  background-color: $color__body--overlay;
+  border: $border-weight solid $color__primary--muted;
   border-radius: $border-radius;
+  box-shadow: $box-shadow--small;
   padding: 1.5rem;
   padding-top: 1rem;
   padding-left: 0;
   position: relative;
+  transition: box-shadow 150ms $transition__normal,
+    border-color 150ms $transition__normal;
 
-  &::before {
-    background-color: $color__body;
-    box-shadow: $box-shadow--small;
-    border: $border-weight solid $color__primary--muted;
-    border-radius: $border-radius;
-    content: '';
-    height: calc(100% + #{2 * $border-weight});
-    left: 0;
-    position: absolute;
-    top: -$border-weight;
-    transition: box-shadow 150ms $transition__normal,
-      border-color 150ms $transition__normal;
-    width: calc(100% + #{$border-weight});
-    z-index: -1;
-  }
-
-  &::after {
-    background: linear-gradient(to right, $color__body 2rem, transparent);
-    content: '';
-    height: calc(100% + 2rem);
-    left: -2rem;
-    position: absolute;
-    top: -1rem;
-    width: calc(100% + 2rem);
-    z-index: -1;
-  }
-
-  &:hover::before {
-    border-color: $color__primary;
+  &:hover {
+    border: $border-weight solid $color__primary;
     box-shadow: $box-shadow;
   }
+
+  &::before {
+    background-image: linear-gradient(
+      to right,
+      $color__body 2rem,
+      $color__transparent
+    );
+    border-radius: $border-radius;
+    content: '';
+    height: calc(100% + 2rem);
+    left: -1rem;
+    pointer-events: none;
+    position: absolute;
+    top: -1rem;
+    width: calc(100% + 1rem);
+  }
+}
+
+.post-card__content {
+  position: relative;
 }
 
 .post-card__title {

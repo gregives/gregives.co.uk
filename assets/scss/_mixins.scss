@@ -129,18 +129,6 @@
     z-index: -1;
   }
 
-  &::after {
-    background-image: linear-gradient(transparent 50%, #{transparentize(black, 0.9)});
-    content: '';
-    border-radius: $border-radius;
-    height: calc(100% + #{2 * $border-weight});
-    left: -$border-weight;
-    position: absolute;
-    top: -$border-weight;
-    width: calc(100% + #{2 * $border-weight});
-    z-index: 1;
-  }
-
   &:hover {
     opacity: 0.9;
 
@@ -167,9 +155,5 @@
 
   &::before {
     opacity: 1;
-  }
-
-  &::after {
-    background-image: linear-gradient(#{transparentize(white, 0.7)} 20%, transparent);
   }
 }
