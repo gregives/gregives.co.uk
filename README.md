@@ -8,12 +8,12 @@ Personal site and portfolio of software engineer Greg Ives, built with [Nuxt](ht
 
 ---
 
-Primary color **`#35f`**
+Primary color `#35f`
 
 Fonts:
-- Tiempos Headline
-- IBM Plex Sans
-- IBM Plex Mono
+- `'DM Serif Text', Georgia, serif`
+- `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`
+- `Monaco, Consolas, 'Lucida Console', monospace`
 
 ---
 
