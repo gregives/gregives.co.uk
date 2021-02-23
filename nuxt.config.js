@@ -25,7 +25,6 @@ const [, primaryColor] = fs
   .match(/\$color__primary:\s*([^;]+);/)
 
 export default {
-  mode: 'universal',
   target: 'static',
   // Content of page head
   head: {

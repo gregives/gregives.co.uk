@@ -1,10 +1,10 @@
 <script>
-import { hydrateSsrOnly } from 'vue-lazy-hydration'
+import { hydrateNever } from 'vue-lazy-hydration'
 
 export default {
   components: {
-    PostAside: hydrateSsrOnly(() => import('~/components/PostAside')),
-    VideoCompat: hydrateSsrOnly(() => import('~/components/VideoCompat'))
+    PostAside: hydrateNever(() => import('~/components/PostAside')),
+    VideoCompat: hydrateNever(() => import('~/components/VideoCompat'))
   },
   props: {
     markdown: {
