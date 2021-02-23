@@ -11,6 +11,9 @@ branches:
   only:
     - master
 
+before_script:
+  - export NODE_OPTIONS=--max_old_space_size=8192
+
 script:
   - travis_wait npm run generate
 
