@@ -3,6 +3,12 @@
     <div ref="headshot" :class="headshot" class="headshots__image">
       <picture>
         <source
+          :srcset="previewAvif"
+          :data-srcset="srcsetAvif"
+          :sizes="sizes"
+          type="image/avif"
+        />
+        <source
           :srcset="previewWebp"
           :data-srcset="srcsetWebp"
           :sizes="sizes"
@@ -50,12 +56,18 @@ export default {
     previewWebp() {
       return require('~/assets/images/headshots--fd.png?format=webp')
     },
+    previewAvif() {
+      return require('~/assets/images/headshots--fd.png?format=avif')
+    },
     srcset() {
       return require(`~/assets/images/headshots.png`)
     },
     srcsetWebp() {
       return require(`~/assets/images/headshots.png?format=webp`)
-    }
+    },
+    srcsetAvif() {
+      return require(`~/assets/images/headshots.png?format=avif`)
+    },
   },
   mounted() {
     this.mounted = true

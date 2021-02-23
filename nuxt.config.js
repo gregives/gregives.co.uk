@@ -167,7 +167,7 @@ export default {
 
       // Replace default image loaders with custom loader
       config.module.rules = config.module.rules.map((rule) => {
-        if (String(rule.test) === String(/\.(png|jpe?g|gif|svg|webp)$/i)) {
+        if (rule.test.test('.png')) {
           rule.use = [
             {
               loader: path.resolve(__dirname, 'loaders', 'sharp'),
