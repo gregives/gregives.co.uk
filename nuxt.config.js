@@ -130,8 +130,8 @@ export default {
   render: {
     bundleRenderer: {
       shouldPreload: (file, type) => {
-        // Check hash to preload display font
-        if (type === 'font') return /bf5d89e/.test(file)
+        // Preload woff2 fonts
+        if (type === 'font') return /\.woff2$/.test(file)
         return ['script', 'style'].includes(type)
       }
     }

@@ -31,7 +31,10 @@
   @supports (clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)) {
     &::before {
       $background-size: 0.75rem;
-      $background-dots: radial-gradient($color__primary--muted 0.075rem, transparent 0.075rem);
+      $background-dots: radial-gradient(
+        $color__primary--muted 0.075rem,
+        transparent 0.075rem
+      );
 
       background-image: $background-dots, $background-dots;
       background-size: $background-size $background-size;
@@ -68,11 +71,13 @@
 @mixin link($color: $color__body, $heading: false) {
   @include link--shadow($color);
 
-  background-image: linear-gradient($color__primary--muted, $color__primary--muted),
+  background-image: linear-gradient(
+      $color__primary--muted,
+      $color__primary--muted
+    ),
     linear-gradient($color__primary, $color__primary);
   background-size: 100% $border-weight, 0% $border-weight;
   background-repeat: no-repeat;
-  
   color: $color__primary;
   transition: background-size 300ms $transition__snappy;
 
@@ -93,8 +98,8 @@
 
 @mixin link--shadow($color) {
   $text-shadow: 0px 0px $color;
-  @for $x from -4 through 4 {
-    @for $y from -2 through 4 {
+  @for $x from -3 through 3 {
+    @for $y from -3 through 3 {
       $text-shadow: #{$text-shadow}, #{$x / 20}ex #{$y / 50}em $color;
     }
   }
@@ -113,7 +118,8 @@
   opacity: 1;
   padding: 0.5rem 1rem;
   position: relative;
-  transition: opacity 150ms $transition__normal, transform 150ms $transition__normal;
+  transition: opacity 150ms $transition__normal,
+    transform 150ms $transition__normal;
 
   &::before {
     content: '';
@@ -151,7 +157,8 @@
 @mixin button--primary {
   background-color: $color__primary;
   color: $color__body;
-  transition: opacity 150ms $transition__normal, transform 150ms $transition__normal;
+  transition: opacity 150ms $transition__normal,
+    transform 150ms $transition__normal;
 
   &::before {
     opacity: 1;
