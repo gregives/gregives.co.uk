@@ -1,7 +1,6 @@
 <template>
   <div class="lazy">
     <picture :style="width ? { width } : false">
-      <source :data-srcset="srcsetAvif" :sizes="sizes" type="image/avif" />
       <source :data-srcset="srcsetWebp" :sizes="sizes" type="image/webp" />
       <source :data-srcset="srcset" :sizes="sizes" :type="format" />
       <img
@@ -56,9 +55,6 @@ export default {
     },
     srcset() {
       return require(`~/assets/images/dynamic/${this.srcRel}?srcset`)
-    },
-    srcsetAvif() {
-      return require(`~/assets/images/dynamic/${this.srcRel}?srcset&format=avif`)
     },
     srcsetWebp() {
       return require(`~/assets/images/dynamic/${this.srcRel}?srcset&format=webp`)
