@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/meta/projects/stegaphoto", {data:[{text:"StegaPhoto"}],fetch:{},mutations:void 0});

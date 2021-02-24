@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/meta/projects/tv-remote", {data:[{text:"TV Remote"}],fetch:{},mutations:void 0});

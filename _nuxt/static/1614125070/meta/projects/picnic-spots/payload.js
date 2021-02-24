@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/meta/projects/picnic-spots", {data:[{text:"Picnic Spots"}],fetch:{},mutations:void 0});

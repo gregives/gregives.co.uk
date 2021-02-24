@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/meta/projects/icon-packs", {data:[{text:"Icon Packs"}],fetch:{},mutations:void 0});

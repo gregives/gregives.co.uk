@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/meta/projects/snapscroll", {data:[{text:"SnapScroll"}],fetch:{},mutations:void 0});

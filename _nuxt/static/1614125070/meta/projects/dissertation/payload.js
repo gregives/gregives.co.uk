@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/meta/projects/dissertation", {data:[{text:"Computer Vision System for a Chess-Playing Robot"}],fetch:{},mutations:void 0});

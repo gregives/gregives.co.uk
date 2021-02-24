@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/meta/blog/my-markdown-it-configuration", {data:[{text:"My Markdown-It Configuration"}],fetch:{},mutations:void 0});
