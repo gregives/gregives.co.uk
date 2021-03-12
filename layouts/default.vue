@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       script: (() => {
-        const content = function() {
+        const content = function () {
           // Set theme and theme-color as soon as possible
           const theme = localStorage.getItem('theme') || 'light'
           document.documentElement.dataset.theme = theme

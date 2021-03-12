@@ -17,11 +17,6 @@ export default {
   components: {
     PostCard: hydrateWhenIdle(() => import('~/components/PostCard'))
   },
-  head() {
-    return {
-      title: 'Blog'
-    }
-  },
   async asyncData() {
     const posts = await Promise.all(
       postSlugs.map(async (postSlug) => {
@@ -35,6 +30,11 @@ export default {
 
     return {
       posts
+    }
+  },
+  head() {
+    return {
+      title: 'Blog'
     }
   }
 }

@@ -1,9 +1,9 @@
 <template>
   <form
-    @submit.prevent="sendMessage"
     class="form"
     action="https://formsubmit.co/greg@gregives.co.uk"
     method="POST"
+    @submit.prevent="sendMessage"
   >
     <input type="hidden" name="_captcha" value="false" />
     <input type="hidden" name="_template" value="box" />
@@ -26,7 +26,7 @@
       <span>Subject</span>
     </label>
     <label class="form__input">
-      <textarea @input="autoHeight" name="message" required></textarea>
+      <textarea name="message" required @input="autoHeight"></textarea>
       <span>Say hello</span>
     </label>
     <button :disabled="message === 1" class="form__submit" type="submit">

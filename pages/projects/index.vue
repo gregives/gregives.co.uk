@@ -21,11 +21,6 @@ export default {
   components: {
     ProjectCard: hydrateWhenIdle(() => import('~/components/ProjectCard'))
   },
-  head() {
-    return {
-      title: 'Projects'
-    }
-  },
   async asyncData() {
     const projects = await Promise.all(
       projectSlugs.map(async (projectSlug) => {
@@ -39,6 +34,11 @@ export default {
 
     return {
       projects
+    }
+  },
+  head() {
+    return {
+      title: 'Projects'
     }
   }
 }

@@ -22,10 +22,10 @@
 import Headshots from '~/components/Headshots'
 
 export default {
-  layout: 'default',
   components: {
     Headshots
   },
+  layout: 'default',
   props: {
     error: {
       type: Object,

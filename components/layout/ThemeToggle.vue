@@ -1,8 +1,8 @@
 <template>
   <button
     :aria-label="theme === 'light' ? 'Dark theme' : 'Light theme'"
-    @click="toggleTheme"
     class="theme-toggle"
+    @click="toggleTheme"
   >
     <moon-icon v-if="theme === 'light'" title="Dark theme" />
     <sun-icon v-else title="Light theme" />
@@ -23,19 +23,19 @@ export default {
       theme: (process.client && localStorage.getItem('theme')) || 'light'
     }
   },
+  head() {
+    if (!process.server) {
+      return {
+        meta: [{ hid: 'theme-color', name: 'theme-color', content: this.color }]
+      }
+    }
+  },
   computed: {
     color() {
       const color = this.theme === 'light' ? 'primary' : 'body--overlay'
       return getComputedStyle(document.documentElement)
         .getPropertyValue(`--color__${color}`)
         .trim()
-    }
-  },
-  head() {
-    if (!process.server) {
-      return {
-        meta: [{ hid: 'theme-color', name: 'theme-color', content: this.color }]
-      }
     }
   },
   watch: {

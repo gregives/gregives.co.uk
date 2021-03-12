@@ -51,9 +51,9 @@ const markdown = require('markdown-it')({
   .use(require('markdown-it-sub'))
   .use(require('markdown-it-mark'))
   .use(require('markdown-it-ins'))
-  .use(function(md) {
+  .use(function (md) {
     // Plugin to switch images for custom component
-    md.renderer.rules.image = function(tokens, index) {
+    md.renderer.rules.image = function (tokens, index) {
       const token = tokens[index]
       const src = token.attrs[token.attrIndex('src')][1]
       const alt = token.attrs[token.attrIndex('alt')][1]
@@ -74,6 +74,6 @@ const replaceInlineImages = (html) => {
   return html.replace(/<p>(<lazy-image[^>]*>)<\/p>/g, '$1')
 }
 
-export default function(body) {
+export default function (body) {
   return replaceInlineImages(markdown.render(`[[toc]]\n\n${body}`))
 }

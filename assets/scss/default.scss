@@ -1,8 +1,8 @@
-@import "reset";
-@import "variables";
-@import "typography";
-@import "highlight";
-@import "mixins";
+@import 'reset';
+@import 'variables';
+@import 'typography';
+@import 'highlight';
+@import 'mixins';
 
 :root {
   @include font__body;
@@ -22,7 +22,12 @@ body {
   background-color: $color__body;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @include font__fancy;
   font-weight: 400;
 }
@@ -96,7 +101,10 @@ small {
 
   &:hover,
   &:active {
-    background-image: linear-gradient($color__primary--muted, $color__primary--muted);
+    background-image: linear-gradient(
+      $color__primary--muted,
+      $color__primary--muted
+    );
   }
 }
 

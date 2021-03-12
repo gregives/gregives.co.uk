@@ -7,7 +7,7 @@ const {
 
 const sharp = require('sharp')
 
-module.exports = function(source) {
+module.exports = function (source) {
   const callback = this.async()
   const params = this.resourceQuery ? parseQuery(this.resourceQuery) : {}
 

@@ -67,7 +67,7 @@ export default {
     },
     srcsetAvif() {
       return require(`~/assets/images/headshots.png?format=avif`)
-    },
+    }
   },
   mounted() {
     this.mounted = true

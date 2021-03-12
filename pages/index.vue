@@ -7,12 +7,8 @@
       <div class="home__description">
         <markdown :markdown="markdown" />
       </div>
-      <a class="home__stuff" href="#stuff">
-        See my stuff
-      </a>
-      <nuxt-link class="home__contact" to="/contact/">
-        Contact me
-      </nuxt-link>
+      <a class="home__stuff" href="#stuff">See my stuff</a>
+      <nuxt-link class="home__contact" to="/contact/">Contact me</nuxt-link>
       <headshots />
     </div>
     <ol id="stuff" class="home__posts">
