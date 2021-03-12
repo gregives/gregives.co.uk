@@ -39,6 +39,11 @@ export default {
   width: 100%;
   z-index: 1000;
 
+  @supports (backdrop-filter: blur(1rem)) {
+    background-color: $color__body--blur;
+    backdrop-filter: blur(1rem);
+  }
+
   @media print {
     display: none;
   }
