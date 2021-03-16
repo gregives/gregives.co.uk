@@ -12,6 +12,10 @@
   overflow-y: scroll;
   overflow-x: hidden;
 
+  &:focus-within {
+    scroll-behavior: smooth;
+  }
+
   // Bound font-size on larger screens
   @media (min-width: $breakpoint--xl) {
     font-size: calc(0.9em + 0.5vh);

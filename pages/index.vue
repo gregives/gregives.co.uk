@@ -11,7 +11,7 @@
       <nuxt-link class="home__contact" to="/contact/">Contact me</nuxt-link>
       <headshots />
     </div>
-    <ol id="stuff" class="home__posts">
+    <ol id="stuff" class="home__posts" tabindex="-1">
       <post-card v-for="post in posts" :key="post.title" :post="post" />
     </ol>
     <div class="home__posts-more">
@@ -143,6 +143,10 @@ export default {
 .home__posts {
   display: grid;
   grid-gap: 1.5rem;
+
+  &:focus {
+    outline: none;
+  }
 
   &-more {
     margin-top: 1rem;

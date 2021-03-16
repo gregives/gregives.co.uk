@@ -67,6 +67,13 @@ const markdown = require('markdown-it')({
         return `<lazy-image src="${src}" alt="${alt}" />`
       }
     }
+
+    // Allow focus on headings
+    md.renderer.rules.heading_open = function (tokens, index, o, e, self) {
+      const token = tokens[index]
+      token.attrs.push(['tabindex', '-1'])
+      return self.renderToken(tokens, index, o, e, self)
+    }
   })
 
 // Remove wrapper paragraph, from markdown-it inline image
