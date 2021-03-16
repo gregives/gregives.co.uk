@@ -1,3 +1,5 @@
+[![Screenshot of gregives.co.uk](./static/preview.gif)](https://gregives.co.uk)
+
 # [gregives.co.uk](https://gregives.co.uk)
 
 [![Travis Status](https://travis-ci.com/gregives/gregives.co.uk.svg?branch=master)](https://travis-ci.com/gregives/gregives.co.uk)
@@ -11,6 +13,7 @@ Personal site and portfolio of software engineer Greg Ives, built with [Nuxt](ht
 Primary color `#35f`
 
 Fonts:
+
 - `'DM Serif Text', Georgia, serif`
 - `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`
 - `Monaco, Consolas, 'Lucida Console', monospace`
@@ -21,7 +24,7 @@ Feel free to take inspiration from my personal site and by all means explore the
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ npm run install
 
