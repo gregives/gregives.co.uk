@@ -1,6 +1,6 @@
-[![Screenshot of gregives.co.uk](./static/preview.gif)](https://gregives.co.uk)
-
 # [gregives.co.uk](https://gregives.co.uk)
+
+[![Screenshot of gregives.co.uk](./static/preview.gif)](https://gregives.co.uk)
 
 [![Travis Status](https://travis-ci.com/gregives/gregives.co.uk.svg?branch=master)](https://travis-ci.com/gregives/gregives.co.uk)
 [![Netlify Status](https://img.shields.io/netlify/9d27f2de-e50e-4a8c-a262-6a24e4a663a8)](https://app.netlify.com/sites/gregives/deploys)
