@@ -180,7 +180,7 @@ export default {
 
 .headshots__image {
   bottom: -0.5rem;
-  height: calc(100% + 0.5rem);
+  height: calc(100% + 1rem);
   right: 0;
   position: absolute;
   width: 100%;
