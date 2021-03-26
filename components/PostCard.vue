@@ -40,9 +40,6 @@ export default {
   border: $border-weight solid $color__primary--muted;
   border-radius: $border-radius;
   box-shadow: $box-shadow--small;
-  padding: 1.5rem;
-  padding-top: 1rem;
-  padding-left: 0;
   position: relative;
   transition: box-shadow 150ms $transition__normal,
     border-color 150ms $transition__normal;
@@ -70,6 +67,9 @@ export default {
 }
 
 .post-card__content {
+  padding: 1.5rem;
+  padding-top: 1rem;
+  padding-left: 0;
   position: relative;
 }
 
