@@ -12,10 +12,6 @@
   overflow-y: scroll;
   overflow-x: hidden;
 
-  &:focus-within {
-    scroll-behavior: smooth;
-  }
-
   // Bound font-size on larger screens
   @media (min-width: $breakpoint--xl) {
     font-size: calc(0.9em + 0.5vh);
@@ -118,7 +114,7 @@ small {
 }
 
 :root.tabbing :focus {
-  outline: 2px dashed $color__primary;
+  outline: 2px dotted $color__primary;
   outline-offset: 0.1rem;
 }
 

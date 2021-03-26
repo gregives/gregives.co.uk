@@ -58,15 +58,8 @@ export default {
       }
     }
 
-    &:hover,
-    &:focus {
-      .header-anchor {
-        opacity: 1;
-      }
-    }
-
-    &:focus {
-      outline: none;
+    &:hover .header-anchor {
+      opacity: 1;
     }
   }
 

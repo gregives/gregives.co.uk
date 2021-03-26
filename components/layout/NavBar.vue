@@ -2,11 +2,6 @@
   <nav class="nav">
     <ol class="nav__list">
       <li class="nav__list-item">
-        <nuxt-link class="nav__link" to="/" exact>
-          <span>Home</span>
-        </nuxt-link>
-      </li>
-      <li class="nav__list-item">
         <nuxt-link class="nav__link" to="/blog/">
           <span>Blog</span>
         </nuxt-link>
