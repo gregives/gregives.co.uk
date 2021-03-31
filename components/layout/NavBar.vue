@@ -100,7 +100,8 @@
       @include link($color__body--overlay);
 
       filter: drop-shadow(0 0 0.2rem $color__body--overlay)
-        drop-shadow(0 0 0.5rem $color__body--overlay);
+        drop-shadow(0 0 0.5rem $color__body--overlay)
+        drop-shadow(0 0 1rem $color__body--overlay);
     }
   }
 

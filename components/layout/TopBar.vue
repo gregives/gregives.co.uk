@@ -41,7 +41,7 @@ export default {
 
   @supports (backdrop-filter: blur(1rem)) {
     background-color: $color__body--blur;
-    backdrop-filter: blur(1rem);
+    backdrop-filter: blur(0.5rem);
   }
 
   @media print {

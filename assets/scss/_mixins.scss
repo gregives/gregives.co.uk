@@ -32,8 +32,8 @@
     &::before {
       $background-size: 0.75rem;
       $background-dots: radial-gradient(
-        $color__primary--muted 0.075rem,
-        transparent 0.075rem
+        $color__primary--muted 15%,
+        transparent 15%
       );
 
       background-image: $background-dots, $background-dots;
@@ -54,7 +54,7 @@
 
 @mixin title {
   font-weight: 400;
-  text-shadow: 0.125rem 0.125rem $color__primary--muted;
+  text-shadow: 0.03em 0.03em $color__primary--muted;
   -webkit-text-stroke: $border-weight $color__primary;
   -webkit-text-fill-color: transparent;
 }

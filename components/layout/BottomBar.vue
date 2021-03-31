@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="footer__content">
       <p>
-        &copy; Greg Ives {{ new Date().getFullYear() }} &mdash;
+        &copy; Greg Ives {{ new Date().getFullYear() }}
         <a
           class="footer__source"
           href="https://github.com/gregives/gregives.co.uk"
@@ -106,6 +106,8 @@ export default {
 
 .footer__source {
   @include link;
+
+  margin-left: 1rem;
 }
 
 .footer__social-icon {
