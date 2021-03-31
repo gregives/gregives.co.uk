@@ -13,7 +13,7 @@ const markdown = require('markdown-it')({
     if (lang && hljs.getLanguage(lang)) {
       try {
         return `<pre class="highlight" data-language="${lang}"><code>${
-          hljs.highlight(lang, str, true).value
+          hljs.highlight(str, { language: lang, ignoreIllegals: true }).value
         }</code></pre>`
       } finally {
         // No syntax highlighting
