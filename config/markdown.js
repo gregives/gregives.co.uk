@@ -43,7 +43,10 @@ const markdown = require('markdown-it')({
   })
   .use(require('markdown-it-container'), 'aside', {
     render(tokens, index) {
-      return tokens[index].nesting === 1 ? '<post-aside>' : '</post-aside>'
+      const [, type] = tokens[index].info.split(' ') || 'info'
+      return tokens[index].nesting === 1
+        ? `<post-aside type="${type}">`
+        : '</post-aside>'
     }
   })
   .use(require('markdown-it-abbr'))

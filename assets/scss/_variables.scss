@@ -6,6 +6,9 @@
   --color__primary--muter: #{transparentize($color__primary, 0.87)};
   --color__primary--hue: #{hue($color__primary)};
 
+  $color__warning: #f50;
+  --color__warning: #{$color__warning};
+
   $color__body: hsl(hue($color__primary), 16%, 98%);
   $color__body--overlay: lighten($color__body, 2%);
   --color__body: #{$color__body};
@@ -29,6 +32,9 @@
       --color__primary--muted: #{transparentize($color__primary, 0.7)};
       --color__primary--muter: #{transparentize($color__primary, 0.8)};
       --color__primary--hue: #{hue($color__primary)};
+
+      $color__warning: #d93;
+      --color__warning: #{$color__warning};
 
       $color__body: hsl(hue($color__primary), 16%, 12%);
       $color__body--overlay: lighten($color__body, 4%);
@@ -57,6 +63,7 @@ $color__primary: var(--color__primary);
 $color__primary--muted: var(--color__primary--muted);
 $color__primary--muter: var(--color__primary--muter);
 $color__primary--hue: var(--color__primary--hue);
+$color__warning: var(--color__warning);
 $color__body: var(--color__body);
 $color__body--overlay: var(--color__body--overlay);
 $color__body--blur: var(--color__body--blur);

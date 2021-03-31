@@ -1,9 +1,25 @@
 <template>
-  <aside class="aside">
+  <aside :class="typeModifier" class="aside">
     <div class="aside__corner"></div>
     <slot></slot>
   </aside>
 </template>
+
+<script>
+export default {
+  props: {
+    type: {
+      type: String,
+      default: 'info'
+    }
+  },
+  computed: {
+    typeModifier() {
+      return `aside--${this.type}`
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 .aside {
@@ -75,6 +91,18 @@
 
   a:not(.header-anchor) {
     @include link($color__body--overlay);
+  }
+
+  &--warning {
+    &::before {
+      background-color: $color__warning;
+    }
+
+    &::after {
+      border: $border-weight solid $color__warning;
+      color: $color__warning;
+      content: '!';
+    }
   }
 }
 </style>
