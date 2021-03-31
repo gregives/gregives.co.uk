@@ -7,8 +7,10 @@
       <div class="home__description">
         <markdown :markdown="markdown" />
       </div>
-      <a class="home__stuff" href="#stuff">See my stuff</a>
-      <nuxt-link class="home__contact" to="/contact/">Contact me</nuxt-link>
+      <div class="home__actions">
+        <a class="home__stuff" href="#stuff">See my stuff</a>
+        <nuxt-link class="home__contact" to="/contact/">Contact me</nuxt-link>
+      </div>
       <headshots />
     </div>
     <ol id="stuff" class="home__posts">
@@ -120,11 +122,20 @@ export default {
   }
 }
 
+.home__actions {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $breakpoint--md) {
+    flex-direction: row;
+  }
+}
+
 .home__stuff {
   @include button;
   @include button--primary;
 
-  float: left;
   margin-right: 1rem;
   margin-bottom: 1rem;
 }
@@ -132,12 +143,7 @@ export default {
 .home__contact {
   @include button;
 
-  clear: both;
-  float: left;
-
-  @media (min-width: $breakpoint--md) {
-    clear: none;
-  }
+  margin-bottom: 1rem;
 }
 
 .home__posts {
