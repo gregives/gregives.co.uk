@@ -34,6 +34,7 @@
     @include font__fancy;
 
     background-color: $color__body--overlay;
+    border: $border-weight solid $color__primary;
     border-radius: 50%;
     box-shadow: $box-shadow--small;
     color: $color__primary;

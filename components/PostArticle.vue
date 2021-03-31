@@ -116,7 +116,7 @@ export default {
 .article__contents {
   display: none;
   height: calc(100vh - 6rem);
-  opacity: 0.6;
+  opacity: 0.4;
   overflow-y: auto;
   margin-right: -1rem;
   padding-right: 1rem;
@@ -138,7 +138,7 @@ export default {
   }
 
   .table-of-contents {
-    font-size: 90%;
+    font-size: 80%;
     margin-top: 1rem;
 
     li {
@@ -234,6 +234,7 @@ export default {
   @include h5;
 
   color: $color__primary;
+  font-weight: 300;
   margin-bottom: 3rem;
 }
 </style>

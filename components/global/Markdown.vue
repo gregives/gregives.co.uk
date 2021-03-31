@@ -174,8 +174,11 @@ export default {
   }
 
   mark {
-    background-color: $color__primary--muted;
-    color: $color__text;
+    background-color: $color__primary--muter;
+    border-radius: $border-radius;
+    color: $color__primary;
+    padding: 0 0.25rem;
+    margin: 0;
   }
 
   blockquote {
