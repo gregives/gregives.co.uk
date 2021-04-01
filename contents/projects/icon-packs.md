@@ -2,17 +2,16 @@
 title: Icon Packs
 titleShort: ''
 date: 2016-08-01
-image: "/assets/images/dynamic/icon-packs/squircle7.png"
-description: My first foray into programming and design. Icon packs for custom Android
-  launchers, so you can make your phone homescreen look pretty.
+image: '/assets/images/dynamic/icon-packs/squircle7.png'
+description: My first foray into programming and design. Icon packs for custom Android launchers, so you can make your phone homescreen look pretty
 tags:
-- Android
-- Icon packs
-- Java
-- Design
-- Promotion
-
+  - Android
+  - Icon packs
+  - Java
+  - Design
+  - Promotion
 ---
+
 I made my first Android app aged 14 --- I brought my coding and design skills together to create icon packs for custom launchers, such as Nova Launcher. My first icon pack, Trace, was designed as a transparent outlined-icon pack to allow minimal distraction from your homescreen wallpaper.
 
 > Enhance the style of your homescreen with minimal interference from icons --- **Trace** icons are subtle and elegant, whilst allowing your wallpaper to show through.

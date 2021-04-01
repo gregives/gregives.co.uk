@@ -1,11 +1,8 @@
 ---
 title: Build a Blog with Nuxt and Markdown
 date: 2020-02-08
-description: Learn how to build a blog with Nuxt and Markdown. This first blog post
-  of the series will explain how to load Markdown files and display them using a Markdown
-  component.
+description: Learn how to build a blog with Nuxt and Markdown
 tags: []
-
 ---
 
 :::aside warning
@@ -80,7 +77,9 @@ export default {
     // eslint-disable-next-line no-new-func
     this.templateRender = new Function(this.markdown.vue.render)()
     // eslint-disable-next-line no-new-func
-    this.$options.staticRenderFns = new Function(this.markdown.vue.staticRenderFns)()
+    this.$options.staticRenderFns = new Function(
+      this.markdown.vue.staticRenderFns
+    )()
   },
   render(h) {
     return this.templateRender ? this.templateRender() : h('div')
@@ -236,4 +235,4 @@ That's everything! When you've finished all of these steps, you'll be able to wr
 
 Feel free to <nuxt-link to="/contact/">contact me</nuxt-link> if you have any queries or feedback and keep an eye out for my next blog post!
 
-*[CDN]: Content Delivery Network
+\*[CDN]: Content Delivery Network

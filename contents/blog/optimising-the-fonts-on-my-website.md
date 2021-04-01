@@ -1,24 +1,23 @@
 ---
-tags: []
 title: Optimising the Fonts on My Website
 date: 2020-04-10
-description: How I changed my font loading strategy and reduced the first stage fonts
-  by over 100 kB
-
+description: How I changed my font loading strategy and reduced the first stage fonts by over 100 kB
+tags: []
 ---
+
 I'll admit, I visit my own website a lot more than I reasonably should. One of my biggest peeves about my website was the time taken to load the display font --- the titles would initially render in Georgia and after a few seconds there would be a layout shift when my chosen font, Tiempos Headline, finally loaded! I read an excellent article by Zach Leatherman, [Developing a Robust Font Loading Strategy for CSS-Tricks](https://www.zachleat.com/web/css-tricks-web-fonts/), which inspired me to change my font loading strategy and massively reduce initial load times.
 
 ## Before Optimising the Fonts
 
 Before I decided to optimise the fonts on my website, I was loading four web fonts on the home page and up to **seven** web fonts on some other pages! These amounted to a staggering **145kB**:
 
-* Tiempos Headline, 31.3kB
-* Tiempos Headline Bold, 30.2kB
-* IBM Plex Sans, 17.9kB
-* IBM Plex Sans Bold, 18.7kB
-* IBM Plex Sans Italic, 19.5kB
-* IBM Plex Mono, 13.7kB
-* IBM Plex Mono Bold, 14.1kB
+- Tiempos Headline, 31.3kB
+- Tiempos Headline Bold, 30.2kB
+- IBM Plex Sans, 17.9kB
+- IBM Plex Sans Bold, 18.7kB
+- IBM Plex Sans Italic, 19.5kB
+- IBM Plex Mono, 13.7kB
+- IBM Plex Mono Bold, 14.1kB
 
 Opening up the Network panel in Chrome DevTools showed the time taken to download all four web fonts on the home page. I disabled cache and loaded the page on a throttled Slow 3G network. The waterfall graph below shows the times taken for the fonts to load, over a period of 10 seconds:
 
@@ -52,17 +51,18 @@ Retrospectively, it seems crazy to load seven web fonts on a single page of my w
 
 Instead of browsing Google Fonts for new fonts on my website, I decided instead to take a look at the system fonts already on my device. Obviously the fonts available on each device vary, so here are some great resources I used:
 
-* [CSS Font Stack](https://www.cssfontstack.com/) shows the percentage of Windows and Mac devices which support some common fallback system fonts.
-* [System Font Stack article](https://css-tricks.com/snippets/css/system-font-stack/) on CSS-Tricks which has some good snippets for body font.
-* [Using UI System Fonts](https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/) a longer article on Smashing which explains which fonts target which systems.
+- [CSS Font Stack](https://www.cssfontstack.com/) shows the percentage of Windows and Mac devices which support some common fallback system fonts.
+- [System Font Stack article](https://css-tricks.com/snippets/css/system-font-stack/) on CSS-Tricks which has some good snippets for body font.
+- [Using UI System Fonts](https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/) a longer article on Smashing which explains which fonts target which systems.
 
 In a surprise move, I decided to use system fonts for **both** the body font and monospace font on my website. Here's the fonts I chose to use:
 
 ```css
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
 }
-    
+
 code {
   font-family: Monaco, Consolas, 'Lucida Console', monospace;
 }
@@ -130,7 +130,13 @@ This second stage font includes all the available features and the full unicode 
 We need to load the first stage font as soon as possible in order to minimise the FOUT (or even worse, FOIT) which would usually occur when loading a web font. Using `preload`, now with [86.63% of browser support](https://caniuse.com/#feat=link-rel-preload) at the time of writing, will ensure that the browser requests the resource as soon as it can.
 
 ```html
-<link rel="preload" href="DMSerifText-Regular-Latin.woff2" as="font" type="font/woff2" crossorigin>
+<link
+  rel="preload"
+  href="DMSerifText-Regular-Latin.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
 ```
 
 You can preload more than one first stage font if necessary, but keep in mind the more you choose to preload, the worse it will affect First Render times or FOUT which we are trying to avoid.
@@ -143,8 +149,8 @@ After you've told the browser to preload the font, you can just use a normal `@f
   font-family: 'DM Serif Text';
   font-weight: 400;
   src: local('DM Serif Text Regular'), local('DMSerifText-Regular'),
-       url('DMSerifText-Regular-Latin.woff2') format('woff2'),
-       url('DMSerifText-Regular-Latin.woff') format('woff');
+    url('DMSerifText-Regular-Latin.woff2') format('woff2'), url('DMSerifText-Regular-Latin.woff')
+      format('woff');
 }
 ```
 
@@ -154,9 +160,12 @@ We want to load the second stage fonts as soon as possible with JavaScript to mi
 
 ```js
 if ('fonts' in document) {
-  const font = new FontFace('DM Serif Text', "url('DMSerifText-Regular-Latin-Ext.woff2') format('woff2'), url('DMSerifText-Regular-Latin-Ext.woff') format('woff')")
+  const font = new FontFace(
+    'DM Serif Text',
+    "url('DMSerifText-Regular-Latin-Ext.woff2') format('woff2'), url('DMSerifText-Regular-Latin-Ext.woff') format('woff')"
+  )
 
-  font.load().then(function(font) {
+  font.load().then(function (font) {
     document.fonts.add(font)
   })
 }

@@ -1,6 +1,3 @@
----
-
----
 Hi there, I'm Greg Ives! I'm in my final year at the University of Sheffield, studying a masters in Computer Science. I love making things which work well, look good and are easy-to-use for everyone.
 
 I have a lot of experience building performant and accessible websites. Recently, I have been taking a look at JAMstack --- this website is statically generated using Nuxt. I am an avid hackathoner, attending hackathons across Europe and organising [HackSheffield](https://hacksheffield.co) for the past three years. I am a strong believer that you can learn just as much in your spare time as in education, most of my knowledge has come from hackathons and my side projects.

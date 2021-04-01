@@ -2,17 +2,16 @@
 title: Computer Vision System for a Chess-Playing Robot
 titleShort: Dissertation
 date: 2019-05-01
-image: "/assets/images/dynamic/dissertation/demonstration.png"
-description: A computer vision system for a chess-playing robot. Tracks the state
-  of a chessboard over time, using Python, scikit-learn and OpenCV.
+image: '/assets/images/dynamic/dissertation/demonstration.png'
+description: A computer vision system for a chess-playing robot. Tracks the state of a chessboard over time, using Python, scikit-learn and OpenCV
 tags:
-- Python
-- OpenCV
-- scikit-learn
-- Flask
-- Vue
-
+  - Python
+  - OpenCV
+  - scikit-learn
+  - Flask
+  - Vue
 ---
+
 I completed my dissertation as part of my 3^rd^ year of university. Entitled "A Computer Vision System for a Chess-Playing Robot", my dissertation aimed to infer the state of a chessboard from a webcam placed above the board. You can [download the report here](https://gregives.co.uk/projects/dissertation/dissertation.pdf). Here's what the finished system looks like!
 
 ![Demonstration page of the system](/assets/images/dynamic/dissertation/demonstration.png)
@@ -55,7 +54,7 @@ After a move had been played, each square of the chessboard was classified into 
 
 ## Designing the User Interface
 
-I envisaged a dashboard-like system which would provide an overview of the current state of the game and  briefly show how the application worked. As the application would be very interactive, for example controlling video playback and annotating moves as the game progressed, I opted to use [Vue.js](https://vuejs.org) as my front-end framework of choice: Vue would handle the data layer on the front-end without me having to worry about DOM manipulation or state management. The application would connect to the Python server in order to live stream the video playback and receive information about the game being played.
+I envisaged a dashboard-like system which would provide an overview of the current state of the game and briefly show how the application worked. As the application would be very interactive, for example controlling video playback and annotating moves as the game progressed, I opted to use [Vue.js](https://vuejs.org) as my front-end framework of choice: Vue would handle the data layer on the front-end without me having to worry about DOM manipulation or state management. The application would connect to the Python server in order to live stream the video playback and receive information about the game being played.
 
 For the user interface, [Bootstrap](https://getbootstrap.com) seemed the most obvious choice for a framework as it would allow me to rapidly prototype ideas without worrying about the maintenance of the CSS for the components. [BootstrapVue](https://bootstrap-vue.js.org) allowed plug-and-play components within the application.
 
