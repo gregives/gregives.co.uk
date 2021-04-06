@@ -211,13 +211,18 @@ export default {
   }
 
   table {
-    border: 1px solid $color__text--muted;
+    border: $border-weight solid $color__text--muted;
     border-collapse: separate;
     border-radius: $border-radius;
+    display: inline-block;
     margin-top: 2rem;
     max-width: 100%;
-    overflow: auto;
+    overflow-x: auto;
     text-align: left;
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
 
     &:not(:last-child) {
       margin-bottom: 2rem;
@@ -229,12 +234,12 @@ export default {
 
     th,
     td {
-      border-left: 1px solid $color__text--muted;
+      border-left: $border-weight solid $color__text--muted;
       padding: 0.5rem 0.75rem;
     }
 
     td {
-      border-top: 1px solid $color__text--muted;
+      border-top: $border-weight solid $color__text--muted;
     }
 
     th:first-child,
