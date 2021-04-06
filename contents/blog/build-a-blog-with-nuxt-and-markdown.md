@@ -235,4 +235,5 @@ That's everything! When you've finished all of these steps, you'll be able to wr
 
 Feel free to <nuxt-link to="/contact/">contact me</nuxt-link> if you have any queries or feedback and keep an eye out for my next blog post!
 
-\*[CDN]: Content Delivery Network
+<!-- prettier-ignore -->
+*[CDN]: Content Delivery Network

@@ -165,4 +165,5 @@ There are some great plugins out there to extend the functionality of markdown-i
 
 Have fun tinkering with your Markdown configuration!
 
-\*[GFM]: GitHub Flavoured Markdown
+<!-- prettier-ignore -->
+*[GFM]: GitHub Flavoured Markdown
