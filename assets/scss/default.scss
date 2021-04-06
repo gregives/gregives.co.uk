@@ -76,7 +76,7 @@ video {
 
 hr {
   border: none;
-  border-bottom: 1px solid $color__text--muted;
+  border-bottom: $border-weight solid $color__text--muted;
   margin: 1rem 0;
 }
 
@@ -94,8 +94,8 @@ small {
 }
 
 ::-webkit-scrollbar {
-  height: calc(0.5vw + 1px);
-  width: calc(0.5vw + 1px);
+  height: calc(0.5vw + #{$border-weight});
+  width: calc(0.5vw + #{$border-weight});
 }
 
 ::-webkit-scrollbar-track {
