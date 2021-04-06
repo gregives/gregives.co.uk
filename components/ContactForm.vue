@@ -3,16 +3,15 @@
     class="form"
     action="https://formsubmit.co/greg@gregives.co.uk"
     method="POST"
-    @submit.prevent="sendMessage"
+    :disabled="disabled"
   >
-    <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_template" value="box" />
-    <input type="text" name="_honey" />
     <input
       type="hidden"
-      name="_webhook"
-      value="https://hooks.zapier.com/hooks/catch/5805292/o2kxyrj/"
+      name="_next"
+      value="https://gregives.co.uk/contact/?thank=you"
     />
+    <input type="hidden" name="_template" value="box" />
+    <input type="text" name="_honey" />
     <label class="form__input">
       <input type="text" name="name" required />
       <span>Name</span>
@@ -29,12 +28,7 @@
       <textarea name="message" required @input="autoHeight"></textarea>
       <span>Say hello</span>
     </label>
-    <button :disabled="message === 1" class="form__submit" type="submit">
-      Send message
-    </button>
-    <span v-if="message !== null" class="form__feedback">
-      {{ message === null ? '' : messages[message] }}
-    </span>
+    <button class="form__submit" type="submit">Send message</button>
   </form>
 </template>
 
@@ -42,13 +36,11 @@
 export default {
   data() {
     return {
-      message: null,
-      messages: [
-        'Sending...',
-        'Thanks for your message!',
-        'Uh oh, try again later!'
-      ]
+      disabled: false
     }
+  },
+  mounted() {
+    this.disabled = this.$route.query.thank === 'you'
   },
   methods: {
     autoHeight(event) {
@@ -56,19 +48,6 @@ export default {
       const borders = textarea.offsetHeight - textarea.clientHeight + 1
       textarea.style.height = 0
       textarea.style.height = textarea.scrollHeight + borders + 'px'
-    },
-    sendMessage(event) {
-      this.message = 0
-      fetch('https://formsubmit.co/ajax/greg@gregives.co.uk', {
-        method: 'POST',
-        body: new FormData(event.target)
-      })
-        .then(() => {
-          this.message = 1
-        })
-        .catch(() => {
-          this.message = 2
-        })
     }
   }
 }
@@ -76,6 +55,31 @@ export default {
 
 <style lang="scss">
 .form {
+  position: relative;
+
+  &[disabled] {
+    > * {
+      filter: blur(0.5rem);
+      pointer-events: none;
+    }
+
+    &::after {
+      @include font__fancy;
+      @include h1;
+      @include title;
+
+      color: $color__primary;
+      content: 'Thanks';
+      left: 50%;
+      position: absolute;
+      text-decoration: wavy underline $color__primary $border-weight;
+      text-underline-offset: 0.5rem;
+      top: 30%;
+      transform: translate(-50%, -50%) rotate(-15deg);
+      -webkit-text-fill-color: currentColor;
+    }
+  }
+
   input[name='_honey'] {
     display: none;
   }
