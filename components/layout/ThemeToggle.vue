@@ -11,7 +11,7 @@
 
 <script>
 import SunIcon from 'icons/WhiteBalanceSunny'
-import MoonIcon from 'icons/WeatherNight'
+import MoonIcon from 'icons/MoonWaningCrescent'
 
 export default {
   components: {
@@ -56,7 +56,7 @@ export default {
 .theme-toggle {
   background-color: transparent;
   border: none;
-  color: $color__text;
+  color: $color__primary;
   cursor: pointer;
   outline: none;
   margin: 0 -0.5rem;
@@ -66,10 +66,7 @@ export default {
 
   svg {
     margin-top: -0.25rem;
-  }
-
-  &:hover {
-    color: $color__primary;
+    transform: scale(0.9) rotate(-45deg);
   }
 
   @media (min-width: $breakpoint--md) {

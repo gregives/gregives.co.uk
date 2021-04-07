@@ -8,6 +8,7 @@
   @include font__body;
 
   color: $color__text;
+  color-scheme: light;
   font-size: calc(0.9em + 0.5vmin);
   overflow-y: scroll;
   overflow-x: hidden;
@@ -15,6 +16,10 @@
   // Bound font-size on larger screens
   @media (min-width: $breakpoint--xl) {
     font-size: calc(0.9em + 0.5vh);
+  }
+
+  &[data-theme='dark'] {
+    color-scheme: dark;
   }
 }
 
