@@ -56,7 +56,7 @@ export default {
 .theme-toggle {
   background-color: transparent;
   border: none;
-  color: $color__primary;
+  color: $color__text;
   cursor: pointer;
   outline: none;
   margin: 0 -0.5rem;
@@ -64,14 +64,23 @@ export default {
   padding: 0 0.5rem;
   position: relative;
 
+  &:hover {
+    color: $color__primary;
+  }
+
   svg {
     margin-top: -0.25rem;
-    transform: scale(0.9) rotate(-45deg);
+    transform: rotate(-45deg);
   }
 
   @media (min-width: $breakpoint--md) {
+    color: $color__primary;
     margin-right: -0.5rem;
     margin-left: 1rem;
+
+    svg {
+      transform: scale(0.9) rotate(-45deg);
+    }
   }
 }
 </style>
