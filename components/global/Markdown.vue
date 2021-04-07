@@ -215,7 +215,7 @@ export default {
     border-collapse: separate;
     border-radius: $border-radius;
     display: inline-block;
-    margin-top: 2rem;
+    margin-top: 1rem;
     max-width: 100%;
     overflow-x: auto;
     text-align: left;
