@@ -13,9 +13,11 @@ tags:
 
 When creating my personal site in 2016, fullscreen scrolling websites were all the rage. However, none of the open-source libraries available were what I was looking for; [fullPage by Alvaro Trigo](https://alvarotrigo.com/fullPage/) came close, but did not allow the centering of elements less than the height of the viewport. So I decided to create my own snap scrolling JavaScript library, **snapScroll.js**.
 
-:::aside warning
+<post-aside type="warning">
+
 There is some controversy over "scroll-hijacking", whereby a website overrides the native scrolling behavior of the browser to create its own interaction, which may confuse some visitors. For this reason, I removed snapScroll.js from my website.
-:::
+
+</post-aside>
 
 <video-compat src="snapscroll/preview" autoplay muted loop />
 

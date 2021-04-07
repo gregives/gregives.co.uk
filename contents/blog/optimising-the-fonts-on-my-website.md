@@ -111,9 +111,11 @@ The unicodes specify which characters we want to keep in our first stage font fi
 
 Subsetting my new display font brought my first stage fonts down to **only 12.0kB** in size! That's a reduction of a whopping **133kB** on some pages, compared to the seven web fonts I was previously loading.
 
-:::aside info
+<post-aside type="info">
+
 Remember to generate your fonts in WOFF format as well as WOFF 2 for [the best browser support](https://caniuse.com/#feat=woff). Just specify `--flavor=woff` and make sure your `output-file` has a `.woff` extension.
-:::
+
+</post-aside>
 
 #### Second Stage Font
 

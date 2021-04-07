@@ -5,9 +5,11 @@ description: Learn how to build a blog with Nuxt and Markdown
 tags: []
 ---
 
-:::aside warning
+<post-aside type="warning">
+
 Since writing this post, [@nuxt/content](https://content.nuxtjs.org/) has been released which makes it much easier to handle Markdown content with Nuxt. It also features hot reload in development and handles Vue components in Markdown!
-:::
+
+</post-aside>
 
 I recently redesigned my website to showcase my projects and facilitate writing my new blog, which you're reading right now! I wanted my new website to be performant, look good and be accessible to everyone. However, I also wanted _my_ experience to be good --- I wanted to be able to easily write new blog posts and for it to just work, without writing code for each new page I wanted to add to my website.
 
