@@ -3,7 +3,7 @@ const https = require('https')
 const { join } = require('path')
 const { createWriteStream, mkdirSync } = require('fs')
 
-function generateImages(routes) {
+export function generateImages(routes) {
   const API_KEY = process.env.APIFLASH_KEY
   if (API_KEY !== undefined) {
     ;[...routes, '/'].forEach((route) => {
@@ -25,7 +25,7 @@ function generateImages(routes) {
   }
 }
 
-const openGraphTags = [
+export const openGraphTags = [
   {
     hid: 'og:type',
     property: 'og:type',
@@ -82,5 +82,3 @@ const openGraphTags = [
     content: '@gregiv_es'
   }
 ]
-
-export { generateImages, openGraphTags }
