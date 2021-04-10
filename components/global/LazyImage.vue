@@ -3,12 +3,7 @@
     <picture :style="width ? { width } : false">
       <source :data-srcset="srcsetWebp" :sizes="sizes" type="image/webp" />
       <source :data-srcset="srcset" :sizes="sizes" :type="format" />
-      <img
-        :src="lqip"
-        :alt="alt"
-        :class="{ 'lazy__image--load': mounted }"
-        class="lazy__image"
-      />
+      <img :src="lqip" :alt="alt" class="lazy__image lazy__image--load" />
       <!-- Fallback image -->
       <noscript inline-template>
         <img
@@ -41,11 +36,6 @@ export default {
       default: ''
     }
   },
-  data() {
-    return {
-      mounted: false
-    }
-  },
   computed: {
     format() {
       return `image/${this.src.split('.').pop()}`
@@ -65,9 +55,6 @@ export default {
     original() {
       return require(`~/assets/images/dynamic/${this.srcRel}`)
     }
-  },
-  mounted() {
-    this.mounted = true
   }
 }
 </script>
