@@ -55,19 +55,6 @@ export default {
     window.addEventListener('beforeinstallprompt', (event) => {
       event.preventDefault()
     })
-
-    // Check if the page should scroll to hash
-    const hash = this.$route.hash
-    if (hash) {
-      this.scrollToHash(hash)
-    }
-  },
-  methods: {
-    scrollToHash(hash) {
-      this.$nextTick(() => {
-        location.href = hash
-      })
-    }
   }
 }
 </script>
