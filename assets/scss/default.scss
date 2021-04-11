@@ -64,19 +64,6 @@ h6 {
 a {
   color: inherit;
   text-decoration: none;
-
-  &[target='_blank'] {
-    margin-right: 0.5rem;
-
-    &::after {
-      color: $color__text;
-      content: '\00A0\1F86D';
-      font-size: 60%;
-      margin-left: -0.1rem;
-      margin-right: -0.5rem;
-      vertical-align: top;
-    }
-  }
 }
 
 img,
