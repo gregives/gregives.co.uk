@@ -66,7 +66,7 @@ const markdown = require('markdown-it')({
 
 // Remove wrapper paragraph, from markdown-it inline image
 const replaceInlineImages = (html) => {
-  return html.replace(/<p>(<lazy-image[^>]*>)<\/p>/g, '$1')
+  return html.replace(/<p>(<lazy-image[^>]*?>)<\/p>/g, '$1')
 }
 
 export default function (body) {

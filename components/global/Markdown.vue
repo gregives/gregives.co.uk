@@ -257,5 +257,10 @@ export default {
       }
     }
   }
+
+  p:empty,
+  .table-of-contents {
+    display: none;
+  }
 }
 </style>
