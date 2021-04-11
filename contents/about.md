@@ -2,9 +2,9 @@ Hi there, I'm Greg Ives! I'm a developer, currently working on web stuff at [Cap
 
 I recently graduated from the University of Sheffield with a master's degree in Computer Science. I became involved in [HackSheffield](https://hacksheffield.co), organising the hackathon for three years and attending hackathons across Europe. Whilst at university, I interned at [FinancialForce](https://www.financialforce.com/) and volunteered as a Lead Instructor for [Code First: Girls](https://codefirstgirls.org.uk/).
 
-Here is an incomplete list of some technologies I work with:
+Here are some of the technologies I work with:
 
-- React with [Next.js](https://nextjs.org/) and either [Styled Components](https://styled-components.com/) or [Tailwind](https://tailwindcss.com/)
+- React with [Next.js](https://nextjs.org/) and [Styled Components](https://styled-components.com/) or [Tailwind](https://tailwindcss.com/)
 - Vue with [Nuxt.js](https://nuxtjs.org/) and SCSS
 - [Eleventy](https://11ty.dev/) with some HTML, CSS and a sprinkle of JavaScript
 
