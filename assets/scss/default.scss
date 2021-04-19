@@ -99,8 +99,8 @@ small {
 }
 
 ::-webkit-scrollbar {
-  height: calc(0.5vw + #{$border-weight});
-  width: calc(0.5vw + #{$border-weight});
+  height: 2 * $border-radius;
+  width: 2 * $border-radius;
 }
 
 ::-webkit-scrollbar-track {
@@ -109,14 +109,34 @@ small {
 
 ::-webkit-scrollbar-thumb {
   border-radius: $border-radius;
-  background-color: $color__primary--muted;
+  border: $border-weight solid $color__primary--muted;
+  background-image: linear-gradient(
+    $color__body--overlay,
+    $color__primary--muted
+  );
 
-  &:hover,
-  &:active {
+  &:vertical {
     background-image: linear-gradient(
-      $color__primary--muted,
+      to right,
+      $color__body--overlay,
       $color__primary--muted
     );
+  }
+
+  &:hover {
+    background-color: $color__primary--muted;
+  }
+
+  &:active {
+    background-image: linear-gradient(transparent, $color__primary--muted);
+
+    &:vertical {
+      background-image: linear-gradient(
+        to right,
+        transparent,
+        $color__primary--muted
+      );
+    }
   }
 }
 
