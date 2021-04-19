@@ -55,6 +55,7 @@
 @mixin title {
   font-weight: 400;
   text-shadow: 0.03em 0.03em $color__primary--muted;
+  -webkit-font-smoothing: antialiased;
   -webkit-text-stroke: $border-weight $color__primary;
   -webkit-text-fill-color: transparent;
 }
@@ -64,6 +65,7 @@
   font-size: 110%;
   font-weight: 700;
   line-height: 1;
+  -webkit-font-smoothing: auto;
   -webkit-text-stroke: 0 currentColor;
   -webkit-text-fill-color: currentColor;
 }
