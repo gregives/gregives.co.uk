@@ -89,7 +89,11 @@ export default {
     '~/plugins/components.js'
   ],
   // Nuxt.js build modules
-  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/google-analytics'],
+  buildModules: [
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/stylelint-module',
+    '@nuxtjs/google-analytics'
+  ],
   // Nuxt.js modules
   modules: ['@nuxtjs/pwa', '@nuxtjs/style-resources', '@nuxtjs/sitemap'],
   // Instead of importing into every component

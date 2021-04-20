@@ -93,10 +93,6 @@ export default {
     margin-top: 0.75rem;
   }
 
-  p:not(:last-child) {
-    margin-bottom: 1rem;
-  }
-
   a:not(.header-anchor) {
     @include link;
   }
@@ -119,6 +115,8 @@ export default {
   }
 
   p:not(:last-child) {
+    margin-bottom: 1rem;
+
     iframe,
     video {
       margin-bottom: 2rem;

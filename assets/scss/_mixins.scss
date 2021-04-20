@@ -99,12 +99,13 @@
 }
 
 @mixin link--shadow($color) {
-  $text-shadow: 0px 0px $color;
+  $text-shadow: 0 0 $color;
   @for $x from -3 through 3 {
     @for $y from -3 through 3 {
       $text-shadow: #{$text-shadow}, #{$x / 20}ex #{$y / 50}em $color;
     }
   }
+
   text-shadow: $text-shadow;
 }
 

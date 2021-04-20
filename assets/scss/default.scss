@@ -12,6 +12,11 @@
   font-size: calc(0.9em + 0.5vmin);
   overflow-y: scroll;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion) {
+    scroll-behavior: auto !important;
+  }
 
   // Bound font-size on larger screens
   @media (min-width: $breakpoint--xl) {
@@ -34,6 +39,7 @@ h4,
 h5,
 h6 {
   @include font__fancy;
+
   font-weight: 400;
 }
 
@@ -93,7 +99,7 @@ small {
   font-size: 90%;
 }
 
-:root {
+html {
   scrollbar-color: $color__primary--muted $color__body--overlay;
   scrollbar-width: thin;
 }
@@ -115,6 +121,7 @@ small {
     $color__primary--muted
   );
 
+  // stylelint-disable-next-line selector-pseudo-class-no-unknown
   &:vertical {
     background-image: linear-gradient(
       to right,
@@ -130,6 +137,7 @@ small {
   &:active {
     background-image: linear-gradient(transparent, $color__primary--muted);
 
+    // stylelint-disable-next-line selector-pseudo-class-no-unknown
     &:vertical {
       background-image: linear-gradient(
         to right,

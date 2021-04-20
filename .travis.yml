@@ -15,7 +15,7 @@ before_script:
   - export NODE_OPTIONS=--max_old_space_size=8192
 
 script:
-  - travis_wait npm run generate
+  - travis_wait yarn generate
 
 deploy:
   provider: pages
@@ -27,5 +27,5 @@ deploy:
     branch: master
 
 after_deploy:
-  - npm install -g @lhci/cli
+  - yarn global add @lhci/cli
   - lhci autorun

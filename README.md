@@ -25,18 +25,14 @@ Feel free to take inspiration from my personal site and by all means explore the
 ## Build Setup
 
 ```bash
-# install dependencies
-$ npm run install
+# Install dependencies
+$ yarn install
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+# Serve with hot reload at localhost:3000
+$ yarn dev
 
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+# Generate static project
+$ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
