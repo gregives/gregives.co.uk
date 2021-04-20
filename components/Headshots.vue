@@ -20,6 +20,8 @@
           :class="{ 'lazy__image--load': mounted }"
           alt="Interactive photo of Greg Ives"
           class="lazy__image"
+          width="3150"
+          height="2400"
         />
       </picture>
     </div>
