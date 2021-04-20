@@ -17,8 +17,9 @@
         <source :data-srcset="srcset" :sizes="sizes" type="image/png" />
         <img
           :src="preview"
+          :class="{ 'lazy__image--load': mounted }"
           alt="Interactive photo of Greg Ives"
-          class="lazy__image lazy__image--load"
+          class="lazy__image"
           width="3150"
           height="2400"
         />
@@ -40,6 +41,7 @@ export default {
   data() {
     return {
       closestHeadshot: 'fd',
+      mounted: false,
       x: null,
       y: null,
       rAF: null,
@@ -70,6 +72,8 @@ export default {
     }
   },
   mounted() {
+    this.mounted = true
+
     if (!this.error) {
       window.addEventListener('mousemove', this.storeMousePosition)
       window.addEventListener('touchstart', this.storeMousePosition)
