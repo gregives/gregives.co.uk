@@ -1,5 +1,5 @@
 /*
-  Content-Security-Policy-Report-Only: default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.google-analytics.com https://cdn.jsdelivr.net; img-src 'self' data:; object-src 'none'
+  Content-Security-Policy-Report-Only: default-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.google-analytics.com https://cdn.jsdelivr.net; img-src 'self' data:; object-src 'none'
   Referrer-Policy: strict-origin-when-cross-origin
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
