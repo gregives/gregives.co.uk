@@ -26,7 +26,7 @@ Feel free to take inspiration from my personal site and by all means explore the
 
 ```bash
 # Install dependencies
-$ yarn install
+$ yarn
 
 # Serve with hot reload at localhost:3000
 $ yarn dev
