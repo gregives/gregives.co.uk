@@ -27,7 +27,7 @@ export default {
   border-radius: $border-radius;
   box-shadow: $box-shadow;
   margin-top: 2rem;
-  padding: 1.5rem 1rem 1.5rem 2rem;
+  padding: 1.25rem 1.5rem 1rem;
   position: relative;
 
   &:not(:last-child) {
@@ -61,7 +61,7 @@ export default {
     line-height: 2rem;
     position: absolute;
     text-align: center;
-    top: 0.5rem;
+    top: -0.25rem;
     transform: translate(-50%, -50%);
     width: 2rem;
     z-index: 1;
@@ -83,7 +83,7 @@ export default {
       height: 2.5rem;
       left: 0.5rem;
       position: absolute;
-      top: 0.5rem;
+      top: -0.25rem;
       transform: translate(-50%, -50%);
       width: 2.5rem;
     }

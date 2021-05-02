@@ -39,6 +39,10 @@ export default {
   width: 100%;
   z-index: 1000;
 
+  @media (min-width: $breakpoint--md) {
+    overflow: hidden;
+  }
+
   @supports (backdrop-filter: blur(1rem)) {
     background-color: $color__body--blur;
     backdrop-filter: blur(0.5rem);

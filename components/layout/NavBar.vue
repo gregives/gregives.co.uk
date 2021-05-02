@@ -67,6 +67,17 @@
     position: relative;
     top: auto;
     transform: none;
+
+    &::before {
+      background-color: $color__body--overlay;
+      content: '';
+      filter: blur(2rem);
+      position: absolute;
+      top: -1rem;
+      left: -4rem;
+      width: calc(100% + 8rem);
+      height: calc(100% + 2rem);
+    }
   }
 }
 
@@ -100,8 +111,7 @@
       @include link($color__body--overlay);
 
       filter: drop-shadow(0 0 0.2rem $color__body--overlay)
-        drop-shadow(0 0 0.5rem $color__body--overlay)
-        drop-shadow(0 0 1rem $color__body--overlay);
+        drop-shadow(0 0 0.5rem $color__body--overlay);
     }
   }
 

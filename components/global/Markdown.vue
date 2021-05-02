@@ -182,7 +182,6 @@ export default {
   blockquote {
     background-color: $color__body--overlay;
     border-radius: $border-radius;
-    font-style: italic;
     margin-top: 2rem;
     padding: 1.5rem 1rem 1.5rem 2rem;
     position: relative;
