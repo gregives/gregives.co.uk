@@ -11,6 +11,7 @@ export async function postLoader(postSlug) {
 export const postSlugs = [
   'build-a-blog-with-nuxt-and-markdown',
   'choosing-a-cms-for-your-website',
+  'interpolating-colour-with-css',
   'my-markdown-it-configuration',
   'optimising-the-fonts-on-my-website',
   'why-you-should-learn-regex'

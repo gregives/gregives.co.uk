@@ -1,10 +1,14 @@
 <script>
-import { hydrateNever } from 'vue-lazy-hydration'
+import { hydrateNever, hydrateWhenVisible } from 'vue-lazy-hydration'
 
 export default {
   components: {
     PostAside: hydrateNever(() => import('~/components/PostAside')),
-    VideoCompat: hydrateNever(() => import('~/components/VideoCompat'))
+    VideoCompat: hydrateNever(() => import('~/components/VideoCompat')),
+    // Components for individual blog posts
+    Interpolation: hydrateWhenVisible(() =>
+      import('~/components/interactive/Interpolation')
+    )
   },
   props: {
     markdown: {
