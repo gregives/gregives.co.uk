@@ -27,7 +27,7 @@ export default {
   border-radius: $border-radius;
   box-shadow: $box-shadow;
   margin-top: 2.25rem;
-  padding: 1.25rem 1.5rem 1rem;
+  padding: 1.25rem (1rem + $border-radius) 1rem;
   position: relative;
 
   &:not(:last-child) {

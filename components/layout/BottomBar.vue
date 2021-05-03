@@ -13,7 +13,11 @@
         </a>
       </p>
       <p>
-        <a class="footer__social-icon" href="mailto:greg@gregives.co.uk">
+        <a
+          class="footer__social-icon"
+          href="mailto:greg@gregives.co.uk"
+          title="Email"
+        >
           <email-icon title="Email" />
         </a>
         <a
@@ -21,6 +25,7 @@
           href="https://www.linkedin.com/in/gregiv-es/"
           rel="noopener noreferrer"
           target="_blank"
+          title="LinkedIn"
         >
           <linkedin-icon title="LinkedIn" />
         </a>
@@ -29,6 +34,7 @@
           href="https://github.com/gregives"
           rel="noopener noreferrer"
           target="_blank"
+          title="GitHub"
         >
           <github-icon title="GitHub" />
         </a>
@@ -37,6 +43,7 @@
           href="https://devpost.com/gregives"
           rel="noopener noreferrer"
           target="_blank"
+          title="Devpost"
         >
           <devpost-icon title="Devpost" />
         </a>
@@ -45,6 +52,7 @@
           href="https://twitter.com/gregiv_es"
           rel="noopener noreferrer"
           target="_blank"
+          title="Twitter"
         >
           <twitter-icon title="Twitter" />
         </a>

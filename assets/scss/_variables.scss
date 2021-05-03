@@ -3,7 +3,7 @@
   $color__primary: #35f;
   --color__primary: #{$color__primary};
   --color__primary--muted: #{transparentize($color__primary, 0.7)};
-  --color__primary--muter: #{transparentize($color__primary, 0.87)};
+  --color__primary--muter: #{transparentize($color__primary, 0.9)};
   --color__primary--hue: #{hue($color__primary)};
 
   $color__warning: #f50;
@@ -29,7 +29,7 @@
     &[data-theme='dark'] {
       $color__primary: #89f;
       --color__primary: #{$color__primary};
-      --color__primary--muted: #{transparentize($color__primary, 0.7)};
+      --color__primary--muted: #{transparentize($color__primary, 0.6)};
       --color__primary--muter: #{transparentize($color__primary, 0.8)};
       --color__primary--hue: #{hue($color__primary)};
 

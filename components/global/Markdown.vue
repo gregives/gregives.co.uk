@@ -187,7 +187,7 @@ export default {
     background-color: $color__body--overlay;
     border-radius: $border-radius;
     margin-top: 2rem;
-    padding: 1.5rem 1rem 1.5rem 2rem;
+    padding: 1rem (1rem + $border-radius);
     position: relative;
 
     &:not(:last-child) {
