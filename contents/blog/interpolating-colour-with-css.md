@@ -1,6 +1,6 @@
 ---
 title: Interpolating Colour with CSS
-date: 2021-05-02
+date: 2021-05-03
 description: Different methods of interpolating colour in CSS including negative animation‑delay
 tags: []
 ---
