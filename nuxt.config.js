@@ -92,10 +92,12 @@ export default {
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/google-analytics',
+    '@nuxtjs/pwa'
   ],
   // Nuxt.js modules
-  modules: ['@nuxtjs/pwa', '@nuxtjs/style-resources', '@nuxtjs/sitemap'],
+  modules: ['@nuxtjs/sitemap'],
   // Instead of importing into every component
   styleResources: {
     scss: [
@@ -139,7 +141,6 @@ export default {
       }
     }
   },
-  modern: 'client',
   // Build configuration
   build: {
     filenames: {
