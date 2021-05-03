@@ -191,16 +191,18 @@ export default {
   }
 
   &--animate-delay {
-    animation: 101s linear calc(-1s * var(--progress)) paused progress;
+    animation: 101s linear paused progress;
+    animation-delay: calc(-1s * var(--progress));
   }
 
   &--animate-multiple {
-    animation: 101s ease-in-out calc(-1s * var(--progress)) paused
-      progress-multiple;
+    animation: 101s ease-in-out paused progress-multiple;
+    animation-delay: calc(-1s * var(--progress));
   }
 
   &--animate-variable {
-    animation: 101s linear calc(-1s * var(--progress)) paused progress-variable;
+    animation: 101s linear paused progress-variable;
+    animation-delay: calc(-1s * var(--progress));
     background-color: hsl(var(--hue), var(--saturation), var(--lightness));
   }
 }
