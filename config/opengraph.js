@@ -1,10 +1,14 @@
-require('dotenv').config()
-const https = require('https')
-const { join } = require('path')
-const { createWriteStream, mkdirSync } = require('fs')
+import https from 'https'
+import { join } from 'path'
+import { createWriteStream, mkdirSync } from 'fs'
+import dotenv from 'dotenv'
+
+// Load .env file
+dotenv.config()
 
 export function generateImages(routes) {
   const API_KEY = process.env.APIFLASH_KEY
+
   if (API_KEY !== undefined) {
     ;[...routes, '/'].forEach((route) => {
       // Create new file for Open Graph image
@@ -14,12 +18,14 @@ export function generateImages(routes) {
 
       // URL to corresponding meta page
       const url = encodeURIComponent(`https://gregives.co.uk/meta${route}`)
+
       // ApiFlash endpoint
       const api = `https://api.apiflash.com/v1/urltoimage?access_key=${API_KEY}&format=png&height=630&response_type=image&ttl=2592000&url=${url}&width=1200`
 
       // Write response to stream
       https.get(api, (response) => {
         response.pipe(file)
+        file.on('finish', file.close)
       })
     })
   }

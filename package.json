@@ -25,7 +25,6 @@
   },
   "dependencies": {
     "@nuxtjs/sitemap": "^2.4.0",
-    "axios": "^0.21.1",
     "core-js": "^3.11.1",
     "dotenv": "^8.2.0",
     "frontmatter-markdown-loader": "^2.3.0",
@@ -48,7 +47,7 @@
     "vue-lazy-hydration": "^2.0.0-beta.4",
     "vue-material-design-icons": "^4.7.1",
     "vue-tabbing": "^0.1.0",
-    "webpack": "4"
+    "webpack": "^4.46.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^6.0.0",
