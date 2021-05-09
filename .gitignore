@@ -89,6 +89,3 @@ sw.*
 
 # Lighthouse CI
 .lighthouseci
-
-# Generated Open Graph images
-**/og.png

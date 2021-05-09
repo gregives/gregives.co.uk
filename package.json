@@ -13,7 +13,7 @@
     "lint:style": "stylelint \"**/*.{vue,scss}\" --ignore-path .gitignore",
     "lint": "yarn lint:js && yarn lint:style",
     "forestry": "nuxt -p 8080 -H 0.0.0.0",
-    "pregenerate": "node -r esm config/opengraph"
+    "opengraph": "node -r esm config/opengraph"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint",
