@@ -2,11 +2,17 @@ import https from 'https'
 import { join } from 'path'
 import { createWriteStream, mkdirSync } from 'fs'
 import dotenv from 'dotenv'
+import routes from '../contents/routes'
 
 // Load .env file
 dotenv.config()
 
-export function generateImages(routes) {
+// Generate Open Graph images from script
+if (require.main === module) {
+  generateImages(routes)
+}
+
+function generateImages(routes) {
   const API_KEY = process.env.APIFLASH_KEY
 
   if (API_KEY !== undefined) {
@@ -20,7 +26,7 @@ export function generateImages(routes) {
       const url = encodeURIComponent(`https://gregives.co.uk/meta${route}`)
 
       // ApiFlash endpoint
-      const api = `https://api.apiflash.com/v1/urltoimage?access_key=${API_KEY}&format=png&height=630&response_type=image&ttl=2592000&url=${url}&width=1200`
+      const api = `https://api.apiflash.com/v1/urltoimage?access_key=${API_KEY}&format=png&height=630&response_type=image&ttl=2592000&url=${url}&width=1200&fresh=true`
 
       // Write response to stream
       https.get(api, (response) => {

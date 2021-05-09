@@ -12,10 +12,7 @@ import markdown from './config/markdown'
 import minify from './config/minify'
 
 // Open Graph
-import { generateImages, openGraphTags } from './config/opengraph'
-
-// Generate tags for Open Graph
-generateImages(routes)
+import { openGraphTags } from './config/opengraph'
 
 // Load primary color from sass
 const [, primaryColor] = fs
