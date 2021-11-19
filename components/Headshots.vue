@@ -170,8 +170,8 @@ export default {
   z-index: 1;
 
   @media (min-width: $breakpoint--xl) {
-    height: calc(20vh + #{30 / 100 * $breakpoint--xl} - 0.5rem);
-    width: calc(15vh + #{22.5 / 100 * $breakpoint--xl});
+    height: calc(20vh + 0.3 * #{$breakpoint--xl} - 0.5rem);
+    width: calc(15vh + 0.225 * #{$breakpoint--xl});
   }
 }
 
@@ -196,7 +196,7 @@ export default {
     max-width: none;
     position: absolute;
     top: 0;
-    transform: translate(-(400% / 7), -(300% / 4));
+    transform: translate(math.div(-400%, 7), math.div(-300%, 4));
     width: 700%;
   }
 }
@@ -206,110 +206,110 @@ export default {
 }
 
 .headshots__image--_la .lazy__image--loaded {
-  transform: translate(-(100% / 7), 0);
+  transform: translate(math.div(-100%, 7), 0);
 }
 
 .headshots__image--_pd .lazy__image--loaded {
-  transform: translate(-(200% / 7), 0);
+  transform: translate(math.div(-200%, 7), 0);
 }
 
 .headshots__image--_r_f .lazy__image--loaded {
-  transform: translate(-(300% / 7), 0);
+  transform: translate(math.div(-300%, 7), 0);
 }
 
 .headshots__image--_sa .lazy__image--loaded {
-  transform: translate(-(400% / 7), 0);
+  transform: translate(math.div(-400%, 7), 0);
 }
 
 .headshots__image--_bd .lazy__image--loaded {
-  transform: translate(-(500% / 7), 0);
+  transform: translate(math.div(-500%, 7), 0);
 }
 
 .headshots__image--ia .lazy__image--loaded {
-  transform: translate(-(600% / 7), 0);
+  transform: translate(math.div(-600%, 7), 0);
 }
 
 .headshots__image--_ug .lazy__image--loaded {
-  transform: translate(0, -(100% / 4));
+  transform: translate(0, math.div(-100%, 4));
 }
 
 .headshots__image--_xd .lazy__image--loaded {
-  transform: translate(-(100% / 7), -(100% / 4));
+  transform: translate(math.div(-100%, 7), math.div(-100%, 4));
 }
 
 .headshots__image--_c_f .lazy__image--loaded {
-  transform: translate(-(200% / 7), -(100% / 4));
+  transform: translate(math.div(-200%, 7), math.div(-100%, 4));
 }
 
 .headshots__image--_da .lazy__image--loaded {
-  transform: translate(-(300% / 7), -(100% / 4));
+  transform: translate(math.div(-300%, 7), math.div(-100%, 4));
 }
 
 .headshots__image--_f_f .lazy__image--loaded {
-  transform: translate(-(400% / 7), -(100% / 4));
+  transform: translate(math.div(-400%, 7), math.div(-100%, 4));
 }
 
 .headshots__image--_hg .lazy__image--loaded {
-  transform: translate(-(500% / 7), -(100% / 4));
+  transform: translate(math.div(-500%, 7), math.div(-100%, 4));
 }
 
 .headshots__image--id .lazy__image--loaded {
-  transform: translate(-(600% / 7), -(100% / 4));
+  transform: translate(math.div(-600%, 7), math.div(-100%, 4));
 }
 
 .headshots__image--_jd .lazy__image--loaded {
-  transform: translate(0, -(200% / 4));
+  transform: translate(0, math.div(-200%, 4));
 }
 
 .headshots__image--ag .lazy__image--loaded {
-  transform: translate(-(100% / 7), -(200% / 4));
+  transform: translate(math.div(-100%, 7), math.div(-200%, 4));
 }
 
 .headshots__image--k_f .lazy__image--loaded {
-  transform: translate(-(200% / 7), -(200% / 4));
+  transform: translate(math.div(-200%, 7), math.div(-200%, 4));
 }
 
 .headshots__image--ma .lazy__image--loaded {
-  transform: translate(-(300% / 7), -(200% / 4));
+  transform: translate(math.div(-300%, 7), math.div(-200%, 4));
 }
 
 .headshots__image--od .lazy__image--loaded {
-  transform: translate(-(400% / 7), -(200% / 4));
+  transform: translate(math.div(-400%, 7), math.div(-200%, 4));
 }
 
 .headshots__image--og .lazy__image--loaded {
-  transform: translate(-(500% / 7), -(200% / 4));
+  transform: translate(math.div(-500%, 7), math.div(-200%, 4));
 }
 
 .headshots__image--jg .lazy__image--loaded {
-  transform: translate(-(600% / 7), -(200% / 4));
+  transform: translate(math.div(-600%, 7), math.div(-200%, 4));
 }
 
 .headshots__image--c_f .lazy__image--loaded {
-  transform: translate(0, -(300% / 4));
+  transform: translate(0, math.div(-300%, 4));
 }
 
 .headshots__image--ca .lazy__image--loaded {
-  transform: translate(-(100% / 7), -(300% / 4));
+  transform: translate(math.div(-100%, 7), math.div(-300%, 4));
 }
 
 .headshots__image--ea .lazy__image--loaded {
-  transform: translate(-(200% / 7), -(300% / 4));
+  transform: translate(math.div(-200%, 7), math.div(-300%, 4));
 }
 
 .headshots__image--f_f .lazy__image--loaded {
-  transform: translate(-(300% / 7), -(300% / 4));
+  transform: translate(math.div(-300%, 7), math.div(-300%, 4));
 }
 
 .headshots__image--fd .lazy__image--loaded {
-  transform: translate(-(400% / 7), -(300% / 4));
+  transform: translate(math.div(-400%, 7), math.div(-300%, 4));
 }
 
 .headshots__image--fg .lazy__image--loaded {
-  transform: translate(-(500% / 7), -(300% / 4));
+  transform: translate(math.div(-500%, 7), math.div(-300%, 4));
 }
 
 .headshots__image--error .lazy__image--loaded {
-  transform: translate(-(600% / 7), -(300% / 4)) !important;
+  transform: translate(math.div(-600%, 7), math.div(-300%, 4)) !important;
 }
 </style>

@@ -53,18 +53,18 @@ $thickness: 2px;
 
 .hamburger__icon {
   background-color: $color__text;
-  border-radius: $thickness / 2;
+  border-radius: math.div($thickness, 2);
   height: $thickness;
   position: absolute;
   right: 0.5rem;
-  top: calc(50% - #{$thickness / 2});
+  top: calc(50% - #{$thickness} / 2);
   transition: transform $speed $transition__snappy--in;
   width: calc(100% - 1rem);
 
   &::before,
   &::after {
     background-color: $color__text;
-    border-radius: $thickness / 2;
+    border-radius: math.div($thickness, 2);
     content: '';
     height: 100%;
     left: 0;

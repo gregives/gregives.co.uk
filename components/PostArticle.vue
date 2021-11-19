@@ -90,7 +90,7 @@ export default {
 
   @media (min-width: $breakpoint--lg) {
     grid-column: 1 / 3;
-    padding-left: (200% / 7);
+    padding-left: math.div(200%, 7);
   }
 
   h1 {

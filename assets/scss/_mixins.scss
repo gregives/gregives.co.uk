@@ -38,7 +38,8 @@
 
       background-image: $background-dots, $background-dots;
       background-size: $background-size $background-size;
-      background-position: 0 0, $background-size / 2 $background-size / 2;
+      background-position: 0 0,
+        math.div($background-size, 2) math.div($background-size, 2);
       clip-path: $clip-path;
       content: '';
       height: 100%;
@@ -102,7 +103,8 @@
   $text-shadow: 0 0 $color;
   @for $x from -3 through 3 {
     @for $y from -3 through 3 {
-      $text-shadow: #{$text-shadow}, #{$x / 20}ex #{$y / 50}em $color;
+      $text-shadow: #{$text-shadow},
+        #{math.div($x, 20)}ex #{math.div($y, 50)}em $color;
     }
   }
 
