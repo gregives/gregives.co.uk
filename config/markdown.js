@@ -4,6 +4,8 @@ hljs.configure({
 })
 hljs.registerLanguage('vue', () => hljs.getLanguage('html'))
 
+const anchor = require('markdown-it-anchor')
+
 const markdown = require('markdown-it')({
   html: true,
   xhtmlOut: true,
@@ -25,10 +27,8 @@ const markdown = require('markdown-it')({
     )}</code></pre>`
   }
 })
-  .use(require('markdown-it-anchor'), {
-    permalink: true,
-    permalinkSymbol: '&nbsp;#',
-    permalinkSpace: false
+  .use(anchor, {
+    permalink: anchor.permalink.headerLink()
   })
   .use(require('markdown-it-table-of-contents'), {
     includeLevel: [1, 2, 3]

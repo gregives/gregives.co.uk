@@ -67,7 +67,7 @@ export default {
 
   picture {
     border-radius: $border-radius;
-    filter: drop-shadow(0 0 0.5rem transparentize(black, 0.8));
+    filter: drop-shadow(0 0 0.5rem transparentize(#000, 0.8));
     overflow: hidden;
   }
 }

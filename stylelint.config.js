@@ -1,11 +1,12 @@
 module.exports = {
-  extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
-  plugins: ['stylelint-scss'],
+  extends: [
+    'stylelint-config-recommended-scss',
+    'stylelint-config-recommended-vue',
+    'stylelint-config-prettier'
+  ],
   rules: {
     'at-rule-no-unknown': null,
-    'custom-property-empty-line-before': null,
     'no-descending-specificity': null,
-    'scss/at-rule-no-unknown': true
-  },
-  syntax: 'scss'
+    'scss/no-global-function-names': null
+  }
 }

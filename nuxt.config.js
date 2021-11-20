@@ -154,6 +154,7 @@ export default {
     html: {
       minify
     },
+    postcss: null,
     extend(config, { isClient, loaders: { vue } }) {
       // Make sure Vue knows about lazy loaded images
       if (isClient) {

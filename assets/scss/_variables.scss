@@ -1,28 +1,30 @@
+@use 'sass:color';
 @use 'sass:math';
 
 // CSS variables
 :root {
   $color__primary: #35f;
   --color__primary: #{$color__primary};
-  --color__primary--muted: #{transparentize($color__primary, 0.7)};
-  --color__primary--muter: #{transparentize($color__primary, 0.9)};
-  --color__primary--hue: #{hue($color__primary)};
+  --color__primary--muted: #{color.adjust($color__primary, $alpha: -0.7)};
+  --color__primary--muter: #{color.adjust($color__primary, $alpha: -0.9)};
+  --color__primary--hue: #{color.hue($color__primary)};
 
   $color__warning: #f50;
   --color__warning: #{$color__warning};
 
-  $color__body: hsl(hue($color__primary), 16%, 98%);
-  $color__body--overlay: lighten($color__body, 2%);
+  $color__body: hsl(color.hue($color__primary) 16% 98%);
+  $color__body--overlay: color.adjust($color__body, $lightness: 2%);
   --color__body: #{$color__body};
   --color__body--overlay: #{$color__body--overlay};
-  --color__body--blur: #{transparentize($color__body--overlay, 0.1)};
-  --color__text: #{transparentize(black, 0.13)};
-  --color__text--muted: #{transparentize(black, 0.4)};
-  --color__text--muter: #{transparentize(black, 0.98)};
-  --color__transparent: #{transparentize($color__body, 1)};
+  --color__body--blur: #{color.adjust($color__body--overlay, $alpha: -0.1)};
+  --color__text: #{color.adjust(#000, $alpha: -0.13)};
+  --color__text--muted: #{color.adjust(#000, $alpha: -0.4)};
+  --color__text--muter: #{color.adjust(#000, $alpha: -0.98)};
+  --color__transparent: #{color.adjust($color__body, $alpha: -1)};
 
-  --box-shadow: 0 0 2rem -1rem #{transparentize(black, 0.8)};
-  --box-shadow--small: 0 0 0.5rem -0.25rem #{transparentize(black, 0.8)};
+  $color__shadow: color.adjust(#000, $alpha: -0.8);
+  --box-shadow: 0 0 2rem -1rem #{$color__shadow};
+  --box-shadow--small: 0 0 0.5rem -0.25rem #{$color__shadow};
   --box-shadow--primary: 0 0.5rem 1rem -0.5rem #{$color__primary};
   --box-shadow--primary-small: 0 0.25rem 0.5rem -0.25rem #{$color__primary};
 
@@ -31,31 +33,32 @@
     &[data-theme='dark'] {
       $color__primary: #89f;
       --color__primary: #{$color__primary};
-      --color__primary--muted: #{transparentize($color__primary, 0.6)};
-      --color__primary--muter: #{transparentize($color__primary, 0.8)};
-      --color__primary--hue: #{hue($color__primary)};
+      --color__primary--muted: #{color.adjust($color__primary, $alpha: -0.6)};
+      --color__primary--muter: #{color.adjust($color__primary, $alpha: -0.8)};
+      --color__primary--hue: #{color.hue($color__primary)};
 
       $color__warning: #d93;
       --color__warning: #{$color__warning};
 
-      $color__body: hsl(hue($color__primary), 16%, 12%);
-      $color__body--overlay: lighten($color__body, 4%);
+      $color__body: hsl(color.hue($color__primary) 16% 12%);
+      $color__body--overlay: color.adjust($color__body, $lightness: 4%);
       --color__body: #{$color__body};
       --color__body--overlay: #{$color__body--overlay};
-      --color__body--blur: #{transparentize($color__body--overlay, 0.15)};
-      --color__text: #{transparentize(white, 0.13)};
-      --color__text--muted: #{transparentize(white, 0.4)};
-      --color__text--muter: #{transparentize(white, 0.96)};
+      --color__body--blur: #{color.adjust($color__body--overlay, $alpha: -0.15)};
+      --color__text: #{color.adjust(#fff, $alpha: -0.13)};
+      --color__text--muted: #{color.adjust(#fff, $alpha: -0.4)};
+      --color__text--muter: #{color.adjust(#fff, $alpha: -0.96)};
 
-      --box-shadow: 0 0 2rem -1rem #{transparentize(black, 0.6)};
-      --box-shadow--small: 0 0 0.5rem -0.25rem #{transparentize(black, 0.6)};
+      $color__shadow: color.adjust(#000, $alpha: -0.6);
+      --box-shadow: 0 0 2rem -1rem #{$color__shadow};
+      --box-shadow--small: 0 0 0.5rem -0.25rem #{$color__shadow};
       --box-shadow--primary: 0 0.5rem 1rem -0.5rem #{$color__body--overlay};
       --box-shadow--primary-small: 0 0.25rem 0.5rem -0.25rem #{$color__body--overlay};
     }
   }
 
   @media print {
-    $color__body: white;
+    $color__body: #fff;
     --color__body: #{$color__body};
   }
 }

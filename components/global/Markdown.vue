@@ -53,17 +53,19 @@ export default {
   h3,
   h4 {
     .header-anchor {
-      color: $color__text--muted;
-      opacity: 0;
-      transition: opacity 150ms $transition__normal;
-
-      &:focus {
-        opacity: 1;
+      &::after {
+        color: $color__text--muted;
+        content: '\00A0#';
+        opacity: 0;
+        transition: opacity 150ms $transition__normal;
       }
-    }
 
-    &:hover .header-anchor {
-      opacity: 1;
+      &:hover,
+      &:focus {
+        &::after {
+          opacity: 1;
+        }
+      }
     }
   }
 
