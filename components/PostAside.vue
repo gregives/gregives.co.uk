@@ -89,7 +89,7 @@ export default {
     }
   }
 
-  a:not(.header-anchor) {
+  a {
     @include link($color__body--overlay);
   }
 
