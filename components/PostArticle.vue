@@ -63,7 +63,10 @@ export default {
     const tableOfContents = this.$el.querySelector('.table-of-contents')
 
     // Move table of contents to side bar
-    if (tableOfContents !== null) {
+    if (
+      tableOfContents !== null &&
+      tableOfContents.firstChild.children.length
+    ) {
       this.$refs.contents.appendChild(tableOfContents)
       this.$refs.contents.style.display = 'block'
     }

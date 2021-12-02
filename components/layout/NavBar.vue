@@ -83,18 +83,18 @@
 
 .nav__list-item {
   position: relative;
-  font-size: 150%;
+  font-size: 140%;
 
   ~ .nav__list-item {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
 
   @media (min-width: $breakpoint--md) {
     display: inline-block;
-    font-size: 100%;
+    font-size: 90%;
 
     ~ .nav__list-item {
-      margin-left: 2rem;
+      margin-left: 1.5rem;
       margin-top: auto;
     }
   }
@@ -106,6 +106,9 @@
 
   span {
     @include link;
+
+    background-image: linear-gradient(transparent, transparent),
+      linear-gradient($color__primary, $color__primary) !important;
 
     @media (min-width: $breakpoint--md) {
       @include link($color__body--overlay);

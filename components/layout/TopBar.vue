@@ -33,7 +33,7 @@ export default {
   background-color: $color__body--overlay;
   box-shadow: $box-shadow;
   line-height: 2rem;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
   position: fixed;
   top: 0;
   width: 100%;
@@ -65,7 +65,7 @@ export default {
   align-items: center;
   display: flex;
   flex-grow: 1;
-  font-size: 130%;
+  font-size: 120%;
 
   a:hover {
     color: $color__primary;

@@ -86,11 +86,11 @@ export default {
   color: $color__text--muted;
   font-size: 90%;
   line-height: 2rem;
-  padding: 1rem 0 1.5rem;
+  padding: 0.75rem 0 1rem;
   width: 100%;
 
   @media (min-width: $breakpoint--md) {
-    padding: 1rem 0;
+    padding: 0.75rem 0;
   }
 }
 
@@ -99,7 +99,7 @@ export default {
 
   display: grid;
   grid-template-columns: 100%;
-  grid-gap: 0.5rem;
+  grid-gap: 0.25rem;
   text-align: center;
 
   @media (min-width: $breakpoint--md) {
