@@ -10,6 +10,7 @@ export async function projectLoader(projectSlug) {
 
 export const projectSlugs = [
   'dissertation',
+  'eleventy-load',
   'festimap',
   'hacksheffield',
   'hype',
@@ -18,5 +19,6 @@ export const projectSlugs = [
   'snapscroll',
   'stegaphoto',
   'tv-remote',
+  'twelvety',
   'university-of-sheffield-brass-band'
 ]
