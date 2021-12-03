@@ -21,11 +21,7 @@ There is some controversy over "scroll-hijacking", whereby a website overrides t
 
 <video-compat src="snapscroll/preview" autoplay muted loop />
 
-## Creating the Library
-
 SnapScroll.js was built as a jQuery plugin, in order to use jQuery's scrollTo function. It revolves around adding _snap points_ throughout the page, added via a `data-snap-point` attribute, which determines the scrolling flow of the page. Custom jQuery easings enable the possibility of quirky scrolling, such as a bouncing effect at the bottom of the page.
-
-## Browser Support
 
 SnapScroll.js was kindly supported by [BrowserStack](https://browserstack.com), in order to test browser support and find any problems with the scroll detection. SnapScroll.js supports the following browsers:
 

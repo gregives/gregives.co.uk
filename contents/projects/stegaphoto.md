@@ -16,8 +16,6 @@ During Summer 2017, I undertook a cyber security research project, creating a we
 
 ![Screenshot of the user interface to hide files](/assets/images/dynamic/stegaphoto/hide.png)
 
-## How StegaPhoto Works
-
 StegaPhoto is built in vanilla JavaScript using SubtleCrypto, Web Workers, JSZip and Bootstrap --- StegaPhoto does not send any data to a server, it uses only client-side JavaScript. There were two viable methods to hide files inside images:
 
 - Hiding the file data within the image data, replacing unnecessary image data with the information to be hidden. This method usually works by hiding the data in the least significant bits of the colour component of images. The file size remains the same (as data is only replaced, not added) which means that the steganography is hard to spot, but only a very small amount of information can be hidden in each image.
