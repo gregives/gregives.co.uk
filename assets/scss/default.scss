@@ -162,12 +162,12 @@ html {
   &::before {
     content: '';
     display: block;
-    height: 5rem;
-    margin-top: -5rem;
+    height: 4.5rem;
+    margin-top: -4.5rem;
   }
 
-  @supports (scroll-margin-top: 5rem) {
-    scroll-margin-top: 5rem;
+  @supports (scroll-margin-top: 4.5rem) {
+    scroll-margin-top: 4.5rem;
 
     &::before {
       display: none;
