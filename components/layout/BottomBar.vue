@@ -92,6 +92,10 @@ export default {
   @media (min-width: $breakpoint--md) {
     padding: 0.75rem 0;
   }
+
+  @media print {
+    display: none;
+  }
 }
 
 .footer__content {

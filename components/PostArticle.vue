@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="article__body">
-      <p v-if="!project" class="article__description">
+      <p v-if="!project && post.description" class="article__description">
         {{ post.description }}
       </p>
       <markdown :markdown="post" />
@@ -63,10 +63,7 @@ export default {
     const tableOfContents = this.$el.querySelector('.table-of-contents')
 
     // Move table of contents to side bar
-    if (
-      tableOfContents !== null &&
-      tableOfContents.firstChild.children.length
-    ) {
+    if (tableOfContents !== null) {
       this.$refs.contents.appendChild(tableOfContents)
       this.$refs.contents.style.display = 'block'
     }
@@ -94,6 +91,14 @@ export default {
   @media (min-width: $breakpoint--lg) {
     grid-column: 1 / 3;
     padding-left: math.div(200%, 7);
+  }
+
+  @media print {
+    margin-bottom: 2rem;
+
+    &::before {
+      display: none;
+    }
   }
 
   h1 {

@@ -104,7 +104,9 @@ export default {
   }
 
   .lazy {
-    margin-top: 2rem;
+    &:not(:first-child) {
+      margin-top: 2rem;
+    }
 
     &:not(:last-child) {
       margin-bottom: 2rem;
@@ -116,8 +118,11 @@ export default {
     border-radius: $border-radius;
     box-shadow: $box-shadow;
     display: block;
-    margin-top: 2rem;
     width: 100%;
+
+    &:not(:first-child) {
+      margin-top: 2rem;
+    }
   }
 
   p:not(:last-child) {
@@ -188,9 +193,12 @@ export default {
   blockquote {
     background-color: $color__body--overlay;
     border-radius: $border-radius;
-    margin-top: 2rem;
     padding: 1rem (1rem + $border-radius);
     position: relative;
+
+    &:not(:first-child) {
+      margin-top: 2rem;
+    }
 
     &:not(:last-child) {
       margin-bottom: 2rem;
@@ -217,14 +225,16 @@ export default {
     border: $border-weight solid $color__text--muted;
     border-collapse: separate;
     border-radius: $border-radius;
-    display: inline-block;
-    margin-top: 1rem;
-    max-width: 100%;
     overflow-x: auto;
     text-align: left;
+    width: 100%;
 
     &::-webkit-scrollbar-track {
       background-color: transparent;
+    }
+
+    &:not(:first-child) {
+      margin-top: 2rem;
     }
 
     &:not(:last-child) {

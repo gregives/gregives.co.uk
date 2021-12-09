@@ -25,7 +25,7 @@ We could implement interpolation between red and green using a single `progress`
 }
 ```
 
-<interpolation :step="1" />
+<interpolation :step="1"></interpolation>
 
 This is okay but there's an arbitrary `1.2` which controls the hue: when the progress is 0%, the hue will be 0; when the progress is 100%, the hue will be 120 which corresponds to lime green.
 
@@ -49,7 +49,7 @@ We can implement this in CSS using two additional `start` and `end` variables:
 }
 ```
 
-<interpolation :step="2" />
+<interpolation :step="2"></interpolation>
 
 ### Interpolating Between Any Two Colours
 
@@ -73,7 +73,7 @@ You might be able to see where this is going... if we use 7 CSS variables, we ca
 ```
 <!-- prettier-ignore-end -->
 
-<interpolation :step="3" />
+<interpolation :step="3"></interpolation>
 
 ## Interpolating Colour Using Animation
 
@@ -101,7 +101,7 @@ However, the browser can calculate interpolation itself, which you may (or may n
 }
 ```
 
-<interpolation :step="4" />
+<interpolation :step="4"></interpolation>
 
 ### Negative `animation-delay`
 
@@ -127,7 +127,7 @@ If we want to set the background colour to the midpoint of red and green, we wou
 }
 ```
 
-<interpolation :step="5" />
+<interpolation :step="5"></interpolation>
 
 Now the browser is doing all the hard work, we just specify the colours we want to interpolate and the browser does the rest. **But hang on!** In this last demonstration, the midpoint of red and green appears to be brown, whereas previously the midpoint was yellow. That's because the browser interpolates colour in the [alpha-premultiplied sRGBA colour space](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#interpolation) "to prevent unexpected gray colours from appearing".
 
@@ -157,7 +157,7 @@ We can circumvent this by adding more colours into our animation. Because we're 
 }
 ```
 
-<interpolation :step="6" />
+<interpolation :step="6"></interpolation>
 
 ## Combining CSS Variables and Animation
 
@@ -210,7 +210,7 @@ We can define our CSS variables inside the `@keyframes` rule like so:
 }
 ```
 
-<interpolation :step="7" />
+<interpolation :step="7"></interpolation>
 
 ## Which Method Is Best?
 

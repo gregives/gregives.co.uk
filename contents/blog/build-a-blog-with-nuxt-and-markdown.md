@@ -114,7 +114,7 @@ title: My First Blog Post
 
 Who moved my cheese cow mascarpone. Cheese on toast cheese on toast mozzarella bavarian bergkase emmental gouda cheese triangles. Croque monsieur dolcelatte macaroni cheese taleggio parmesan cheese triangles St. Agur blue cheese. Everyone loves cheese.
 
-<cheese-slideshow />
+<cheese-slideshow></cheese-slideshow>
 ```
 
 In the `contents` directory, we're also going to create an `index.js` JavaScript file. We'll use this file to let Nuxt know which blog posts we want to generate a page for, and the route corresponding to the pages.

@@ -23,6 +23,10 @@
     font-size: calc(0.9em + 0.5vh);
   }
 
+  @media print {
+    font-size: 1em;
+  }
+
   &[data-theme='dark'] {
     color-scheme: dark;
   }

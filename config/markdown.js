@@ -1,11 +1,13 @@
 const hljs = require('highlight.js')
+const { JSDOM } = require('jsdom')
+const anchor = require('markdown-it-anchor')
+
 hljs.configure({
   classPrefix: 'highlight__'
 })
 hljs.registerLanguage('vue', () => hljs.getLanguage('html'))
 
-const anchor = require('markdown-it-anchor')
-
+// Instance of markdown-it
 const markdown = require('markdown-it')({
   html: true,
   xhtmlOut: true,
@@ -64,11 +66,29 @@ const markdown = require('markdown-it')({
     }
   })
 
-// Remove wrapper paragraph, from markdown-it inline image
-const replaceInlineImages = (html) => {
-  return html.replace(/<p>(<lazy-image[^>]*?>)<\/p>/g, '$1')
+const transformHTML = (html) => {
+  const fragment = JSDOM.fragment(`<div>${html}</div>`)
+
+  // Remove wrapper paragraph from markdown-it inline image
+  fragment.querySelectorAll('p > lazy-image').forEach((image) => {
+    image.parentNode.replaceWith(image)
+  })
+
+  // Remove empty paragraphs
+  fragment.querySelectorAll('p:empty').forEach((paragraph) => {
+    paragraph.remove()
+  })
+
+  // Remove empty table of contents
+  fragment.querySelectorAll('.table-of-contents > ul:empty').forEach((toc) => {
+    toc.parentNode.remove()
+  })
+
+  return fragment.firstChild.innerHTML
 }
 
 export default function (body) {
-  return replaceInlineImages(markdown.render(`[[toc]]\n\n${body}`))
+  // Add table of contents
+  const html = markdown.render(`[[toc]]\n\n${body}`)
+  return transformHTML(html)
 }
