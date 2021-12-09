@@ -1,1 +1,1 @@
-I'm a developer, currently working on web stuff at [Capital One](https://capitalone.co.uk/). I enjoy building projects like [Twelvety](https://github.com/gregives/Twelvety), discussing web performance and fonts, teaching others to code and organising events like hackathons.
+I'm a freelance developer, currently working on developer tools at [Capital One](https://capitalone.co.uk/). I enjoy building projects like [Twelvety](https://github.com/gregives/Twelvety), discussing web performance and fonts, teaching others to code and organising events like hackathons.

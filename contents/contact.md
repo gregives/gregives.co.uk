@@ -1,1 +1,1 @@
-If you like what you've seen on my site, I'd love for you to get in touch via my contact form or social media!
+If you want to discuss a project you think I'd be a good fit for, or just want to have a chat, fill out my contact form or find me on social media.

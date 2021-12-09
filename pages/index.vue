@@ -8,7 +8,7 @@
         <markdown :markdown="markdown" />
       </div>
       <div class="home__actions">
-        <a class="home__stuff" href="#stuff">See my stuff</a>
+        <a class="home__stuff" href="#stuff">See my stuff&nbsp;&nbsp;&darr;</a>
         <nuxt-link class="home__contact" to="/contact/">Contact me</nuxt-link>
       </div>
       <headshots />

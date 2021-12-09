@@ -31,7 +31,7 @@
   // Dark mode
   @media screen {
     &[data-theme='dark'] {
-      $color__primary: #89f;
+      $color__primary: #9af;
       --color__primary: #{$color__primary};
       --color__primary--muted: #{color.adjust($color__primary, $alpha: -0.6)};
       --color__primary--muter: #{color.adjust($color__primary, $alpha: -0.8)};
