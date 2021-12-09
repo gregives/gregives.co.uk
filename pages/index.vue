@@ -8,7 +8,7 @@
         <markdown :markdown="markdown" />
       </div>
       <div class="home__actions">
-        <a class="home__stuff" href="#stuff">See my stuff&nbsp;&nbsp;&darr;</a>
+        <a class="home__stuff" href="#stuff">See my stuff <down-icon /></a>
         <nuxt-link class="home__contact" to="/contact/">Contact me</nuxt-link>
       </div>
       <headshots />
@@ -33,12 +33,14 @@
 </template>
 
 <script>
+import DownIcon from 'icons/KeyboardBackspace'
 import { hydrateWhenIdle, hydrateWhenVisible } from 'vue-lazy-hydration'
 import { projectLoader, projectSlugs } from '~/contents/projects'
 import { postLoader, postSlugs } from '~/contents/blog'
 
 export default {
   components: {
+    DownIcon,
     Headshots: hydrateWhenIdle(() => import('~/components/Headshots')),
     PostCard: hydrateWhenVisible(() => import('~/components/PostCard')),
     ProjectCard: hydrateWhenVisible(() => import('~/components/ProjectCard'))
@@ -138,6 +140,11 @@ export default {
 
   margin-right: 1rem;
   margin-bottom: 1rem;
+
+  .keyboard-backspace-icon {
+    display: inline-block;
+    transform: rotate(-90deg);
+  }
 }
 
 .home__contact {
