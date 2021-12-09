@@ -4,7 +4,7 @@
       <h1>{{ post.title }}</h1>
     </div>
     <div class="article__sidebar">
-      <p class="article__details">
+      <p v-if="type !== 'hidden'" class="article__details">
         <span class="article__date">{{ date }}</span>
         <span class="article__mins">{{ post.mins }} minute read</span>
       </p>
@@ -16,17 +16,24 @@
       </div>
     </div>
     <div class="article__body">
-      <p v-if="!project && post.description" class="article__description">
+      <p
+        v-if="type !== 'project' && post.description"
+        class="article__description"
+      >
         {{ post.description }}
       </p>
       <markdown :markdown="post" />
-      <div class="article__footer">
+      <div v-if="type === 'post' || type == 'project'" class="article__footer">
         <back-icon />
-        <nuxt-link v-if="project" to="/projects/" class="article__back">
-          See all projects
-        </nuxt-link>
-        <nuxt-link v-else to="/blog/" class="article__back">
+        <nuxt-link v-if="type === 'post'" to="/blog/" class="article__back">
           See all blog posts
+        </nuxt-link>
+        <nuxt-link
+          v-if="type === 'project'"
+          to="/projects/"
+          class="article__back"
+        >
+          See all projects
         </nuxt-link>
       </div>
     </div>
@@ -45,15 +52,15 @@ export default {
       type: Object,
       required: true
     },
-    project: {
-      type: Boolean,
-      default: false
+    type: {
+      type: String,
+      required: true
     }
   },
   computed: {
     date() {
       return this.post.date.toLocaleString('en-GB', {
-        ...(!this.project && { day: 'numeric' }),
+        ...(this.type === 'post' && { day: 'numeric' }),
         month: 'long',
         year: 'numeric'
       })

@@ -3,6 +3,7 @@ import { hydrateNever, hydrateWhenVisible } from 'vue-lazy-hydration'
 
 export default {
   components: {
+    Columns: hydrateNever(() => import('~/components/Columns')),
     PostAside: hydrateNever(() => import('~/components/PostAside')),
     VideoCompat: hydrateNever(() => import('~/components/VideoCompat')),
     // Components for individual blog posts

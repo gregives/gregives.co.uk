@@ -1,6 +1,6 @@
 <template>
   <main class="project">
-    <post-article :post="project" :project="true" />
+    <post-article :post="project" type="project" />
   </main>
 </template>
 

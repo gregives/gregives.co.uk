@@ -1,0 +1,3 @@
+[submodule ".\\pages\\hidden"]
+	path = .\\pages\\hidden
+	url = git@github.com:gregives/gregives.co.uk-private.git
