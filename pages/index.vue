@@ -144,8 +144,8 @@ export default {
   .keyboard-backspace-icon {
     display: inline-block;
     margin-left: -0.15rem;
-    margin-right: -0.25rem;
-    transform: rotate(-90deg);
+    margin-right: -0.35rem;
+    transform: scale(0.9) rotate(-90deg);
   }
 }
 

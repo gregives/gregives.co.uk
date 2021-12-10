@@ -112,16 +112,13 @@
 }
 
 @mixin button {
-  @include font__fancy;
-
   background-color: $color__body--overlay;
   border: $border-weight solid $color__primary;
   border-radius: $border-radius;
   color: $color__primary;
   cursor: pointer;
-  font-size: 120%;
   opacity: 100%;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 1rem;
   position: relative;
   transition: opacity 150ms $transition__normal,
     transform 150ms $transition__normal;
