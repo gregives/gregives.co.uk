@@ -74,6 +74,19 @@ h6 {
 a {
   color: inherit;
   text-decoration: none;
+
+  &[target='_blank'] {
+    margin-right: 0.7rem;
+
+    &::after {
+      content: '\2197';
+      font-family: 'Inter', sans-serif;
+      font-size: 70%;
+      margin-right: -0.8rem;
+      position: relative;
+      top: -0.2rem;
+    }
+  }
 }
 
 img,

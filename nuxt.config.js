@@ -170,7 +170,7 @@ export default {
       )
 
       // Replace default image loaders with custom loader
-      config.module.rules = config.module.rules.map((rule) => {
+      config.module.rules.forEach((rule) => {
         if (rule.test.test('.png')) {
           rule.use = [
             {
@@ -181,7 +181,6 @@ export default {
             }
           ]
         }
-        return rule
       })
 
       // Markdown loader
