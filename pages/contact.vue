@@ -17,31 +17,19 @@
             <a
               class="contact__social-icon"
               href="https://www.linkedin.com/in/gregiv-es/"
-              rel="noopener noreferrer"
-              target="_blank"
             >
               <linkedin-icon title="LinkedIn" />
               <span class="contact__social-text">Connect with me</span>
             </a>
           </div>
           <div class="contact__social-item">
-            <a
-              class="contact__social-icon"
-              href="https://github.com/gregives"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <a class="contact__social-icon" href="https://github.com/gregives">
               <github-icon title="GitHub" />
               <span class="contact__social-text">Check out my projects</span>
             </a>
           </div>
           <div class="contact__social-item">
-            <a
-              class="contact__social-icon"
-              href="https://devpost.com/gregives"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <a class="contact__social-icon" href="https://devpost.com/gregives">
               <devpost-icon title="Devpost" />
               <span class="contact__social-text">Hackathon submissions</span>
             </a>
@@ -50,8 +38,6 @@
             <a
               class="contact__social-icon"
               href="https://twitter.com/gregiv_es"
-              rel="noopener noreferrer"
-              target="_blank"
             >
               <twitter-icon title="Twitter" />
               <span class="contact__social-text">Follow me on Twitter</span>

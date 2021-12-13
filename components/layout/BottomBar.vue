@@ -6,8 +6,6 @@
         <a
           class="footer__source"
           href="https://github.com/gregives/gregives.co.uk"
-          rel="noopener noreferrer"
-          target="_blank"
         >
           See the source code
         </a>
@@ -23,8 +21,6 @@
         <a
           class="footer__social-icon"
           href="https://www.linkedin.com/in/gregiv-es/"
-          rel="noopener noreferrer"
-          target="_blank"
           title="LinkedIn"
         >
           <linkedin-icon title="LinkedIn" />
@@ -32,8 +28,6 @@
         <a
           class="footer__social-icon"
           href="https://github.com/gregives"
-          rel="noopener noreferrer"
-          target="_blank"
           title="GitHub"
         >
           <github-icon title="GitHub" />
@@ -41,8 +35,6 @@
         <a
           class="footer__social-icon"
           href="https://devpost.com/gregives"
-          rel="noopener noreferrer"
-          target="_blank"
           title="Devpost"
         >
           <devpost-icon title="Devpost" />
@@ -50,8 +42,6 @@
         <a
           class="footer__social-icon"
           href="https://twitter.com/gregiv_es"
-          rel="noopener noreferrer"
-          target="_blank"
           title="Twitter"
         >
           <twitter-icon title="Twitter" />
