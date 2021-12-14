@@ -104,24 +104,20 @@ export default {
     @include link;
   }
 
-  .lazy {
-    &:not(:first-child) {
-      margin-top: 2rem;
-    }
-
-    &:not(:last-child) {
-      margin-bottom: 2rem;
-    }
-  }
-
   iframe,
   video {
     border-radius: $border-radius;
     box-shadow: $box-shadow;
     display: block;
     width: 100%;
+  }
 
-    &:not(:first-child) {
+  p:not(:first-child) {
+    margin-top: 1rem;
+
+    > iframe,
+    > video,
+    > .lazy {
       margin-top: 2rem;
     }
   }
@@ -129,8 +125,9 @@ export default {
   p:not(:last-child) {
     margin-bottom: 1rem;
 
-    iframe,
-    video {
+    > iframe,
+    > video,
+    > .lazy {
       margin-bottom: 2rem;
     }
   }

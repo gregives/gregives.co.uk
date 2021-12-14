@@ -6,7 +6,9 @@
     <div class="article__sidebar">
       <p v-if="type !== 'hidden'" class="article__details">
         <span class="article__date">{{ date }}</span>
-        <span class="article__mins">{{ post.mins }} minute read</span>
+        <span v-if="type === 'post'" class="article__mins">
+          {{ post.mins }} minute read
+        </span>
       </p>
       <ul v-if="post.tags" class="article__tags">
         <li v-for="tag in post.tags" :key="tag">{{ tag }}</li>
@@ -140,7 +142,8 @@ export default {
   top: 6rem;
   transition: opacity 150ms $transition__normal;
 
-  &:hover {
+  &:hover,
+  &:focus-within {
     opacity: 1;
   }
 
@@ -155,6 +158,11 @@ export default {
   .table-of-contents {
     font-size: 80%;
     margin-top: 1rem;
+
+    ol ol {
+      margin-left: 1rem;
+      font-size: 90%;
+    }
 
     li {
       filter: saturate(0);
@@ -207,14 +215,12 @@ export default {
   margin-bottom: 2rem;
 }
 
-.article__date {
-  &::after {
-    content: ' \2014';
-  }
-}
-
 .article__mins {
-  white-space: pre;
+  white-space: nowrap;
+
+  &::before {
+    content: '\2014';
+  }
 }
 
 .article__tags {

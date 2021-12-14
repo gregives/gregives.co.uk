@@ -1,5 +1,5 @@
 <template>
-  <div class="lazy">
+  <span class="lazy">
     <picture :style="width ? { width } : false">
       <source :data-srcset="srcsetWebp" :sizes="sizes" type="image/webp" />
       <source :data-srcset="srcset" :sizes="sizes" :type="format" />
@@ -13,7 +13,7 @@
         />
       </noscript>
     </picture>
-  </div>
+  </span>
 </template>
 
 <script>
@@ -63,6 +63,7 @@ export default {
 .lazy {
   background-color: $color__body;
   border-radius: $border-radius;
+  display: block;
   width: 100%;
 
   picture {

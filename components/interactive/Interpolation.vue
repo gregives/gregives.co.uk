@@ -1,6 +1,6 @@
 <template>
-  <div class="interpolation" :style="styles">
-    <div
+  <span class="interpolation" :style="styles">
+    <span
       :class="{
         'interpolation__output--variable': step < 4,
         'interpolation__output--animate': step === 4,
@@ -9,9 +9,9 @@
         'interpolation__output--animate-variable': step === 7
       }"
       class="interpolation__output"
-    ></div>
-    <div v-if="step !== 4" class="interpolation__controls">
-      <div v-if="step > 1 && step < 5" class="interpolation__control">
+    ></span>
+    <span v-if="step !== 4" class="interpolation__controls">
+      <span v-if="step > 1 && step < 5" class="interpolation__control">
         <label>
           {{ step === 2 ? 'Start' : 'H' }}
           <input v-model.number="hStart" type="number" min="0" max="360" />
@@ -24,20 +24,20 @@
           L
           <input v-model.number="lStart" type="number" min="0" max="100" />
         </label>
-      </div>
-      <div v-if="step === 5" class="interpolation__control">
+      </span>
+      <span v-if="step === 5" class="interpolation__control">
         <label>
           Start
           <input v-model="colorStart" type="color" />
         </label>
-      </div>
-      <div class="interpolation__control interpolation__control--range">
+      </span>
+      <span class="interpolation__control interpolation__control--range">
         <label>
           Progress
           <input v-model.number="progress" type="range" min="0" max="100" />
         </label>
-      </div>
-      <div v-if="step > 1 && step < 5" class="interpolation__control">
+      </span>
+      <span v-if="step > 1 && step < 5" class="interpolation__control">
         <label>
           {{ step === 2 ? 'End' : 'H' }}
           <input v-model.number="hEnd" type="number" min="0" max="360" />
@@ -50,15 +50,15 @@
           L
           <input v-model.number="lEnd" type="number" min="0" max="100" />
         </label>
-      </div>
-      <div v-if="step === 5" class="interpolation__control">
+      </span>
+      <span v-if="step === 5" class="interpolation__control">
         <label>
           End
           <input v-model="colorEnd" type="color" />
         </label>
-      </div>
-    </div>
-  </div>
+      </span>
+    </span>
+  </span>
 </template>
 
 <script>
@@ -105,6 +105,7 @@ export default {
   background-color: $color__body--overlay;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
+  display: block;
   overflow: hidden;
   margin-bottom: 2rem;
 }
@@ -170,6 +171,7 @@ export default {
 }
 
 .interpolation__output {
+  display: block;
   padding: 2rem;
 
   &--variable {

@@ -32,8 +32,8 @@ const markdown = require('markdown-it')({
   .use(anchor, {
     permalink: anchor.permalink.headerLink()
   })
-  .use(require('markdown-it-table-of-contents'), {
-    includeLevel: [1, 2, 3]
+  .use(require('markdown-it-toc-done-right'), {
+    level: [2, 3]
   })
   .use(require('markdown-it-external-links'), {
     externalClassName: null,
@@ -59,9 +59,9 @@ const markdown = require('markdown-it')({
       if (token.attrIndex('title') !== -1) {
         // Use the title as the image width
         const width = token.attrs[token.attrIndex('title')][1]
-        return `<lazy-image src="${src}" alt="${alt}" width="${width}" />`
+        return `<lazy-image src="${src}" alt="${alt}" width="${width}"></lazy-image>`
       } else {
-        return `<lazy-image src="${src}" alt="${alt}" />`
+        return `<lazy-image src="${src}" alt="${alt}"></lazy-image>`
       }
     }
   })
@@ -69,26 +69,20 @@ const markdown = require('markdown-it')({
 const transformHTML = (html) => {
   const fragment = JSDOM.fragment(`<div>${html}</div>`)
 
-  // Remove wrapper paragraph from markdown-it inline image
-  fragment.querySelectorAll('p > lazy-image').forEach((image) => {
-    image.parentNode.replaceWith(image)
-  })
-
   // Remove empty paragraphs
-  fragment.querySelectorAll('p:empty').forEach((paragraph) => {
-    paragraph.remove()
+  fragment.querySelectorAll('p:empty').forEach((node) => {
+    node.remove()
   })
 
   // Remove empty table of contents
-  fragment.querySelectorAll('.table-of-contents > ul:empty').forEach((toc) => {
-    toc.parentNode.remove()
+  fragment.querySelectorAll('.table-of-contents:empty').forEach((node) => {
+    node.remove()
   })
 
   return fragment.firstChild.innerHTML
 }
 
 export default function (body) {
-  // Add table of contents
-  const html = markdown.render(`[[toc]]\n\n${body}`)
-  return transformHTML(html)
+  // Add table of contents and transform resulting HTML
+  return transformHTML(markdown.render(`[[toc]]\n\n${body}`))
 }

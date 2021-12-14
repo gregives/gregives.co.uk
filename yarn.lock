@@ -6251,15 +6251,15 @@ markdown-it-sup@^1.0.0:
   resolved "https://registry.yarnpkg.com/markdown-it-sup/-/markdown-it-sup-1.0.0.tgz#cb9c9ff91a5255ac08f3fd3d63286e15df0a1fc3"
   integrity sha1-y5yf+RpSVawI8/09YyhuFd8KH8M=
 
-markdown-it-table-of-contents@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/markdown-it-table-of-contents/-/markdown-it-table-of-contents-0.6.0.tgz#7c9e8d619fb12f88c9fb05a7b32b2fe932b9c541"
-  integrity sha512-jHvEjZVEibyW97zEYg19mZCIXO16lHbvRaPDkEuOfMPBmzlI7cYczMZLMfUvwkhdOVQpIxu3gx6mgaw46KsNsQ==
-
 markdown-it-task-lists@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/markdown-it-task-lists/-/markdown-it-task-lists-2.1.1.tgz#f68f4d2ac2bad5a2c373ba93081a1a6848417088"
   integrity sha512-TxFAc76Jnhb2OUu+n3yz9RMu4CwGfaT788br6HhEDlvWfdeJcLUsxk1Hgw2yJio0OXsxv7pyIPmvECY7bMbluA==
+
+markdown-it-toc-done-right@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-toc-done-right/-/markdown-it-toc-done-right-4.2.0.tgz#3ccdce22d5022ffae7b991d07261b1b1de5459d0"
+  integrity sha512-UB/IbzjWazwTlNAX0pvWNlJS8NKsOQ4syrXZQ/C72j+jirrsjVRT627lCaylrKJFBQWfRsPmIVQie8x38DEhAQ==
 
 markdown-it@^10.0.0:
   version "10.0.0"
