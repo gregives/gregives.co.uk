@@ -53,7 +53,7 @@ const markdown = require('markdown-it')({
     md.renderer.rules.image = function (tokens, index) {
       const token = tokens[index]
       const src = token.attrs[token.attrIndex('src')][1]
-      const alt = token.attrs[token.attrIndex('alt')][1]
+      const alt = token.attrs[token.attrIndex('alt')][1] || token.content
 
       // Render lazy image component
       if (token.attrIndex('title') !== -1) {
