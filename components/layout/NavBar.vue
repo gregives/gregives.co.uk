@@ -101,8 +101,8 @@
 }
 
 .nav__link {
-  margin: -0.5rem -1rem;
-  padding: 0.5rem 1rem;
+  margin: -0.25rem -0.5rem;
+  padding: 0.25rem 0.5rem;
 
   span {
     @include link;

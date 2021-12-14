@@ -147,7 +147,8 @@
     opacity: 20%;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     opacity: 90%;
 
     &::before {

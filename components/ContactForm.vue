@@ -106,7 +106,7 @@ export default {
 
     &:focus {
       border-color: $color__primary;
-      outline: none !important;
+      outline: none;
 
       ~ span {
         color: $color__primary;

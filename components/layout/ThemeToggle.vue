@@ -58,7 +58,6 @@ export default {
   border: none;
   color: $color__text;
   cursor: pointer;
-  outline: none;
   margin: 0 -0.5rem;
   margin-right: 1rem;
   padding: 0 0.5rem;

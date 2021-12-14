@@ -76,13 +76,13 @@ a {
   text-decoration: none;
 
   &[target='_blank'] {
-    margin-right: 0.7rem;
+    margin-right: 0.5rem;
 
     &::after {
       content: '\2197';
       font-family: 'Inter', sans-serif;
       font-size: 70%;
-      margin-right: -0.8rem;
+      margin-right: -0.5rem;
       position: relative;
       top: -0.2rem;
     }
@@ -171,8 +171,11 @@ html {
 }
 
 :root.tabbing :focus {
-  outline: 2px dotted $color__primary;
-  outline-offset: 0.1rem;
+  border-radius: math.div($border-radius, 2);
+  outline: solid 0.1rem $color__primary;
+  outline-offset: 0.2rem;
+  scroll-margin: 2rem;
+  scroll-margin-top: 4.5rem;
 }
 
 :target {
@@ -184,6 +187,7 @@ html {
   }
 
   @supports (scroll-margin-top: 4.5rem) {
+    scroll-margin: 2rem;
     scroll-margin-top: 4.5rem;
 
     &::before {

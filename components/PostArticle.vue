@@ -132,12 +132,11 @@ export default {
 
 .article__contents {
   display: none;
-  max-height: calc(100vh - 6rem);
+  max-height: calc(100vh - 7rem);
   opacity: 0.4;
   overflow-y: auto;
-  margin-right: -1rem;
-  padding-right: 1rem;
-  padding-bottom: 2rem;
+  margin: 0 -1rem;
+  padding: 0 1rem 1rem;
   position: sticky;
   top: 6rem;
   transition: opacity 150ms $transition__normal;
@@ -165,7 +164,6 @@ export default {
     }
 
     li {
-      filter: saturate(0);
       margin-top: 0.5rem;
 
       a {
