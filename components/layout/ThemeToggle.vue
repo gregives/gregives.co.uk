@@ -4,8 +4,10 @@
     class="theme-toggle"
     @click="toggleTheme"
   >
-    <moon-icon v-if="theme === 'light'" title="Dark theme" />
-    <sun-icon v-else title="Light theme" />
+    <transition name="spin" mode="out-in">
+      <moon-icon v-if="theme === 'light'" title="Dark theme" />
+      <sun-icon v-else title="Light theme" />
+    </transition>
   </button>
 </template>
 
@@ -67,6 +69,10 @@ export default {
     color: $color__primary;
   }
 
+  .material-design-icon {
+    display: block;
+  }
+
   svg {
     margin-top: -0.25rem;
     transform: rotate(-45deg);
@@ -80,6 +86,19 @@ export default {
     svg {
       transform: scale(0.9) rotate(-45deg);
     }
+  }
+
+  .spin-enter-active,
+  .spin-leave-active {
+    transition: transform 100ms linear;
+  }
+
+  .spin-enter {
+    transform: scale(0.9) rotate(90deg);
+  }
+
+  .spin-leave-to {
+    transform: scale(0.9) rotate(-90deg);
   }
 }
 </style>
