@@ -113,8 +113,6 @@ export default {
   }
 
   p:not(:first-child) {
-    margin-top: 1rem;
-
     > iframe,
     > video,
     > .lazy {

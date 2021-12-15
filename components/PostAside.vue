@@ -26,9 +26,12 @@ export default {
   background-color: $color__body--overlay;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
-  margin-top: 2.25rem;
   padding: 1.25rem (1rem + $border-radius) 1rem;
   position: relative;
+
+  &:not(:first-child) {
+    margin-top: 2.25rem;
+  }
 
   &:not(:last-child) {
     margin-bottom: 2rem;
