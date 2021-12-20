@@ -13,7 +13,6 @@
           {{ title }}
         </nuxt-link>
       </h2>
-      <small class="project-card__date">&mdash; {{ date }}</small>
       <p class="project-card__description">{{ project.description }}</p>
     </div>
   </li>
@@ -30,12 +29,6 @@ export default {
   computed: {
     title() {
       return this.project.titleShort || this.project.title
-    },
-    date() {
-      return this.project.date.toLocaleString('en-GB', {
-        month: 'long',
-        year: 'numeric'
-      })
     }
   }
 }
@@ -144,9 +137,5 @@ export default {
     content: '';
     top: 0;
   }
-}
-
-.project-card__date {
-  color: $color__text--muted;
 }
 </style>
