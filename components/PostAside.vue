@@ -92,7 +92,8 @@ export default {
     }
   }
 
-  a {
+  // Increase specificity
+  a:not(.header-anchor)[href] {
     @include link($color__body--overlay);
   }
 

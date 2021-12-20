@@ -132,7 +132,7 @@ html {
 
 ::-webkit-scrollbar-thumb {
   border-radius: $border-radius;
-  border: $border-weight solid $color__primary--muted;
+  border: $underline-weight solid $color__primary--muted;
   background-image: linear-gradient(
     $color__body--overlay,
     $color__primary--muted
@@ -172,7 +172,7 @@ html {
 
 :root.tabbing :focus {
   border-radius: math.div($border-radius, 2);
-  outline: solid 0.1rem $color__primary;
+  outline: solid $border-weight $color__primary;
   outline-offset: 0.2rem;
   scroll-margin: 2rem;
   scroll-margin-top: 4.5rem;

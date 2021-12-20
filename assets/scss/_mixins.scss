@@ -57,7 +57,7 @@
   font-weight: 400;
   text-shadow: 0.03em 0.03em $color__primary--muted;
   -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke: $border-weight $color__primary;
+  -webkit-text-stroke: $underline-weight $color__primary;
   -webkit-text-fill-color: transparent;
 }
 
@@ -79,7 +79,7 @@
       $color__primary--muted
     ),
     linear-gradient($color__primary, $color__primary);
-  background-size: 100% $border-weight, 0% $border-weight;
+  background-size: 100% $underline-weight, 0% $underline-weight;
   background-repeat: no-repeat;
   color: $color__primary;
   transition: background-size 300ms $transition__snappy;
@@ -96,7 +96,7 @@
 }
 
 @mixin link--active {
-  background-size: 100% $border-weight;
+  background-size: 100% $underline-weight;
 }
 
 @mixin link--shadow($color) {
@@ -114,7 +114,7 @@
 @mixin button {
   background-color: $color__body--overlay;
   border: $border-weight solid $color__primary;
-  border-radius: $border-radius;
+  border-radius: $border-radius !important;
   color: $color__primary;
   cursor: pointer;
   opacity: 100%;
@@ -156,6 +156,11 @@
     }
   }
 
+  &:focus {
+    outline: none !important;
+    transform: scale(1.05);
+  }
+
   &[disabled] {
     cursor: not-allowed;
     opacity: 50%;
@@ -170,8 +175,6 @@
 @mixin button--primary {
   background-color: $color__primary;
   color: $color__body;
-  transition: opacity 150ms $transition__normal,
-    transform 150ms $transition__normal;
 
   &::before {
     opacity: 100%;

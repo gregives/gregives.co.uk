@@ -93,7 +93,7 @@ export default {
   input,
   textarea {
     background: $color__body--overlay;
-    border-radius: $border-radius;
+    border-radius: $border-radius !important;
     border: $border-weight solid $color__primary--muted;
     box-shadow: $box-shadow--small;
     color: $color__text;
@@ -106,7 +106,7 @@ export default {
 
     &:focus {
       border-color: $color__primary;
-      outline: none;
+      outline: none !important;
 
       ~ span {
         color: $color__primary;

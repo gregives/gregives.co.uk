@@ -14,7 +14,7 @@ code {
 }
 
 a > code {
-  box-shadow: $box-shadow--small inset, 0 0 0 $border-weight * 2 $color__body;
+  box-shadow: $box-shadow--small inset, 0 0 0 $underline-weight * 2 $color__body;
 }
 
 .highlight {
