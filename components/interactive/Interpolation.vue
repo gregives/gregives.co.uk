@@ -242,7 +242,7 @@ export default {
 
       &[type='number'] {
         background-color: $color__body;
-        border-radius: $border-radius;
+        border-radius: $border-radius !important;
         border: $border-weight solid $color__primary--muted;
         color: $color__text;
         padding-left: 0.25rem;

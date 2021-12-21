@@ -218,7 +218,7 @@ export default {
   }
 
   table {
-    border: $underline-weight solid $color__text--muted;
+    border: $border-weight solid $color__text--muted;
     border-collapse: separate;
     border-radius: $border-radius;
     overflow-x: auto;
@@ -243,12 +243,12 @@ export default {
 
     th,
     td {
-      border-left: $underline-weight solid $color__text--muted;
+      border-left: $border-weight solid $color__text--muted;
       padding: 0.5rem 0.75rem;
     }
 
     td {
-      border-top: $underline-weight solid $color__text--muted;
+      border-top: $border-weight solid $color__text--muted;
     }
 
     th:first-child,
