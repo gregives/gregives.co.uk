@@ -121,7 +121,6 @@ export default {
   },
   // Generate dynamic routes and 404 fallback
   generate: {
-    exclude: [/^\/hidden/],
     fallback: true,
     routes: [...routes, '/meta/', ...routes.map((route) => `/meta${route}`)]
   },
