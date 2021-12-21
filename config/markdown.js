@@ -35,11 +35,6 @@ const markdown = require('markdown-it')({
   .use(require('markdown-it-toc-done-right'), {
     level: [2, 3]
   })
-  .use(require('markdown-it-external-links'), {
-    externalClassName: null,
-    externalRel: 'noopener noreferrer',
-    externalTarget: '_blank'
-  })
   .use(require('markdown-it-task-lists'), {
     label: true
   })

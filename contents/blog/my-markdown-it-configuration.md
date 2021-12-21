@@ -52,11 +52,6 @@ const markdown = require('markdown-it')({
     permalinkSymbol: '#',
     permalinkSpace: false
   })
-  .use(require('markdown-it-external-links'), {
-    externalClassName: null,
-    externalRel: 'noopener noreferrer',
-    externalTarget: '_blank'
-  })
   .use(require('markdown-it-task-lists'), {
     label: true
   })
@@ -134,7 +129,6 @@ pre[data-language]::after {
 There are some great plugins out there to extend the functionality of markdown-it. I use several plugins to:
 
 - Add heading anchors
-- Open external links in a new tab
 - Add task lists to Markdown (this is taken from GFM)
 - Add abbreviations, for example, 'GFM'
 - Add ^superscript^ text
@@ -147,11 +141,6 @@ There are some great plugins out there to extend the functionality of markdown-i
     permalink: true,
     permalinkSymbol: '#',
     permalinkSpace: false
-  })
-  .use(require('markdown-it-external-links'), {
-    externalClassName: null,
-    externalRel: 'noopener noreferrer',
-    externalTarget: '_blank'
   })
   .use(require('markdown-it-task-lists'), {
     label: true
