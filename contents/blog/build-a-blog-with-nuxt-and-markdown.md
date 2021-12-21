@@ -157,7 +157,7 @@ In `index.vue`, we're going to use `asyncData` to load the blog posts before the
         <nuxt-link :to="`/blog/${post.slug}`">
           {{ post.title }}
         </nuxt-link>
-        — {{ post.date.toLocaleDateString() }}
+        - {{ post.date.toLocaleDateString() }}
       </li>
     </ol>
   </main>

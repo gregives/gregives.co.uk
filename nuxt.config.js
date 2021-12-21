@@ -25,8 +25,8 @@ export default {
   target: 'static',
   // Content of page head
   head: {
-    title: 'Software Engineer',
-    titleTemplate: '%s | Greg Ives',
+    title: 'Freelance Developer',
+    titleTemplate: '%s • Greg Ives',
     htmlAttrs: {
       lang: 'en'
     },
@@ -36,7 +36,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'Personal site and portfolio of software engineer Greg Ives.'
+        content: 'Personal site and portfolio of freelance developer Greg Ives.'
       },
       { name: 'msapplication-TileColor', content: '#3355ff' },
       { hid: 'theme-color', name: 'theme-color', content: '#3355ff' },

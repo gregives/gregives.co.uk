@@ -7,7 +7,7 @@
         </nuxt-link>
       </h2>
       <small class="post-card__details">
-        {{ date }} &mdash; {{ post.mins }} minute read
+        {{ date }} &bull; {{ post.mins }} minute read
       </small>
       <p class="post-card__description">{{ post.description }}</p>
     </div>

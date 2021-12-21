@@ -3,7 +3,7 @@ title: StegaPhoto
 titleShort: ''
 date: 2017-09-01
 image: '/assets/images/dynamic/stegaphoto/screenshot.png'
-description: Cyber security research project on steganography — created a web application which can hide any number of files inside an image
+description: Cyber security research project on steganography. Created a web application which can hide any number of files inside an image
 tags:
   - JavaScript
   - Steganography

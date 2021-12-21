@@ -6,7 +6,7 @@
 [![Netlify Status](https://img.shields.io/netlify/9d27f2de-e50e-4a8c-a262-6a24e4a663a8)](https://app.netlify.com/sites/gregives/deploys)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fgregives%2Fgregives.co.uk.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fgregives%2Fgregives.co.uk?ref=badge_shield)
 
-Personal site and portfolio of software engineer Greg Ives, built with [Nuxt](https://nuxtjs.org) and deployed with Travis and Netlify.
+Personal site and portfolio of freelance developer Greg Ives, built with [Nuxt](https://nuxtjs.org) and deployed with Travis and Netlify.
 
 ---
 
