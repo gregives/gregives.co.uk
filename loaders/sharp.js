@@ -34,7 +34,7 @@ module.exports = function (source) {
   }
 
   // Disable in development
-  if (options.disable) {
+  if (options.disable && !params.meta) {
     const name = `[path][name].[ext]`
     const path = emitFile(name, source)
     callback(null, `module.exports = ${path}`)
@@ -45,6 +45,16 @@ module.exports = function (source) {
 
   images[0].metadata().then((metadata) => {
     const format = params.format || metadata.format
+
+    if (params.meta) {
+      const meta = {
+        format: `image/${format}`,
+        width: metadata.width,
+        height: metadata.height
+      }
+      callback(null, `module.exports = ${JSON.stringify(meta)}`)
+      return
+    }
 
     // Generate srcset
     if (params.srcset) {

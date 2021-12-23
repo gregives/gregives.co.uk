@@ -2,11 +2,19 @@
   <span class="lazy">
     <picture :style="width ? { width } : false">
       <source :data-srcset="srcsetWebp" :sizes="sizes" type="image/webp" />
-      <source :data-srcset="srcset" :sizes="sizes" :type="format" />
-      <img :src="lqip" :alt="alt" class="lazy__image lazy__image--load" />
+      <source :data-srcset="srcset" :sizes="sizes" :type="meta.format" />
+      <img
+        :width="meta.width"
+        :height="meta.height"
+        :src="lqip"
+        :alt="alt"
+        class="lazy__image lazy__image--load"
+      />
       <!-- Fallback image -->
       <noscript inline-template>
         <img
+          :width="meta.width"
+          :height="meta.height"
           :src="original"
           :alt="alt"
           class="lazy__image lazy__image--loaded"
@@ -37,9 +45,6 @@ export default {
     }
   },
   computed: {
-    format() {
-      return `image/${this.src.split('.').pop()}`
-    },
     srcRel() {
       return this.src.replace(/^\/assets\/images\/dynamic\//, '')
     },
@@ -51,6 +56,9 @@ export default {
     },
     lqip() {
       return require(`~/assets/images/dynamic/${this.srcRel}?size=20&format=jpeg&inline`)
+    },
+    meta() {
+      return require(`~/assets/images/dynamic/${this.srcRel}?meta`)
     },
     original() {
       return require(`~/assets/images/dynamic/${this.srcRel}`)
@@ -76,6 +84,7 @@ export default {
 .lazy__image {
   display: block;
   filter: blur(0.5rem);
+  height: auto;
   margin: -0.5rem;
   max-width: none;
   width: calc(100% + 1rem);
