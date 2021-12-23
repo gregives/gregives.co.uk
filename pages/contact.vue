@@ -121,9 +121,12 @@ export default {
 }
 
 .contact__social-icon {
-  &:hover {
+  &:hover,
+  &:focus {
     color: $color__primary;
+  }
 
+  &:hover {
     .contact__social-text {
       @include link--active;
     }
