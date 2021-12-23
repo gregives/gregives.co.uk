@@ -126,7 +126,8 @@ export default {
     }
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $color__primary;
   }
 
