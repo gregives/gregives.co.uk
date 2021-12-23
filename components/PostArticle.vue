@@ -217,7 +217,7 @@ export default {
   white-space: nowrap;
 
   &::before {
-    content: '\2014';
+    content: '\2022';
   }
 }
 
