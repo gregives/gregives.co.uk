@@ -18,6 +18,7 @@
     </ol>
     <div class="home__posts-more">
       <nuxt-link to="/blog/">See more blog posts</nuxt-link>
+      <see-more-icon />
     </div>
     <ol class="home__projects">
       <project-card
@@ -28,6 +29,7 @@
     </ol>
     <div class="home__projects-more">
       <nuxt-link to="/projects/">See more projects</nuxt-link>
+      <see-more-icon />
     </div>
   </main>
 </template>
@@ -41,6 +43,7 @@ import { postLoader, postSlugs } from '~/contents/blog'
 export default {
   components: {
     DownIcon,
+    SeeMoreIcon: DownIcon,
     Headshots: hydrateWhenIdle(() => import('~/components/Headshots')),
     PostCard: hydrateWhenVisible(() => import('~/components/PostCard')),
     ProjectCard: hydrateWhenVisible(() => import('~/components/ProjectCard'))
@@ -141,11 +144,11 @@ export default {
   margin-right: 1rem;
   margin-bottom: 1rem;
 
-  .keyboard-backspace-icon {
+  .material-design-icon {
     display: inline-block;
     margin-left: -0.15rem;
     margin-right: -0.35rem;
-    transform: scale(0.9) rotate(-90deg);
+    transform: scale(0.95) rotate(-90deg);
   }
 }
 
@@ -158,33 +161,44 @@ export default {
 .home__posts {
   display: grid;
   grid-gap: 1.5rem;
-
-  &-more {
-    margin-top: 1rem;
-    margin-bottom: 3rem;
-    text-align: right;
-
-    > a {
-      @include link;
-    }
-  }
 }
 
 .home__projects {
   display: grid;
   grid-template-columns: 100%;
   grid-gap: 3rem;
+  margin-top: 3rem;
 
   @media (min-width: $breakpoint--md) {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
+}
 
-  &-more {
-    margin-top: 1rem;
-    text-align: right;
+.home__posts-more,
+.home__projects-more {
+  margin-top: 1rem;
+  position: relative;
+  text-align: right;
 
-    > a {
-      @include link;
+  .material-design-icon {
+    pointer-events: none;
+
+    svg {
+      color: $color__primary;
+      transform: rotate(180deg);
+    }
+  }
+
+  a {
+    @include link;
+
+    &::after {
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
     }
   }
 }

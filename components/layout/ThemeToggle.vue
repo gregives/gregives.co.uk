@@ -74,7 +74,7 @@ export default {
   }
 
   svg {
-    margin-top: -0.25rem;
+    margin-top: -0.125rem;
     transform: rotate(-45deg);
   }
 

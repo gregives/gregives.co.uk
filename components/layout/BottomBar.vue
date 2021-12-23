@@ -131,7 +131,7 @@ export default {
   }
 
   &[href*='devpost.com'] {
-    svg {
+    .material-design-icon svg {
       transform: rotate(90deg);
     }
   }

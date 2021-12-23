@@ -189,9 +189,8 @@ export default {
   display: inline-block;
   position: relative;
 
-  .material-design-icon {
+  .material-design-icon svg {
     color: $color__primary;
-    vertical-align: top;
   }
 }
 
