@@ -1,5 +1,5 @@
 /*
-  Content-Security-Policy: default-src 'self' 'unsafe-eval' 'unsafe-inline' data: https://www.google.com/maps/ https://www.google-analytics.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.google-analytics.com; object-src 'none'
+  Content-Security-Policy: default-src 'self' 'unsafe-eval' 'unsafe-inline' data: https://www.google.com https://www.gstatic.com https://www.google-analytics.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.google-analytics.com; object-src 'none'
   Referrer-Policy: strict-origin-when-cross-origin
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN

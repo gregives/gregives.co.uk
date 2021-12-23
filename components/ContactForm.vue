@@ -1,17 +1,12 @@
 <template>
   <form
     class="form"
-    action="https://formsubmit.co/greg@gregives.co.uk"
-    method="POST"
-    :disabled="disabled"
+    name="Contact Form"
+    action="/contact/?success"
+    method="post"
+    data-netlify="true"
   >
-    <input
-      type="hidden"
-      name="_next"
-      value="https://gregives.co.uk/contact/?thank=you"
-    />
-    <input type="hidden" name="_template" value="box" />
-    <input type="text" name="_honey" />
+    <input type="hidden" name="form-name" value="Contact Form" />
     <label class="form__input">
       <input type="text" name="name" required />
       <span>Name</span>
@@ -21,14 +16,16 @@
       <span>Email address</span>
     </label>
     <label class="form__input">
-      <input type="text" name="_subject" required />
+      <input type="text" name="subject" required />
       <span>Subject</span>
     </label>
     <label class="form__input">
       <textarea name="message" required @input="autoHeight"></textarea>
       <span>Say hello</span>
     </label>
-    <button class="form__submit" type="submit">Send message</button>
+    <button class="form__submit" type="submit" :disabled="success">
+      Send message
+    </button>
   </form>
 </template>
 
@@ -36,11 +33,11 @@
 export default {
   data() {
     return {
-      disabled: false
+      success: false
     }
   },
   mounted() {
-    this.disabled = this.$route.query.thank === 'you'
+    this.success = Object.keys(this.$route.query).includes('success')
   },
   methods: {
     autoHeight(event) {
@@ -56,33 +53,6 @@ export default {
 <style lang="scss">
 .form {
   position: relative;
-
-  &[disabled] {
-    > * {
-      filter: blur(0.5rem);
-      pointer-events: none;
-    }
-
-    &::after {
-      @include font__fancy;
-      @include h1;
-      @include title;
-
-      color: $color__primary;
-      content: 'Thanks';
-      left: 50%;
-      position: absolute;
-      text-decoration: wavy underline $color__primary $border-weight;
-      text-underline-offset: 0.5rem;
-      top: 30%;
-      transform: translate(-50%, -50%) rotate(-15deg);
-      -webkit-text-fill-color: currentColor;
-    }
-  }
-
-  input[name='_honey'] {
-    display: none;
-  }
 }
 
 .form__input {

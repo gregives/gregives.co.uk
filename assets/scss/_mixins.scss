@@ -161,7 +161,7 @@
     transform: scale(1.05);
   }
 
-  &[disabled] {
+  &:disabled {
     cursor: not-allowed;
     opacity: 50%;
     transform: none;
