@@ -9,15 +9,6 @@
     url('~assets/fonts/DMSerifText-Regular.woff') format('woff');
 }
 
-// Font for little arrow
-@font-face {
-  font-display: swap;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  src: url('~assets/fonts/Inter-NorthEastArrow.woff2') format('woff2');
-}
-
 // Font mixins
 @mixin font__fancy {
   font-family: 'DM Serif Text', Georgia, serif;
