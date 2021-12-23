@@ -1,12 +1,12 @@
-Hi there, I'm Greg Ives! I'm a freelance developer, currently working on developer tools at [Capital One](https://capitalone.co.uk/). I love making things which work well, look good and are easy-to-use for everyone.
+Hi there, I'm Greg Ives! I'm a freelance developer, based in [Nottingham](https://www.google.com/maps/place/Nottingham). I'm currently building [Myles Fitness Challenges](https://www.myleschallenges.com/), an app that allows challengers to run, walk or cycle a wide range of virtual routes from around the world.
 
-I recently graduated from the University of Sheffield with a master's degree in Computer Science. I became involved in [HackSheffield](https://hacksheffield.co), organising the hackathon for three years and attending hackathons across Europe. Whilst at university, I interned at [FinancialForce](https://www.financialforce.com/) and volunteered as a Lead Instructor for [Code First: Girls](https://codefirstgirls.org.uk/).
+I graduated from the University of Sheffield in 2020 with a master's degree in Computer Science, after which I worked at [Capital One](https://capitalone.co.uk/) as a software engineer. During my time at Capital One, I worked in a web development team and a developer tools team, managing services on Jenkins and Amazon Web Services.
 
-Some of the technologies I've worked with recently are:
+Things I'm excited about at the moment:
 
-- React, Vue and Eleventy
-- Styled Components, Tailwind, SCSS
-- Flutter
-- AWS and Jenkins
+- Building performant and accessible websites
+- Cross-platform design systems
+- Great developer experience _without sacrificing user experience_
+- Hackathons that are inclusive and don't burn you out
 
 When I'm not staring at my computer, I like to get outside for a walk or bike ride. I also enjoy playing the cornet in [Hucknall and Linby Brass Band](https://www.hucknallandlinbybrass.co.uk/).
