@@ -26,40 +26,43 @@
     </label>
     <recaptcha />
     <p class="form__terms">
-      This site is protected by reCAPTCHA and the Google
-      <a
-        href="https://policies.google.com/privacy"
-        target="_blank"
-        rel="noreferrer"
-        >Privacy Policy</a
-      >
-      and
-      <a
-        href="https://policies.google.com/terms"
-        target="_blank"
-        rel="noreferrer"
-        >Terms of Service</a
-      >
-      apply.
+      <span>
+        This site is protected by reCAPTCHA and the Google
+        <a
+          href="https://policies.google.com/privacy"
+          target="_blank"
+          rel="noreferrer"
+          >Privacy Policy</a
+        >
+        and
+        <a
+          href="https://policies.google.com/terms"
+          target="_blank"
+          rel="noreferrer"
+          >Terms of Service</a
+        >
+        apply.
+      </span>
     </p>
     <button class="form__submit" type="submit" :disabled="success">
       Send message
+      <send-icon />
     </button>
+    <span class="form__thanks">Thanks!</span>
   </form>
 </template>
 
 <script>
+import SendIcon from 'icons/Send'
+
 export default {
+  components: {
+    SendIcon
+  },
   data() {
     return {
       success: false
     }
-  },
-  mounted() {
-    this.success = Object.keys(this.$route.query).includes('success')
-  },
-  beforeDestroy() {
-    this.$recaptcha.destroy()
   },
   methods: {
     autoHeight(event) {
@@ -70,18 +73,16 @@ export default {
     },
     async onSubmit(event) {
       try {
-        const token = await this.$recaptcha.getResponse()
-        const params = new URLSearchParams(new FormData(event.target))
-        params.set('g-recaptcha-response', token)
-
-        fetch('/', {
+        await this.$recaptcha.getResponse()
+        await fetch('/', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: params.toString()
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: new URLSearchParams(new FormData(event.target)).toString()
         })
-          .then(() => console.log('Form successfully submitted'))
-          .catch((error) => console.error('Form failed:', error))
 
+        this.success = true
         await this.$recaptcha.reset()
       } catch (error) {
         console.log('reCAPTCHA error:', error)
@@ -173,15 +174,53 @@ export default {
   color: $color__text--muted;
   font-size: 70%;
   margin: 0.75rem 0 1.5rem;
+  z-index: 1;
 
-  a {
-    @include link;
+  > span {
+    background-color: $color__body;
+    filter: drop-shadow(0 0 0.25rem $color__body)
+      drop-shadow(0 0 0.25rem $color__body)
+      drop-shadow(0 0 0.25rem $color__body);
+
+    a {
+      @include link;
+    }
   }
 }
 
 .form__submit {
   @include button;
   @include button--primary;
+
+  .material-design-icon {
+    display: inline-block;
+    margin-left: 0.2rem;
+    margin-right: -0.35rem;
+    transform: scale(0.95);
+    transition: color 150ms $transition__snappy--out,
+      transform 3s $transition__snappy--out;
+  }
+
+  &:disabled {
+    opacity: 1 !important;
+
+    .material-design-icon {
+      color: $color__primary;
+      transform: scale(0.8) translate(50rem, 5rem) rotate(20deg);
+    }
+
+    + .form__thanks {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.form__thanks {
+  margin-left: 1rem;
+  opacity: 0;
+  transition: opacity 300ms 300ms $transition__normal;
+  visibility: hidden;
 }
 
 .form__feedback {
