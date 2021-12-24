@@ -180,6 +180,7 @@ export default {
     background-color: $color__body;
     filter: drop-shadow(0 0 0.25rem $color__body)
       drop-shadow(0 0 0.25rem $color__body)
+      drop-shadow(0 0 0.25rem $color__body)
       drop-shadow(0 0 0.25rem $color__body);
 
     a {
@@ -198,7 +199,8 @@ export default {
     margin-right: -0.35rem;
     transform: scale(0.95);
     transition: color 150ms $transition__snappy--out,
-      transform 3s $transition__snappy--out;
+      opacity 600ms $transition__normal--out,
+      transform 900ms $transition__snappy--out;
   }
 
   &:disabled {
@@ -206,7 +208,8 @@ export default {
 
     .material-design-icon {
       color: $color__primary;
-      transform: scale(0.8) translate(50rem, 5rem) rotate(20deg);
+      opacity: 0;
+      transform: scale(0.8) translate(5rem, 2rem) rotate(30deg);
     }
 
     + .form__thanks {

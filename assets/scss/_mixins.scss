@@ -128,6 +128,7 @@
     content: '';
     border-radius: $border-radius;
     inset: -$border-weight;
+    pointer-events: none;
     position: absolute;
   }
 
