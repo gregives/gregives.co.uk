@@ -94,7 +94,7 @@ export default {
     '@nuxtjs/pwa'
   ],
   // Nuxt.js modules
-  modules: ['@nuxtjs/sitemap'],
+  modules: ['@nuxtjs/recaptcha', '@nuxtjs/sitemap'],
   // Instead of importing into every component
   styleResources: {
     scss: [
@@ -106,6 +106,12 @@ export default {
   // Google Analytics configuration
   googleAnalytics: {
     id: 'UA-115006226-1'
+  },
+  recaptcha: {
+    hideBadge: false,
+    siteKey: process.env.SITE_RECAPTCHA_KEY,
+    size: 'invisible',
+    version: 2
   },
   // Nuxt.js PWA configuration
   pwa: {

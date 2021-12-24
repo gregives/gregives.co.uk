@@ -20,6 +20,7 @@
     "*.{scss,vue}": "stylelint"
   },
   "dependencies": {
+    "@nuxtjs/recaptcha": "^1.0.4",
     "@nuxtjs/sitemap": "^2.4.0",
     "core-js": "^3.11.1",
     "dotenv": "^10.0.0",

@@ -2,9 +2,10 @@
   <form
     class="form"
     name="Contact Form"
-    action="/contact/?success"
     method="post"
     data-netlify="true"
+    data-netlify-recaptcha="true"
+    @submit.prevent="onSubmit"
   >
     <input type="hidden" name="form-name" value="Contact Form" />
     <label class="form__input">
@@ -23,6 +24,7 @@
       <textarea name="message" required @input="autoHeight"></textarea>
       <span>Say hello</span>
     </label>
+    <recaptcha />
     <button class="form__submit" type="submit" :disabled="success">
       Send message
     </button>
@@ -39,12 +41,34 @@ export default {
   mounted() {
     this.success = Object.keys(this.$route.query).includes('success')
   },
+  beforeDestroy() {
+    this.$recaptcha.destroy()
+  },
   methods: {
     autoHeight(event) {
       const textarea = event.target
-      const borders = textarea.offsetHeight - textarea.clientHeight + 1
+      const borders = textarea.offsetHeight - textarea.clientHeight
       textarea.style.height = 0
       textarea.style.height = textarea.scrollHeight + borders + 'px'
+    },
+    async onSubmit(event) {
+      try {
+        const token = await this.$recaptcha.getResponse()
+        const params = new URLSearchParams(new FormData(event.target))
+        params.set('g-recaptcha-response', token)
+
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: params.toString()
+        })
+          .then(() => console.log('Form successfully submitted'))
+          .catch((error) => console.error('Form failed:', error))
+
+        await this.$recaptcha.reset()
+      } catch (error) {
+        console.log('reCAPTCHA error:', error)
+      }
     }
   }
 }
