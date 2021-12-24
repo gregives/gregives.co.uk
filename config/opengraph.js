@@ -12,9 +12,8 @@ if (require.main === module) {
 function generateImages(routes) {
   // Load API key
   dotenv.config()
-  const { APIFLASH_KEY: API_KEY } = process.env
 
-  if (API_KEY !== undefined) {
+  if (process.env.APIFLASH_API_KEY !== undefined) {
     ;[...routes, '/'].forEach((route) => {
       // Create new static directory for Open Graph image
       const directory = path.join(process.cwd(), 'static', route.slice(1))
@@ -28,7 +27,7 @@ function generateImages(routes) {
       const url = encodeURIComponent(`https://gregives.co.uk/meta${route}`)
 
       // ApiFlash endpoint
-      const api = `https://api.apiflash.com/v1/urltoimage?access_key=${API_KEY}&format=png&height=630&response_type=image&url=${url}&width=1200&fresh=true`
+      const api = `https://api.apiflash.com/v1/urltoimage?access_key=${process.env.APIFLASH_API_KEY}&format=png&height=630&response_type=image&url=${url}&width=1200&fresh=true`
 
       // Write response to file
       https.get(api, (response) => {
