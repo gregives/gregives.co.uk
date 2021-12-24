@@ -25,6 +25,23 @@
       <span>Say hello</span>
     </label>
     <recaptcha />
+    <p class="form__terms">
+      This site is protected by reCAPTCHA and the Google
+      <a
+        href="https://policies.google.com/privacy"
+        target="_blank"
+        rel="noreferrer"
+        >Privacy Policy</a
+      >
+      and
+      <a
+        href="https://policies.google.com/terms"
+        target="_blank"
+        rel="noreferrer"
+        >Terms of Service</a
+      >
+      apply.
+    </p>
     <button class="form__submit" type="submit" :disabled="success">
       Send message
     </button>
@@ -147,8 +164,18 @@ export default {
     }
   }
 
-  &:not(:last-child) {
+  &:not(:last-of-type) {
     margin-bottom: 1.5rem;
+  }
+}
+
+.form__terms {
+  color: $color__text--muted;
+  font-size: 70%;
+  margin: 0.75rem 0 1.5rem;
+
+  a {
+    @include link;
   }
 }
 
