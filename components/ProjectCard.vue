@@ -66,23 +66,16 @@ export default {
   &::after {
     background-image: linear-gradient($color__primary--muted, $color__primary);
     content: '';
-    height: 100%;
-    left: 0;
+    inset: 0;
     opacity: 0;
     position: absolute;
-    top: 0;
     transition: opacity 150ms $transition__normal;
-    width: 100%;
   }
 
   .lazy {
-    bottom: 0;
-    height: 100%;
-    left: 0;
+    inset: 0;
     position: absolute;
-    top: 0;
     transition: filter 150ms $transition__normal;
-    width: 100%;
 
     picture {
       height: 100%;
@@ -130,12 +123,9 @@ export default {
   @include link($color__body--overlay, $heading: true);
 
   &::after {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
     content: '';
-    top: 0;
+    inset: 0;
+    position: absolute;
   }
 }
 </style>

@@ -72,11 +72,8 @@
       background-color: $color__body--overlay;
       content: '';
       filter: blur(2rem);
+      inset: -1rem -4rem;
       position: absolute;
-      top: -1rem;
-      left: -4rem;
-      width: calc(100% + 8rem);
-      height: calc(100% + 2rem);
     }
   }
 }

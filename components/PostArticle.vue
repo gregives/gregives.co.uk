@@ -199,11 +199,8 @@ export default {
 
   &::after {
     content: '';
-    height: 100%;
-    left: 0;
+    inset: 0;
     position: absolute;
-    top: 0;
-    width: 100%;
   }
 }
 
@@ -237,12 +234,8 @@ export default {
       color: $color__text--muted;
       content: '\25B7';
       font-size: 60%;
-      height: 100%;
-      margin-top: 0.5em;
-      margin-right: 0.5rem;
       position: absolute;
-      right: 100%;
-      top: 0;
+      inset: 0.25rem calc(100% + 0.5rem) 0 auto;
       vertical-align: middle;
     }
   }

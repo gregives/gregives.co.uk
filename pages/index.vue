@@ -194,11 +194,8 @@ export default {
 
     &::after {
       content: '';
-      height: 100%;
-      left: 0;
+      inset: 0;
       position: absolute;
-      top: 0;
-      width: 100%;
     }
   }
 }

@@ -57,12 +57,9 @@ export default {
     );
     border-radius: $border-radius;
     content: '';
-    height: calc(100% + 2rem);
-    left: -1rem;
+    inset: -1rem 0 -1rem -1rem;
     pointer-events: none;
     position: absolute;
-    top: -1rem;
-    width: calc(100% + 1rem);
   }
 }
 

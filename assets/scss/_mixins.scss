@@ -127,11 +127,8 @@
   &::after {
     content: '';
     border-radius: $border-radius;
-    height: calc(100% + #{2 * $border-weight});
-    left: -$border-weight; // Account for border
+    inset: -$border-weight;
     position: absolute;
-    top: -$border-weight;
-    width: calc(100% + #{2 * $border-weight});
   }
 
   &::before {
