@@ -9,19 +9,24 @@
   >
     <input type="hidden" name="form-name" value="Contact Form" />
     <label class="form__input">
-      <input type="text" name="name" required />
+      <input type="text" name="name" required :readonly="success" />
       <span>Name</span>
     </label>
     <label class="form__input">
-      <input type="email" name="email" required />
+      <input type="email" name="email" required :readonly="success" />
       <span>Email address</span>
     </label>
     <label class="form__input">
-      <input type="text" name="subject" required />
+      <input type="text" name="subject" required :readonly="success" />
       <span>Subject</span>
     </label>
     <label class="form__input">
-      <textarea name="message" required @input="autoHeight"></textarea>
+      <textarea
+        name="message"
+        required
+        :readonly="success"
+        @input="autoHeight"
+      ></textarea>
       <span>Say hello</span>
     </label>
     <recaptcha />
