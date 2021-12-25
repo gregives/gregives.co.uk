@@ -64,8 +64,6 @@ module.exports.handler = async (event) => {
     )
   }
 
-  console.log({ cache, recentViews })
-
   return {
     statusCode: 200,
     body: JSON.stringify({
