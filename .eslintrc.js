@@ -10,6 +10,7 @@ module.exports = {
   },
   extends: ['@nuxtjs', 'plugin:nuxt/recommended', 'prettier'],
   rules: {
+    'no-prototype-builtins': 'off',
     'vue/no-v-html': 'off'
   }
 }

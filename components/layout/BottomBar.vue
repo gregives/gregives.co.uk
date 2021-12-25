@@ -7,9 +7,10 @@
           class="footer__source"
           href="https://github.com/gregives/gregives.co.uk"
         >
-          See the source code
+          Source code
         </a>
       </p>
+      <p><view-counter /></p>
       <p>
         <a
           class="footer__social-icon"
@@ -57,6 +58,7 @@ import TwitterIcon from 'icons/Twitter'
 import GithubIcon from 'icons/Github'
 import DevpostIcon from 'icons/HexagonOutline'
 import LinkedinIcon from 'icons/Linkedin'
+import ViewCounter from '~/components/ViewCounter'
 
 export default {
   components: {
@@ -64,7 +66,8 @@ export default {
     TwitterIcon,
     GithubIcon,
     DevpostIcon,
-    LinkedinIcon
+    LinkedinIcon,
+    ViewCounter
   }
 }
 </script>
@@ -77,6 +80,7 @@ export default {
   font-size: 90%;
   line-height: 2rem;
   padding: 0.75rem 0 1rem;
+  position: relative;
   width: 100%;
 
   @media (min-width: $breakpoint--md) {
@@ -93,14 +97,17 @@ export default {
 
   display: grid;
   grid-template-columns: 100%;
-  grid-gap: 0.25rem;
   text-align: center;
 
   @media (min-width: $breakpoint--md) {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    text-align: left;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    text-align: center;
 
-    > p:last-child {
+    > :first-child {
+      text-align: left;
+    }
+
+    > :last-child {
       text-align: right;
     }
   }
