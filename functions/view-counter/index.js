@@ -1,8 +1,6 @@
 const fauna = require('faunadb')
 const { query: q } = fauna
 
-console.info(`Setting keepAlive: ${process.env.NETLIFY_DEV !== 'true'}`)
-
 const client = new fauna.Client({
   secret: process.env.FAUNA_API_KEY,
   domain: 'db.eu.fauna.com',
