@@ -1,68 +1,61 @@
 const fauna = require('faunadb')
 const { query: q } = fauna
 
+console.info(`Setting keepAlive: ${process.env.NETLIFY_DEV !== 'true'}`)
+
 const client = new fauna.Client({
   secret: process.env.FAUNA_API_KEY,
   domain: 'db.eu.fauna.com',
   port: 443,
   scheme: 'https',
-  keepAlive: false
+  keepAlive: process.env.NETLIFY_DEV !== 'true'
 })
 
 const cache = {}
-const recentViews = {}
 
 module.exports.handler = async (event) => {
-  const { url, uid, recentView } = JSON.parse(event.body)
+  const { url, recentlyViewed } = JSON.parse(event.body)
 
-  // Check if this page is already in the cache or in fauna
+  // Check if this page is in the cache or in fauna
   const inCache = cache.hasOwnProperty(url)
   const inFauna =
     inCache || (await client.query(q.Exists(q.Match(q.Index('url'), url))))
 
-  // Get document or create if it doesn't exist
-  const document = await (() => {
-    if (inCache) {
-      // Get from cache
-      return cache[url]
-    } else if (inFauna) {
-      // Get from fauna
-      return client.query(q.Get(q.Match(q.Index('url'), url)))
+  const document = await (async () => {
+    if (inCache || inFauna) {
+      // Get the document from cache or fauna
+      const document = inCache
+        ? cache[url]
+        : await client.query(q.Get(q.Match(q.Index('url'), url)))
+
+      if (recentlyViewed) {
+        // If they have recently viewed the page then just return the document
+        return document
+      } else {
+        // Otherwise, increment the view count and return the updated document
+        return client.query(
+          q.Update(document.ref, {
+            data: {
+              views: document.data.views + 1
+            }
+          })
+        )
+      }
     } else {
-      // Create in fauna and return new document
+      // If this page isn't in the cache or fauna then create it and return the new document
       return client.query(
         q.Create(q.Collection('pages'), {
           data: {
             url,
-            views: 0
+            views: 1
           }
         })
       )
     }
   })()
 
-  // Store each user's recent views in a set
-  if (!recentViews.hasOwnProperty(uid)) {
-    recentViews[uid] = new Set()
-  }
-
-  // Check if the user has recently viewed this page
-  const recentlyViewed = recentView
-    ? recentViews[uid].add(url) && true
-    : recentViews[uid].has(url)
-
-  // Increment view count if the user hasn't recently viewed this page
-  if (!recentlyViewed) {
-    recentViews[uid].add(url)
-
-    cache[url] = await client.query(
-      q.Update(document.ref, {
-        data: {
-          views: document.data.views + 1
-        }
-      })
-    )
-  }
+  // Add document to cache
+  cache[url] = document
 
   return {
     statusCode: 200,

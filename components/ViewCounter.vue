@@ -18,38 +18,35 @@ export default {
     this.updateViewCounter()
   },
   methods: {
-    generateUID() {
-      return [...crypto.getRandomValues(new Uint8Array(10))]
-        .map((b) => b.toString(16).padStart(2, '0'))
-        .join('')
-    },
     async updateViewCounter() {
-      // Generate unique ID to prevent multiple submissions
-      if (localStorage.getItem('uid') === null)
-        localStorage.setItem('uid', this.generateUID())
-
-      // Get recently viewed pages from local storage
       const url = location.pathname
-      const recentViews = JSON.parse(localStorage.getItem('url')) || []
+      const recentViews = JSON.parse(localStorage.getItem('recent')) || {}
+      const cachedViews = JSON.parse(sessionStorage.getItem('cache')) || {}
+      const needToCallFunction =
+        !recentViews.hasOwnProperty(url) || !cachedViews.hasOwnProperty(url)
 
-      // Get view count from serverless function
-      const response = await fetch('/.netlify/functions/view-counter', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          url,
-          uid: localStorage.getItem('uid'),
-          recentView: recentViews.includes(url)
+      // Get number of views from serverless function
+      if (needToCallFunction)
+        cachedViews[url] = await fetch('/.netlify/functions/view-counter', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            url,
+            recentlyViewed: recentViews.hasOwnProperty(url)
+          })
         })
-      })
+          .then((response) => response.json())
+          .then((data) => data.views)
 
-      // Add URL to recently viewed pages
-      if (!recentViews.includes(url))
-        localStorage.setItem('url', JSON.stringify([...recentViews, url]))
+      // Set recent view to current time and display view count
+      recentViews[url] = Date.now()
+      this.views = cachedViews[url].toLocaleString()
 
-      this.views = (await response.json()).views.toLocaleString()
+      // Update recent views and cache
+      localStorage.setItem('recent', JSON.stringify(recentViews))
+      sessionStorage.setItem('cache', JSON.stringify(cachedViews))
     }
   }
 }
