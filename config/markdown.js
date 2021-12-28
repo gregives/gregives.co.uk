@@ -1,51 +1,36 @@
-const hljs = require('highlight.js')
-const { JSDOM } = require('jsdom')
-const anchor = require('markdown-it-anchor')
+import { JSDOM } from 'jsdom'
+import markdownIt from 'markdown-it'
+import markdownItAbbr from 'markdown-it-abbr'
+import markdownItAnchor from 'markdown-it-anchor'
+import markdownItIns from 'markdown-it-ins'
+import markdownItMark from 'markdown-it-mark'
+import markdownItSub from 'markdown-it-sub'
+import markdownItSup from 'markdown-it-sup'
+import markdownItToc from 'markdown-it-toc-done-right'
 
-hljs.configure({
-  classPrefix: 'highlight__'
-})
-hljs.registerLanguage('vue', () => hljs.getLanguage('html'))
+// Custom syntax highlighting
+import highlight from './highlight'
 
-// Instance of markdown-it
-const markdown = require('markdown-it')({
+const markdown = markdownIt({
   html: true,
-  xhtmlOut: true,
   breaks: true,
   typographer: true,
-  highlight(str, lang) {
-    if (lang && hljs.getLanguage(lang)) {
-      try {
-        return `<pre class="highlight" data-language="${lang}"><code>${
-          hljs.highlight(str, { language: lang, ignoreIllegals: true }).value
-        }</code></pre>`
-      } finally {
-        // No syntax highlighting
-      }
-    }
-
-    return `<pre class="highlight"><code>${markdown.utils.escapeHtml(
-      str
-    )}</code></pre>`
-  }
+  highlight: (...args) => highlight(markdown, ...args)
 })
-  .use(anchor, {
-    permalink: anchor.permalink.headerLink()
+  .use(markdownItAnchor, {
+    permalink: markdownItAnchor.permalink.headerLink()
   })
-  .use(require('markdown-it-toc-done-right'), {
+  .use(markdownItToc, {
     level: [2, 3]
   })
-  .use(require('markdown-it-task-lists'), {
-    label: true
-  })
-  .use(require('markdown-it-abbr'))
-  .use(require('markdown-it-sup'))
-  .use(require('markdown-it-sub'))
-  .use(require('markdown-it-mark'))
-  .use(require('markdown-it-ins'))
+  .use(markdownItAbbr)
+  .use(markdownItSup)
+  .use(markdownItSub)
+  .use(markdownItMark)
+  .use(markdownItIns)
   .use(function (md) {
     // Plugin to switch images for custom component
-    md.renderer.rules.image = function (tokens, index) {
+    md.renderer.rules.image = (tokens, index) => {
       const token = tokens[index]
       const src = token.attrs[token.attrIndex('src')][1]
       const alt = token.attrs[token.attrIndex('alt')][1] || token.content
@@ -77,7 +62,5 @@ const transformHTML = (html) => {
   return fragment.firstChild.innerHTML
 }
 
-export default function (body) {
-  // Add table of contents and transform resulting HTML
-  return transformHTML(markdown.render(`[[toc]]\n\n${body}`))
-}
+// Add table of contents and transform resulting HTML
+export default (body) => transformHTML(markdown.render(`[[toc]]\n\n${body}`))
