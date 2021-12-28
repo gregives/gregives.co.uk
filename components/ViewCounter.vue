@@ -20,9 +20,14 @@ export default {
   methods: {
     async updateViewCounter() {
       const url = location.pathname
+
+      // Store recent views in local storage
       const recentViews = JSON.parse(localStorage.getItem('views')) || {}
       const recentlyViewed = recentViews.hasOwnProperty(url)
-      const cacheIsStale = recentlyViewed && recentViews[url].cache < Date.now() - 3600000
+
+      // Update view count at most once every hour
+      const cacheIsStale =
+        recentlyViewed && recentViews[url].cache < Date.now() - 3600000
 
       // Get number of views from serverless function
       if (!recentlyViewed || cacheIsStale) {
@@ -36,7 +41,7 @@ export default {
             recentlyViewed
           })
         }).then((response) => response.json())
-        
+
         recentViews[url] = {
           cache: Date.now(),
           views
