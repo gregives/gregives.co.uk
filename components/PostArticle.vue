@@ -5,10 +5,10 @@
     </div>
     <div class="article__sidebar">
       <p v-if="type !== 'hidden'" class="article__details">
-        <span class="article__date">{{ date }}</span>
-        <span v-if="type === 'post'" class="article__mins">
+        <small class="article__date">{{ date }}</small>
+        <small v-if="type === 'post'" class="article__mins">
           {{ post.mins }} minute read
-        </span>
+        </small>
       </p>
       <ul v-if="post.tags" class="article__tags">
         <li v-for="tag in post.tags" :key="tag">{{ tag }}</li>
@@ -63,7 +63,7 @@ export default {
     date() {
       return this.post.date.toLocaleString('en-GB', {
         ...(this.type === 'post' && { day: 'numeric' }),
-        month: 'long',
+        month: 'short',
         year: 'numeric'
       })
     }

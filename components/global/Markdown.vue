@@ -138,6 +138,16 @@ export default {
       margin-bottom: 1rem;
     }
 
+    li {
+      .highlight {
+        margin: 0.5rem 0 !important;
+      }
+
+      + li {
+        margin-top: 0.25rem;
+      }
+    }
+
     ul,
     ol {
       margin-left: 1.5rem;
@@ -264,6 +274,16 @@ export default {
           border-top: none;
         }
       }
+    }
+  }
+
+  .highlight {
+    &:not(:first-child) {
+      margin-top: 1.5rem;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
     }
   }
 

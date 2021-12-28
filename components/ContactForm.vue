@@ -89,8 +89,8 @@ export default {
 
         this.success = true
         await this.$recaptcha.reset()
-      } catch (error) {
-        console.log('reCAPTCHA error:', error)
+      } catch {
+        // Ignore errors for now
       }
     }
   }

@@ -26,7 +26,7 @@ export default {
     date() {
       return this.post.date.toLocaleString('en-GB', {
         day: 'numeric',
-        month: 'long',
+        month: 'short',
         year: 'numeric'
       })
     }
