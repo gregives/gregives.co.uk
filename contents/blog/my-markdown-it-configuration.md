@@ -5,6 +5,12 @@ description: An overview of the markdown-it and highlight.js configurations used
 tags: []
 ---
 
+<post-aside type="info">
+
+My Markdown configuration has changed considerably since I wrote this blog post but this is still a good starting point! If you want to view my updated configuration, [view the source on GitHub](https://github.com/gregives/gregives.co.uk/blob/master/config/markdown.js).
+
+</post-aside>
+
 I use [markdown-it](https://github.com/markdown-it/markdown-it) and [highlight.js](https://highlightjs.org) to render my blog posts. Out of the box, markdown-it and highlight.js may provide all the functionality you need, however, customising them enables you to do stuff like:
 
 - Display the language of code blocks
@@ -85,7 +91,7 @@ Secondly, I pass some configuration options to markdown-it:
 - `xhtmlOut: true` converts newlines `\n` in paragraphs into break tags `<br/>`.
 - `typographer: true` enables some 'language-neutral replacement' and beautifies quotation marks.
 
-```js
+```js {} 7
 const markdown = require('markdown-it')({
   html: true,
   xhtmlOut: true,
@@ -136,7 +142,7 @@ There are some great plugins out there to extend the functionality of markdown-i
 - Add ==marked== text
 - Add ++inserted++ text
 
-```js
+```js {} 28
   .use(require('markdown-it-anchor'), {
     permalink: true,
     permalinkSymbol: '#',

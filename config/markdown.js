@@ -15,6 +15,7 @@ const markdown = markdownIt({
   html: true,
   breaks: true,
   typographer: true,
+  // Need to pass the instance of markdown-it
   highlight: (...args) => highlight(markdown, ...args)
 })
   .use(markdownItAnchor, {
