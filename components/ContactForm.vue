@@ -2,7 +2,7 @@
   <form
     class="form"
     name="Contact Form"
-    method="post"
+    method="POST"
     data-netlify="true"
     data-netlify-recaptcha="true"
     @submit.prevent="onSubmit"
