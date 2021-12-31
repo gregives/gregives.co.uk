@@ -73,31 +73,31 @@ export default {
   h1:not(:first-child) {
     @include h2;
 
-    margin-top: 1.75rem;
+    margin-top: 2rem;
   }
 
   h2:not(:first-child) {
     @include h3;
 
-    margin-top: 1.5rem;
+    margin-top: 1.75rem;
   }
 
   h3:not(:first-child) {
     @include h4;
 
-    margin-top: 1.25rem;
+    margin-top: 1.5rem;
   }
 
   h4:not(:first-child) {
     @include h5;
 
-    margin-top: 1rem;
+    margin-top: 1.25rem;
   }
 
   h5:not(:first-child) {
     @include h6;
 
-    margin-top: 0.75rem;
+    margin-top: 1rem;
   }
 
   a:not(.header-anchor) {
@@ -130,6 +130,10 @@ export default {
     }
   }
 
+  p + ul {
+    margin-top: -0.5rem;
+  }
+
   ul,
   ol {
     margin-left: 2rem;
@@ -151,7 +155,7 @@ export default {
     ul,
     ol {
       margin-left: 1.5rem;
-      margin-bottom: 0;
+      margin-bottom: 0.5rem !important;
     }
   }
 

@@ -37,11 +37,10 @@ May look something like this. It's easy to **emphasise** words, link to [other s
 
 In order to load Markdown files into Nuxt, we need to use a webpack loader. A webpack loader simply preprocesses a file, of a given type, to allow us to include it into our application. Conveniently, `frontmatter-markdown-loader` does exactly what we want: it compiles our Markdown into HTML and then gives it to us _as a Vue render function_, including the front matter attributes from the top of the Markdown file. All we need to do is to tell webpack to use `frontmatter-markdown-loader` whenever it sees a Markdown file, which we can do in `nuxt.config.js`.
 
-```js
+```js {1,6-15}
 import FMMode from 'frontmatter-markdown-loader/mode'
 
 export default {
-  ...
   build: {
     extend(config) {
       config.module.rules.push({
@@ -56,7 +55,6 @@ export default {
       })
     }
   }
-  ...
 }
 ```
 
@@ -128,15 +126,13 @@ export const postRoutes = postSlugs.map((postSlug) => `/blog/${postSlug}`)
 
 We need to change the configuration of Nuxt slightly, to let it know about our blog posts. This is because the pages for our blog posts will be generated _dynamically_, i.e. we're not manually creating a page for each of them. In `nuxt.config.js`, we're going to import the routes for our blog posts at the top, and then pass them to `generate.routes`. This ensures that Nuxt will generate these pages when we run `nuxt generate`.
 
-```js
+```js {1,4-6}
 import { postRoutes } from './contents'
 
 export default {
-  ...
   generate: {
     routes: postRoutes
   }
-  ...
 }
 ```
 
