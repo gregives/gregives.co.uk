@@ -13,6 +13,7 @@ export const postSlugs = [
   'choosing-a-cms-for-your-website',
   'interpolating-colour-with-css',
   'my-markdown-it-configuration',
+  'nuxt-netlify-forms-and-recaptcha',
   'optimising-the-fonts-on-my-website',
   'why-you-should-learn-regex'
 ]

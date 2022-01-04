@@ -9,6 +9,9 @@ export default {
     // Components for individual blog posts
     Interpolation: hydrateWhenVisible(() =>
       import('~/components/interactive/Interpolation')
+    ),
+    NetlifyForm: hydrateWhenVisible(() =>
+      import('~/components/interactive/NetlifyForm')
     )
   },
   props: {
@@ -228,27 +231,6 @@ export default {
 
     a:not(.header-anchor) {
       @include link($color__body--overlay);
-    }
-  }
-
-  .highlight + output {
-    margin-top: -0.5rem !important;
-  }
-
-  output {
-    background-color: $color__body--overlay;
-    border-radius: $border-radius;
-    box-shadow: $box-shadow--small;
-    display: block;
-    padding: 1rem;
-    position: relative;
-
-    &:not(:first-child) {
-      margin-top: 1.5rem;
-    }
-
-    &:not(:last-child) {
-      margin-bottom: 1.5rem;
     }
   }
 

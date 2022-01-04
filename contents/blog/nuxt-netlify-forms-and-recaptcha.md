@@ -102,16 +102,7 @@ Putting together everything we've learnt so far, let's create our first form. We
 </style>
 ```
 
-<output>
-  <form name="Test Form" method="POST" data-netlify="true">
-    <input type="hidden" name="form-name" value="Test Form" />
-    <label>
-      Your Name:
-      <input type="text" name="name" />
-    </label>
-    <button type="submit">Send</button>
-  </form>
-</output>
+<netlify-form :step="1"></netlify-form>
 
 When you click the submit button, a few things will happen:
 
@@ -137,27 +128,131 @@ You can display your own success page instead of Netlify's by adding an `action`
 </template>
 ```
 
-<output>
-  <form name="Test Form" method="POST" action="./success/" data-netlify="true">
-    <input type="hidden" name="form-name" value="Test Form" />
-    <label>
-      Your Name:
-      <input type="text" name="name" />
-    </label>
-    <button type="submit">Send</button>
-  </form>
-</output>
+<netlify-form :step="2"></netlify-form>
 
 ## Adding reCAPTCHA to Your Form
 
-Now we've set up a basic form, let's add support for reCAPTCHA.
+Now we've set up a basic form, let's add a reCAPTCHA challenge to our form. The [Netlify documentation](https://docs.netlify.com/forms/spam-filters/#recaptcha-2-challenge) says "Netlify can include one for you, or you can add your own".
 
 > To have Netlify provide the CAPTCHA:
 >
 > 1. Add a `data-netlify-recaptcha="true"` attribute to your `<form>` tag.
 > 2. In the place where you'd like the CAPTCHA to appear, add an empty `<div>` element inside your form with the same `data-netlify-recaptcha="true"` attribute.
 
-```vue {7,14}
+However, **this won't work** with Nuxt because of what we touched upon earlier: hydration. Netlify Forms will change that empty `<div>` element into a reCAPTCHA widget but Nuxt still thinks it's an empty `<div>`, so it can't hydrate the page.
+
+Instead, we can follow the [custom reCAPTCHA 2](https://docs.netlify.com/forms/spam-filters/#custom-recaptcha-2) documentation:
+
+> To set up a custom reCAPTCHA:
+>
+> 1. [Sign up for a reCAPTCHA API key pair](http://www.google.com/recaptcha/admin) and follow the instructions for adding reCAPTCHA to your site.
+>
+> 2. [Log in to Netlify](https://app.netlify.com/) and add the following environment variables to the **Site settings > Build & deploy > Environment > Environment variables** panel:
+>
+>    - `SITE_RECAPTCHA_KEY` with the reCAPTCHA API site key.
+>    - `SITE_RECAPTCHA_SECRET` with the reCAPTCHA API secret key.
+>
+> 3. Add a `data-netlify-recaptcha="true"` attribute to the HTML form that has the custom reCAPTCHA widget.
+
+### Getting a Site Key and Secret Key
+
+Firstly, let's create a new site in the Google reCAPTCHA console:
+
+1. Go to [https://www.google.com/recaptcha/admin/create](https://www.google.com/recaptcha/admin/create)
+2. Make a label for your reCAPTCHA site, I set mine as `gregives.co.uk`
+3. Select `reCAPTCHA v2` for the reCAPTCHA type, Netlify doesn't support v3 yet
+4. Select `Invisible reCAPTCHA badge` (we'll make the reCAPTCHA widget invisible later)
+5. Add your domains, for example, `gregives.co.uk` **and `localhost` for testing**
+6. Add any other owners and accept the reCAPTCHA Terms of Service
+
+### Setting up the Environment Variables
+
+Secondly, let's add the reCAPTCHA site key and secret key to Netlify and a `.env` file:
+
+1. [Log in to Netlify](https://app.netlify.com/), click on the site you want to add your form to
+2. Go to the **Site settings > Build & deploy > Environment > Environment variables** panel
+3. Add the site key as `SITE_RECAPTCHA_KEY`
+4. Add the secret key as `SITE_RECAPTCHA_SECRET`
+5. We'll also put these in a `.env` file so they work when we run the Nuxt application locally. Create a file named `.env` in the root of your Nuxt application and put the site key and secret key inside it:
+
+   ```env
+   SITE_RECAPTCHA_KEY=XXXXXXXXXXXXXXXX
+   SITE_RECAPTCHA_SECRET=XXXXXXXXXXXXXXXX
+   ```
+
+### Adding the reCAPTCHA Widget
+
+And lastly, let's add the reCAPTCHA widget to our form. We'll use the [`@nuxtjs/recaptcha` module](https://github.com/nuxt-community/recaptcha-module) to make it easy for us.
+
+```sh
+npm install --save @nuxtjs/recaptcha
+# Or with Yarn
+yarn add @nuxtjs/recaptcha
+```
+
+Add `@nuxtjs/recaptcha` to the modules section of your `nuxt.config.js` and add top-level `recaptcha` options:
+
+```js {4,6-11}
+export default {
+  modules: [
+    // You may already have some modules here
+    '@nuxtjs/recaptcha'
+  ],
+  recaptcha: {
+    hideBadge: false,
+    siteKey: process.env.SITE_RECAPTCHA_KEY,
+    size: 'normal',
+    version: 2
+  }
+}
+```
+
+Now we can add the `data-netlify-recaptcha="true"` attribute to our form and use the `<recaptcha />` component that `@nuxtjs/recaptcha` registers.
+
+<!-- prettier-ignore-start -->
+```vue {2,8}
+<template>
+  <form name="contact" method="POST" action="/success" data-netlify="true" data-netlify-recaptcha="true">
+    <input type="hidden" name="form-name" value="contact" />
+    <label>
+      Your Name:
+      <input type="text" name="name" />
+    </label>
+    <recaptcha />
+    <button type="submit">Send</button>
+  </form>
+</template>
+```
+<!-- prettier-ignore-end -->
+
+<netlify-form :step="3"></netlify-form>
+
+We've now created a form using Netlify Forms and reCAPTCHA in our Nuxt application! Carry on reading if you want to make the reCAPTCHA invisible and send your form using AJAX...
+
+## Making the reCAPTCHA Widget Invisible
+
+Now that we have a working form with reCAPTCHA, it shouldn't be too difficult to make the reCAPTCHA invisible; the `@nuxt/recaptcha` module should do most of the work for us.
+
+```js {9}
+export default {
+  modules: [
+    // You may already have some modules here
+    '@nuxtjs/recaptcha'
+  ],
+  recaptcha: {
+    hideBadge: false,
+    siteKey: process.env.SITE_RECAPTCHA_KEY,
+    size: 'invisible',
+    version: 2
+  }
+}
+```
+
+Users won't have a widget to click on, so reCAPTCHA needs to know when to generate a token. The [`@nuxt/recaptcha` documentation](https://github.com/nuxt-community/recaptcha-module#recaptcha-v2) tells us to call `getResponse` in order to get the reCAPTCHA token. We don't need to assign this token to a variable though: the invisible reCAPTCHA widget contains an input with this value.
+
+We'll move each of the `<form>` attributes onto a new line, just so we can see them easier!
+
+```vue {8,20-32}
 <template>
   <form
     name="contact"
@@ -165,26 +260,163 @@ Now we've set up a basic form, let's add support for reCAPTCHA.
     action="/success"
     data-netlify="true"
     data-netlify-recaptcha="true"
+    @submit.prevent="onSubmit"
   >
     <input type="hidden" name="form-name" value="contact" />
     <label>
       Your Name:
       <input type="text" name="name" />
     </label>
-    <div data-netlify-recaptcha="true"></div>
+    <recaptcha />
     <button type="submit">Send</button>
   </form>
 </template>
+
+<script>
+export default {
+  methods: {
+    async onSubmit(event) {
+      // Wait for the reCAPTCHA token
+      await this.$recaptcha.getResponse()
+
+      // Submit the form
+      event.target.submit()
+    }
+  }
+}
+</script>
 ```
 
-<output>
-  <form name="Test Form" method="POST" action="./success/" data-netlify="true" data-netlify-recaptcha="true">
-    <input type="hidden" name="form-name" value="Test Form" />
+**The reCAPTCHA widget should now be invisible!** Although, you'll notice that a badge has appeared in the bottom right of the page; if you want to, [Google's documentation says](https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed) you can remove this badge "as long as you include the reCAPTCHA branding visibly in the user flow".
+
+```vue {16-20,39-43}
+<template>
+  <form
+    name="contact"
+    method="POST"
+    action="/success"
+    data-netlify="true"
+    data-netlify-recaptcha="true"
+    @submit.prevent="onSubmit"
+  >
+    <input type="hidden" name="form-name" value="contact" />
     <label>
       Your Name:
       <input type="text" name="name" />
     </label>
-    <div data-netlify-recaptcha="true"></div>
+    <recaptcha />
+    <small>
+      This site is protected by reCAPTCHA and the Google
+      <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+      <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+    </small>
     <button type="submit">Send</button>
   </form>
-</output>
+</template>
+
+<script>
+export default {
+  methods: {
+    async onSubmit(event) {
+      // Wait for the reCAPTCHA token
+      await this.$recaptcha.getResponse()
+
+      // Submit the form
+      event.target.submit()
+    }
+  }
+}
+</script>
+
+<style>
+.grecaptcha-badge {
+  visibility: hidden;
+}
+</style>
+```
+
+<netlify-form :step="4"></netlify-form>
+
+Personally, I like this method because I can style the message to match the website's branding and design guidelines. It also doesn't get in the way of any other fixed elements, such as a floating action button.
+
+## Sending the Form Using AJAX
+
+If you've followed up to this point, you've built a form with an invisible reCAPTCHA challenge using Netlify Forms. Let's take this one step further and send the form data using AJAX so that the user isn't redirected away from the page when they click the submit button. We'll use the global [`fetch()` method](https://developer.mozilla.org/en-US/docs/Web/API/fetch) to send the form data, no need to use an npm package for this!
+
+```vue {22,28-32,35-59}
+<template>
+  <form
+    name="contact"
+    method="POST"
+    action="/success"
+    data-netlify="true"
+    data-netlify-recaptcha="true"
+    @submit.prevent="onSubmit"
+  >
+    <input type="hidden" name="form-name" value="contact" />
+    <label>
+      Your Name:
+      <input type="text" name="name" />
+    </label>
+    <recaptcha />
+    <small>
+      This site is protected by reCAPTCHA and the Google
+      <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+      <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+    </small>
+    <button type="submit">Send</button>
+    <p v-if="message">{{ message }}</p>
+  </form>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      message: null
+    }
+  },
+  methods: {
+    async onSubmit(event) {
+      try {
+        // Wait for the reCAPTCHA token
+        await this.$recaptcha.getResponse()
+
+        // Submit the form to Netlify
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: new URLSearchParams(new FormData(event.target)).toString()
+        })
+
+        // Throw an error if the response was not successful
+        if (!response.ok) {
+          throw new Error('Response was not successful')
+        }
+
+        // Say thank you and reset reCAPTCHA
+        this.message = 'Thanks!'
+        await this.$recaptcha.reset()
+      } catch {
+        // Error message if something goes wrong
+        this.message = 'Something went wrong, please try again.'
+      }
+    }
+  }
+}
+</script>
+
+<style>
+.grecaptcha-badge {
+  visibility: hidden;
+}
+</style>
+```
+
+<netlify-form :step="5"></netlify-form>
+
+There we go! You can play around with the feedback message to make it a bit more fun, <nuxt-link to="/contact/">my contact form</nuxt-link> throws a little paper plane.
+
+I hope this blog post has helped you to implement Netlify Forms in your Nuxt application with reCAPTCHA. If you've got any questions, feel free to fill out <nuxt-link to="/contact/">my contact form</nuxt-link> or find me on social media!

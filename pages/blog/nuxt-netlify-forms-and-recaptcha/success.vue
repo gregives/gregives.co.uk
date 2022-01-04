@@ -7,7 +7,9 @@
       You've reached the success page, click the button below to go back to the
       blog post!
     </p>
-    <nuxt-link to="../" class="success__back"> Take me back </nuxt-link>
+    <nuxt-link to="../#using-your-own-success-message" class="success__back">
+      Take me back
+    </nuxt-link>
   </main>
 </template>
 

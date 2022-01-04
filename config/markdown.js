@@ -50,6 +50,14 @@ const markdown = markdownIt({
 const transformHTML = (html) => {
   const fragment = JSDOM.fragment(`<div>${html}</div>`)
 
+  // Unwrap custom components
+  const customComponents = ['netlify-form']
+  customComponents.forEach((customComponent) => {
+    fragment.querySelectorAll(`p > ${customComponent}`).forEach((node) => {
+      node.parentNode.replaceWith(node)
+    })
+  })
+
   // Remove empty paragraphs
   fragment.querySelectorAll('p:empty').forEach((node) => {
     node.remove()
