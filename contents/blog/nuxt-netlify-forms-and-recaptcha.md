@@ -158,7 +158,7 @@ Instead, we can follow the [custom reCAPTCHA 2](https://docs.netlify.com/forms/s
 
 Firstly, let's create a new site in the Google reCAPTCHA console:
 
-1. Go to [https://www.google.com/recaptcha/admin/create](https://www.google.com/recaptcha/admin/create)
+1. Go to [the page to create a new reCAPTCHA](https://www.google.com/recaptcha/admin/create)
 2. Make a label for your reCAPTCHA site, I set mine as `gregives.co.uk`
 3. Select `reCAPTCHA v2` for the reCAPTCHA type, Netlify doesn't support v3 yet
 4. Select `Invisible reCAPTCHA badge` (we'll make the reCAPTCHA widget invisible later)
