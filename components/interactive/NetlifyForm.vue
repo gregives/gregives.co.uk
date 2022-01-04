@@ -3,7 +3,7 @@
     class="netlify-form"
     :name="`Test Form ${step}`"
     method="POST"
-    :action="step > 1 ? './success/' : false"
+    :action="step > 1 ? '/blog/nuxt-netlify-forms-and-recaptcha/success/' : false"
     data-netlify="true"
     :data-netlify-recaptcha="step === 3 ? 'true' : false"
     @submit.prevent="onSubmit"
