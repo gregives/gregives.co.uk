@@ -238,6 +238,8 @@ export default {
     border: $border-weight solid $color__text--muted;
     border-collapse: separate;
     border-radius: $border-radius;
+    display: block;
+    max-width: fit-content;
     overflow-x: auto;
     text-align: left;
     width: 100%;
@@ -261,11 +263,8 @@ export default {
     th,
     td {
       border-left: $border-weight solid $color__text--muted;
-      padding: 0.5rem 0.75rem;
-    }
-
-    td {
       border-top: $border-weight solid $color__text--muted;
+      padding: 0.5rem 0.75rem;
     }
 
     th:first-child,

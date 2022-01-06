@@ -8,7 +8,7 @@ tags: []
 I often find myself needing to do bulk *find and replace*s, usually when refactoring my code. The other day, I needed to change a number of class names, something like this:
 
 ```scss
-/* From these class names */
+// From these class names
 .projects__project,
 .projects__project-title,
 .projects__project-date,
@@ -16,7 +16,7 @@ I often find myself needing to do bulk *find and replace*s, usually when refacto
 .posts__post-title,
 .posts__post-date
 
-/* To these class names */
+// To these class names
 .project,
 .project__title,
 .project__date,
@@ -34,11 +34,11 @@ A regex, short for regular expression, is a **pattern used to match character co
 <table>
   <tbody>
     <tr>
-      <td>Find</td>
+      <th>Find</th>
       <td><code>\.(project|post)s(?:(__)\1-(\w+)|__\1)</code></td>
     </tr>
     <tr>
-      <td>Replace</td>
+      <th>Replace</th>
       <td><code>.$1$2$3</code></td>
     </tr>
   </tbody>
