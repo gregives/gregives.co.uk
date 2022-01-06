@@ -13,16 +13,18 @@ const transporter = nodemailer.createTransport({
 
 module.exports.handler = async (event) => {
   const payload = JSON.parse(event.body).payload
-  const { name, email, subject, message } = payload.data
+  const { name, email, subject, message, 'form-name': formName } = payload.data
 
-  await transporter.sendMail({
-    from: `"${name}" <greg@gregives.co.uk>`,
-    sender: 'greg@gregives.co.uk',
-    to: 'greg@gregives.co.uk',
-    replyTo: email,
-    subject,
-    text: message
-  })
+  if (formName === 'Contact Form') {
+    await transporter.sendMail({
+      from: `"${name}" <greg@gregives.co.uk>`,
+      sender: 'greg@gregives.co.uk',
+      to: 'greg@gregives.co.uk',
+      replyTo: email,
+      subject,
+      text: message
+    })
+  }
 
   return {
     statusCode: 200,
