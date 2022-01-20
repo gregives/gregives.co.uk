@@ -12,7 +12,6 @@
     "lint:js": "eslint \"**/*.{js,vue}\" --ignore-path .gitignore",
     "lint:style": "stylelint \"**/*.{scss,vue}\" --ignore-path .gitignore",
     "lint": "yarn lint:js && yarn lint:style",
-    "forestry": "nuxt -p 8080 -H 0.0.0.0",
     "opengraph": "node -r esm config/opengraph"
   },
   "lint-staged": {
