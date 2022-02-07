@@ -1,6 +1,6 @@
 <template>
   <span class="lazy">
-    <picture :style="width ? { width } : false">
+    <picture :style="{ paddingBottom, width }">
       <source :data-srcset="srcsetWebp" :sizes="sizes" type="image/webp" />
       <source :data-srcset="srcset" :sizes="sizes" :type="meta.format" />
       <img
@@ -41,7 +41,7 @@ export default {
     },
     width: {
       type: String,
-      default: ''
+      default: '100%'
     }
   },
   computed: {
@@ -62,6 +62,9 @@ export default {
     },
     original() {
       return require(`~/assets/images/dynamic/${this.srcRel}`)
+    },
+    paddingBottom() {
+      return `calc(${this.width} * ${this.meta.height / this.meta.width})`
     }
   }
 }
@@ -85,15 +88,14 @@ export default {
   display: block;
   filter: blur(0.5rem);
   height: auto;
-  margin: -0.5rem;
+  inset: -0.5;
   max-width: none;
-  width: calc(100% + 1rem);
+  position: absolute;
 
   &--loaded {
     filter: none;
-    margin: 0;
+    inset: 0;
     max-width: 100%;
-    width: 100%;
   }
 }
 </style>
