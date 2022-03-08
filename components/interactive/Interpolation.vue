@@ -178,10 +178,10 @@ export default {
     background-color: hsl(
       calc(
         var(--h-start) + (var(--h-end) - var(--h-start)) * var(--progress) / 100
-      ),
+      )
       calc(
         var(--s-start) + (var(--s-end) - var(--s-start)) * var(--progress) / 100
-      ),
+      )
       calc(
         var(--l-start) + (var(--l-end) - var(--l-start)) * var(--progress) / 100
       )
@@ -205,7 +205,7 @@ export default {
   &--animate-variable {
     animation: 101s linear paused progress-variable;
     animation-delay: calc(-1s * var(--progress));
-    background-color: hsl(var(--hue), var(--saturation), var(--lightness));
+    background-color: hsl(var(--hue) var(--saturation) var(--lightness));
   }
 }
 

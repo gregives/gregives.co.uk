@@ -117,7 +117,7 @@
   border-radius: $border-radius !important;
   color: $color__primary;
   cursor: pointer;
-  opacity: 100%;
+  opacity: 1;
   padding: 0.4rem 1rem;
   position: relative;
   transition: opacity 150ms $transition__normal,
@@ -134,7 +134,7 @@
 
   &::before {
     box-shadow: $box-shadow--primary-small;
-    opacity: 50%;
+    opacity: 0.5;
     transition: box-shadow 150ms $transition__normal;
     z-index: -1;
   }
@@ -142,12 +142,12 @@
   &::after {
     background-image: linear-gradient($color__body--overlay, transparent 40%),
       linear-gradient(transparent 60%, $color__primary--muted);
-    opacity: 20%;
+    opacity: 0.2;
   }
 
   &:hover,
   &:focus {
-    opacity: 90%;
+    opacity: 0.9;
 
     &::before {
       box-shadow: $box-shadow--primary;
@@ -161,7 +161,7 @@
 
   &:disabled {
     cursor: not-allowed;
-    opacity: 50%;
+    opacity: 0.5;
     transform: none;
 
     &::before {
@@ -175,6 +175,6 @@
   color: $color__body;
 
   &::before {
-    opacity: 100%;
+    opacity: 1;
   }
 }
