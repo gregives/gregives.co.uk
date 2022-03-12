@@ -61,7 +61,6 @@ export default {
   color: $color__text;
   cursor: pointer;
   margin: 0 -0.5rem;
-  margin-right: 1rem;
   padding: 0 0.5rem;
   position: relative;
 
@@ -80,7 +79,6 @@ export default {
 
   @media (min-width: $breakpoint--md) {
     color: $color__primary;
-    margin-right: -0.5rem;
     margin-left: 1rem;
 
     svg {

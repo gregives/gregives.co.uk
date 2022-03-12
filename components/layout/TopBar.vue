@@ -10,7 +10,7 @@
       <nav-bar :on-watch-page="onWatchPage" />
       <div class="header__buttons">
         <theme-toggle />
-        <hamburger />
+        <hamburger v-if="!onWatchPage" />
       </div>
     </div>
   </header>

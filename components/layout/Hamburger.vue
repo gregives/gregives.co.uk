@@ -38,6 +38,7 @@ $thickness: 2px;
   padding: 0 0.5rem;
   position: relative;
   margin: 0 -0.5rem;
+  margin-left: 1rem;
 
   @media (min-width: $breakpoint--md) {
     display: none;
