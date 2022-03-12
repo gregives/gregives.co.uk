@@ -73,7 +73,6 @@ export default {
 <style lang="scss">
 .lazy {
   background-color: $color__body;
-  border-radius: $border-radius;
   display: block;
   width: 100%;
 

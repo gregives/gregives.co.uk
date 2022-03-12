@@ -127,7 +127,9 @@ export default {
 }
 
 .article__sidebar {
-  padding-right: 3rem;
+  @media (min-width: $breakpoint--lg) {
+    padding-right: 3rem;
+  }
 }
 
 .article__contents {

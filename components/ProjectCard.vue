@@ -41,14 +41,8 @@ export default {
   position: relative;
 
   &:hover {
-    .project-card__image {
-      &::after {
-        opacity: 0.5;
-      }
-
-      .lazy {
-        filter: grayscale(0.8);
-      }
+    .project-card__image::after {
+      opacity: 0.5;
     }
   }
 }
@@ -75,7 +69,6 @@ export default {
   .lazy {
     inset: 0;
     position: absolute;
-    transition: filter 150ms $transition__normal;
 
     picture {
       height: 100%;

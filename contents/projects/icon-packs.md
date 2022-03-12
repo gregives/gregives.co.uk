@@ -38,4 +38,4 @@ After creating Trace, I started creating another icon pack named Squircle. As yo
 
 ![Promotional design for Squircle](/assets/images/dynamic/icon-packs/squircle3.png)
 
-I decided to offer Squircle as a free app, with a paid 'donation' app available for those who wanted to support the development. Squircle has now been downloaded more than 300,000 times and has more than 5,000 ratings.
+I decided to offer Squircle as a free app, with a paid "donation" app available for those who wanted to support the development. Squircle has now been downloaded more than 300,000 times and has more than 5,000 ratings.

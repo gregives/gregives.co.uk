@@ -66,7 +66,7 @@ I wanted to be able to edit my content online but I didn't want the hassle (alth
 
 ### Setting up Forestry.io
 
-Setting up Forestry.io was as simple as telling it where my content and media lived in my repository, and setting up the 'sidebar', essentially the pages on your website.
+Setting up Forestry.io was as simple as telling it where my content and media lived in my repository, and setting up the "sidebar", essentially the pages on your website.
 
 ![Screenshot of the Forestry.io editing panel and sidebar](/assets/images/dynamic/which-cms/screenshot.png)
 

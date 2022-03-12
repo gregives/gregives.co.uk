@@ -91,8 +91,14 @@ video {
 
 hr {
   border: none;
+  border-top: $border-weight * 3 double $color__text--muted;
   border-bottom: $border-weight solid $color__text--muted;
-  margin: 1rem 0;
+  height: $border-weight * 5;
+  margin: 2rem 0;
+
+  + hr {
+    display: none;
+  }
 }
 
 strong {
@@ -105,6 +111,14 @@ strong {
 
 small {
   font-size: 90%;
+}
+
+s {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-size: 100% $border-weight;
+  background-position: 0% 60%;
+  text-decoration: none;
 }
 
 html {

@@ -41,7 +41,7 @@ A FOUT occurs when the browser renders the fallback system font while the web fo
 
 ### Flash of Faux Text
 
-FOFT is very similar to FOUT, in that you render text as soon as possible without waiting for the web font to load. However, instead of the browser rendering a fallback system font, the browser renders a 'Roman' web font. A 'Roman' web font is a subset of the full web font, which often supports exclusively Western European languages and a reduced set of features. The browser uses _font synthesis_ to render 'faux bold' and 'faux italic' text while the full web font continues to load.
+FOFT is very similar to FOUT, in that you render text as soon as possible without waiting for the web font to load. However, instead of the browser rendering a fallback system font, the browser renders a "Roman" web font. A "Roman" web font is a subset of the full web font, which often supports exclusively Western European languages and a reduced set of features. The browser uses _font synthesis_ to render "faux bold" and "faux italic" text while the full web font continues to load.
 
 Zach Leatherman really is the authority on everything web fonts --- I encourage you to read his [Web Font Loading Glossary](https://www.zachleat.com/web/webfont-glossary/) and [Guide to Font Loading Strategies](https://www.zachleat.com/web/comprehensive-webfonts/) for all the different ways of loading fonts!
 
@@ -107,7 +107,7 @@ pyftsubset "DMSerifText-Regular.ttf" --output-file="DMSerifText-Regular-Roman.wo
 
 Notice we retain the required layout features `ccmp,locl,mark,mkmk` which we could see in Wakamai Fondue. If you wanted to include kerning in your first stage font, you'll want to change the layout features to `ccmp,locl,mark,mkmk,kern`.
 
-The unicodes specify which characters we want to keep in our first stage font file. Google Fonts seems to use a sensible default for their 'Latin' fonts, so I stuck with that. If you want to have more control over which unicodes you include, [glyphhanger](https://github.com/filamentgroup/glyphhanger) seems like a great tool which can actually analyse your website to see which unicode ranges are used.
+The unicodes specify which characters we want to keep in our first stage font file. Google Fonts seems to use a sensible default for their "Latin" fonts, so I stuck with that. If you want to have more control over which unicodes you include, [glyphhanger](https://github.com/filamentgroup/glyphhanger) seems like a great tool which can actually analyse your website to see which unicode ranges are used.
 
 Subsetting my new display font brought my first stage fonts down to **only 12.0kB** in size! That's a reduction of a whopping **133kB** on some pages, compared to the seven web fonts I was previously loading.
 

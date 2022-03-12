@@ -89,7 +89,7 @@ Secondly, I pass some configuration options to markdown-it:
 
 - `html: true` allows me to put raw HTML into my Markdown files. This also allows me to put Vue components into my Markdown files, as explained in my previous blog post, <nuxt-link to="/blog/build-a-blog-with-nuxt-and-markdown/">Build a Blog with Nuxt and Markdown</nuxt-link>.
 - `xhtmlOut: true` converts newlines `\n` in paragraphs into break tags `<br/>`.
-- `typographer: true` enables some 'language-neutral replacement' and beautifies quotation marks.
+- `typographer: true` enables some "language-neutral replacement" and beautifies quotation marks.
 
 ```js {} 7
 const markdown = require('markdown-it')({
