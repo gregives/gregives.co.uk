@@ -273,7 +273,8 @@ export default {
   @media (min-width: $breakpoint--lg) {
     max-height: calc(100vh - 7rem);
     overflow-y: auto;
-    padding-bottom: 1rem;
+    margin: 0 -1rem;
+    padding: 0 1rem 1rem;
     position: sticky;
     top: 6rem;
 

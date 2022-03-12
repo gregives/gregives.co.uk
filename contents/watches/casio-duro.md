@@ -2,7 +2,7 @@
 title: Casio Duro MDV106-1A
 date: 2021-03-09
 image: '/assets/images/dynamic/casio-duro/casio-duro-02.jpg'
-purchase: https://www.amazon.co.uk/Casio-MDV106-1AV-Analog-Watch-Black/dp/B009KYJAJY/
+purchase: https://www.amazon.co.uk/Casio-MDV106-1AV-Analog-Watch-Black/dp/B009KYJAJY/?&_encoding=UTF8&tag=gregives-21&linkCode=ur2&linkId=527c45c2d254e6fa1305f8c857db30ad&camp=1634&creative=6738
 specs:
   'RRP': $69.95
   'I paid': £42.36
