@@ -284,9 +284,9 @@ export default {
   }
 
   table {
-    display: table;
-    max-width: none;
-    width: 100%;
+    display: table !important;
+    max-width: none !important;
+    width: 100% !important;
 
     th {
       white-space: nowrap;
