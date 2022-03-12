@@ -13,19 +13,42 @@
       <ul v-if="post.tags" class="article__tags">
         <li v-for="tag in post.tags" :key="tag">{{ tag }}</li>
       </ul>
-      <div ref="contents" class="article__contents">
+      <div v-if="post.specs" class="article__watch">
+        <table>
+          <thead>
+            <tr>
+              <th colspan="2">Specifications</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(value, name) in post.specs" :key="name">
+              <th>{{ name }}</th>
+              <td>{{ value }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <a v-if="post.purchase" class="article__purchase" :href="post.purchase">
+          <span>Buy now</span>
+        </a>
+        <p class="article__affiliate-notice">
+          *&#8239;Links with an asterisk are affiliate links, which means I get
+          a commission if you decide to buy anything. This won't cost you a
+          penny more but will help keep this blog going!
+        </p>
+      </div>
+      <div v-if="type !== 'watch'" ref="contents" class="article__contents">
         <strong>Table of Contents</strong>
       </div>
     </div>
     <div class="article__body">
       <p
-        v-if="type !== 'project' && post.description"
+        v-if="type === 'post' && post.description"
         class="article__description"
       >
         {{ post.description }}
       </p>
       <markdown :markdown="post" />
-      <div v-if="type === 'post' || type == 'project'" class="article__footer">
+      <div v-if="type !== 'hidden'" class="article__footer">
         <back-icon />
         <nuxt-link v-if="type === 'post'" to="/blog/" class="article__back">
           See all blog posts
@@ -36,6 +59,9 @@
           class="article__back"
         >
           See all projects
+        </nuxt-link>
+        <nuxt-link v-if="type === 'watch'" to="/watches/" class="article__back">
+          See all watches
         </nuxt-link>
       </div>
     </div>
@@ -240,6 +266,65 @@ export default {
       inset: 0.25rem calc(100% + 0.5rem) 0 auto;
       vertical-align: middle;
     }
+  }
+}
+
+.article__watch {
+  @media (min-width: $breakpoint--lg) {
+    max-height: calc(100vh - 7rem);
+    overflow-y: auto;
+    padding-bottom: 1rem;
+    position: sticky;
+    top: 6rem;
+
+    &::-webkit-scrollbar-track {
+      background-color: $color__body;
+    }
+  }
+
+  table {
+    display: table;
+    max-width: none;
+    width: 100%;
+
+    th {
+      white-space: nowrap;
+    }
+
+    tbody {
+      font-size: 80%;
+
+      tr:last-child {
+        td {
+          font-size: 120%;
+          line-height: 0;
+        }
+      }
+    }
+  }
+}
+
+.article__purchase {
+  @include button;
+  @include button--primary;
+
+  display: block;
+  font-variant: small-caps;
+  margin: 1.5rem 0 1rem;
+
+  > span::after {
+    content: '\202F*';
+    opacity: 0.6;
+  }
+}
+
+.article__affiliate-notice {
+  color: $color__text--muted;
+  font-size: 70%;
+  margin-bottom: 3rem;
+
+  @media (min-width: $breakpoint--lg) {
+    margin-bottom: 0;
   }
 }
 

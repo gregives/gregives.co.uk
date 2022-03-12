@@ -1,7 +1,9 @@
 import { projectSlugs } from './projects'
-import { postSlugs } from './blog'
+import { postSlugs as posts } from './blog'
+import { postSlugs as watches } from './watches'
 
 export default [
   ...projectSlugs.map((projectSlug) => `/projects/${projectSlug}/`),
-  ...postSlugs.map((postSlug) => `/blog/${postSlug}/`)
+  ...posts.map((postSlug) => `/blog/${postSlug}/`),
+  ...watches.map((watchSlug) => `/watches/${watchSlug}/`)
 ]

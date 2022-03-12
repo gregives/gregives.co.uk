@@ -35,13 +35,6 @@
         </a>
         <a
           class="footer__social-icon"
-          href="https://devpost.com/gregives"
-          title="Devpost"
-        >
-          <devpost-icon title="Devpost" />
-        </a>
-        <a
-          class="footer__social-icon"
           href="https://twitter.com/gregiv_es"
           title="Twitter"
         >
@@ -56,7 +49,6 @@
 import EmailIcon from 'icons/EmailVariant'
 import TwitterIcon from 'icons/Twitter'
 import GithubIcon from 'icons/Github'
-import DevpostIcon from 'icons/HexagonOutline'
 import LinkedinIcon from 'icons/Linkedin'
 import ViewCounter from '~/components/ViewCounter'
 
@@ -65,7 +57,6 @@ export default {
     EmailIcon,
     TwitterIcon,
     GithubIcon,
-    DevpostIcon,
     LinkedinIcon,
     ViewCounter
   }
@@ -136,12 +127,6 @@ export default {
   &:hover,
   &:focus {
     color: $color__primary;
-  }
-
-  &[href*='devpost.com'] {
-    .material-design-icon svg {
-      transform: rotate(90deg);
-    }
   }
 }
 </style>

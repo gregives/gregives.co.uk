@@ -35,7 +35,8 @@ export default {
 </script>
 
 <style lang="scss">
-.markdown {
+.markdown,
+.article__watch {
   h1,
   h2 {
     padding-bottom: 0.25rem;
@@ -103,8 +104,17 @@ export default {
     margin-top: 1rem;
   }
 
-  a:not(.header-anchor) {
+  a:not([class]) {
     @include link;
+
+    &[href*='aliexpress.com'],
+    &[href*='amazon.com'],
+    &[href*='amazon.co.uk'] {
+      &::after {
+        content: '\202F*';
+        opacity: 0.6;
+      }
+    }
   }
 
   iframe,

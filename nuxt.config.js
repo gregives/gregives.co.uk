@@ -198,7 +198,7 @@ export default {
         test: /\.md$/,
         loader: 'frontmatter-markdown-loader',
         options: {
-          mode: [Mode.BODY, Mode.VUE_RENDER_FUNCTIONS],
+          mode: [Mode.HTML, Mode.BODY, Mode.VUE_RENDER_FUNCTIONS],
           vue: {
             root: 'markdown'
           },

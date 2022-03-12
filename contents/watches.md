@@ -1,0 +1,1 @@
+**Welcome to my new blog about wristwatches!** Over the last few years I've started collecting watches on a budget; read my review of the watches I've bought and find out how well they fit my small 6-inch wrists.
