@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import { hydrateWhenVisible } from 'vue-lazy-hydration'
+import Comments from '~/components/Comments'
 
 export default {
   components: {
-    Comments: hydrateWhenVisible(() => import('~/components/Comments'))
+    Comments
   }
 }
 </script>
