@@ -26,7 +26,7 @@ export default {
 
       // Get cached data from local storage
       const cache = JSON.parse(localStorage.getItem('pages')) || {}
-      const visitedPageBefore = cache.hasOwnProperty(url)
+      const visitedPageBefore = cache.hasOwnProperty(url) && !force
 
       // Update data at most once every hour
       const cacheIsStale =
@@ -34,7 +34,7 @@ export default {
         cache[url].lastVisited < Date.now() - 60 * 60 * 1000
 
       // Get number of views from serverless function
-      if (!visitedPageBefore || cacheIsStale || force) {
+      if (!visitedPageBefore || cacheIsStale) {
         const { views, comments } = await fetch(ENDPOINT, {
           method: 'POST',
           headers: {
