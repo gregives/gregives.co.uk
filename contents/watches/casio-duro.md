@@ -6,7 +6,7 @@ purchase: https://www.amazon.co.uk/Casio-MDV106-1AV-Analog-Watch-Black/dp/B009KY
 specs:
   'RRP': $69.95
   'I paid': £42.36
-  'Lug-to-lug': 49 mm
+  'Lug-to-lug': 48 mm
   'Diameter': 44 mm
   'Height': 12 mm
   'Lug width': 22 mm
@@ -28,7 +28,7 @@ When I was looking for my first affordable diver's watch, the Casio Duro immedia
 
 </columns>
 
-Let's take a look at the case of the Casio Duro first and how it fits on my small 6-inch wrist. The diameter of the case is 44 mm and it does wear like a 44 mm, with a lug-to-lug of 49 mm. This is really pushing the limits of my wrist, which only measures 52 mm across, however, the curved lugs do help the watch to sit flush on my wrist.
+Let's take a look at the case of the Casio Duro first and how it fits on my small 6-inch wrist. The diameter of the case is 44 mm and it does wear like a 44 mm, with a lug-to-lug of 48 mm. This is really pushing the limits of my wrist, which only measures 52 mm across, however, the curved lugs do help the watch to sit flush on my wrist.
 
 The height of the case is 12 mm, which felt very bulky coming from a Casio W-86! In hindsight, the case is very well proportioned and weighs in at a comfortable but noticable 92 g.
 
