@@ -23,12 +23,10 @@ const client = new fauna.Client({
 })
 
 module.exports.handler = async (event) => {
-  console.log(event)
-  const payload = JSON.parse(event.body).payload.data
-  const formName = payload['form-name']
+  const { data, form_name: formName } = JSON.parse(event.body).payload
 
   if (formName === 'Contact Form') {
-    const { name, email, subject, message } = payload
+    const { name, email, subject, message } = data
 
     // Send an email to myself so I can reply
     await transporter.sendMail({
@@ -40,7 +38,7 @@ module.exports.handler = async (event) => {
       text: message
     })
   } else if (formName === 'Comment Form') {
-    const { name, text, url } = payload
+    const { name, text, url } = data
 
     // Comment to add to that page
     const newComment = {
