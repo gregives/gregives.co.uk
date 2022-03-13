@@ -5,7 +5,6 @@
     method="POST"
     :action="step > 1 && '/blog/nuxt-netlify-forms-and-recaptcha/success/'"
     data-netlify="true"
-    :data-netlify-recaptcha="step === 3 && 'true'"
     @submit.prevent="onSubmit"
   >
     <input type="hidden" name="form-name" :value="`Test Form ${step}`" />
