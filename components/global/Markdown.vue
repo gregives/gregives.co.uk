@@ -108,7 +108,7 @@ export default {
     @include link;
 
     &[href*='aliexpress.com'],
-    &[href*='amazon.com'],
+    &[href*='amzn.to'],
     &[href*='amazon.co.uk'] {
       &::after {
         content: '\202F*';
