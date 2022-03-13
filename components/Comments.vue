@@ -33,7 +33,7 @@
 import TimeAgo from 'javascript-time-ago'
 import en from 'javascript-time-ago/locale/en.json'
 import AccountIcon from 'icons/Account'
-import { hydrateWhenVisible } from 'vue-lazy-hydration'
+import CommentsForm from '~/components/CommentsForm'
 
 TimeAgo.setDefaultLocale(en.locale)
 TimeAgo.addLocale(en)
@@ -41,7 +41,7 @@ TimeAgo.addLocale(en)
 export default {
   components: {
     AccountIcon,
-    CommentsForm: hydrateWhenVisible(() => import('~/components/CommentsForm'))
+    CommentsForm
   },
   props: {
     guestbook: {

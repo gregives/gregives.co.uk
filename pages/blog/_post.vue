@@ -6,13 +6,14 @@
 </template>
 
 <script>
-import { hydrateWhenIdle, hydrateWhenVisible } from 'vue-lazy-hydration'
+import { hydrateWhenVisible } from 'vue-lazy-hydration'
 import { postLoader } from '~/contents/blog'
+import PostArticle from '~/components/PostArticle'
 
 export default {
   components: {
-    Comments: hydrateWhenVisible(() => import('~/components/Comments')),
-    PostArticle: hydrateWhenIdle(() => import('~/components/PostArticle'))
+    PostArticle,
+    Comments: hydrateWhenVisible(() => import('~/components/Comments'))
   },
   async asyncData({ params, error }) {
     try {

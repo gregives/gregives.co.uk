@@ -28,7 +28,7 @@ export default {
       this.markdown.vue.staticRenderFns
     )()
   },
-  render(createElement) {
+  render() {
     return this.templateRender()
   }
 }

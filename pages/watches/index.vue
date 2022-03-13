@@ -16,12 +16,12 @@
 </template>
 
 <script>
-import { hydrateWhenIdle } from 'vue-lazy-hydration'
 import { postLoader, postSlugs } from '~/contents/watches'
+import WatchCard from '~/components/WatchCard'
 
 export default {
   components: {
-    WatchCard: hydrateWhenIdle(() => import('~/components/WatchCard'))
+    WatchCard
   },
   async asyncData() {
     const { vue } = await import('~/contents/watches.md')

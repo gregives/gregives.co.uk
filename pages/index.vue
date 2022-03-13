@@ -36,17 +36,19 @@
 
 <script>
 import DownIcon from 'icons/KeyboardBackspace'
-import { hydrateWhenIdle, hydrateWhenVisible } from 'vue-lazy-hydration'
+import { hydrateWhenIdle } from 'vue-lazy-hydration'
 import { projectLoader, projectSlugs } from '~/contents/projects'
 import { postLoader, postSlugs } from '~/contents/blog'
+import PostCard from '~/components/PostCard'
+import ProjectCard from '~/components/ProjectCard'
 
 export default {
   components: {
     DownIcon,
     SeeMoreIcon: DownIcon,
     Headshots: hydrateWhenIdle(() => import('~/components/Headshots')),
-    PostCard: hydrateWhenVisible(() => import('~/components/PostCard')),
-    ProjectCard: hydrateWhenVisible(() => import('~/components/ProjectCard'))
+    PostCard,
+    ProjectCard
   },
   async asyncData() {
     const { vue } = await import('~/contents/index.md')
