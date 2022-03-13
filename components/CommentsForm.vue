@@ -58,14 +58,13 @@ export default {
         event.target.reset()
         await this.$recaptcha.reset()
 
-        // HACK: Update the view counter which fetches the new comment
-        const update = ViewCounter.methods.updateViewCounter.bind(this, true)()
-
         // Optimistically show new comment
         this.$emit('refresh', Object.fromEntries(formData.entries()))
 
+        // HACK: Update the view counter which fetches the new comment
+        await ViewCounter.methods.updateViewCounter.bind(this)()
+
         // Update after 5 seconds with the comments from fauna
-        await update
         setTimeout(() => this.$emit('refresh'), 5000)
       } catch {
         // Ignore errors for now
