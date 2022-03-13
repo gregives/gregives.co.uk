@@ -23,8 +23,9 @@ const client = new fauna.Client({
 })
 
 module.exports.handler = async (event) => {
+  console.log(event)
   const payload = JSON.parse(event.body).payload.data
-  const { 'form-name': formName } = payload
+  const formName = payload['form-name']
 
   if (formName === 'Contact Form') {
     const { name, email, subject, message } = payload
