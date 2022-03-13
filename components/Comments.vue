@@ -51,7 +51,7 @@ export default {
     this.refreshComments()
   },
   methods: {
-    refreshComments() {
+    refreshComments(newComment) {
       try {
         // Update the comments when mounted
         this.comments = JSON.parse(localStorage.getItem('pages'))[
@@ -59,6 +59,12 @@ export default {
         ].comments
       } catch {
         this.comments = []
+      } finally {
+        // Optimistically add new comment
+        if (newComment) {
+          const { name, text, url, date = Date.now() } = newComment
+          this.comments.push({ name, text, url, date })
+        }
       }
     },
     formatDate(date) {

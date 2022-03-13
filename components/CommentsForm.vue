@@ -44,12 +44,14 @@ export default {
     async onSubmit(event) {
       try {
         await this.$recaptcha.getResponse()
+
+        const formData = new FormData(event.target)
         await fetch('/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
           },
-          body: new URLSearchParams(new FormData(event.target)).toString()
+          body: new URLSearchParams(formData).toString()
         })
 
         // Reset the form
@@ -57,8 +59,14 @@ export default {
         await this.$recaptcha.reset()
 
         // HACK: Update the view counter which fetches the new comment
-        await ViewCounter.methods.updateViewCounter.bind(this, true)()
-        this.$emit('refresh')
+        const update = ViewCounter.methods.updateViewCounter.bind(this, true)()
+
+        // Optimistically show new comment
+        this.$emit('refresh', Object.fromEntries(formData.entries()))
+
+        // Update after 5 seconds with the comments from fauna
+        await update
+        setTimeout(() => this.$emit('refresh'), 5000)
       } catch {
         // Ignore errors for now
       }
