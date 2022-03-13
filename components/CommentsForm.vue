@@ -61,11 +61,11 @@ export default {
         // Optimistically show new comment
         this.$emit('refresh', Object.fromEntries(formData.entries()))
 
-        // HACK: Update the view counter which fetches the new comment
-        await ViewCounter.methods.updateViewCounter.bind(this)()
-
         // Update after 5 seconds with the comments from fauna
-        setTimeout(() => this.$emit('refresh'), 5000)
+        setTimeout(async () => {
+          await ViewCounter.methods.updateViewCounter.bind(this)()
+          this.$emit('refresh')
+        }, 5000)
       } catch {
         // Ignore errors for now
       }
