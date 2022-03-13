@@ -112,7 +112,7 @@ export default {
   grid-template-columns: 100%;
 
   @media (min-width: $breakpoint--lg) {
-    grid-template-columns: minmax(0, 2fr) minmax(0, 5fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   }
 }
 
@@ -125,7 +125,7 @@ export default {
 
   @media (min-width: $breakpoint--lg) {
     grid-column: 1 / 3;
-    padding-left: math.div(200%, 7);
+    padding-left: math.div(100%, 3);
   }
 
   @media print {

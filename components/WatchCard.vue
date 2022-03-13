@@ -120,11 +120,20 @@ export default {
   > small {
     border-radius: $border-radius;
     border: $border-weight solid $color__primary;
-    box-shadow: $box-shadow--primary-small;
     display: inline-block;
     font-variant: small-caps;
     margin-bottom: 1rem;
     padding: 0.125rem 0.25rem;
+    position: relative;
+
+    &:not(:last-child)::before {
+      border-radius: $border-radius;
+      box-shadow: $box-shadow--primary-small;
+      content: '';
+      inset: 0;
+      opacity: 0.5;
+      position: absolute;
+    }
 
     &:not(:first-child):not(:last-child) {
       margin-left: 0.25rem;
