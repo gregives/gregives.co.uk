@@ -13,7 +13,16 @@
       Your Name:
       <input type="text" name="name" />
     </label>
-    <recaptcha v-if="step === 3" data-size="normal" />
+    <lazy-image
+      v-if="step === 3"
+      src="nuxt-netlify-forms-and-recaptcha/recaptcha.png"
+      alt="reCAPTCHA widget"
+      width="304px"
+      sizes="304px"
+    />
+    <small v-if="step === 3">
+      (This is a fake reCAPTCHA, just pretend you’ve clicked it)
+    </small>
     <small v-if="step > 3">
       This site is protected by reCAPTCHA and the Google
       <a
@@ -92,6 +101,18 @@ export default {
   gap: 0.75rem;
   padding: 1rem;
   position: relative;
+
+  .lazy {
+    background-color: transparent;
+
+    // stylelint-disable-next-line value-no-vendor-prefix
+    image-rendering: -webkit-optimize-contrast;
+
+    picture {
+      border: $border-weight solid $color__text--muter;
+      filter: drop-shadow(0 0 0.25rem rgb(0 0 0 / 10%));
+    }
+  }
 
   small {
     margin-top: -0.25rem;
