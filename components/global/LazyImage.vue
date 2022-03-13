@@ -73,6 +73,7 @@ export default {
 <style lang="scss">
 .lazy {
   background-color: $color__body;
+  border-radius: $border-radius;
   display: block;
   width: 100%;
 
@@ -87,14 +88,16 @@ export default {
   display: block;
   filter: blur(0.5rem);
   height: auto;
-  inset: -0.5;
+  inset: 0;
+  margin: -0.5rem;
   max-width: none;
   position: absolute;
+  width: calc(100% + 1rem);
 
   &--loaded {
     filter: none;
-    inset: 0;
-    max-width: 100%;
+    margin: 0;
+    width: 100%;
   }
 }
 </style>
