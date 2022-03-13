@@ -3,6 +3,9 @@
 </template>
 
 <script>
+// Netlify Functions endpoint
+const ENDPOINT = '/.netlify/functions/dynamic-page'
+
 export default {
   data() {
     return {
@@ -18,39 +21,41 @@ export default {
     this.updateViewCounter()
   },
   methods: {
-    async updateViewCounter() {
-      const url = location.pathname
+    async updateViewCounter(force = false) {
+      const url = this.$route.path
 
-      // Store recent views in local storage
-      const recentViews = JSON.parse(localStorage.getItem('views')) || {}
-      const recentlyViewed = recentViews.hasOwnProperty(url)
+      // Get cached data from local storage
+      const cache = JSON.parse(localStorage.getItem('pages')) || {}
+      const visitedPageBefore = cache.hasOwnProperty(url)
 
-      // Update view count at most once every hour
+      // Update data at most once every hour
       const cacheIsStale =
-        recentlyViewed && recentViews[url].cache < Date.now() - 3600000
+        visitedPageBefore &&
+        cache[url].lastVisited < Date.now() - 60 * 60 * 1000
 
       // Get number of views from serverless function
-      if (!recentlyViewed || cacheIsStale) {
-        const { views } = await fetch('/.netlify/functions/view-counter', {
+      if (!visitedPageBefore || cacheIsStale || force) {
+        const { views, comments } = await fetch(ENDPOINT, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
             url,
-            recentlyViewed
+            visitedPageBefore
           })
         }).then((response) => response.json())
 
-        recentViews[url] = {
-          cache: Date.now(),
-          views
+        cache[url] = {
+          lastVisited: Date.now(),
+          views,
+          comments
         }
       }
 
       // Set number of views and update recent views
-      this.views = recentViews[url].views.toLocaleString()
-      localStorage.setItem('views', JSON.stringify(recentViews))
+      this.views = cache[url].views.toLocaleString()
+      localStorage.setItem('pages', JSON.stringify(cache))
     }
   }
 }

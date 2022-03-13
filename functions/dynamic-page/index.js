@@ -1,6 +1,7 @@
 const fauna = require('faunadb')
 const { query: q } = fauna
 
+// Setup fauna client
 const client = new fauna.Client({
   secret: process.env.FAUNA_API_KEY,
   domain: 'db.eu.fauna.com',
@@ -12,7 +13,7 @@ const client = new fauna.Client({
 const cache = {}
 
 module.exports.handler = async (event) => {
-  const { url, recentlyViewed } = JSON.parse(event.body)
+  const { url, visitedPageBefore } = JSON.parse(event.body)
 
   // Check if this page is in the cache or in fauna
   const inCache = cache.hasOwnProperty(url)
@@ -26,8 +27,8 @@ module.exports.handler = async (event) => {
         ? cache[url]
         : await client.query(q.Get(q.Match(q.Index('url'), url)))
 
-      if (recentlyViewed) {
-        // If they have recently viewed the page then just return the document
+      if (visitedPageBefore) {
+        // If they have visited the page before then just return the document
         return document
       } else {
         // Otherwise, increment the view count and return the updated document
@@ -45,7 +46,8 @@ module.exports.handler = async (event) => {
         q.Create(q.Collection('pages'), {
           data: {
             url,
-            views: 1
+            views: 1,
+            comments: []
           }
         })
       )
@@ -58,7 +60,8 @@ module.exports.handler = async (event) => {
   return {
     statusCode: 200,
     body: JSON.stringify({
-      views: document.data.views
+      views: document.data.views,
+      comments: document.data.comments || []
     })
   }
 }

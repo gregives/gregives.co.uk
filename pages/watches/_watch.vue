@@ -1,15 +1,17 @@
 <template>
   <main class="watch">
     <post-article :post="watch" type="watch" />
+    <comments />
   </main>
 </template>
 
 <script>
-import { hydrateWhenIdle } from 'vue-lazy-hydration'
+import { hydrateWhenIdle, hydrateWhenVisible } from 'vue-lazy-hydration'
 import { postLoader } from '~/contents/watches'
 
 export default {
   components: {
+    Comments: hydrateWhenVisible(() => import('~/components/Comments')),
     PostArticle: hydrateWhenIdle(() => import('~/components/PostArticle'))
   },
   async asyncData({ params, error }) {
@@ -63,5 +65,13 @@ export default {
 <style lang="scss">
 .watch {
   @include page;
+
+  .comments {
+    margin-top: 3rem;
+
+    @media (min-width: $breakpoint--lg) {
+      margin-left: math.div(100%, 3);
+    }
+  }
 }
 </style>
