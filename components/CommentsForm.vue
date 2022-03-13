@@ -16,7 +16,7 @@
       <textarea
         name="text"
         required
-        placeholder="Leave a comment"
+        placeholder="Join the conversation"
         @input="autoHeight"
       ></textarea>
     </div>
@@ -94,8 +94,8 @@ export default {
 
   input {
     font-weight: 500;
-    padding: 0.125rem 0.25rem;
-    margin: -0.125rem;
+    padding: 0.125rem 0.5rem;
+    margin: -0.125rem -0.5rem;
     margin-right: 0;
   }
 
@@ -105,7 +105,7 @@ export default {
     display: block;
     margin: -$border-weight;
     min-height: 8rem;
-    padding: 0.75rem 1rem 2.5rem;
+    padding: 0.75rem 1rem;
     resize: none;
     width: calc(100% + 2 * $border-weight);
   }

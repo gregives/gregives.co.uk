@@ -1,24 +1,31 @@
 <template>
-  <ol class="comments">
-    <li v-for="comment in sortedComments" :key="comment.date" class="comment">
-      <div class="comment__avatar"><account-icon :size="55" /></div>
-      <article class="comment__message">
-        <div class="comment__heading">
-          <strong>{{ comment.name }}</strong> commented
-          <time :datetime="comment.date" :title="fullDate(comment.date)">
-            {{ formatDate(comment.date) }}
-          </time>
-        </div>
-        <p class="comment__text">
-          {{ comment.text }}
-        </p>
-      </article>
-    </li>
-    <li class="comment">
-      <div class="comment__avatar"><account-icon :size="55" /></div>
-      <comments-form @refresh="refreshComments" />
-    </li>
-  </ol>
+  <div class="comments">
+    <hr />
+    <h2 class="comments__header">
+      {{ sortedComments.length }}
+      comment{{ sortedComments.length === 1 ? '' : 's' }}
+    </h2>
+    <ol class="comments__list">
+      <li v-for="comment in sortedComments" :key="comment.date" class="comment">
+        <div class="comment__avatar"><account-icon :size="55" /></div>
+        <article class="comment__message">
+          <div class="comment__heading">
+            <strong>{{ comment.name }}</strong> commented
+            <time :datetime="comment.date" :title="fullDate(comment.date)">
+              {{ formatDate(comment.date) }}
+            </time>
+          </div>
+          <p class="comment__text">
+            {{ comment.text }}
+          </p>
+        </article>
+      </li>
+      <li class="comment">
+        <div class="comment__avatar"><account-icon :size="55" /></div>
+        <comments-form @refresh="refreshComments" />
+      </li>
+    </ol>
+  </div>
 </template>
 
 <script>
@@ -88,7 +95,11 @@ export default {
 </script>
 
 <style lang="scss">
-.comments {
+.comments__header {
+  @include h3;
+}
+
+.comments__list {
   display: grid;
   gap: 1rem;
   grid-template-columns: 100%;
