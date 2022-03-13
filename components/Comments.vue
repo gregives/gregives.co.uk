@@ -1,7 +1,7 @@
 <template>
   <div class="comments">
-    <hr />
-    <h2 class="comments__header">
+    <hr v-if="!guestbook" />
+    <h2 v-if="!guestbook" class="comments__header">
       {{ sortedComments.length }}
       comment{{ sortedComments.length === 1 ? '' : 's' }}
     </h2>
@@ -10,7 +10,8 @@
         <div class="comment__avatar"><account-icon :size="55" /></div>
         <article class="comment__message">
           <div class="comment__heading">
-            <strong>{{ comment.name }}</strong> commented
+            <strong>{{ comment.name }}</strong>
+            {{ guestbook ? 'was here' : 'commented' }}
             <time :datetime="comment.date" :title="fullDate(comment.date)">
               {{ formatDate(comment.date) }}
             </time>
@@ -41,6 +42,12 @@ export default {
   components: {
     AccountIcon,
     CommentsForm: hydrateWhenVisible(() => import('~/components/CommentsForm'))
+  },
+  props: {
+    guestbook: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
