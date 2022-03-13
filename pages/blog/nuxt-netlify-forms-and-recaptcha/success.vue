@@ -4,7 +4,7 @@
       <span class="success__title--primary">Success</span> Page
     </h1>
     <p class="success__message">
-      You've reached the success page, click the button below to go back to the
+      You’ve reached the success page, click the button below to go back to the
       blog post!
     </p>
     <nuxt-link to="../#using-your-own-success-message" class="success__back">

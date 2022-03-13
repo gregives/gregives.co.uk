@@ -37,7 +37,7 @@ export default {
     },
     sizes: {
       type: String,
-      default: '(min-width: 992px) 75vw, 100vw'
+      default: '(min-width: 992px) 66vw, 100vw'
     },
     width: {
       type: String,
@@ -79,7 +79,7 @@ export default {
 
   picture {
     border-radius: $border-radius;
-    filter: drop-shadow(0 0 0.5rem color.adjust(#000, $alpha: -0.8));
+    filter: drop-shadow(0 0 0.5rem rgb(0 0 0 / 20%));
     overflow: hidden;
   }
 }
