@@ -74,8 +74,9 @@ export default {
       })
 
       // Force component to refresh when formatted date changes
-      if (timeToNextUpdate && timeToNextUpdate < 24 * 60 * 60 * 1000)
-        setTimeout(this.$forceUpdate, timeToNextUpdate)
+      if (timeToNextUpdate && timeToNextUpdate < 24 * 60 * 60 * 1000) {
+        setTimeout(this.refreshComments, timeToNextUpdate)
+      }
 
       return formattedDate
     },
