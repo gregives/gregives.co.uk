@@ -13,16 +13,16 @@ const client = new fauna.Client({
 module.exports.handler = async (event) => {
   const { url, visitedPageBefore } = JSON.parse(event.body)
 
-  // Check if this page is in the cache or in fauna
+  // Check if this page is in fauna
   const inFauna = await client.query(q.Exists(q.Match(q.Index('url'), url)))
 
   const document = await (async () => {
     if (inFauna) {
-      // Get the document from cache or fauna
+      // Get the document from fauna
       const document = await client.query(q.Get(q.Match(q.Index('url'), url)))
 
       if (visitedPageBefore) {
-        // If they have visited the page before then just return the document
+        // If they have visited this page before then just return the document
         return document
       } else {
         // Otherwise, increment the view count and return the updated document
@@ -35,7 +35,7 @@ module.exports.handler = async (event) => {
         )
       }
     } else {
-      // If this page isn't in the cache or fauna then create it and return the new document
+      // If this page isn't in fauna then create it and return the new document
       return client.query(
         q.Create(q.Collection('pages'), {
           data: {
