@@ -63,6 +63,13 @@ export default {
   },
   mounted() {
     this.refreshComments()
+
+    // HACK: Make sure we pick up comments after changing route
+    setTimeout(this.refreshComments, 100)
+    setTimeout(this.refreshComments, 200)
+    setTimeout(this.refreshComments, 500)
+    setTimeout(this.refreshComments, 1000)
+    setTimeout(this.refreshComments, 5000)
   },
   methods: {
     refreshComments(newComment) {
