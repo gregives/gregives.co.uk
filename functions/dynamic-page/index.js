@@ -10,22 +10,16 @@ const client = new fauna.Client({
   keepAlive: process.env.NETLIFY_DEV !== 'true'
 })
 
-const cache = {}
-
 module.exports.handler = async (event) => {
   const { url, visitedPageBefore } = JSON.parse(event.body)
 
   // Check if this page is in the cache or in fauna
-  const inCache = cache.hasOwnProperty(url)
-  const inFauna =
-    inCache || (await client.query(q.Exists(q.Match(q.Index('url'), url))))
+  const inFauna = await client.query(q.Exists(q.Match(q.Index('url'), url)))
 
   const document = await (async () => {
-    if (inCache || inFauna) {
+    if (inFauna) {
       // Get the document from cache or fauna
-      const document = inCache
-        ? cache[url]
-        : await client.query(q.Get(q.Match(q.Index('url'), url)))
+      const document = await client.query(q.Get(q.Match(q.Index('url'), url)))
 
       if (visitedPageBefore) {
         // If they have visited the page before then just return the document
@@ -53,9 +47,6 @@ module.exports.handler = async (event) => {
       )
     }
   })()
-
-  // Add document to cache
-  cache[url] = document
 
   return {
     statusCode: 200,
