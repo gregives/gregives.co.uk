@@ -1,15 +1,4 @@
-// Display font to preload
-@font-face {
-  font-display: swap;
-  font-family: 'DM Serif Text';
-  font-style: normal;
-  font-weight: 400;
-  src: local('DM Serif Text Regular'), local('DMSerifText-Regular'),
-    url('~assets/fonts/DMSerifText-Regular.woff2') format('woff2'),
-    url('~assets/fonts/DMSerifText-Regular.woff') format('woff');
-}
-
-// Font mixins
+// Font families
 @mixin font__fancy {
   font-family: 'DM Serif Text', Georgia, serif;
   letter-spacing: calc(0.05em - 0.05rem);
@@ -25,7 +14,7 @@
   font-family: Monaco, Consolas, 'Lucida Console', monospace;
 }
 
-// Type sizes
+// Font sizes
 @mixin h1 {
   font-size: calc(1.2rem + 4vw);
   margin-bottom: 2rem;

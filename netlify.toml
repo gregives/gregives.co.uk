@@ -2,5 +2,8 @@
   publish = "dist"
   command = "yarn generate"
 
+[build.environment]
+  CI = "1"
+
 [functions]
   directory = "functions"

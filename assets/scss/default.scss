@@ -1,8 +1,19 @@
 @import 'reset';
+@import 'properties';
 @import 'variables';
 @import 'typography';
 @import 'highlight';
 @import 'mixins';
+
+@font-face {
+  font-display: swap;
+  font-family: 'DM Serif Text';
+  font-style: normal;
+  font-weight: 400;
+  src: local('DM Serif Text Regular'), local('DMSerifText-Regular'),
+    url('~assets/fonts/DMSerifText-Regular.woff2') format('woff2'),
+    url('~assets/fonts/DMSerifText-Regular.woff') format('woff');
+}
 
 :root {
   @include font__body;
