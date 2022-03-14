@@ -30,11 +30,6 @@
         <a v-if="post.purchase" class="article__purchase" :href="post.purchase">
           <span>Buy now</span>
         </a>
-        <p class="article__affiliate-notice">
-          *&#8239;Links with an asterisk are affiliate links, which means I get
-          a commission if you decide to buy anything. This won't cost you a
-          penny more but will help keep this blog going!
-        </p>
       </div>
       <div v-if="type !== 'watch'" ref="contents" class="article__contents">
         <strong>Table of Contents</strong>
@@ -64,6 +59,11 @@
           See all watches
         </nuxt-link>
       </div>
+      <p v-if="post.specs" class="article__affiliate-notice">
+        *&#8239;Links with an asterisk are affiliate links, which means I get a
+        commission if you decide to buy anything. This won't cost you a penny
+        more but will help keep this blog going!
+      </p>
     </div>
   </article>
 </template>
@@ -322,11 +322,8 @@ export default {
 .article__affiliate-notice {
   color: $color__text--muted;
   font-size: 70%;
-  margin-bottom: 3rem;
-
-  @media (min-width: $breakpoint--lg) {
-    margin-bottom: 0;
-  }
+  margin-top: 2rem;
+  margin-bottom: -0.5rem;
 }
 
 .article__description {

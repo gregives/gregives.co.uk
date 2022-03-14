@@ -68,7 +68,7 @@ export default {
   @include page;
 
   .comments {
-    margin-top: 3rem;
+    margin-top: 1rem;
 
     @media (min-width: $breakpoint--lg) {
       margin-left: math.div(100%, 3);
