@@ -65,16 +65,8 @@ export default {
     picture {
       border-bottom-left-radius: 0;
       height: 100%;
-
-      .lazy__image {
-        height: calc(100% + 1rem);
-        object-fit: cover;
-        object-position: top left;
-
-        &--loaded {
-          height: 100%;
-        }
-      }
+      padding-bottom: 0;
+      width: 100%;
     }
   }
 }

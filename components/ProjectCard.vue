@@ -72,15 +72,11 @@ export default {
 
     picture {
       height: 100%;
+      padding-bottom: 0;
+      width: 100%;
 
       .lazy__image {
-        height: calc(100% + 1rem);
-        object-fit: cover;
         object-position: top left;
-
-        &--loaded {
-          height: 100%;
-        }
       }
     }
   }

@@ -79,25 +79,28 @@ export default {
 
   picture {
     border-radius: $border-radius;
-    filter: drop-shadow(0 0 0.5rem rgb(0 0 0 / 20%));
     overflow: hidden;
+    position: relative;
+
+    &::after {
+      backdrop-filter: blur(0.5rem);
+      content: '';
+      inset: 0;
+      position: absolute;
+      transition: backdrop-filter 150ms $transition__normal--out;
+    }
+  }
+
+  &--loaded picture::after {
+    backdrop-filter: none;
   }
 }
 
 .lazy__image {
-  display: block;
-  filter: blur(0.5rem);
-  height: auto;
+  height: 100%;
   inset: 0;
-  margin: -0.5rem;
-  max-width: none;
+  object-fit: cover;
   position: absolute;
-  width: calc(100% + 1rem);
-
-  &--loaded {
-    filter: none;
-    margin: 0;
-    width: 100%;
-  }
+  width: 100%;
 }
 </style>

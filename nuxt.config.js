@@ -68,7 +68,10 @@ export default {
       { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#3355ff' }
     ],
     noscript: [
-      { innerHTML: '<style>.lazy>picture>img{display:none;}</style>' }
+      {
+        innerHTML:
+          '<style>.lazy>picture::after,.lazy>picture>img{display:none;}</style>'
+      }
     ],
     __dangerouslyDisableSanitizers: ['noscript']
   },
