@@ -50,7 +50,7 @@ export default {
     overflow: hidden;
   }
 
-  @supports (backdrop-filter: blur(1rem)) {
+  @supports (backdrop-filter: blur(0.5rem)) {
     background-color: $color__body--blur;
     backdrop-filter: blur(0.5rem);
   }

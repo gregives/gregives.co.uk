@@ -22,6 +22,7 @@ export async function postLoader(postSlug) {
       .slice(0, -1)
       .join(' ')
       .replace(/[^a-zA-Z0-9]+$/, '')
+      .replace(/\s+/g, ' ')
   })()
 
   return post

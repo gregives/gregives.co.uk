@@ -82,12 +82,14 @@ export default {
     overflow: hidden;
     position: relative;
 
-    &::after {
-      backdrop-filter: blur(0.5rem);
-      content: '';
-      inset: 0;
-      position: absolute;
-      transition: backdrop-filter 150ms $transition__normal--out;
+    @supports (backdrop-filter: blur(1rem)) {
+      &::after {
+        backdrop-filter: blur(1rem);
+        content: '';
+        inset: 0;
+        position: absolute;
+        transition: backdrop-filter 150ms $transition__normal--out;
+      }
     }
   }
 
