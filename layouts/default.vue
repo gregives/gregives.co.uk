@@ -6,17 +6,20 @@
       <nuxt />
       <bottom-bar />
     </div>
+    <svg-filters />
   </div>
 </template>
 
 <script>
+import { hydrateNever } from 'vue-lazy-hydration'
 import TopBar from '~/components/layout/TopBar'
 import BottomBar from '~/components/layout/BottomBar'
 
 export default {
   components: {
     TopBar,
-    BottomBar
+    BottomBar,
+    SvgFilters: hydrateNever(() => import('~/components/layout/SVGFilters'))
   },
   data() {
     return {
@@ -83,5 +86,9 @@ export default {
   ~ .footer {
     opacity: 0;
   }
+}
+
+#__app > svg {
+  @include visually-hidden;
 }
 </style>
