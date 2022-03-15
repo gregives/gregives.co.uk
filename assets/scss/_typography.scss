@@ -8,10 +8,14 @@
 @mixin font__body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
+  letter-spacing: normal;
+  line-height: 1.5;
 }
 
 @mixin font__code {
   font-family: Monaco, Consolas, 'Lucida Console', monospace;
+  letter-spacing: normal;
+  line-height: 1.5;
 }
 
 // Font sizes

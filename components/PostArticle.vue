@@ -14,19 +14,7 @@
         <li v-for="tag in post.tags" :key="tag">{{ tag }}</li>
       </ul>
       <div v-if="post.specs" class="article__watch">
-        <table>
-          <thead>
-            <tr>
-              <th colspan="2">Specifications</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(value, name) in post.specs" :key="name">
-              <th>{{ name }}</th>
-              <td>{{ value }}</td>
-            </tr>
-          </tbody>
-        </table>
+        <watch-specs :specs="post.specs" />
         <a v-if="post.purchase" class="article__purchase" :href="post.purchase">
           <span>Buy now</span>
         </a>
@@ -70,10 +58,12 @@
 
 <script>
 import BackIcon from 'icons/KeyboardBackspace'
+import WatchSpecs from '~/components/WatchSpecs'
 
 export default {
   components: {
-    BackIcon
+    BackIcon,
+    WatchSpecs
   },
   props: {
     post: {
@@ -163,8 +153,8 @@ export default {
   max-height: calc(100vh - 7rem);
   opacity: 0.4;
   overflow-y: auto;
-  margin: 0 -1rem;
-  padding: 0 1rem 1rem;
+  margin: -1rem;
+  padding: 1rem;
   position: sticky;
   top: 6rem;
   transition: opacity 150ms $transition__normal;
@@ -273,34 +263,13 @@ export default {
   @media (min-width: $breakpoint--lg) {
     max-height: calc(100vh - 7rem);
     overflow-y: auto;
-    margin: 0 -1rem;
-    padding: 0 1rem 1rem;
+    margin: -1rem;
+    padding: 1rem;
     position: sticky;
     top: 6rem;
 
     &::-webkit-scrollbar-track {
       background-color: $color__body;
-    }
-  }
-
-  table {
-    display: table !important;
-    max-width: none !important;
-    width: 100% !important;
-
-    th {
-      white-space: nowrap;
-    }
-
-    tbody {
-      font-size: 80%;
-
-      tr:last-child {
-        td {
-          font-size: 120%;
-          line-height: 0;
-        }
-      }
     }
   }
 }
@@ -311,11 +280,15 @@ export default {
 
   display: block;
   font-variant: small-caps;
-  margin: 1.5rem 0 1rem;
+  margin: 1.5rem 0 3rem;
 
   > span::after {
     content: '\202F*';
     opacity: 0.6;
+  }
+
+  @media (min-width: $breakpoint--lg) {
+    margin-bottom: 0;
   }
 }
 
