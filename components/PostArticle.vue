@@ -150,13 +150,13 @@ export default {
 
 .article__contents {
   display: none;
-  max-height: calc(100vh - 7rem);
+  max-height: calc(100vh - 5.5rem);
   opacity: 0.4;
   overflow-y: auto;
-  margin: -1rem;
-  padding: 1rem;
+  margin: -0.5rem -1rem;
+  padding: 0.5rem 1rem;
   position: sticky;
-  top: 6rem;
+  top: 4.5rem;
   transition: opacity 150ms $transition__normal;
 
   &:hover,
@@ -261,12 +261,12 @@ export default {
 
 .article__watch {
   @media (min-width: $breakpoint--lg) {
-    max-height: calc(100vh - 7rem);
+    max-height: calc(100vh - 5.5rem);
     overflow-y: auto;
-    margin: -1rem;
-    padding: 1rem;
+    margin: -0.5rem -1rem;
+    padding: 0.5rem 1rem;
     position: sticky;
-    top: 6rem;
+    top: 4.5rem;
 
     &::-webkit-scrollbar-track {
       background-color: $color__body;
