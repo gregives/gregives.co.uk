@@ -177,7 +177,7 @@ export default {
 
 [data-theme='dark'] .headshots {
   filter: contrast(0) sepia(1) hue-rotate(-45deg)
-    hue-rotate($color__primary--hue) saturate(3) brightness(0.8);
+    hue-rotate($color__primary--hue) saturate(3) brightness(0.5);
 }
 
 .headshots__image {
