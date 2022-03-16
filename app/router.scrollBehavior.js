@@ -1,4 +1,4 @@
-export default function (to, from) {
+export default function (to, from, savedPosition) {
   // Scroll to hash on same page handled natively
   if (to.path === from.path && to.hash !== from.hash) {
     return false
@@ -17,8 +17,10 @@ export default function (to, from) {
   return new Promise((resolve) => {
     nuxt.$once('triggerScroll', () => {
       nuxt.$nextTick(() => {
-        // Re-enable smooth scrolling on page
-        document.documentElement.style.scrollBehavior = 'smooth'
+        nuxt.$nextTick(() => {
+          // Re-enable smooth scrolling on page
+          document.documentElement.style.scrollBehavior = 'smooth'
+        })
       })
 
       if (to.hash) {
@@ -42,7 +44,7 @@ export default function (to, from) {
         }
       }
 
-      resolve({ x: 0, y: 0 })
+      resolve(savedPosition || { x: 0, y: 0 })
     })
   })
 }
