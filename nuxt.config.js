@@ -84,9 +84,10 @@ export default {
   css: ['~/assets/scss/default.scss'],
   // Plugins to load before mounting the app
   plugins: [
-    '~/plugins/lazysizes.client.js',
-    '~/plugins/tabbing.client.js',
-    '~/plugins/components.js'
+    '~/plugins/components.js',
+    '~/plugins/dynamic-content.js',
+    '~/plugins/lazy-images.client.js',
+    '~/plugins/tabbing.client.js'
   ],
   // Nuxt.js build modules
   buildModules: [

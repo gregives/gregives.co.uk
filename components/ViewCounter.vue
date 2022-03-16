@@ -1,56 +1,20 @@
 <template>
-  <span v-if="views">{{ views }} views</span>
+  <span v-if="!$fetchState.error && views">{{ views }} views</span>
 </template>
 
 <script>
-// Netlify Functions endpoint
-const ENDPOINT = '/.netlify/functions/dynamic-page'
-
 export default {
   data() {
     return {
       views: null
     }
   },
+  async fetch() {
+    const { views } = await this.$dynamic(this.$route.path)
+    this.views = views
+  },
   watch: {
-    $route() {
-      this.updateViewCounter()
-    }
-  },
-  mounted() {
-    this.updateViewCounter()
-  },
-  methods: {
-    async updateViewCounter() {
-      const url = this.$route.path
-
-      // Get cached data from local storage
-      const cache = JSON.parse(localStorage.getItem('pages')) || {}
-      const visitedPageBefore = cache.hasOwnProperty(url)
-
-      // Get number of views from serverless function
-      const { views, comments } = await fetch(ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          url,
-          visitedPageBefore
-        })
-      }).then((response) => response.json())
-
-      cache[url] = {
-        lastVisited: Date.now(),
-        views,
-        comments
-      }
-
-      localStorage.setItem('pages', JSON.stringify(cache))
-
-      // Set number of views
-      this.views = cache[url].views.toLocaleString()
-    }
+    $route: '$fetch'
   }
 }
 </script>

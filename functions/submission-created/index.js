@@ -1,5 +1,6 @@
-const nodemailer = require('nodemailer')
-const fauna = require('faunadb')
+import nodemailer from 'nodemailer'
+import fauna from 'faunadb'
+
 const { query: q } = fauna
 
 // Use Gmail SMTP server
@@ -22,9 +23,8 @@ const client = new fauna.Client({
   keepAlive: process.env.NETLIFY_DEV !== 'true'
 })
 
-module.exports.handler = async (event) => {
+export async function handleFormSubmission({ payload }) {
   // Form name can be defined in either the payload or the data
-  const payload = JSON.parse(event.body).payload
   const { data, form_name: formName = data['form-name'] } = payload
 
   if (formName === 'Contact Form') {
@@ -77,8 +77,15 @@ module.exports.handler = async (event) => {
     }
   }
 
+  return { message: 'Success' }
+}
+
+export async function handler(event) {
+  const body = JSON.parse(event.body)
+  const response = await handleFormSubmission(body)
+
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: 'Success' })
+    body: JSON.stringify(response)
   }
 }

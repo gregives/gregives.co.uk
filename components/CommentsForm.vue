@@ -26,14 +26,7 @@
 </template>
 
 <script>
-import ViewCounter from '~/components/ViewCounter'
-
 export default {
-  data() {
-    return {
-      success: false
-    }
-  },
   methods: {
     autoHeight(event) {
       const textarea = event.target
@@ -58,14 +51,8 @@ export default {
         event.target.reset()
         await this.$recaptcha.reset()
 
-        // Optimistically show new comment
-        this.$emit('refresh', Object.fromEntries(formData.entries()))
-
-        // Update after 5 seconds with the comments from fauna
-        setTimeout(async () => {
-          await ViewCounter.methods.updateViewCounter.bind(this)()
-          this.$emit('refresh')
-        }, 5000)
+        // Show new comment
+        this.$emit('submit', Object.fromEntries(formData.entries()))
       } catch {
         // Ignore errors for now
       }

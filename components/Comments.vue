@@ -23,7 +23,7 @@
       </li>
       <li class="comment">
         <div class="comment__avatar"><account-icon :size="55" /></div>
-        <comments-form @refresh="refreshComments" />
+        <comments-form @submit="addNewComment" />
       </li>
     </ol>
   </div>
@@ -51,42 +51,28 @@ export default {
   },
   data() {
     return {
-      comments: []
+      comments: [],
+      newComments: []
     }
+  },
+  async fetch() {
+    const { comments } = await this.$dynamic(this.$route.path)
+    this.comments = comments
+    this.newComments = []
   },
   computed: {
     sortedComments() {
-      return this.comments
-        .slice()
-        .sort((a, b) => new Date(a.date) - new Date(b.date))
+      return [...this.comments, ...this.newComments].sort(
+        (a, b) => new Date(a.date) - new Date(b.date)
+      )
     }
   },
-  mounted() {
-    this.refreshComments()
-
-    // HACK: Make sure we pick up comments after changing route
-    setTimeout(this.refreshComments, 100)
-    setTimeout(this.refreshComments, 200)
-    setTimeout(this.refreshComments, 500)
-    setTimeout(this.refreshComments, 1000)
-    setTimeout(this.refreshComments, 5000)
+  watch: {
+    $route: '$fetch'
   },
   methods: {
-    refreshComments(newComment) {
-      try {
-        // Update the comments when mounted
-        this.comments = JSON.parse(localStorage.getItem('pages'))[
-          this.$route.path
-        ].comments
-      } catch {
-        this.comments = []
-      } finally {
-        // Optimistically add new comment
-        if (newComment) {
-          const { name, text, url, date = Date.now() } = newComment
-          this.comments.push({ name, text, url, date })
-        }
-      }
+    addNewComment(newComment) {
+      this.newComments.push({ ...newComment, date: Date.now() })
     },
     formatDate(date) {
       const timeAgo = new TimeAgo('en-US')
@@ -94,9 +80,12 @@ export default {
         getTimeToNextUpdate: true
       })
 
-      // Force component to refresh when formatted date changes
+      // Re-render comments when formatted date changes
       if (timeToNextUpdate && timeToNextUpdate < 24 * 60 * 60 * 1000) {
-        setTimeout(this.refreshComments, timeToNextUpdate)
+        setTimeout(() => {
+          this.comments = [...this.comments]
+          this.newComments = [...this.newComments]
+        }, timeToNextUpdate)
       }
 
       return formattedDate

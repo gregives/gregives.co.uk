@@ -1,4 +1,5 @@
-const fauna = require('faunadb')
+import fauna from 'faunadb'
+
 const { query: q } = fauna
 
 // Setup fauna client
@@ -10,9 +11,7 @@ const client = new fauna.Client({
   keepAlive: process.env.NETLIFY_DEV !== 'true'
 })
 
-module.exports.handler = async (event) => {
-  const { url, visitedPageBefore } = JSON.parse(event.body)
-
+export async function getDynamicContent({ url, visitedPageBefore }) {
   // Check if this page is in fauna
   const inFauna = await client.query(q.Exists(q.Match(q.Index('url'), url)))
 
@@ -49,10 +48,17 @@ module.exports.handler = async (event) => {
   })()
 
   return {
+    views: document.data.views,
+    comments: document.data.comments || []
+  }
+}
+
+export async function handler(event) {
+  const body = JSON.parse(event.body)
+  const response = await getDynamicContent(body)
+
+  return {
     statusCode: 200,
-    body: JSON.stringify({
-      views: document.data.views,
-      comments: document.data.comments || []
-    })
+    body: JSON.stringify(response)
   }
 }
