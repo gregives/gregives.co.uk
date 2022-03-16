@@ -1,5 +1,7 @@
 <template>
-  <span v-if="!$fetchState.error && views">{{ views }} views</span>
+  <span v-if="!$fetchState.error && views">
+    {{ views.toLocaleString('en-GB') }} views
+  </span>
 </template>
 
 <script>

@@ -75,6 +75,11 @@ export default {
       this.newComments.push({ ...newComment, date: Date.now() })
     },
     formatDate(date) {
+      // Don't render the time ago on server
+      if (process.server) {
+        return ''
+      }
+
       const timeAgo = new TimeAgo('en-US')
       const [formattedDate, timeToNextUpdate] = timeAgo.format(new Date(date), {
         getTimeToNextUpdate: true
