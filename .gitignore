@@ -60,16 +60,16 @@ typings/
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 
-# next.js build output
+# Next build output
 .next
 
-# nuxt.js build output
+# Nuxt build output
 .nuxt
 
 # Nuxt generate
 dist
 
-# vuepress build output
+# VuePress build output
 .vuepress/dist
 
 # Serverless directories
@@ -87,5 +87,5 @@ sw.*
 # Vim swap files
 *.swp
 
-# Lighthouse CI
-.lighthouseci
+# Netlify Functions output
+.netlify

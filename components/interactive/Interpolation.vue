@@ -85,14 +85,14 @@ export default {
   computed: {
     styles() {
       return {
-        '--h-start': this.hStart,
-        '--s-start': this.sStart + '%',
-        '--l-start': this.lStart + '%',
-        '--h-end': this.hEnd,
-        '--s-end': this.sEnd + '%',
-        '--l-end': this.lEnd + '%',
-        '--color-start': this.colorStart,
-        '--color-end': this.colorEnd,
+        '--h-s': this.hStart,
+        '--s-s': this.sStart + '%',
+        '--l-s': this.lStart + '%',
+        '--h-e': this.hEnd,
+        '--s-e': this.sEnd + '%',
+        '--l-e': this.lEnd + '%',
+        '--color-s': this.colorStart,
+        '--color-e': this.colorEnd,
         '--progress': this.progress
       }
     }
@@ -112,11 +112,11 @@ export default {
 
 @keyframes progress {
   from {
-    background-color: var(--color-start);
+    background-color: var(--color-s);
   }
 
   to {
-    background-color: var(--color-end);
+    background-color: var(--color-e);
   }
 }
 
@@ -176,15 +176,9 @@ export default {
 
   &--variable {
     background-color: hsl(
-      calc(
-        var(--h-start) + (var(--h-end) - var(--h-start)) * var(--progress) / 100
-      )
-      calc(
-        var(--s-start) + (var(--s-end) - var(--s-start)) * var(--progress) / 100
-      )
-      calc(
-        var(--l-start) + (var(--l-end) - var(--l-start)) * var(--progress) / 100
-      )
+      calc(var(--h-s) + (var(--h-e) - var(--h-s)) * var(--progress) / 100)
+        calc(var(--s-s) + (var(--s-e) - var(--s-s)) * var(--progress) / 100)
+        calc(var(--l-s) + (var(--l-e) - var(--l-s)) * var(--progress) / 100)
     );
   }
 
