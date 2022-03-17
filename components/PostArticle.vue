@@ -19,8 +19,12 @@
           <span>Buy now</span>
         </a>
       </div>
-      <div v-if="type !== 'watch'" ref="contents" class="article__contents">
+      <div
+        v-if="type !== 'watch' && post.tableOfContents"
+        class="article__contents"
+      >
         <strong>Table of Contents</strong>
+        <div v-html="post.tableOfContents"></div>
       </div>
     </div>
     <div class="article__body">
@@ -82,15 +86,6 @@ export default {
         month: 'short',
         year: 'numeric'
       })
-    }
-  },
-  mounted() {
-    const tableOfContents = this.$el.querySelector('.table-of-contents')
-
-    // Move table of contents to side bar
-    if (tableOfContents !== null) {
-      this.$refs.contents.appendChild(tableOfContents)
-      this.$refs.contents.style.display = 'block'
     }
   }
 }
@@ -168,8 +163,8 @@ export default {
     background-color: $color__body;
   }
 
-  @media (max-width: $breakpoint--lg) {
-    display: none !important;
+  @media (min-width: $breakpoint--lg) {
+    display: block;
   }
 
   .table-of-contents {
@@ -196,10 +191,6 @@ export default {
 .article__body {
   .markdown {
     margin-bottom: 1.5rem;
-  }
-
-  .table-of-contents {
-    display: none;
   }
 }
 
