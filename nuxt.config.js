@@ -85,7 +85,8 @@ export default {
   // Plugins to load before mounting the app
   plugins: [
     '~/plugins/components.js',
-    '~/plugins/dynamic-content.js',
+    '~/plugins/dynamic-content.client.js',
+    '~/plugins/dynamic-content.server.js',
     '~/plugins/lazy-images.client.js',
     '~/plugins/tabbing.client.js'
   ],

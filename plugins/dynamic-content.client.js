@@ -1,16 +1,8 @@
-import { getDynamicContent } from '~/functions/dynamic-content'
-
-// Netlify Functions endpoint
 const ENDPOINT = '/.netlify/functions/dynamic-content'
 
 export default (_context, inject) => {
   inject('dynamic', async (url) => {
-    if (process.server) {
-      // Call fauna directly if server-side rendering
-      return await getDynamicContent({ url, visitedPageBefore: true })
-    }
-
-    // Get cached data from local storage
+    // Check if the user has visited the page before
     const cache = JSON.parse(localStorage.getItem('pages')) || {}
     const visitedPageBefore = cache.hasOwnProperty(url)
 
