@@ -1,6 +1,6 @@
 export default function (to, from, savedPosition) {
-  // Scroll to hash on same page handled natively
-  if (to.path === from.path && to.hash !== from.hash) {
+  // Scrolling on same page handled natively
+  if (to.path === from.path) {
     return false
   }
 
@@ -34,13 +34,9 @@ export default function (to, from, savedPosition) {
           hash = '#' + window.CSS.escape(hash.substr(1))
         }
 
-        try {
-          if (document.querySelector(hash)) {
-            resolve(false)
-            window.location.href = hash
-          }
-        } catch {
-          // Failed to save scroll position
+        if (document.querySelector(hash)) {
+          resolve(false)
+          window.location.href = hash
         }
       }
 
