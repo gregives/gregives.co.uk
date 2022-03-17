@@ -1,4 +1,5 @@
 import fauna from 'faunadb'
+import markdown from '~/config/markdown'
 
 const { query: q } = fauna
 
@@ -47,9 +48,14 @@ export async function getDynamicContent({ url, visitedPageBefore }) {
     }
   })()
 
+  const comments = (document.data.comments || []).map((comment) => {
+    comment.text = markdown(comment.text, true)
+    return comment
+  })
+
   return {
     views: document.data.views,
-    comments: document.data.comments || []
+    comments
   }
 }
 

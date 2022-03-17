@@ -16,9 +16,7 @@
               {{ formatDate(comment.date) }}
             </time>
           </div>
-          <p class="comment__text">
-            {{ comment.text }}
-          </p>
+          <p class="comment__text" v-html="comment.text" />
         </article>
       </li>
       <li class="comment">
