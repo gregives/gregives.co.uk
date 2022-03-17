@@ -70,7 +70,7 @@ export default {
     noscript: [
       {
         innerHTML:
-          '<style>.lazy>picture::after,.lazy>picture>img{display:none;}</style>'
+          '<style>.theme-toggle,.lazy>picture::after,.lazy>picture>img{display:none;}</style>'
       }
     ],
     __dangerouslyDisableSanitizers: ['noscript']
