@@ -36,7 +36,8 @@ export default {
 
 <style lang="scss">
 .markdown,
-.article__watch {
+.article__watch,
+.comment__text {
   h1,
   h2 {
     padding-bottom: 0.25rem;

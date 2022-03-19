@@ -17,6 +17,9 @@ export default {
   },
   watch: {
     $route: '$fetch'
+  },
+  mounted() {
+    this.$fetch()
   }
 }
 </script>

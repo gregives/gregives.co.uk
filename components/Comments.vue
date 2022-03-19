@@ -16,7 +16,14 @@
               {{ formatDate(comment.date) }}
             </time>
           </div>
-          <p class="comment__text" v-html="comment.text" />
+          <div
+            v-if="comment.text"
+            class="comment__text"
+            v-html="comment.text"
+          />
+          <div v-else class="comment__placeholder">
+            Adding your comment&hellip;
+          </div>
         </article>
       </li>
       <li class="comment">
@@ -68,9 +75,15 @@ export default {
   watch: {
     $route: '$fetch'
   },
+  mounted() {
+    this.$fetch()
+  },
   methods: {
-    addNewComment(newComment) {
-      this.newComments.push({ ...newComment, date: Date.now() })
+    addNewComment({ name }) {
+      this.newComments.push({
+        name,
+        date: Date.now()
+      })
     },
     formatDate(date) {
       // Don't render the time ago on server
@@ -166,7 +179,12 @@ export default {
   padding: 0.5rem 1rem;
 }
 
-.comment__text {
+.comment__text,
+.comment__placeholder {
   padding: 0.75rem 1rem;
+}
+
+.comment__placeholder {
+  color: $color__text--muted;
 }
 </style>
