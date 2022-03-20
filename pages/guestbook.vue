@@ -13,6 +13,11 @@ import Comments from '~/components/Comments'
 export default {
   components: {
     Comments
+  },
+  head() {
+    return {
+      title: 'Guestbook'
+    }
   }
 }
 </script>
@@ -28,9 +33,5 @@ export default {
 
 .guestbook__title--primary {
   @include title--primary;
-}
-
-.guestbook__description {
-  margin-bottom: 3rem;
 }
 </style>
