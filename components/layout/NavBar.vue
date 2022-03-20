@@ -137,6 +137,22 @@ export default {
       @include link--active;
     }
   }
+
+  &[href*='guestbook'] > span::after {
+    background-color: $color__primary;
+    border-radius: 2rem;
+    bottom: calc(100% - 0.25rem);
+    color: $color__body;
+    content: 'New';
+    font-size: 60%;
+    line-height: 1.2;
+    padding: 0.1em 0.4em;
+    position: absolute;
+    right: -30%;
+    text-shadow: none;
+    text-transform: uppercase;
+    transform: rotate(5deg);
+  }
 }
 
 #__menu:checked ~ .nav {
