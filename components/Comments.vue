@@ -181,7 +181,29 @@ export default {
 
 .comment__text,
 .comment__placeholder {
-  padding: 0.75rem 1rem;
+  padding: 1rem;
+}
+
+.comment__text {
+  a:not([class]) {
+    @include link($color__body--overlay);
+  }
+
+  blockquote {
+    background-color: $color__body;
+
+    &:not(:first-child) {
+      margin-top: 1rem;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    a:not(.header-anchor) {
+      @include link($color__body);
+    }
+  }
 }
 
 .comment__placeholder {
