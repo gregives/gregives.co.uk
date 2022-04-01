@@ -42,6 +42,10 @@ export async function handleFormSubmission({ payload }) {
   } else if (formName === 'Comment Form') {
     const { name, text, url } = data
 
+    if (!(name && text && url)) {
+      return { message: 'Comment ignored' }
+    }
+
     // Comment to add to that page
     const newComment = {
       name,
