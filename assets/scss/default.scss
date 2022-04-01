@@ -15,6 +15,36 @@
     url('~assets/fonts/DMSerifText-Regular.woff') format('woff');
 }
 
+@font-face {
+  font-display: swap;
+  font-family: 'Comic Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Comic Sans'), local('ComicSans'),
+    url('~assets/fonts/ComicSansMS.woff2') format('woff2'),
+    url('~assets/fonts/ComicSansMS.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Comic Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Comic Sans Bold'), local('ComicSansBold'),
+    url('~assets/fonts/ComicSansMS-Bold.woff2') format('woff2'),
+    url('~assets/fonts/ComicSansMS-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Comic Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Comic Sans Italic'), local('ComicSansItalic'),
+    url('~assets/fonts/ComicSansMS-Italic.woff2') format('woff2'),
+    url('~assets/fonts/ComicSansMS-Italic.woff') format('woff');
+}
+
 :root {
   @include font__body;
 
