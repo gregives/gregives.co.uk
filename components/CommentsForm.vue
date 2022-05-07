@@ -44,7 +44,7 @@
         title="Italic"
         @click="addItalic"
       >
-        <em>&#42926;</em>
+        <em>I</em>
       </button>
       <button
         class="comment__markdown-button"
@@ -144,7 +144,7 @@ export default {
       this.surroundText('_')
     },
     addStrikethrough() {
-      this.surroundText('~')
+      this.surroundText('~~')
     },
     addLink() {
       this.surroundText('[', '](https://)')
@@ -202,6 +202,7 @@ export default {
         return
       }
 
+      this.preview = 'Loading…'
       try {
         this.preview = await this.$markdown(this.$refs.comment.value)
       } catch {
@@ -297,7 +298,7 @@ export default {
   &-button {
     background-color: $color__body;
     border: $border-weight solid transparent;
-    border-radius: $border-radius;
+    border-radius: $border-radius !important;
     cursor: pointer;
     line-height: 1.5rem;
     margin-right: 0.35rem;
@@ -320,6 +321,13 @@ export default {
     &:focus {
       border-color: $color__primary;
       outline: none !important;
+    }
+
+    &[title='Italic'] {
+      @include font__code;
+
+      font-size: 110%;
+      line-height: 1;
     }
   }
 
