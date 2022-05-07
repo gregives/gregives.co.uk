@@ -88,6 +88,7 @@ export default {
     '~/plugins/dynamic-content.client.js',
     '~/plugins/dynamic-content.server.js',
     '~/plugins/lazy-images.client.js',
+    '~/plugins/markdown.client.js',
     '~/plugins/tabbing.client.js'
   ],
   // Nuxt.js build modules

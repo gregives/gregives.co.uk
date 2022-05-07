@@ -204,6 +204,10 @@ export default {
       @include link($color__body);
     }
   }
+
+  .highlight code {
+    background-image: none;
+  }
 }
 
 .comment__placeholder {

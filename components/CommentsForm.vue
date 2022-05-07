@@ -12,7 +12,12 @@
     <div class="comment__heading">
       <input type="text" name="name" placeholder="Your name" required />
     </div>
-    <div class="comment__textarea">
+    <div
+      v-show="preview !== null"
+      class="comment__preview comment__text"
+      v-html="preview"
+    />
+    <div v-show="preview === null" class="comment__textarea">
       <textarea
         ref="comment"
         name="text"
@@ -21,7 +26,10 @@
         @input="autoHeight"
       ></textarea>
     </div>
-    <div class="comment__markdown">
+    <div
+      class="comment__markdown"
+      :class="{ 'comment__markdown--disabled': preview !== null }"
+    >
       <button
         class="comment__markdown-button"
         type="button"
@@ -89,7 +97,16 @@
       </button>
     </div>
     <recaptcha />
-    <button class="comment__submit" type="submit">Comment</button>
+    <div class="comment__buttons">
+      <button
+        class="comment__preview-button"
+        type="button"
+        @click="togglePreview"
+      >
+        {{ preview === null ? 'Preview' : 'Close preview' }}
+      </button>
+      <button class="comment__submit" type="submit">Comment</button>
+    </div>
   </form>
 </template>
 
@@ -107,6 +124,11 @@ export default {
     BulletListIcon,
     NumberListIcon,
     CodeBlockIcon
+  },
+  data() {
+    return {
+      preview: null
+    }
   },
   methods: {
     autoHeight() {
@@ -174,6 +196,18 @@ export default {
       this.autoHeight()
       textarea.focus()
     },
+    async togglePreview() {
+      if (this.preview !== null) {
+        this.preview = null
+        return
+      }
+
+      try {
+        this.preview = await this.$markdown(this.$refs.comment.value)
+      } catch {
+        this.preview = 'Unable to load preview'
+      }
+    },
     async onSubmit(event) {
       try {
         await this.$recaptcha.getResponse()
@@ -231,26 +265,45 @@ export default {
     display: block;
     margin: -$border-weight;
     min-height: 8rem;
-    padding: 0.75rem 1rem;
+    padding: 1rem;
     resize: none;
     width: calc(100% + 2 * $border-weight);
   }
+}
+
+.comment__preview-toggle {
+  margin-bottom: -0.5rem;
+  margin-top: 0.5rem;
+}
+
+.comment__preview {
+  background-color: $color__body--overlay;
+  border: $border-weight solid $color__primary--muted;
+  margin: -$border-weight;
+  min-height: 8rem;
+  padding: 1rem;
+  width: calc(100% + 2 * $border-weight);
 }
 
 .comment__markdown {
   display: flex;
   padding: 0.5rem;
 
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
   &-button {
     background-color: $color__body;
     border: $border-weight solid transparent;
     border-radius: $border-radius;
     cursor: pointer;
-    line-height: 1.75rem;
+    line-height: 1.5rem;
     margin-right: 0.35rem;
     position: relative;
     transition: filter 150ms $transition__normal;
-    width: 1.75rem;
+    width: 1.5rem;
 
     .material-design-icon {
       display: block;
@@ -260,8 +313,7 @@ export default {
       position: absolute;
     }
 
-    &:hover,
-    &:focus {
+    &:hover {
       filter: brightness(0.9);
     }
 
@@ -272,17 +324,25 @@ export default {
   }
 
   &-divider {
-    margin: 0 0.35rem;
+    margin: 0 0.25rem;
   }
+}
+
+.comment__buttons {
+  margin-top: 1rem;
+  position: absolute;
+  right: 0;
+  top: 100%;
+}
+
+.comment__preview-button {
+  @include button;
+
+  margin-right: 0.5rem;
 }
 
 .comment__submit {
   @include button;
   @include button--primary;
-
-  margin-top: 1rem;
-  position: absolute;
-  right: 0;
-  top: 100%;
 }
 </style>
