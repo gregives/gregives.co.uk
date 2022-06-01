@@ -44,7 +44,7 @@
     "nuxt": "^2.15.8",
     "sass": "^1.49.9",
     "sass-loader": "^10.2.1",
-    "sharp": "^0.30.2",
+    "sharp": "^0.30.5",
     "vue-lazy-hydration": "^2.0.0-beta.4",
     "vue-material-design-icons": "^5.0.0",
     "vue-tabbing": "^0.1.0",
