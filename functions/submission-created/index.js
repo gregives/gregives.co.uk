@@ -42,7 +42,10 @@ export async function handleFormSubmission({ payload }) {
   } else if (formName === 'Comment Form') {
     const { name, text, url } = data
 
-    if (!(name && text && url)) {
+    // Ignore comments with a lot of links
+    const numberOfLinks = (text.match(/https?:\/\//g) || []).length
+
+    if (!(name && text && url) || numberOfLinks.length > 4) {
       return { message: 'Comment ignored' }
     }
 
