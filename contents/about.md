@@ -1,4 +1,4 @@
-Hi there, I'm Greg Ives! I'm a freelance developer, based in [Nottingham](https://www.google.com/maps/place/Nottingham). I'm currently building [Myles Fitness Challenges](https://www.myleschallenges.com/), an app that allows challengers to run, walk or cycle a wide range of virtual routes from around the world.
+Hi there, I'm Greg Ives! I'm a freelance developer, based in [Nottingham](https://www.google.com/maps/place/Nottingham). I'm currently building [Myles Wellbeing](https://www.myleswellbeing.com/), an app that allows challengers to run, walk or cycle a wide range of virtual routes from around the world.
 
 I graduated from the University of Sheffield in 2020 with a master's degree in Computer Science, after which I worked at [Capital One](https://capitalone.co.uk/) as a software engineer. During my time at Capital One, I worked in a web development team and a developer tools team, managing services on Jenkins and Amazon Web Services.
 
