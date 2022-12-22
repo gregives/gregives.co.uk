@@ -127,7 +127,7 @@ export default {
       position: absolute;
     }
 
-    &:not(:first-child):not(:last-child) {
+    &:not(:first-child, :last-child) {
       margin-left: 0.25rem;
       margin-right: 0.5rem;
     }
