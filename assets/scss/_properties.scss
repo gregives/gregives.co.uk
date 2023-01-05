@@ -36,7 +36,7 @@
       $color__warning: #d93;
       --color__warning: #{$color__warning};
 
-      $color__body: hsl(color.hue($color__primary) 16% 12%);
+      $color__body: hsl(color.hue($color__primary) 16% 5%);
       $color__body--overlay: color.adjust($color__body, $lightness: 4%);
       --color__body: #{$color__body};
       --color__body--overlay: #{$color__body--overlay};

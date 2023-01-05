@@ -160,8 +160,8 @@ export default {
 <style lang="scss">
 .headshots {
   bottom: 0;
-  filter: sepia(1) hue-rotate(-45deg) hue-rotate($color__primary--hue)
-    saturate(1.5) brightness(1.2) contrast(0.9);
+  filter: sepia(1) hue-rotate(-40deg) hue-rotate($color__primary--hue)
+    saturate(2) brightness(1.2) contrast(0.9);
   height: calc(20vh + 30vw - 1rem);
   overflow: hidden;
   position: absolute;
@@ -176,8 +176,8 @@ export default {
 }
 
 [data-theme='dark'] .headshots {
-  filter: contrast(0) sepia(1) hue-rotate(-45deg)
-    hue-rotate($color__primary--hue) saturate(3) brightness(0.5);
+  filter: contrast(0) sepia(1) hue-rotate(-30deg)
+    hue-rotate($color__primary--hue) saturate(4) brightness(0.8);
 }
 
 .headshots__image {

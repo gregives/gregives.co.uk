@@ -192,6 +192,22 @@ export default {
   .markdown {
     margin-bottom: 1.5rem;
   }
+
+  @supports (pointer-events: none) {
+    &::after {
+      background-image: linear-gradient(to top, $color__body 6rem, transparent);
+      bottom: -5rem;
+      content: '';
+      display: block;
+      filter: blur(0.5rem);
+      height: 10rem;
+      pointer-events: none;
+      position: sticky;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      z-index: 1;
+    }
+  }
 }
 
 .article__footer {
