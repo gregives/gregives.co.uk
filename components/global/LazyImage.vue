@@ -105,25 +105,4 @@ export default {
   position: absolute;
   width: 100%;
 }
-
-// Add noise to images in the watch blog
-.watch,
-.watches {
-  .lazy--loaded {
-    picture {
-      filter: url('#noise') brightness(0.9) contrast(1.015) saturate(1.1);
-    }
-  }
-}
-
-[data-theme='dark'] {
-  .watch,
-  .watches {
-    .lazy--loaded {
-      picture {
-        filter: url('#noise') brightness(1.3) saturate(1.1);
-      }
-    }
-  }
-}
 </style>

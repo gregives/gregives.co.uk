@@ -14,17 +14,11 @@
       Otherwise you can head back over to the home page!
     </p>
     <nuxt-link to="/" class="error__home">Take me home</nuxt-link>
-    <headshots v-if="statusCode === 404" :error="true" />
   </main>
 </template>
 
 <script>
-import Headshots from '~/components/Headshots'
-
 export default {
-  components: {
-    Headshots
-  },
   layout: 'default',
   props: {
     error: {
@@ -42,9 +36,7 @@ export default {
 
 <style lang="scss">
 .error {
-  $clip-path: polygon(0% 90%, 100% 50%, 100% 90%, 70% 100%, 0% 100%);
   @include page;
-  @include dots($clip-path);
 }
 
 .error__title {

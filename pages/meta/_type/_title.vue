@@ -44,9 +44,7 @@ export default {
 
 <style lang="scss">
 .meta {
-  $clip-path: polygon(10% 0%, 50% 100%, 100% 100%, 100% 0%);
   @include page;
-  @include dots($clip-path);
 
   min-height: 100vh !important;
 }

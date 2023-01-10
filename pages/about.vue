@@ -36,41 +36,7 @@ export default {
 
 <style lang="scss">
 .about {
-  $clip-path: polygon(
-    0% 20%,
-    100% 25%,
-    100% 40%,
-    0% 35%,
-    0% 100%,
-    60% 100%,
-    100% 95%,
-    100% 100%,
-    0% 100%
-  );
   @include page;
-  @include dots($clip-path);
-
-  @media (min-width: $breakpoint--md) {
-    $clip-path: polygon(
-      0% 25%,
-      30% 35%,
-      30% 55%,
-      0% 65%,
-      0% 75%,
-      30% 65%,
-      40% 75%,
-      30% 200%,
-      0% 100%,
-      90% 100%,
-      100% 90%,
-      100% 100%,
-      0% 100%
-    );
-    @include dots($clip-path);
-
-    // HACK: Arbitrary property needed to keep breakpoint when minified
-    color: inherit;
-  }
 }
 
 .about__title {

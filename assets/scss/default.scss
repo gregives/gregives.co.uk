@@ -47,6 +47,14 @@ body {
   background-color: $color__body;
 }
 
+html,
+body,
+#__nuxt,
+#__layout,
+#__wrapper {
+  height: 100%;
+}
+
 h1,
 h2,
 h3,

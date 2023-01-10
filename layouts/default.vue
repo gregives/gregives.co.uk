@@ -1,11 +1,9 @@
 <template>
-  <div id="__app">
+  <div id="__wrapper" ref="wrapper">
     <script v-html="script"></script>
-    <div id="__wrapper" ref="wrapper">
-      <top-bar />
-      <nuxt />
-      <bottom-bar />
-    </div>
+    <top-bar />
+    <nuxt />
+    <bottom-bar />
     <svg-filters />
   </div>
 </template>
@@ -63,6 +61,15 @@ export default {
 </script>
 
 <style lang="scss">
+#__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+#__wrapper > svg {
+  @include visually-hidden;
+}
+
 .page-enter-active {
   transition: opacity 250ms $transition__normal--in;
 
@@ -86,9 +93,5 @@ export default {
   ~ .footer {
     opacity: 0;
   }
-}
-
-#__app > svg {
-  @include visually-hidden;
 }
 </style>

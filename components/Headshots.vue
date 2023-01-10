@@ -159,25 +159,13 @@ export default {
 
 <style lang="scss">
 .headshots {
-  bottom: 0;
   filter: sepia(1) hue-rotate(-40deg) hue-rotate($color__primary--hue)
     saturate(2) brightness(1.2) contrast(0.9);
-  height: calc(20vh + 30vw - 1rem);
+  height: calc(20rem / 1.5 + 8vw);
+  margin: -2rem auto;
   overflow: hidden;
-  position: absolute;
-  right: 1.5rem;
-  width: calc(15vh + 22.5vw); // Aspect ratio of 4:3
-  z-index: 1;
-
-  @media (min-width: $breakpoint--xl) {
-    height: calc(20vh + 0.3 * #{$breakpoint--xl} - 0.5rem);
-    width: calc(15vh + 0.225 * #{$breakpoint--xl});
-  }
-}
-
-[data-theme='dark'] .headshots {
-  filter: contrast(0) sepia(1) hue-rotate(-30deg)
-    hue-rotate($color__primary--hue) saturate(4) brightness(0.8);
+  position: relative;
+  width: calc(15rem / 1.5 + 6vw); // Aspect ratio of 4:3
 }
 
 .headshots__image {

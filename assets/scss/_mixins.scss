@@ -8,15 +8,11 @@
 @mixin page {
   @include container;
 
-  // 100vh minus height of header and footer
-  min-height: calc(100vh - 6.5rem);
-  min-height: calc(var(--vh, 1vh) * 100 - 6.5rem);
+  flex: 1;
   padding-top: 7.5rem;
   padding-bottom: 4.5rem;
 
   @media (min-width: $breakpoint--md) {
-    min-height: calc(100vh - 4rem);
-    min-height: calc(var(--vh, 1vh) * 100 - 4rem);
     padding-top: 9rem;
   }
 
@@ -24,32 +20,6 @@
     margin: 0;
     padding: 0;
     width: 100%;
-  }
-}
-
-@mixin dots($clip-path) {
-  @supports (clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)) {
-    &::before {
-      $background-size: 0.75rem;
-      $background-dots: radial-gradient(
-        $color__primary--muted 15%,
-        transparent 15%
-      );
-
-      background-image: $background-dots, $background-dots;
-      background-size: $background-size $background-size;
-      background-position: 0 0,
-        math.div($background-size, 2) math.div($background-size, 2);
-      clip-path: $clip-path;
-      content: '';
-      height: 100%;
-      left: 50%;
-      position: absolute;
-      top: 0;
-      transform: translateX(-50%);
-      width: 100vw;
-      z-index: -1;
-    }
   }
 }
 

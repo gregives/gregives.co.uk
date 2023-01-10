@@ -36,7 +36,6 @@ export default {
 
 <style lang="scss">
 .markdown,
-.article__watch,
 .comment__text {
   h1,
   h2 {

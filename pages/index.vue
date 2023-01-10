@@ -1,17 +1,13 @@
 <template>
   <main class="home">
     <div class="home__banner">
+      <headshots />
       <h1 class="home__title">
         Hi, I’m <span class="home__title--primary">Greg Ives</span>
       </h1>
       <div class="home__description">
         <markdown :markdown="markdown" />
       </div>
-      <div class="home__actions">
-        <a class="home__stuff" href="#stuff">See my stuff <down-icon /></a>
-        <nuxt-link class="home__contact" to="/contact/">Contact me</nuxt-link>
-      </div>
-      <headshots />
     </div>
     <ol id="stuff" class="home__posts">
       <post-card v-for="post in posts" :key="post.title" :post="post" />
@@ -44,7 +40,6 @@ import ProjectCard from '~/components/ProjectCard'
 
 export default {
   components: {
-    DownIcon,
     SeeMoreIcon: DownIcon,
     Headshots: hydrateWhenIdle(() => import('~/components/Headshots')),
     PostCard,
@@ -86,34 +81,27 @@ export default {
 
 <style lang="scss">
 .home {
-  $clip-path: polygon(
-    100% 15%,
-    50% 25%,
-    45% 35%,
-    100% 45%,
-    100% 100%,
-    50% 100%,
-    0% 70%,
-    0% 100%,
-    100% 100%
-  );
   @include page;
-  @include dots($clip-path);
-}
-
-.home__banner {
-  min-height: calc(100vh - 11.5rem);
-  min-height: calc(var(--vh, 1vh) * 100 - 11.5rem);
-  position: relative;
-
-  @media (min-width: $breakpoint--md) {
-    min-height: calc(100vh - 13rem);
-    min-height: calc(var(--vh, 1vh) * 100 - 13rem);
-  }
 }
 
 .home__title {
   @include title;
+
+  text-align: center;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    background-color: $color__body;
+    bottom: -5rem;
+    content: '';
+    filter: blur(1.5rem);
+    height: calc(100% + 8rem);
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
 }
 
 .home__title--primary {
@@ -121,43 +109,17 @@ export default {
 }
 
 .home__description {
-  margin-bottom: 3rem;
+  margin-bottom: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  text-align: center;
   width: 100%;
+  z-index: 1;
 
   @media (min-width: $breakpoint--md) {
-    width: 60%;
+    width: 90%;
   }
-}
-
-.home__actions {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: $breakpoint--md) {
-    flex-direction: row;
-  }
-}
-
-.home__stuff {
-  @include button;
-  @include button--primary;
-
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-
-  .material-design-icon {
-    display: inline-block;
-    margin-left: -0.15rem;
-    margin-right: -0.35rem;
-    transform: scale(0.95) rotate(-90deg);
-  }
-}
-
-.home__contact {
-  @include button;
-
-  margin-bottom: 1rem;
 }
 
 .home__posts {

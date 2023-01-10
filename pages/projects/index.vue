@@ -46,23 +46,7 @@ export default {
 
 <style lang="scss">
 .projects {
-  $clip-path: polygon(
-    0% 30%,
-    0% 20%,
-    100% 10%,
-    100% 20%,
-    100% 30%,
-    80% 50%,
-    100% 80%,
-    100% 100%,
-    60% 100%,
-    0% 70%,
-    0% 100%,
-    100% 100%,
-    100% 20%
-  );
   @include page;
-  @include dots($clip-path);
 }
 
 .projects__title {

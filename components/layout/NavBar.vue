@@ -1,6 +1,6 @@
 <template>
   <nav class="nav">
-    <ol v-if="!onWatchPage" class="nav__list">
+    <ol class="nav__list">
       <li class="nav__list-item">
         <nuxt-link class="nav__link" to="/blog/">
           <span>Blog</span>
@@ -29,17 +29,6 @@
     </ol>
   </nav>
 </template>
-
-<script>
-export default {
-  props: {
-    onWatchPage: {
-      type: Boolean,
-      default: false
-    }
-  }
-}
-</script>
 
 <style lang="scss">
 .nav {

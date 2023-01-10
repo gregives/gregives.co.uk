@@ -15,9 +15,7 @@
 
 <style lang="scss">
 .success {
-  $clip-path: polygon(0% 90%, 100% 50%, 100% 90%, 70% 100%, 0% 100%);
   @include page;
-  @include dots($clip-path);
 }
 
 .success__title {
