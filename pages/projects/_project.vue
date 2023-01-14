@@ -15,6 +15,11 @@ export default {
   async asyncData({ params, error }) {
     try {
       const project = await projectLoader(params.project)
+
+      if (project.attributes.website || project.attributes.github) {
+        throw new Error('Skipping rendering')
+      }
+
       return {
         project: {
           ...project.attributes,

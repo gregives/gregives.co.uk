@@ -10,12 +10,18 @@
         {{ date }} &bull; {{ post.mins }} minute read
       </small>
       <p class="post-card__description">{{ post.description }}</p>
+      <mouse />
     </div>
   </li>
 </template>
 
 <script>
+import Mouse from '~/components/Mouse'
+
 export default {
+  components: {
+    Mouse
+  },
   props: {
     post: {
       type: Object,
@@ -64,9 +70,11 @@ export default {
 }
 
 .post-card__content {
+  border-radius: $border-radius;
+  clip-path: inset(0 0 0 0 round $border-radius);
   padding: 1.5rem;
   padding-top: 1rem;
-  padding-left: 0;
+  margin-left: -1.5rem;
   position: relative;
 }
 

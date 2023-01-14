@@ -4,27 +4,27 @@
     <top-bar />
     <nuxt />
     <bottom-bar />
-    <svg-filters />
+    <mouse />
   </div>
 </template>
 
 <script>
-import { hydrateNever } from 'vue-lazy-hydration'
 import TopBar from '~/components/layout/TopBar'
 import BottomBar from '~/components/layout/BottomBar'
+import Mouse from '~/components/Mouse'
 
 export default {
   components: {
     TopBar,
     BottomBar,
-    SvgFilters: hydrateNever(() => import('~/components/layout/SVGFilters'))
+    Mouse
   },
   data() {
     return {
       script: (() => {
         const content = function () {
           // Set theme and theme-color as soon as possible
-          const theme = localStorage.getItem('theme') || 'light'
+          const theme = localStorage.getItem('theme') || 'dark'
           document.documentElement.dataset.theme = theme
 
           const color = getComputedStyle(
@@ -64,10 +64,6 @@ export default {
 #__wrapper {
   display: flex;
   flex-direction: column;
-}
-
-#__wrapper > svg {
-  @include visually-hidden;
 }
 
 .page-enter-active {

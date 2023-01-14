@@ -1,6 +1,12 @@
 <template>
-  <li class="project-card">
-    <div class="project-card__image">
+  <li
+    class="project-card"
+    :class="{
+      'project-card--large': project.title === 'Eleventy Critical CSS',
+      'project-card--myles': project.title === 'Myles Wellbeing'
+    }"
+  >
+    <div v-if="project.image" class="project-card__image">
       <lazy-image
         :src="project.image"
         :alt="title"
@@ -9,17 +15,35 @@
     </div>
     <div class="project-card__content">
       <h2 class="project-card__title">
-        <nuxt-link :to="project.link" class="project-card__link">
+        <a
+          v-if="project.website || project.github"
+          :href="project.website || project.github"
+          class="project-card__link"
+        >
+          {{ title }}
+        </a>
+        <nuxt-link v-else :to="project.link" class="project-card__link">
           {{ title }}
         </nuxt-link>
       </h2>
+      <p v-if="project.stars" class="project-card__stars">
+        <star-icon /> {{ project.stars }}
+      </p>
       <p class="project-card__description">{{ project.description }}</p>
+      <mouse v-if="!project.image || project.title === 'Myles Wellbeing'" />
     </div>
   </li>
 </template>
 
 <script>
+import StarIcon from 'icons/Star'
+import Mouse from '~/components/Mouse'
+
 export default {
+  components: {
+    StarIcon,
+    Mouse
+  },
   props: {
     project: {
       type: Object,
@@ -45,9 +69,29 @@ export default {
       opacity: 0.5;
     }
   }
+
+  &--large {
+    grid-column: 1 / -1;
+
+    .project-card__content {
+      margin-top: 0;
+      margin-left: 0;
+    }
+  }
+
+  &--myles {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+
+    @media (min-width: $breakpoint--sm) {
+      flex-direction: row;
+    }
+  }
 }
 
-.project-card__image {
+:not(.project-card--myles) > .project-card__image {
   background-color: $color__body;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
@@ -58,7 +102,11 @@ export default {
   z-index: -1;
 
   &::after {
-    background-image: linear-gradient($color__primary--muted, $color__primary);
+    background-image: radial-gradient(
+      circle at left,
+      $color__primary--muted,
+      $color__primary
+    );
     content: '';
     inset: 0;
     opacity: 0;
@@ -82,11 +130,36 @@ export default {
   }
 }
 
+.project-card--myles > .project-card__image {
+  background-color: transparent;
+  margin: 0 auto;
+  max-width: 15rem;
+  width: 100%;
+
+  > .lazy {
+    background-color: transparent;
+    border-radius: 16% / 9%;
+    overflow: hidden;
+  }
+
+  @media (min-width: $breakpoint--sm) {
+    max-width: none;
+    min-width: 15rem;
+    width: math.div(100%, 3);
+    z-index: 1;
+  }
+}
+
+.project-card__image ~ .project-card__content {
+  clip-path: none;
+}
+
 .project-card__content {
   background-color: $color__body--overlay;
   border: $border-weight solid $color__primary--muted;
   border-radius: $border-radius;
   box-shadow: $box-shadow--small;
+  clip-path: inset(0 0 0 0 round $border-radius);
   flex-grow: 1;
   margin-top: -3rem;
   margin-left: 1.5rem;
@@ -101,11 +174,36 @@ export default {
   }
 }
 
+.project-card--myles > .project-card__content {
+  clip-path: inset(0 0 0 0 round $border-radius);
+  margin-left: 0;
+  margin-top: -8rem;
+
+  @media (min-width: $breakpoint--sm) {
+    margin-bottom: 5rem;
+    margin-left: -1rem;
+    margin-top: 5rem;
+    padding-left: 3rem;
+  }
+}
+
 .project-card__title {
   @include h3;
 
   display: inline-block;
   margin-bottom: 0.5rem;
+}
+
+.project-card__stars {
+  color: $color__primary;
+  pointer-events: none;
+  position: absolute;
+  right: 2rem;
+  margin-top: -2.5rem;
+
+  .material-design-icon svg {
+    vertical-align: top;
+  }
 }
 
 .project-card__link {

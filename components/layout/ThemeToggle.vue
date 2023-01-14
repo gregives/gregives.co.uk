@@ -22,7 +22,7 @@ export default {
   },
   data() {
     return {
-      theme: (process.client && localStorage.getItem('theme')) || 'light'
+      theme: (process.client && localStorage.getItem('theme')) || 'dark'
     }
   },
   head() {

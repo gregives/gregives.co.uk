@@ -74,9 +74,9 @@
     transform: none;
 
     &::before {
-      background-color: $color__body--overlay;
+      background-color: $color__body;
       content: '';
-      filter: blur(2rem);
+      filter: blur(1.5rem);
       inset: -1rem -4rem;
       position: absolute;
     }
@@ -125,22 +125,6 @@
     span {
       @include link--active;
     }
-  }
-
-  &[href*='guestbook'] > span::after {
-    background-color: $color__primary;
-    border-radius: 2rem;
-    bottom: calc(100% - 0.25rem);
-    color: $color__body;
-    content: 'New';
-    font-size: 60%;
-    line-height: 1.2;
-    padding: 0.1em 0.4em;
-    position: absolute;
-    right: -30%;
-    text-shadow: none;
-    text-transform: uppercase;
-    transform: rotate(5deg);
   }
 }
 

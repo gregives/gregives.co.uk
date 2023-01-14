@@ -5,16 +5,9 @@
       <h1 class="home__title">
         Hi, I’m <span class="home__title--primary">Greg Ives</span>
       </h1>
-      <div class="home__description">
+      <div ref="description" class="home__description">
         <markdown :markdown="markdown" />
       </div>
-    </div>
-    <ol id="stuff" class="home__posts">
-      <post-card v-for="post in posts" :key="post.title" :post="post" />
-    </ol>
-    <div class="home__posts-more">
-      <nuxt-link to="/blog/">See more blog posts</nuxt-link>
-      <see-more-icon />
     </div>
     <ol class="home__projects">
       <project-card
@@ -27,10 +20,18 @@
       <nuxt-link to="/projects/">See more projects</nuxt-link>
       <see-more-icon />
     </div>
+    <ol id="stuff" class="home__posts">
+      <post-card v-for="post in posts" :key="post.title" :post="post" />
+    </ol>
+    <div class="home__posts-more">
+      <nuxt-link to="/blog/">See more blog posts</nuxt-link>
+      <see-more-icon />
+    </div>
   </main>
 </template>
 
 <script>
+import balanceText from 'balance-text'
 import DownIcon from 'icons/KeyboardBackspace'
 import { hydrateWhenIdle } from 'vue-lazy-hydration'
 import { projectLoader, projectSlugs } from '~/contents/projects'
@@ -56,6 +57,7 @@ export default {
         }
       })
     )
+
     posts.sort((postA, postB) => postB.date - postA.date)
 
     const projects = await Promise.all(
@@ -66,6 +68,7 @@ export default {
         }
       })
     )
+
     projects.sort((projectA, projectB) => projectB.date - projectA.date)
 
     return {
@@ -73,7 +76,18 @@ export default {
         vue
       },
       posts: posts.slice(0, 3),
-      projects: projects.slice(0, 2)
+      projects: projects.slice(0, 1)
+    }
+  },
+  mounted() {
+    window.addEventListener('resize', this.balanceText)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.balanceText)
+  },
+  methods: {
+    balanceText() {
+      balanceText(this.$refs.description.children[0].children[0])
     }
   }
 }
@@ -82,6 +96,9 @@ export default {
 <style lang="scss">
 .home {
   @include page;
+  @include background(
+    ((calc(50% - 10rem) 5rem 20rem), (calc(50% + 5rem) 10rem 15rem))
+  );
 }
 
 .home__title {
@@ -93,13 +110,16 @@ export default {
 
   &::before {
     background-color: $color__body;
-    bottom: -5rem;
+    border-radius: 10rem;
+    box-shadow: 0 0 4rem 5rem $color__body;
+    bottom: 0;
     content: '';
-    filter: blur(1.5rem);
-    height: calc(100% + 8rem);
-    left: 0;
+    height: calc(100% + 1rem);
+    left: 50%;
+    max-width: 40rem;
     position: absolute;
-    width: 100%;
+    transform: translateX(-50%);
+    width: 100vw;
     z-index: -1;
   }
 }
@@ -116,22 +136,22 @@ export default {
   text-align: center;
   width: 100%;
   z-index: 1;
-
-  @media (min-width: $breakpoint--md) {
-    width: 90%;
-  }
 }
 
 .home__posts {
   display: grid;
   grid-gap: 1.5rem;
+  margin-top: 5rem;
+
+  @media (min-width: $breakpoint--sm) {
+    margin-top: 10rem;
+  }
 }
 
 .home__projects {
   display: grid;
   grid-template-columns: 100%;
   grid-gap: 3rem;
-  margin-top: 3rem;
 
   @media (min-width: $breakpoint--md) {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -161,6 +181,12 @@ export default {
       inset: 0;
       position: absolute;
     }
+  }
+}
+
+@media (min-width: $breakpoint--sm) {
+  .home__projects-more {
+    margin-top: -4rem;
   }
 }
 </style>

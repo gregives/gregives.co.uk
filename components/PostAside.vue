@@ -99,12 +99,12 @@ export default {
 
   &--warning {
     &::before {
-      background-color: $color__warning;
+      background-color: $color__accent;
     }
 
     &::after {
-      border: $border-weight solid $color__warning;
-      color: $color__warning;
+      border: $border-weight solid $color__accent;
+      color: $color__accent;
       content: '!';
     }
   }

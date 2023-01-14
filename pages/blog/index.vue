@@ -21,6 +21,7 @@ export default {
     const posts = await Promise.all(
       postSlugs.map(async (postSlug) => {
         const post = await postLoader(postSlug)
+
         return {
           ...post.attributes
         }

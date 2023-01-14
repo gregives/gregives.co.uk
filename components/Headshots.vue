@@ -32,12 +32,6 @@
 import headshots from '~/config/headshots'
 
 export default {
-  props: {
-    error: {
-      type: Boolean,
-      default: false
-    }
-  },
   data() {
     return {
       closestHeadshot: 'fd',
@@ -50,7 +44,7 @@ export default {
   },
   computed: {
     headshot() {
-      return `headshots__image--${this.error ? 'error' : this.closestHeadshot}`
+      return `headshots__image--${this.closestHeadshot}`
     },
     preview() {
       return require('~/assets/images/headshots--fd.png')
@@ -74,29 +68,25 @@ export default {
   mounted() {
     this.mounted = true
 
-    if (!this.error) {
-      window.addEventListener('mousemove', this.storeMousePosition)
-      window.addEventListener('touchstart', this.storeMousePosition)
-      window.addEventListener('touchmove', this.storeMousePosition)
+    window.addEventListener('mousemove', this.storeMousePosition)
+    window.addEventListener('touchstart', this.storeMousePosition)
+    window.addEventListener('touchmove', this.storeMousePosition)
 
-      this.rAF = requestAnimationFrame(this.changeHeadshot)
-    }
+    this.rAF = requestAnimationFrame(this.changeHeadshot)
   },
   beforeDestroy() {
-    if (!this.error) {
-      window.removeEventListener('mousemove', this.storeMousePosition)
-      window.removeEventListener('touchstart', this.storeMousePosition)
-      window.removeEventListener('touchmove', this.storeMousePosition)
+    window.removeEventListener('mousemove', this.storeMousePosition)
+    window.removeEventListener('touchstart', this.storeMousePosition)
+    window.removeEventListener('touchmove', this.storeMousePosition)
 
-      cancelAnimationFrame(this.rAF)
-    }
+    cancelAnimationFrame(this.rAF)
   },
   methods: {
     storeMousePosition(event) {
       try {
         this.x = event.clientX || event.changedTouches[0].clientX
         this.y = event.clientY || event.changedTouches[0].clientY
-      } catch (error) {
+      } catch {
         // Don't worry about errors
       }
     },
@@ -159,13 +149,13 @@ export default {
 
 <style lang="scss">
 .headshots {
-  filter: sepia(1) hue-rotate(-40deg) hue-rotate($color__primary--hue)
-    saturate(2) brightness(1.2) contrast(0.9);
-  height: calc(20rem / 1.5 + 8vw);
-  margin: -2rem auto;
+  filter: sepia(1) hue-rotate(-35deg) hue-rotate($color__primary--hue)
+    saturate(2) brightness(1.1);
+  height: calc(12rem + 20vh - 0.5rem);
+  margin: 0 auto;
   overflow: hidden;
   position: relative;
-  width: calc(15rem / 1.5 + 6vw); // Aspect ratio of 4:3
+  width: calc(9rem + 15vh); // Aspect ratio of 4:3
 }
 
 .headshots__image {
@@ -295,9 +285,5 @@ export default {
 
 .headshots__image--fg .lazy__image--loaded {
   transform: translate(math.div(-500%, 7), math.div(-300%, 4));
-}
-
-.headshots__image--error .lazy__image--loaded {
-  transform: translate(math.div(-600%, 7), math.div(-300%, 4)) !important;
 }
 </style>

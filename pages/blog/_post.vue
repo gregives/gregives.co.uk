@@ -18,6 +18,7 @@ export default {
   async asyncData({ params, error }) {
     try {
       const post = await postLoader(params.post)
+
       return {
         post: {
           ...post.attributes,
@@ -68,7 +69,9 @@ export default {
   @include page;
 
   .comments {
-    margin-top: 3rem;
+    margin-top: -7rem;
+    position: relative;
+    z-index: 1;
 
     @media (min-width: $breakpoint--lg) {
       margin-left: math.div(100%, 3);

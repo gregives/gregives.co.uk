@@ -21,6 +21,39 @@
     padding: 0;
     width: 100%;
   }
+
+  &::before {
+    content: '';
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100vw;
+  }
+}
+
+@mixin background($positions: []) {
+  $background-image: null;
+  @each $x, $y, $size in $positions {
+    $i: list.index($positions, ($x $y $size));
+    $background-image: $background-image, radial-gradient(circle at $x $y, if($i == 1, $color__accent, $color__primary) 0, transparent $size);
+  }
+
+  // &::before {
+  //   background-size: 100% 100%;
+  //   background-image: $background-image;
+  //   background-repeat: no-repeat;
+  //   content: '';
+  //   height: 100%;
+  //   left: 50%;
+  //   opacity: 0.5;
+  //   position: absolute;
+  //   width: 100vw;
+  //   top: 50%;
+  //   transform: translate(-50%, -50%);
+  //   z-index: -1;
+  // }
 }
 
 @mixin title {
@@ -147,14 +180,4 @@
   &::before {
     opacity: 1;
   }
-}
-
-@mixin visually-hidden {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }

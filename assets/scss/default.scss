@@ -220,6 +220,19 @@ html {
   }
 }
 
+.markdown {
+  position: relative;
+
+  &:has(a)::before {
+    background-color: $color__body;
+    box-shadow: 0 0 2rem 2rem $color__body;
+    content: '';
+    inset: 0;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
 .nuxt-progress {
   background-color: $color__primary !important;
 }

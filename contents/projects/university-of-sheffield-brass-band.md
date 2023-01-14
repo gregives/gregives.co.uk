@@ -1,8 +1,8 @@
 ---
 title: University of Sheffield Brass Band
-titleShort: USBB
+titleShort: USBB Website
 date: 2019-03-01
-image: '/assets/images/dynamic/usbb/website1.png'
+image: /assets/images/dynamic/usbb/website1.png
 description: Website for the University of Sheffield Brass Band to showcase concerts, news and photos. Uses Jekyll for easy content management
 tags:
   - Jekyll

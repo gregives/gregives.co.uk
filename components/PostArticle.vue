@@ -13,10 +13,7 @@
       <ul v-if="post.tags" class="article__tags">
         <li v-for="tag in post.tags" :key="tag">{{ tag }}</li>
       </ul>
-      <div
-        v-if="post.tableOfContents"
-        class="article__contents"
-      >
+      <div v-if="post.tableOfContents" class="article__contents">
         <strong>Table of Contents</strong>
         <div v-html="post.tableOfContents"></div>
       </div>
@@ -51,7 +48,7 @@ import BackIcon from 'icons/KeyboardBackspace'
 
 export default {
   components: {
-    BackIcon,
+    BackIcon
   },
   props: {
     post: {
@@ -174,7 +171,6 @@ export default {
       bottom: -5rem;
       content: '';
       display: block;
-      filter: blur(0.5rem);
       height: 10rem;
       pointer-events: none;
       position: sticky;

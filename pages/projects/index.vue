@@ -25,6 +25,7 @@ export default {
     const projects = await Promise.all(
       projectSlugs.map(async (projectSlug) => {
         const project = await projectLoader(projectSlug)
+
         return {
           ...project.attributes
         }
