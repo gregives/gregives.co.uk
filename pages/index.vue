@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import balanceText from 'balance-text'
 import DownIcon from 'icons/KeyboardBackspace'
 import { hydrateWhenIdle } from 'vue-lazy-hydration'
 import { projectLoader, projectSlugs } from '~/contents/projects'
@@ -78,17 +77,6 @@ export default {
       posts: posts.slice(0, 3),
       projects: projects.slice(0, 1)
     }
-  },
-  mounted() {
-    window.addEventListener('resize', this.balanceText)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.balanceText)
-  },
-  methods: {
-    balanceText() {
-      balanceText(this.$refs.description.children[0].children[0])
-    }
   }
 }
 </script>
@@ -134,9 +122,8 @@ export default {
 }
 
 .home__description {
-  margin-bottom: 8rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 8rem;
+  max-width: 60rem;
   position: relative;
   text-align: center;
   width: 100%;
