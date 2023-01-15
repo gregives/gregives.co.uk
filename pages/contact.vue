@@ -87,13 +87,16 @@ export default {
 
 <style lang="scss">
 .contact {
-  $clip-path: polygon(100% 35%, 80% 30%, 55% 60%, 100% 95%);
   @include page;
-  @include dots($clip-path);
+  @include background(
+    ((calc(50% + 30rem) 15rem 10rem), (calc(50% - 40rem) -10rem 40rem))
+  );
 }
 
 .contact__title {
   @include title;
+
+  margin-bottom: 4rem;
 }
 
 .contact__title--primary {

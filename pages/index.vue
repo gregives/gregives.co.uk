@@ -1,24 +1,13 @@
 <template>
   <main class="home">
     <div class="home__banner">
+      <headshots />
       <h1 class="home__title">
         Hi, I’m <span class="home__title--primary">Greg Ives</span>
       </h1>
-      <div class="home__description">
+      <div ref="description" class="home__description">
         <markdown :markdown="markdown" />
       </div>
-      <div class="home__actions">
-        <a class="home__stuff" href="#stuff">See my stuff <down-icon /></a>
-        <nuxt-link class="home__contact" to="/contact/">Contact me</nuxt-link>
-      </div>
-      <headshots />
-    </div>
-    <ol id="stuff" class="home__posts">
-      <post-card v-for="post in posts" :key="post.title" :post="post" />
-    </ol>
-    <div class="home__posts-more">
-      <nuxt-link to="/blog/">See more blog posts</nuxt-link>
-      <see-more-icon />
     </div>
     <ol class="home__projects">
       <project-card
@@ -29,6 +18,13 @@
     </ol>
     <div class="home__projects-more">
       <nuxt-link to="/projects/">See more projects</nuxt-link>
+      <see-more-icon />
+    </div>
+    <ol id="stuff" class="home__posts">
+      <post-card v-for="post in posts" :key="post.title" :post="post" />
+    </ol>
+    <div class="home__posts-more">
+      <nuxt-link to="/blog/">See more blog posts</nuxt-link>
       <see-more-icon />
     </div>
   </main>
@@ -44,7 +40,6 @@ import ProjectCard from '~/components/ProjectCard'
 
 export default {
   components: {
-    DownIcon,
     SeeMoreIcon: DownIcon,
     Headshots: hydrateWhenIdle(() => import('~/components/Headshots')),
     PostCard,
@@ -61,6 +56,7 @@ export default {
         }
       })
     )
+
     posts.sort((postA, postB) => postB.date - postA.date)
 
     const projects = await Promise.all(
@@ -71,6 +67,7 @@ export default {
         }
       })
     )
+
     projects.sort((projectA, projectB) => projectB.date - projectA.date)
 
     return {
@@ -78,7 +75,7 @@ export default {
         vue
       },
       posts: posts.slice(0, 3),
-      projects: projects.slice(0, 2)
+      projects: projects.slice(0, 1)
     }
   }
 }
@@ -86,34 +83,38 @@ export default {
 
 <style lang="scss">
 .home {
-  $clip-path: polygon(
-    100% 15%,
-    50% 25%,
-    45% 35%,
-    100% 45%,
-    100% 100%,
-    50% 100%,
-    0% 70%,
-    0% 100%,
-    100% 100%
-  );
   @include page;
-  @include dots($clip-path);
-}
-
-.home__banner {
-  min-height: calc(100vh - 11.5rem);
-  min-height: calc(var(--vh, 1vh) * 100 - 11.5rem);
-  position: relative;
-
-  @media (min-width: $breakpoint--md) {
-    min-height: calc(100vh - 13rem);
-    min-height: calc(var(--vh, 1vh) * 100 - 13rem);
-  }
+  @include background(
+    (
+      (calc(50% - 10rem) 5rem 20rem),
+      (calc(50% + 5rem) 10rem 15rem),
+      (calc(50% - 80rem) 60rem 55rem),
+      (calc(50% + 80rem) 60% 55rem)
+    )
+  );
 }
 
 .home__title {
   @include title;
+
+  text-align: center;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    background-color: $color__body;
+    border-radius: 10rem;
+    box-shadow: 0 0 4rem 5rem $color__body;
+    bottom: 0;
+    content: '';
+    height: calc(100% + 1rem);
+    left: 50%;
+    max-width: 40rem;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 100vw;
+    z-index: -1;
+  }
 }
 
 .home__title--primary {
@@ -121,55 +122,28 @@ export default {
 }
 
 .home__description {
-  margin-bottom: 3rem;
+  margin: 0 auto 8rem;
+  max-width: 60rem;
+  position: relative;
+  text-align: center;
   width: 100%;
-
-  @media (min-width: $breakpoint--md) {
-    width: 60%;
-  }
-}
-
-.home__actions {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: $breakpoint--md) {
-    flex-direction: row;
-  }
-}
-
-.home__stuff {
-  @include button;
-  @include button--primary;
-
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-
-  .material-design-icon {
-    display: inline-block;
-    margin-left: -0.15rem;
-    margin-right: -0.35rem;
-    transform: scale(0.95) rotate(-90deg);
-  }
-}
-
-.home__contact {
-  @include button;
-
-  margin-bottom: 1rem;
+  z-index: 1;
 }
 
 .home__posts {
   display: grid;
-  grid-gap: 1.5rem;
+  grid-gap: 2.5rem;
+  margin-top: 5rem;
+
+  @media (min-width: $breakpoint--sm) {
+    margin-top: 10rem;
+  }
 }
 
 .home__projects {
   display: grid;
   grid-template-columns: 100%;
-  grid-gap: 3rem;
-  margin-top: 3rem;
+  grid-gap: 4rem;
 
   @media (min-width: $breakpoint--md) {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -194,11 +168,32 @@ export default {
   a {
     @include link;
 
-    &::after {
+    position: relative;
+
+    &::before {
+      background-color: $color__body;
+      box-shadow: 0 0 2rem 2rem $color__body;
+      border-radius: 50%;
       content: '';
-      inset: 0;
       position: absolute;
+      inset: 0;
+      z-index: -1;
     }
+
+    &::after {
+      bottom: -0.5rem;
+      content: '';
+      left: -1rem;
+      position: absolute;
+      right: -2rem;
+      top: -0.5rem;
+    }
+  }
+}
+
+@media (min-width: $breakpoint--sm) {
+  .home__projects-more {
+    margin-top: -4rem;
   }
 }
 </style>

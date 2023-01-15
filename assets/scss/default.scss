@@ -47,6 +47,14 @@ body {
   background-color: $color__body;
 }
 
+html,
+body,
+#__nuxt,
+#__layout,
+#__wrapper {
+  height: 100%;
+}
+
 h1,
 h2,
 h3,
@@ -209,6 +217,19 @@ html {
     &::before {
       display: none;
     }
+  }
+}
+
+.markdown {
+  position: relative;
+
+  &:has(a)::before {
+    background-color: $color__body;
+    box-shadow: 0 0 2rem 2rem $color__body;
+    content: '';
+    inset: 0;
+    position: absolute;
+    z-index: -1;
   }
 }
 

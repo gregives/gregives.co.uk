@@ -2,6 +2,7 @@
   <button
     :aria-label="theme === 'light' ? 'Dark theme' : 'Light theme'"
     class="theme-toggle"
+    :class="{ 'theme-toggle--loaded': loaded }"
     @click="toggleTheme"
   >
     <transition name="spin" mode="out-in">
@@ -22,7 +23,8 @@ export default {
   },
   data() {
     return {
-      theme: (process.client && localStorage.getItem('theme')) || 'light'
+      loaded: false,
+      theme: null
     }
   },
   head() {
@@ -44,7 +46,25 @@ export default {
     theme(theme) {
       document.documentElement.dataset.theme = theme
       localStorage.setItem('theme', theme)
+
+      const { scrollX, scrollY } = window
+      document.documentElement.style.display = 'none'
+      document.documentElement.style.scrollBehavior = 'auto'
+
+      setTimeout(() => {
+        document.documentElement.style.display = 'block'
+        window.scrollTo({ left: scrollX, top: scrollY })
+        document.documentElement.style.scrollBehavior = 'smooth'
+      }, 0)
     }
+  },
+  mounted() {
+    this.theme = localStorage.getItem('theme') || 'dark'
+
+    // No transition when loading page
+    setTimeout(() => {
+      this.loaded = true
+    }, 100)
   },
   methods: {
     toggleTheme() {
@@ -86,17 +106,19 @@ export default {
     }
   }
 
-  .spin-enter-active,
-  .spin-leave-active {
-    transition: transform 100ms linear;
-  }
+  &--loaded {
+    .spin-enter-active,
+    .spin-leave-active {
+      transition: transform 100ms linear;
+    }
 
-  .spin-enter {
-    transform: scale(0.9) rotate(90deg);
-  }
+    .spin-enter {
+      transform: scale(1.2) rotate(90deg);
+    }
 
-  .spin-leave-to {
-    transform: scale(0.9) rotate(-90deg);
+    .spin-leave-to {
+      transform: scale(1.2) rotate(-90deg);
+    }
   }
 }
 </style>

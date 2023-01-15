@@ -1,6 +1,6 @@
 <template>
   <nav class="nav">
-    <ol v-if="!onWatchPage" class="nav__list">
+    <ol class="nav__list">
       <li class="nav__list-item">
         <nuxt-link class="nav__link" to="/blog/">
           <span>Blog</span>
@@ -29,17 +29,6 @@
     </ol>
   </nav>
 </template>
-
-<script>
-export default {
-  props: {
-    onWatchPage: {
-      type: Boolean,
-      default: false
-    }
-  }
-}
-</script>
 
 <style lang="scss">
 .nav {
@@ -86,9 +75,10 @@ export default {
 
     &::before {
       background-color: $color__body--overlay;
+      box-shadow: 0 0 2rem 2rem $color__body--overlay;
       content: '';
-      filter: blur(2rem);
-      inset: -1rem -4rem;
+      inset: 0.5rem -0.5rem;
+      opacity: 0.5;
       position: absolute;
     }
   }
@@ -126,8 +116,21 @@ export default {
     @media (min-width: $breakpoint--md) {
       @include link($color__body--overlay);
 
-      filter: drop-shadow(0 0 0.2rem $color__body--overlay)
-        drop-shadow(0 0 0.5rem $color__body--overlay);
+      position: relative;
+      z-index: 1;
+
+      &::before {
+        background-color: $color__body--overlay;
+        box-shadow: 0 0 2rem 1rem $color__body--overlay;
+        border-radius: 1rem;
+        bottom: 0.25rem;
+        content: '';
+        left: 0.5rem;
+        position: absolute;
+        right: 0.5rem;
+        top: 0.5rem;
+        z-index: -1;
+      }
     }
   }
 
@@ -136,22 +139,6 @@ export default {
     span {
       @include link--active;
     }
-  }
-
-  &[href*='guestbook'] > span::after {
-    background-color: $color__primary;
-    border-radius: 2rem;
-    bottom: calc(100% - 0.25rem);
-    color: $color__body;
-    content: 'New';
-    font-size: 60%;
-    line-height: 1.2;
-    padding: 0.1em 0.4em;
-    position: absolute;
-    right: -30%;
-    text-shadow: none;
-    text-transform: uppercase;
-    transform: rotate(5deg);
   }
 }
 

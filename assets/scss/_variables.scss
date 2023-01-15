@@ -1,12 +1,14 @@
 @use 'sass:color';
 @use 'sass:math';
+@use 'sass:list';
 
 // Colours
 $color__primary: var(--color__primary);
 $color__primary--muted: var(--color__primary--muted);
 $color__primary--muter: var(--color__primary--muter);
 $color__primary--hue: var(--color__primary--hue);
-$color__warning: var(--color__warning);
+$color__accent: var(--color__accent);
+$color__accent--muted: var(--color__accent--muted);
 $color__body: var(--color__body);
 $color__body--overlay: var(--color__body--overlay);
 $color__body--blur: var(--color__body--blur);

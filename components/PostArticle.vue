@@ -13,16 +13,7 @@
       <ul v-if="post.tags" class="article__tags">
         <li v-for="tag in post.tags" :key="tag">{{ tag }}</li>
       </ul>
-      <div v-if="post.specs" class="article__watch">
-        <watch-specs :specs="post.specs" />
-        <a v-if="post.purchase" class="article__purchase" :href="post.purchase">
-          <span>Buy now</span>
-        </a>
-      </div>
-      <div
-        v-if="type !== 'watch' && post.tableOfContents"
-        class="article__contents"
-      >
+      <div v-if="post.tableOfContents" class="article__contents">
         <strong>Table of Contents</strong>
         <div v-html="post.tableOfContents"></div>
       </div>
@@ -47,27 +38,17 @@
         >
           See all projects
         </nuxt-link>
-        <nuxt-link v-if="type === 'watch'" to="/watches/" class="article__back">
-          See all watches
-        </nuxt-link>
       </div>
-      <p v-if="post.specs" class="article__affiliate-notice">
-        *&#8239;Links with an asterisk are affiliate links, which means I get a
-        commission if you decide to buy anything. This won't cost you a penny
-        more but will help keep this blog going!
-      </p>
     </div>
   </article>
 </template>
 
 <script>
 import BackIcon from 'icons/KeyboardBackspace'
-import WatchSpecs from '~/components/WatchSpecs'
 
 export default {
   components: {
-    BackIcon,
-    WatchSpecs
+    BackIcon
   },
   props: {
     post: {
@@ -102,9 +83,6 @@ export default {
 }
 
 .article__title {
-  $clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-  @include dots($clip-path);
-
   margin-bottom: 5rem;
   position: relative;
 
@@ -128,12 +106,6 @@ export default {
     box-shadow: 0.5rem 0 $color__body, -0.5rem 0 $color__body,
       0.5rem 0.5rem $color__body, -0.5rem 0.5rem $color__body;
     display: inline;
-  }
-
-  // Background dots behind post title
-  &::before {
-    top: -6rem;
-    height: calc(100% + 9rem);
   }
 }
 
@@ -199,7 +171,6 @@ export default {
       bottom: -5rem;
       content: '';
       display: block;
-      filter: blur(0.5rem);
       height: 10rem;
       pointer-events: none;
       position: sticky;
@@ -264,46 +235,6 @@ export default {
       vertical-align: middle;
     }
   }
-}
-
-.article__watch {
-  @media (min-width: $breakpoint--lg) {
-    max-height: calc(100vh - 5.5rem);
-    overflow-y: auto;
-    margin: -0.5rem -1rem;
-    padding: 0.5rem 1rem;
-    position: sticky;
-    top: 4.5rem;
-
-    &::-webkit-scrollbar-track {
-      background-color: $color__body;
-    }
-  }
-}
-
-.article__purchase {
-  @include button;
-  @include button--primary;
-
-  display: block;
-  font-variant: small-caps;
-  margin: 1.5rem 0 3rem;
-
-  > span::after {
-    content: '\202F*';
-    opacity: 0.6;
-  }
-
-  @media (min-width: $breakpoint--lg) {
-    margin-bottom: 0;
-  }
-}
-
-.article__affiliate-notice {
-  color: $color__text--muted;
-  font-size: 70%;
-  margin-top: 2rem;
-  margin-bottom: -0.5rem;
 }
 
 .article__description {

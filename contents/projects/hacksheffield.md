@@ -1,8 +1,7 @@
 ---
 title: HackSheffield
-titleShort: ''
 date: 2019-04-01
-image: '/assets/images/dynamic/hacksheffield/committee.jpg'
+image: /assets/images/dynamic/hacksheffield/committee.jpg
 description: Hackathon society which I have been involved in since starting university. See which hackathons I have attended and organised
 tags:
   - Hackathons

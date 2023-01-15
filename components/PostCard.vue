@@ -10,12 +10,18 @@
         {{ date }} &bull; {{ post.mins }} minute read
       </small>
       <p class="post-card__description">{{ post.description }}</p>
+      <mouse />
     </div>
   </li>
 </template>
 
 <script>
+import Mouse from '~/components/Mouse'
+
 export default {
+  components: {
+    Mouse
+  },
   props: {
     post: {
       type: Object,
@@ -40,6 +46,7 @@ export default {
   border: $border-weight solid $color__primary--muted;
   border-radius: $border-radius;
   box-shadow: $box-shadow--small;
+  margin-top: -0.5rem;
   position: relative;
   transition: box-shadow 150ms $transition__normal,
     border-color 150ms $transition__normal;
@@ -64,9 +71,11 @@ export default {
 }
 
 .post-card__content {
+  border-radius: $border-radius;
+  clip-path: inset(0 0 0 0 round $border-radius);
   padding: 1.5rem;
   padding-top: 1rem;
-  padding-left: 0;
+  margin-left: -1.5rem;
   position: relative;
 }
 

@@ -25,6 +25,7 @@ export default {
     const projects = await Promise.all(
       projectSlugs.map(async (projectSlug) => {
         const project = await projectLoader(projectSlug)
+
         return {
           ...project.attributes
         }
@@ -46,27 +47,23 @@ export default {
 
 <style lang="scss">
 .projects {
-  $clip-path: polygon(
-    0% 30%,
-    0% 20%,
-    100% 10%,
-    100% 20%,
-    100% 30%,
-    80% 50%,
-    100% 80%,
-    100% 100%,
-    60% 100%,
-    0% 70%,
-    0% 100%,
-    100% 100%,
-    100% 20%
-  );
   @include page;
-  @include dots($clip-path);
+  @include background(
+    (
+      (calc(50% + 40rem) -30rem 50rem),
+      (calc(50% - 50rem) -10rem 40rem),
+      (calc(50% - 80rem) 60rem 55rem),
+      (calc(50% + 10rem) 100rem 30rem),
+      (calc(50% - 40rem) calc(100% + 10rem) 50rem),
+      (calc(50% + 80rem) 60% 55rem)
+    )
+  );
 }
 
 .projects__title {
   @include title;
+
+  margin-bottom: 4rem;
 }
 
 .projects__title--primary {
@@ -76,7 +73,7 @@ export default {
 .projects__projects {
   display: grid;
   grid-template-columns: 100%;
-  grid-gap: 3rem;
+  grid-gap: 4rem;
 
   @media (min-width: $breakpoint--md) {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);

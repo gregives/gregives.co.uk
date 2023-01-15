@@ -1,32 +1,30 @@
 <template>
-  <div id="__app">
+  <div id="__wrapper" ref="wrapper">
     <script v-html="script"></script>
-    <div id="__wrapper" ref="wrapper">
-      <top-bar />
-      <nuxt />
-      <bottom-bar />
-    </div>
-    <svg-filters />
+    <top-bar />
+    <nuxt />
+    <bottom-bar />
+    <mouse />
   </div>
 </template>
 
 <script>
-import { hydrateNever } from 'vue-lazy-hydration'
 import TopBar from '~/components/layout/TopBar'
 import BottomBar from '~/components/layout/BottomBar'
+import Mouse from '~/components/Mouse'
 
 export default {
   components: {
     TopBar,
     BottomBar,
-    SvgFilters: hydrateNever(() => import('~/components/layout/SVGFilters'))
+    Mouse
   },
   data() {
     return {
       script: (() => {
         const content = function () {
           // Set theme and theme-color as soon as possible
-          const theme = localStorage.getItem('theme') || 'light'
+          const theme = localStorage.getItem('theme') || 'dark'
           document.documentElement.dataset.theme = theme
 
           const color = getComputedStyle(
@@ -37,14 +35,6 @@ export default {
           document
             .querySelector('meta[name="theme-color"]')
             .setAttribute('content', color.trim())
-
-          // Update VH units for Android
-          const updateVH = () => {
-            const vh = (document.documentElement.clientHeight / 100).toFixed(3)
-            document.documentElement.style.setProperty('--vh', `${vh}px`)
-          }
-          window.addEventListener('resize', updateVH)
-          updateVH()
 
           // Remove data-n-head
           delete document.documentElement.dataset.nHead
@@ -63,6 +53,11 @@ export default {
 </script>
 
 <style lang="scss">
+#__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .page-enter-active {
   transition: opacity 250ms $transition__normal--in;
 
@@ -86,9 +81,5 @@ export default {
   ~ .footer {
     opacity: 0;
   }
-}
-
-#__app > svg {
-  @include visually-hidden;
 }
 </style>

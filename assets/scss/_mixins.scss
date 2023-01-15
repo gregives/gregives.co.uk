@@ -8,15 +8,11 @@
 @mixin page {
   @include container;
 
-  // 100vh minus height of header and footer
-  min-height: calc(100vh - 6.5rem);
-  min-height: calc(var(--vh, 1vh) * 100 - 6.5rem);
+  flex: 1;
   padding-top: 7.5rem;
   padding-bottom: 4.5rem;
 
   @media (min-width: $breakpoint--md) {
-    min-height: calc(100vh - 4rem);
-    min-height: calc(var(--vh, 1vh) * 100 - 4rem);
     padding-top: 9rem;
   }
 
@@ -25,31 +21,76 @@
     padding: 0;
     width: 100%;
   }
-}
 
-@mixin dots($clip-path) {
-  @supports (clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)) {
-    &::before {
-      $background-size: 0.75rem;
-      $background-dots: radial-gradient(
-        $color__primary--muted 15%,
-        transparent 15%
+  &::after {
+    content: '';
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100vw;
+    z-index: -1;
+  }
+
+  @supports (pointer-events: none) {
+    &::after {
+      background-image: linear-gradient(
+        to right,
+        $color__body--blur calc(50% - #{$breakpoint--xl} / 2 - 50rem),
+        transparent calc(50% - #{$breakpoint--xl} / 2),
+        transparent calc(50% + #{$breakpoint--xl} / 2),
+        $color__body--blur calc(50% + #{$breakpoint--xl} / 2 + 50rem)
       );
-
-      background-image: $background-dots, $background-dots;
-      background-size: $background-size $background-size;
-      background-position: 0 0,
-        math.div($background-size, 2) math.div($background-size, 2);
-      clip-path: $clip-path;
       content: '';
       height: 100%;
       left: 50%;
+      pointer-events: none;
       position: absolute;
       top: 0;
       transform: translateX(-50%);
       width: 100vw;
-      z-index: -1;
+      z-index: 50;
     }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@mixin background($positions: []) {
+  $background-image: null;
+
+  @each $x, $y, $size in $positions {
+    $i: list.index($positions, ($x $y $size));
+    $background-image: $background-image,
+      radial-gradient(
+        circle at $x $y,
+        if($i == 1 or $i == 5, $color__accent--muted, $color__primary--muted),
+        transparent $size
+      );
+  }
+
+  &::before {
+    animation: fade-in 1s ease forwards;
+    background-image: $background-image;
+    content: '';
+    filter: blur(5rem);
+    height: 100%;
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transform: translate3d(-50%, 0, 0);
+    width: 100vw;
+    z-index: -1;
   }
 }
 
@@ -177,14 +218,4 @@
   &::before {
     opacity: 1;
   }
-}
-
-@mixin visually-hidden {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }

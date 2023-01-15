@@ -32,12 +32,6 @@
 import headshots from '~/config/headshots'
 
 export default {
-  props: {
-    error: {
-      type: Boolean,
-      default: false
-    }
-  },
   data() {
     return {
       closestHeadshot: 'fd',
@@ -50,7 +44,7 @@ export default {
   },
   computed: {
     headshot() {
-      return `headshots__image--${this.error ? 'error' : this.closestHeadshot}`
+      return `headshots__image--${this.closestHeadshot}`
     },
     preview() {
       return require('~/assets/images/headshots--fd.png')
@@ -74,84 +68,71 @@ export default {
   mounted() {
     this.mounted = true
 
-    if (!this.error) {
-      window.addEventListener('mousemove', this.storeMousePosition)
-      window.addEventListener('touchstart', this.storeMousePosition)
-      window.addEventListener('touchmove', this.storeMousePosition)
+    window.addEventListener('mousemove', this.storeMousePosition)
+    window.addEventListener('touchstart', this.storeMousePosition)
+    window.addEventListener('touchmove', this.storeMousePosition)
 
-      this.rAF = requestAnimationFrame(this.changeHeadshot)
-    }
+    this.rAF = requestAnimationFrame(this.changeHeadshot)
   },
   beforeDestroy() {
-    if (!this.error) {
-      window.removeEventListener('mousemove', this.storeMousePosition)
-      window.removeEventListener('touchstart', this.storeMousePosition)
-      window.removeEventListener('touchmove', this.storeMousePosition)
+    window.removeEventListener('mousemove', this.storeMousePosition)
+    window.removeEventListener('touchstart', this.storeMousePosition)
+    window.removeEventListener('touchmove', this.storeMousePosition)
 
-      cancelAnimationFrame(this.rAF)
-    }
+    cancelAnimationFrame(this.rAF)
   },
   methods: {
     storeMousePosition(event) {
       try {
         this.x = event.clientX || event.changedTouches[0].clientX
         this.y = event.clientY || event.changedTouches[0].clientY
-      } catch (error) {
+      } catch {
         // Don't worry about errors
       }
     },
     changeHeadshot() {
-      if (this.x === null || this.y === null) {
-        this.rAF = requestAnimationFrame(this.changeHeadshot)
-        return
-      }
-
-      let rect
       try {
-        rect = this.$refs.headshot.getBoundingClientRect()
-      } catch (error) {
-        this.rAF = requestAnimationFrame(this.changeHeadshot)
-        return
-      }
+        const rect = this.$refs.headshot.getBoundingClientRect()
 
-      const mouseX = ((this.x - rect.left) * 10) / rect.width
-      const mouseY = ((this.y - rect.top) * 10) / rect.height
+        const mouseX = ((this.x - rect.left) * 10) / rect.width
+        const mouseY = ((this.y - rect.top) * 10) / rect.height
 
-      const closestHeadshot = headshots.reduce(
-        (closest, headshot) => {
-          const pointX = headshot[0]
-          const pointY = headshot[1]
+        const closestHeadshot = headshots.reduce(
+          (closest, headshot) => {
+            const pointX = headshot[0]
+            const pointY = headshot[1]
 
-          const distance = {
-            x: Math.abs(mouseX - pointX),
-            y: Math.abs(mouseY - pointY)
-          }
+            const distance = {
+              x: Math.abs(mouseX - pointX),
+              y: Math.abs(mouseY - pointY)
+            }
 
-          const equalY = distance.y === closest.distance.y
-          const closerY = distance.y < closest.distance.y
-          const closerX = distance.x < closest.distance.x
+            const equalY = distance.y === closest.distance.y
+            const closerY = distance.y < closest.distance.y
+            const closerX = distance.x < closest.distance.x
 
-          return closerY || (equalY && closerX)
-            ? { distance, headshot }
-            : closest
-        },
-        {
-          distance: {
-            x: Infinity,
-            y: Infinity
+            return closerY || (equalY && closerX)
+              ? { distance, headshot }
+              : closest
           },
-          headshot: headshots[0]
-        }
-      ).headshot
+          {
+            distance: {
+              x: Infinity,
+              y: Infinity
+            },
+            headshot: headshots[0]
+          }
+        ).headshot
 
-      this.closestHeadshot = [
-        closestHeadshot[0] < 0 ? '_' : '',
-        String.fromCharCode(97 + Math.abs(closestHeadshot[0])),
-        closestHeadshot[1] < 0 ? '_' : '',
-        String.fromCharCode(97 + Math.abs(closestHeadshot[1]))
-      ].join('')
-
-      this.rAF = requestAnimationFrame(this.changeHeadshot)
+        this.closestHeadshot = [
+          closestHeadshot[0] < 0 ? '_' : '',
+          String.fromCharCode(97 + Math.abs(closestHeadshot[0])),
+          closestHeadshot[1] < 0 ? '_' : '',
+          String.fromCharCode(97 + Math.abs(closestHeadshot[1]))
+        ].join('')
+      } finally {
+        this.rAF = requestAnimationFrame(this.changeHeadshot)
+      }
     }
   }
 }
@@ -159,25 +140,14 @@ export default {
 
 <style lang="scss">
 .headshots {
-  bottom: 0;
-  filter: sepia(1) hue-rotate(-40deg) hue-rotate($color__primary--hue)
-    saturate(2) brightness(1.2) contrast(0.9);
-  height: calc(20vh + 30vw - 1rem);
+  filter: sepia(1) hue-rotate(-35deg) hue-rotate($color__primary--hue)
+    saturate(2) brightness(1.1) drop-shadow(0 0 1rem $color__primary--muted);
+  height: calc(12rem + 20vh - 0.5rem);
+  margin: 0 auto;
   overflow: hidden;
-  position: absolute;
-  right: 1.5rem;
-  width: calc(15vh + 22.5vw); // Aspect ratio of 4:3
-  z-index: 1;
-
-  @media (min-width: $breakpoint--xl) {
-    height: calc(20vh + 0.3 * #{$breakpoint--xl} - 0.5rem);
-    width: calc(15vh + 0.225 * #{$breakpoint--xl});
-  }
-}
-
-[data-theme='dark'] .headshots {
-  filter: contrast(0) sepia(1) hue-rotate(-30deg)
-    hue-rotate($color__primary--hue) saturate(4) brightness(0.8);
+  position: relative;
+  transform: translate3d(0, 0, 0);
+  width: calc(9rem + 15vh); // Aspect ratio of 4:3
 }
 
 .headshots__image {
@@ -307,9 +277,5 @@ export default {
 
 .headshots__image--fg .lazy__image--loaded {
   transform: translate(math.div(-500%, 7), math.div(-300%, 4));
-}
-
-.headshots__image--error .lazy__image--loaded {
-  transform: translate(math.div(-600%, 7), math.div(-300%, 4)) !important;
 }
 </style>

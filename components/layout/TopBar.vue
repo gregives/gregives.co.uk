@@ -2,15 +2,13 @@
   <header class="header">
     <div class="header__content">
       <div class="header__logo">
-        <nuxt-link :to="onWatchPage ? '/watches/' : '/'">
-          {{ onWatchPage ? 'Greg’s Watches' : 'Greg Ives' }}
-        </nuxt-link>
+        <nuxt-link to="/">Greg Ives</nuxt-link>
       </div>
       <input id="__menu" type="checkbox" />
-      <nav-bar :on-watch-page="onWatchPage" />
+      <nav-bar />
       <div class="header__buttons">
         <theme-toggle />
-        <hamburger v-if="!onWatchPage" />
+        <hamburger />
       </div>
     </div>
   </header>
@@ -26,11 +24,6 @@ export default {
     NavBar,
     Hamburger,
     ThemeToggle
-  },
-  computed: {
-    onWatchPage() {
-      return this.$route.path.includes('/watches/')
-    }
   }
 }
 </script>

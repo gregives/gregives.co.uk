@@ -1,8 +1,7 @@
 ---
 title: Icon Packs
-titleShort: ''
 date: 2016-08-01
-image: '/assets/images/dynamic/icon-packs/squircle7.png'
+image: /assets/images/dynamic/icon-packs/squircle7.png
 description: My first foray into programming and design. Icon packs for custom Android launchers, so you can make your phone homescreen look pretty
 tags:
   - Android

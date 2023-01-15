@@ -31,23 +31,21 @@
     </label>
     <recaptcha />
     <p class="form__terms">
-      <span>
-        This site is protected by reCAPTCHA and the Google
-        <a
-          href="https://policies.google.com/privacy"
-          target="_blank"
-          rel="noreferrer"
-          >Privacy Policy</a
-        >
-        and
-        <a
-          href="https://policies.google.com/terms"
-          target="_blank"
-          rel="noreferrer"
-          >Terms of Service</a
-        >
-        apply.
-      </span>
+      This site is protected by reCAPTCHA and the Google
+      <a
+        href="https://policies.google.com/privacy"
+        target="_blank"
+        rel="noreferrer"
+        >Privacy Policy</a
+      >
+      and
+      <a
+        href="https://policies.google.com/terms"
+        target="_blank"
+        rel="noreferrer"
+        >Terms of Service</a
+      >
+      apply.
     </p>
     <button class="form__submit" type="submit" :disabled="success">
       Send message
@@ -176,21 +174,16 @@ export default {
 }
 
 .form__terms {
+  background-color: $color__body;
+  border-radius: 2rem;
+  box-shadow: 0 0 2rem 2rem $color__body;
   color: $color__text--muted;
   font-size: 70%;
   margin: 0.75rem 0 1.5rem;
   z-index: 1;
 
-  > span {
-    background-color: $color__body;
-    filter: drop-shadow(0 0 0.25rem $color__body)
-      drop-shadow(0 0 0.25rem $color__body)
-      drop-shadow(0 0 0.25rem $color__body)
-      drop-shadow(0 0 0.25rem $color__body);
-
-    a {
-      @include link;
-    }
+  a {
+    @include link;
   }
 }
 
