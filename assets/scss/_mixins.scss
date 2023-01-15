@@ -88,8 +88,6 @@
     opacity: 0;
     position: absolute;
     top: 0;
-
-    // Need to use translate3d to enable GPU acceleration in Safari
     transform: translate3d(-50%, 0, 0);
     width: 100vw;
     z-index: -1;

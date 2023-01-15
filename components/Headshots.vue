@@ -91,57 +91,48 @@ export default {
       }
     },
     changeHeadshot() {
-      if (this.x === null || this.y === null) {
-        this.rAF = requestAnimationFrame(this.changeHeadshot)
-        return
-      }
-
-      let rect
       try {
-        rect = this.$refs.headshot.getBoundingClientRect()
-      } catch (error) {
-        this.rAF = requestAnimationFrame(this.changeHeadshot)
-        return
-      }
+        const rect = this.$refs.headshot.getBoundingClientRect()
 
-      const mouseX = ((this.x - rect.left) * 10) / rect.width
-      const mouseY = ((this.y - rect.top) * 10) / rect.height
+        const mouseX = ((this.x - rect.left) * 10) / rect.width
+        const mouseY = ((this.y - rect.top) * 10) / rect.height
 
-      const closestHeadshot = headshots.reduce(
-        (closest, headshot) => {
-          const pointX = headshot[0]
-          const pointY = headshot[1]
+        const closestHeadshot = headshots.reduce(
+          (closest, headshot) => {
+            const pointX = headshot[0]
+            const pointY = headshot[1]
 
-          const distance = {
-            x: Math.abs(mouseX - pointX),
-            y: Math.abs(mouseY - pointY)
-          }
+            const distance = {
+              x: Math.abs(mouseX - pointX),
+              y: Math.abs(mouseY - pointY)
+            }
 
-          const equalY = distance.y === closest.distance.y
-          const closerY = distance.y < closest.distance.y
-          const closerX = distance.x < closest.distance.x
+            const equalY = distance.y === closest.distance.y
+            const closerY = distance.y < closest.distance.y
+            const closerX = distance.x < closest.distance.x
 
-          return closerY || (equalY && closerX)
-            ? { distance, headshot }
-            : closest
-        },
-        {
-          distance: {
-            x: Infinity,
-            y: Infinity
+            return closerY || (equalY && closerX)
+              ? { distance, headshot }
+              : closest
           },
-          headshot: headshots[0]
-        }
-      ).headshot
+          {
+            distance: {
+              x: Infinity,
+              y: Infinity
+            },
+            headshot: headshots[0]
+          }
+        ).headshot
 
-      this.closestHeadshot = [
-        closestHeadshot[0] < 0 ? '_' : '',
-        String.fromCharCode(97 + Math.abs(closestHeadshot[0])),
-        closestHeadshot[1] < 0 ? '_' : '',
-        String.fromCharCode(97 + Math.abs(closestHeadshot[1]))
-      ].join('')
-
-      this.rAF = requestAnimationFrame(this.changeHeadshot)
+        this.closestHeadshot = [
+          closestHeadshot[0] < 0 ? '_' : '',
+          String.fromCharCode(97 + Math.abs(closestHeadshot[0])),
+          closestHeadshot[1] < 0 ? '_' : '',
+          String.fromCharCode(97 + Math.abs(closestHeadshot[1]))
+        ].join('')
+      } finally {
+        this.rAF = requestAnimationFrame(this.changeHeadshot)
+      }
     }
   }
 }

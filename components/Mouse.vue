@@ -35,22 +35,25 @@ export default {
       }
     },
     changeStyle() {
-      let [newX, newY] = [this.x, this.y]
+      try {
+        let [newX, newY] = [this.x, this.y]
 
-      const Matrix = window.DOMMatrix || window.WebKitCSSMatrix
-      if (Matrix) {
-        const style = window.getComputedStyle(this.$refs.mouse)
-        const matrix = new Matrix(style.transform)
+        const Matrix = window.DOMMatrix || window.WebKitCSSMatrix
+        if (Matrix) {
+          const style = window.getComputedStyle(this.$refs.mouse)
+          const matrix = new Matrix(style.transform)
 
-        const oldX = matrix.m41 + style.width.replace('px', '') / 2
-        const oldY = matrix.m42 + style.width.replace('px', '') / 2
+          const oldX = matrix.m41 + style.width.replace('px', '') / 2
+          const oldY = matrix.m42 + style.width.replace('px', '') / 2
 
-        newX = oldX + (newX - oldX) / 15
-        newY = oldY + (newY - oldY) / 15
+          newX = oldX + (newX - oldX) / 15
+          newY = oldY + (newY - oldY) / 15
+        }
+
+        this.$refs.mouse.style.transform = `translate3d(calc(${newX}px - 50%), calc(${newY}px - 50%), 0)`
+      } finally {
+        this.rAF = requestAnimationFrame(this.changeStyle)
       }
-
-      this.$refs.mouse.style.transform = `translate3d(calc(${newX}px - 50%), calc(${newY}px - 50%), 0)`
-      this.rAF = requestAnimationFrame(this.changeStyle)
     }
   }
 }
