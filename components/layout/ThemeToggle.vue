@@ -47,15 +47,17 @@ export default {
       document.documentElement.dataset.theme = theme
       localStorage.setItem('theme', theme)
 
-      const { scrollX, scrollY } = window
-      document.documentElement.style.display = 'none'
-      document.documentElement.style.scrollBehavior = 'auto'
+      if (this.loaded) {
+        const { scrollX, scrollY } = window
+        document.documentElement.style.display = 'none'
+        document.documentElement.style.scrollBehavior = 'auto'
 
-      setTimeout(() => {
-        document.documentElement.style.display = 'block'
-        window.scrollTo({ left: scrollX, top: scrollY })
-        document.documentElement.style.scrollBehavior = 'smooth'
-      }, 0)
+        setTimeout(() => {
+          document.documentElement.style.display = 'block'
+          window.scrollTo({ left: scrollX, top: scrollY })
+          document.documentElement.style.scrollBehavior = 'smooth'
+        }, 0)
+      }
     }
   },
   mounted() {
