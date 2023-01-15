@@ -2,9 +2,7 @@
   <header class="header">
     <div class="header__content">
       <div class="header__logo">
-        <nuxt-link to="/">
-          Greg Ives
-        </nuxt-link>
+        <nuxt-link to="/">Greg Ives</nuxt-link>
       </div>
       <input id="__menu" type="checkbox" />
       <nav-bar />
@@ -26,7 +24,7 @@ export default {
     NavBar,
     Hamburger,
     ThemeToggle
-  },
+  }
 }
 </script>
 

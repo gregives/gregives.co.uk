@@ -1,3 +1,6 @@
+const GITHUB_URL = 'https://github.com/'
+const GITHUB_API = 'https://api.github.com/repos/'
+
 export async function projectLoader(projectSlug) {
   const project = await import(`~/contents/projects/${projectSlug}.md`)
   project.attributes.slug = projectSlug
@@ -6,9 +9,9 @@ export async function projectLoader(projectSlug) {
   project.attributes.mins = Math.round(project.body.length / 1250) || 1
 
   if (project.attributes.github) {
-    const repository = project.attributes.github.replace('https://github.com/', '')
-    const response = await fetch(`https://api.github.com/repos/${repository}`);
-    const { stargazers_count: stars } = await response.json();
+    const repository = project.attributes.github.replace(GITHUB_URL, '')
+    const response = await fetch(`${GITHUB_API}${repository}`)
+    const { stargazers_count: stars } = await response.json()
     project.attributes.stars = stars
   }
 
