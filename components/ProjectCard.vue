@@ -83,7 +83,6 @@ export default {
     grid-column: 1 / -1;
     display: flex;
     flex-direction: column;
-    margin-top: 3rem;
 
     @media (min-width: $breakpoint--sm) {
       flex-direction: row;
@@ -132,9 +131,31 @@ export default {
 
 .project-card--myles > .project-card__image {
   background-color: transparent;
+  filter: drop-shadow(0 0 0.5rem $color__accent--muted);
   margin: 0 auto;
   max-width: 15rem;
+  position: relative;
   width: 100%;
+
+  &::before {
+    background-color: $color__accent;
+    border-radius: 16% / 9%;
+    box-shadow: 0 0 3rem 2rem $color__accent;
+    content: '';
+    left: 1rem;
+    opacity: 0.2;
+    padding-bottom: calc(200% - 2rem);
+    position: absolute;
+    top: 1rem;
+    width: calc(100% - 2rem);
+
+    @media (min-width: $breakpoint--sm) {
+      box-shadow: 0 0 6rem 3rem $color__accent;
+      padding-bottom: calc(200% - 4rem);
+      top: 2rem;
+      width: calc(100% - 5rem);
+    }
+  }
 
   > .lazy {
     background-color: transparent;

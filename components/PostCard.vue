@@ -46,6 +46,7 @@ export default {
   border: $border-weight solid $color__primary--muted;
   border-radius: $border-radius;
   box-shadow: $box-shadow--small;
+  margin-top: -0.5rem;
   position: relative;
   transition: box-shadow 150ms $transition__normal,
     border-color 150ms $transition__normal;

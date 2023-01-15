@@ -48,10 +48,22 @@ export default {
 <style lang="scss">
 .projects {
   @include page;
+  @include background(
+    (
+      (calc(50% + 40rem) -30rem 50rem),
+      (calc(50% - 50rem) -10rem 40rem),
+      (calc(50% - 80rem) 60rem 55rem),
+      (calc(50% + 10rem) 100rem 30rem),
+      (calc(50% - 40rem) calc(100% + 10rem) 50rem),
+      (calc(50% + 80rem) 60% 55rem)
+    )
+  );
 }
 
 .projects__title {
   @include title;
+
+  margin-bottom: 4rem;
 }
 
 .projects__title--primary {
@@ -61,7 +73,7 @@ export default {
 .projects__projects {
   display: grid;
   grid-template-columns: 100%;
-  grid-gap: 3rem;
+  grid-gap: 4rem;
 
   @media (min-width: $breakpoint--md) {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);

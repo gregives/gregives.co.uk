@@ -88,10 +88,15 @@ export default {
 <style lang="scss">
 .contact {
   @include page;
+  @include background(
+    ((calc(50% + 30rem) 15rem 10rem), (calc(50% - 40rem) -10rem 40rem))
+  );
 }
 
 .contact__title {
   @include title;
+
+  margin-bottom: 4rem;
 }
 
 .contact__title--primary {

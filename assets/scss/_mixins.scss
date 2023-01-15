@@ -22,7 +22,7 @@
     width: 100%;
   }
 
-  &::before {
+  &::after {
     content: '';
     height: 100%;
     left: 50%;
@@ -30,30 +30,58 @@
     top: 0;
     transform: translateX(-50%);
     width: 100vw;
+    z-index: -1;
+  }
+
+  @supports (pointer-events: none) {
+    &::after {
+      background-image: linear-gradient(
+        to right,
+        $color__body--blur calc(50% - #{$breakpoint--xl} / 2 - 50rem),
+        transparent calc(50% - #{$breakpoint--xl} / 2),
+        transparent calc(50% + #{$breakpoint--xl} / 2),
+        $color__body--blur calc(50% + #{$breakpoint--xl} / 2 + 50rem)
+      );
+      content: '';
+      height: 100%;
+      left: 50%;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%);
+      width: 100vw;
+      z-index: 50;
+    }
   }
 }
 
 @mixin background($positions: []) {
   $background-image: null;
+
   @each $x, $y, $size in $positions {
     $i: list.index($positions, ($x $y $size));
-    $background-image: $background-image, radial-gradient(circle at $x $y, if($i == 1, $color__accent, $color__primary) 0, transparent $size);
+    $background-image: $background-image,
+      radial-gradient(
+        circle at $x $y,
+        if($i == 1 or $i == 5, $color__accent--muted, $color__primary--muted),
+        transparent $size
+      );
   }
 
-  // &::before {
-  //   background-size: 100% 100%;
-  //   background-image: $background-image;
-  //   background-repeat: no-repeat;
-  //   content: '';
-  //   height: 100%;
-  //   left: 50%;
-  //   opacity: 0.5;
-  //   position: absolute;
-  //   width: 100vw;
-  //   top: 50%;
-  //   transform: translate(-50%, -50%);
-  //   z-index: -1;
-  // }
+  &::before {
+    background-image: $background-image;
+    content: '';
+    filter: blur(5rem);
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+
+    // Need to use translate3d to enable GPU acceleration in Safari
+    transform: translate3d(-50%, 0, 0);
+    width: 100vw;
+    z-index: -1;
+  }
 }
 
 @mixin title {

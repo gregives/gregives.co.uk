@@ -41,6 +41,8 @@ export default {
 
 .error__title {
   @include title;
+
+  margin-bottom: 4rem;
 }
 
 .error__title--primary {

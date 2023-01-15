@@ -36,14 +36,6 @@ export default {
             .querySelector('meta[name="theme-color"]')
             .setAttribute('content', color.trim())
 
-          // Update VH units for Android
-          const updateVH = () => {
-            const vh = (document.documentElement.clientHeight / 100).toFixed(3)
-            document.documentElement.style.setProperty('--vh', `${vh}px`)
-          }
-          window.addEventListener('resize', updateVH)
-          updateVH()
-
           // Remove data-n-head
           delete document.documentElement.dataset.nHead
         }

@@ -37,10 +37,18 @@ export default {
 <style lang="scss">
 .about {
   @include page;
+  @include background(
+    (
+      (calc(50% - 30rem) calc(100% + 15rem) 30rem),
+      (calc(50% - 25rem) 25rem 20rem)
+    )
+  );
 }
 
 .about__title {
   @include title;
+
+  margin-bottom: 4rem;
 }
 
 .about__title--primary {
@@ -61,35 +69,5 @@ export default {
 .about__image {
   position: relative;
   width: calc(100% - 1.5rem) !important;
-
-  &::before {
-    background-color: $color__body--overlay;
-    border: $border-weight solid $color__primary--muted;
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;
-    content: '';
-    left: 1.5rem;
-    padding-bottom: math.div(2, 3) * 100%;
-    position: absolute;
-    top: 1.5rem;
-    width: 100%;
-    z-index: -1;
-  }
-
-  &::after {
-    background-image: linear-gradient(
-      $color__transparent,
-      $color__primary--muted
-    );
-    border-radius: $border-radius;
-    content: '';
-    left: 1.5rem;
-    margin-top: 2 * $border-weight;
-    padding-bottom: math.div(2, 3) * 100%;
-    position: absolute;
-    top: 1.5rem;
-    width: 100%;
-    z-index: -1;
-  }
 }
 </style>

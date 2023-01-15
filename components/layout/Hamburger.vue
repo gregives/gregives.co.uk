@@ -58,7 +58,7 @@ $thickness: 2px;
   height: $thickness;
   position: absolute;
   right: 0.5rem;
-  top: calc(50% - #{$thickness} / 2);
+  top: calc(50% - #{math.div($thickness, 2)});
   transition: transform $speed $transition__snappy--in;
   width: calc(100% - 1rem);
 

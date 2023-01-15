@@ -25,10 +25,15 @@ export default {
 <style lang="scss">
 .guestbook {
   @include page;
+  @include background(
+    ((calc(50% + 5rem) 30rem 20rem), (calc(50% + 30rem) -30rem 50rem))
+  );
 }
 
 .guestbook__title {
   @include title;
+
+  margin-bottom: 4rem;
 }
 
 .guestbook__title--primary {

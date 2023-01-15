@@ -20,6 +20,8 @@
 
 .success__title {
   @include title;
+
+  margin-bottom: 4rem;
 }
 
 .success__title--primary {

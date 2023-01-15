@@ -97,7 +97,12 @@ export default {
 .home {
   @include page;
   @include background(
-    ((calc(50% - 10rem) 5rem 20rem), (calc(50% + 5rem) 10rem 15rem))
+    (
+      (calc(50% - 10rem) 5rem 20rem),
+      (calc(50% + 5rem) 10rem 15rem),
+      (calc(50% - 80rem) 60rem 55rem),
+      (calc(50% + 80rem) 60% 55rem)
+    )
   );
 }
 
@@ -129,7 +134,7 @@ export default {
 }
 
 .home__description {
-  margin-bottom: 10rem;
+  margin-bottom: 8rem;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -140,7 +145,7 @@ export default {
 
 .home__posts {
   display: grid;
-  grid-gap: 1.5rem;
+  grid-gap: 2.5rem;
   margin-top: 5rem;
 
   @media (min-width: $breakpoint--sm) {
@@ -151,7 +156,7 @@ export default {
 .home__projects {
   display: grid;
   grid-template-columns: 100%;
-  grid-gap: 3rem;
+  grid-gap: 4rem;
 
   @media (min-width: $breakpoint--md) {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -176,10 +181,25 @@ export default {
   a {
     @include link;
 
-    &::after {
+    position: relative;
+
+    &::before {
+      background-color: $color__body;
+      box-shadow: 0 0 2rem 2rem $color__body;
+      border-radius: 50%;
       content: '';
-      inset: 0;
       position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+
+    &::after {
+      bottom: -0.5rem;
+      content: '';
+      left: -1rem;
+      position: absolute;
+      right: -2rem;
+      top: -0.5rem;
     }
   }
 }

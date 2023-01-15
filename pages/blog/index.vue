@@ -44,10 +44,13 @@ export default {
 <style lang="scss">
 .blog {
   @include page;
+  @include background(((calc(50% + 30rem) -10rem 30rem), (0 0 0)));
 }
 
 .blog__title {
   @include title;
+
+  margin-bottom: 4rem;
 }
 
 .blog__title--primary {
@@ -56,6 +59,6 @@ export default {
 
 .blog__posts {
   display: grid;
-  grid-gap: 1.5rem;
+  grid-gap: 2.5rem;
 }
 </style>

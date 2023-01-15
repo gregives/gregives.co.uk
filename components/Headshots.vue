@@ -150,11 +150,12 @@ export default {
 <style lang="scss">
 .headshots {
   filter: sepia(1) hue-rotate(-35deg) hue-rotate($color__primary--hue)
-    saturate(2) brightness(1.1);
+    saturate(2) brightness(1.1) drop-shadow(0 0 1rem $color__primary--muted);
   height: calc(12rem + 20vh - 0.5rem);
   margin: 0 auto;
   overflow: hidden;
   position: relative;
+  transform: translate3d(0, 0, 0);
   width: calc(9rem + 15vh); // Aspect ratio of 4:3
 }
 
