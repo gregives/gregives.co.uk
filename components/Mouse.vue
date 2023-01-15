@@ -77,7 +77,7 @@ export default {
     top: 0;
     transform: translate3d(0, 0, 0);
     transition: height 300ms $transition__normal,
-      width 300ms $transition__normal, opacity 300ms $transition__normal;
+      width 300ms $transition__normal, opacity 300ms $transition__normal 600ms;
     width: 20rem;
     will-change: transform;
     z-index: 100;
