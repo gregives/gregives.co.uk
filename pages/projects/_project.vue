@@ -57,7 +57,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `https://gregives.co.uk${this.project.link}/og.png`
+          content: `https://gregives.co.uk${this.project.link}og.png`
         }
       ]
     }

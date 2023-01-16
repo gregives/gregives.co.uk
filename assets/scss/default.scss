@@ -198,21 +198,19 @@ html {
   border-radius: math.div($border-radius, 2);
   outline: solid $border-weight * 2 $color__primary;
   outline-offset: math.div($border-radius, 2);
-  scroll-margin: 2rem;
-  scroll-margin-top: 4.5rem;
+  scroll-margin: 6rem;
 }
 
 :target {
   &::before {
     content: '';
     display: block;
-    height: 4.5rem;
-    margin-top: -4.5rem;
+    height: 6rem;
+    margin-top: -6rem;
   }
 
-  @supports (scroll-margin-top: 4.5rem) {
-    scroll-margin: 2rem;
-    scroll-margin-top: 4.5rem;
+  @supports (scroll-margin: 6rem) {
+    scroll-margin: 6rem;
 
     &::before {
       display: none;
