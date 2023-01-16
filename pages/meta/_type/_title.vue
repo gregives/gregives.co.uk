@@ -6,6 +6,7 @@
     <h1 v-else class="meta__title">
       Hi, I’m <span class="meta__title--primary">Greg Ives</span>
     </h1>
+    <p class="meta__link">gregives.co.uk</p>
   </main>
 </template>
 
@@ -45,14 +46,15 @@ export default {
 <style lang="scss">
 .meta {
   @include page;
+  @include background(((0 0 20rem), (calc(30% + 40rem) 0 40rem)));
 
-  min-height: 100vh !important;
+  height: 100vh !important;
 }
 
 .meta__title {
   @include title;
 
-  bottom: 5%;
+  bottom: 15%;
   position: absolute;
   width: 65%;
 }
@@ -61,13 +63,22 @@ export default {
   @include title--primary;
 }
 
+.meta__link {
+  color: $color__text--muted;
+  bottom: 8%;
+  font-size: 200%;
+  font-weight: 300;
+  letter-spacing: 0.07em;
+  position: absolute;
+}
+
 // Override external styles
 body {
   overflow: hidden;
 }
 
-#__app {
-  transform: scale(1.5);
+#__layout {
+  transform: scale(1.3);
   transform-origin: bottom left;
 }
 
