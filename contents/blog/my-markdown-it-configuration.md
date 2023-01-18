@@ -2,7 +2,10 @@
 title: My Markdown-It Configuration
 date: 2020-02-16
 description: An overview of the markdown-it and highlight.js configurations used on my website
-tags: []
+tags:
+  - Markdown
+  - markdown-it
+  - highlight.js
 ---
 
 <post-aside type="info">

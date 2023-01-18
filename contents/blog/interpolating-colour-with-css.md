@@ -2,7 +2,11 @@
 title: Interpolating Colour with CSS
 date: 2021-05-09
 description: Different methods of interpolating colour in CSS including negative animation‑delay
-tags: []
+tags:
+  - CSS
+  - Color interpolation
+  - Custom properties
+  - animation-delay
 ---
 
 "How to interpolate colour CSS", I typed into Google. Surely there's an easy way to interpolate colour in CSS, given that the browser natively interpolates colour in gradients and animation? The first result is the [color-interpolate](https://www.npmjs.com/package/color-interpolate) package on npm, not a very good start.

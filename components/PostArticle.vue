@@ -202,7 +202,7 @@ export default {
 
 .article__details {
   color: $color__text--muted;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .article__mins {
@@ -215,25 +215,22 @@ export default {
 
 .article__tags {
   display: none;
-  margin-bottom: 1rem;
-  padding-left: 1rem;
+  margin-bottom: 2rem;
+  margin-left: -0.1rem;
 
   @media (min-width: $breakpoint--lg) {
     display: block;
   }
 
   li {
+    background-color: $color__primary--muter;
+    border-radius: 1000rem;
     color: $color__text--muted;
-    position: relative;
-
-    &::before {
-      color: $color__text--muted;
-      content: '\25B7';
-      font-size: 60%;
-      position: absolute;
-      inset: 0.25rem calc(100% + 0.5rem) 0 auto;
-      vertical-align: middle;
-    }
+    display: inline-block;
+    font-size: 80%;
+    margin-right: 0.3rem;
+    margin-bottom: 0.25rem;
+    padding: 0.1rem 0.5rem;
   }
 }
 

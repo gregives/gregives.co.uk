@@ -2,7 +2,11 @@
 title: Choosing a CMS for Your Website
 date: 2020-03-28
 description: Why I decided to use a CMS for my website and why I chose to use Forestry.io
-tags: []
+tags:
+  - Content management system
+  - Git-based
+  - API-based
+  - Forestry.io
 ---
 
 I'm writing this blog post on my phone and when I'm finished I'll click save, which will automatically trigger a build of my website. I think that's really cool! A few months ago, I didn't see the appeal in content management systems --- in this blog post I'm going to explain why I've changed my mind and how to choose the right CMS for you.
