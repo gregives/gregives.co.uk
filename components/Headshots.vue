@@ -92,6 +92,10 @@ export default {
     },
     changeHeadshot() {
       try {
+        if (this.x === null || this.y === null) {
+          throw new Error('Prevent changing headshot without mouse position')
+        }
+
         const rect = this.$refs.headshot.getBoundingClientRect()
 
         const mouseX = ((this.x - rect.left) * 10) / rect.width
@@ -130,6 +134,8 @@ export default {
           closestHeadshot[1] < 0 ? '_' : '',
           String.fromCharCode(97 + Math.abs(closestHeadshot[1]))
         ].join('')
+      } catch {
+        // We don't care about this error
       } finally {
         this.rAF = requestAnimationFrame(this.changeHeadshot)
       }
@@ -142,12 +148,17 @@ export default {
 .headshots {
   filter: sepia(1) hue-rotate(-35deg) hue-rotate($color__primary--hue)
     saturate(2) brightness(1.1) drop-shadow(0 0 1rem $color__primary--muted);
-  height: calc(12rem + 20vh - 0.5rem);
+  height: calc(12rem + 20vw - 0.5rem);
   margin: 0 auto;
   overflow: hidden;
   position: relative;
   transform: translate3d(0, 0, 0);
-  width: calc(9rem + 15vh); // Aspect ratio of 4:3
+  width: calc(9rem + 15vw); // Aspect ratio of 4:3
+
+  @media (min-width: $breakpoint--xl) {
+    height: calc(12rem + #{20 * $breakpoint--xl} / 100 - 0.5rem);
+    width: calc(9rem + #{15 * $breakpoint--xl} / 100); // Aspect ratio of 4:3
+  }
 }
 
 .headshots__image {

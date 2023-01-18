@@ -51,6 +51,8 @@ export default {
         }
 
         this.$refs.mouse.style.transform = `translate3d(calc(${newX}px - 50%), calc(${newY}px - 50%), 0)`
+      } catch {
+        // We don't care about this error
       } finally {
         this.rAF = requestAnimationFrame(this.changeStyle)
       }

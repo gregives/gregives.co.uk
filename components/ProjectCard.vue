@@ -198,7 +198,7 @@ export default {
 .project-card--myles > .project-card__content {
   clip-path: inset(0 0 0 0 round $border-radius);
   margin-left: 0;
-  margin-top: -8rem;
+  margin-top: -13.5rem;
 
   @media (min-width: $breakpoint--sm) {
     margin-bottom: 5rem;

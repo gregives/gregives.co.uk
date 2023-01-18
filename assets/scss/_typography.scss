@@ -24,7 +24,7 @@
   margin-bottom: 2rem;
 
   @media (min-width: $breakpoint--xl) {
-    font-size: calc(1.2rem + #{$breakpoint--xl * 4} / 100);
+    font-size: calc(1.2rem + #{4 * $breakpoint--xl} / 100);
   }
 }
 
@@ -33,7 +33,7 @@
   margin-bottom: 1.75rem;
 
   @media (min-width: $breakpoint--xl) {
-    font-size: calc(1.2rem + #{$breakpoint--xl * 2} / 100);
+    font-size: calc(1.2rem + #{2 * $breakpoint--xl} / 100);
   }
 }
 
@@ -42,7 +42,7 @@
   margin-bottom: 1.5rem;
 
   @media (min-width: $breakpoint--xl) {
-    font-size: calc(1.2rem + #{$breakpoint--xl * 1} / 100);
+    font-size: calc(1.2rem + #{1 * $breakpoint--xl} / 100);
   }
 }
 
@@ -51,7 +51,7 @@
   margin-bottom: 1.25rem;
 
   @media (min-width: $breakpoint--xl) {
-    font-size: calc(1.2rem + #{$breakpoint--xl * 0.5} / 100);
+    font-size: calc(1.2rem + #{0.5 * $breakpoint--xl} / 100);
   }
 }
 
@@ -60,7 +60,7 @@
   margin-bottom: 1rem;
 
   @media (min-width: $breakpoint--xl) {
-    font-size: calc(1.2rem + #{$breakpoint--xl * 0.25} / 100);
+    font-size: calc(1.2rem + #{0.25 * $breakpoint--xl} / 100);
   }
 }
 
