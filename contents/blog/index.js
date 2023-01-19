@@ -30,4 +30,5 @@ export const postSlugs = [
   'my-markdown-it-configuration',
   'nuxt-netlify-forms-and-recaptcha',
   'optimising-the-fonts-on-my-website',
+  'styling-a-sectionlist-in-react-native',
 ]

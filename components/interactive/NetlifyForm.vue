@@ -103,9 +103,8 @@ export default {
 
   .lazy {
     background-color: transparent;
-
-    // stylelint-disable-next-line value-no-vendor-prefix
-    image-rendering: -webkit-optimize-contrast;
+    margin-left: 0;
+    width: 304px;
 
     picture {
       border: $border-weight solid $color__text--muter;
@@ -124,15 +123,15 @@ export default {
   }
 
   &:not(:first-child) {
-    margin-top: 1.5rem;
+    margin-top: 3rem;
   }
 
   &:not(:last-child) {
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
   }
 }
 
 .highlight + .netlify-form {
-  margin-top: -0.5rem;
+  margin-top: -1rem;
 }
 </style>

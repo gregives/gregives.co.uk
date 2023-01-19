@@ -101,11 +101,6 @@ export default {
 
   h1 {
     @include h2;
-
-    background-color: $color__body;
-    box-shadow: 0.5rem 0 $color__body, -0.5rem 0 $color__body,
-      0.5rem 0.5rem $color__body, -0.5rem 0.5rem $color__body;
-    display: inline;
   }
 }
 

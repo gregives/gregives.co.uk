@@ -68,5 +68,8 @@ export default {
 <style lang="scss">
 .project {
   @include page;
+  @include background(
+    ((calc(50% - 20rem) -5rem 30rem), (calc(50% + 10rem) 0 20rem))
+  );
 }
 </style>

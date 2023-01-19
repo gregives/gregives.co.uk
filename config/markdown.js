@@ -60,9 +60,9 @@ const createRenderFunction = (sanitize) => {
 
         // Render lazy image component
         if (token.attrIndex('title') !== -1) {
-          // Use the title as the image width
-          const width = token.attrs[token.attrIndex('title')][1]
-          return `<lazy-image src="${src}" alt="${alt}" width="${width}"></lazy-image>`
+          // Use the title as the max image width
+          const maxWidth = token.attrs[token.attrIndex('title')][1]
+          return `<lazy-image src="${src}" alt="${alt}" max-width="${maxWidth}"></lazy-image>`
         } else {
           return `<lazy-image src="${src}" alt="${alt}"></lazy-image>`
         }

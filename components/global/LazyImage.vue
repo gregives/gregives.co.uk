@@ -1,6 +1,6 @@
 <template>
-  <span class="lazy">
-    <picture :style="{ paddingBottom, width }">
+  <span class="lazy" :style="{ maxWidth }">
+    <picture :style="{ paddingBottom }">
       <source :data-srcset="srcsetWebp" :sizes="sizes" type="image/webp" />
       <source :data-srcset="srcset" :sizes="sizes" :type="meta.format" />
       <img
@@ -39,9 +39,9 @@ export default {
       type: String,
       default: '(min-width: 992px) 66vw, 100vw'
     },
-    width: {
+    maxWidth: {
       type: String,
-      default: '100%'
+      default: 'auto'
     }
   },
   computed: {
@@ -64,7 +64,7 @@ export default {
       return require(`~/assets/images/dynamic/${this.srcRel}`)
     },
     paddingBottom() {
-      return `calc(${this.width} * ${this.meta.height / this.meta.width})`
+      return `calc(100% * ${this.meta.height / this.meta.width})`
     }
   }
 }
@@ -75,6 +75,7 @@ export default {
   background-color: $color__body;
   border-radius: $border-radius;
   display: block;
+  margin: auto;
   width: 100%;
 
   picture {

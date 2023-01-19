@@ -67,6 +67,9 @@ export default {
 <style lang="scss">
 .post {
   @include page;
+  @include background(
+    ((calc(50% - 20rem) -5rem 30rem), (calc(50% + 10rem) 0 20rem))
+  );
 
   .comments {
     margin-top: -7rem;
