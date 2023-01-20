@@ -3,8 +3,8 @@ const ENDPOINT = '/.netlify/functions/dynamic-content'
 export default (_context, inject) => {
   inject('dynamic', async (url) => {
     // Check if the user has visited the page before
-    const cache = JSON.parse(localStorage.getItem('pages')) || {}
-    const visitedPageBefore = cache.hasOwnProperty(url)
+    const pages = JSON.parse(localStorage.getItem('pages')) || {}
+    const visitedPageBefore = pages.hasOwnProperty(url)
 
     // Get views and comments from serverless function
     const { views, comments } = await fetch(ENDPOINT, {
@@ -18,14 +18,15 @@ export default (_context, inject) => {
       })
     }).then((response) => response.json())
 
-    // Update the cache
-    cache[url] = {
+    // Update the page
+    pages[url] = {
+      ...pages[url],
       lastVisited: Date.now(),
       views,
       comments
     }
 
-    localStorage.setItem('pages', JSON.stringify(cache))
+    localStorage.setItem('pages', JSON.stringify(pages))
     return { views, comments }
   })
 }

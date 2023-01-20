@@ -13,6 +13,7 @@ import minify from './config/minify'
 
 // Open Graph
 import { openGraphTags } from './config/opengraph'
+import head from './config/head'
 
 // Load primary color from sass
 const [, primaryColor] = fs
@@ -67,13 +68,18 @@ export default {
       { rel: 'manifest', href: '/site.webmanifest' },
       { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#3355ff' }
     ],
+    script: [
+      {
+        innerHTML: head
+      }
+    ],
     noscript: [
       {
         innerHTML:
           '<style>.theme-toggle,.lazy>picture::after,.lazy>picture>img{display:none;}</style>'
       }
     ],
-    __dangerouslyDisableSanitizers: ['noscript']
+    __dangerouslyDisableSanitizers: ['noscript', 'script']
   },
   // Loading bar
   loading: {

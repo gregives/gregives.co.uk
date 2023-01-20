@@ -23,7 +23,7 @@
         name="text"
         required
         placeholder="Join the conversation"
-        @input="autoHeight"
+          @input="onInput"
       ></textarea>
     </div>
     <div
@@ -36,7 +36,7 @@
         title="Bold"
         @click="addBold"
       >
-        <strong>B</strong>
+          <bold-icon :size="24" />
       </button>
       <button
         class="comment__markdown-button"
@@ -44,7 +44,7 @@
         title="Italic"
         @click="addItalic"
       >
-        <em>I</em>
+          <italic-icon :size="24" />
       </button>
       <button
         class="comment__markdown-button"
@@ -52,7 +52,7 @@
         title="Strikethrough"
         @click="addStrikethrough"
       >
-        <s>S</s>
+          <strike-icon :size="24" />
       </button>
       <button
         class="comment__markdown-button"
@@ -60,16 +60,15 @@
         title="Link"
         @click="addLink"
       >
-        <link-icon :size="18" />
+          <link-icon :size="24" />
       </button>
-      <span class="comment__markdown-divider" />
       <button
         class="comment__markdown-button"
         type="button"
         title="Quote"
         @click="addQuote"
       >
-        <quote-icon />
+          <quote-icon :size="28" />
       </button>
       <button
         class="comment__markdown-button"
@@ -77,7 +76,7 @@
         title="Bullet list"
         @click="addBulletList"
       >
-        <bullet-list-icon :size="18" />
+          <bullet-list-icon :size="24" />
       </button>
       <button
         class="comment__markdown-button"
@@ -85,7 +84,7 @@
         title="Number list"
         @click="addNumberList"
       >
-        <number-list-icon :size="18" />
+          <number-list-icon :size="24" />
       </button>
       <button
         class="comment__markdown-button"
@@ -93,7 +92,7 @@
         title="Code block"
         @click="addCodeBlock"
       >
-        <code-block-icon :size="18" />
+          <code-block-icon :size="23" />
       </button>
     </div>
     <recaptcha />
@@ -111,6 +110,10 @@
 </template>
 
 <script>
+import AccountIcon from 'icons/Account'
+import BoldIcon from 'icons/FormatBold'
+import ItalicIcon from 'icons/FormatItalic'
+import StrikeIcon from 'icons/FormatStrikethrough'
 import LinkIcon from 'icons/LinkVariant'
 import QuoteIcon from 'icons/FormatQuoteClose'
 import BulletListIcon from 'icons/FormatListBulleted'
@@ -119,6 +122,10 @@ import CodeBlockIcon from 'icons/CodeTags'
 
 export default {
   components: {
+    AccountIcon,
+    BoldIcon,
+    ItalicIcon,
+    StrikeIcon,
     LinkIcon,
     QuoteIcon,
     BulletListIcon,
@@ -130,7 +137,24 @@ export default {
       preview: null
     }
   },
+  mounted() {
+    const url = this.$route.path
+    const pages = JSON.parse(localStorage.getItem('pages')) || {}
+
+    this.$refs.comment.value = (pages[url] && pages[url].draft) || ''
+  },
   methods: {
+    onInput() {
+      const url = this.$route.path
+      const pages = JSON.parse(localStorage.getItem('pages')) || {}
+
+      pages[url] = {
+        ...pages[url],
+        draft: this.$refs.comment.value
+      }
+
+      localStorage.setItem('pages', JSON.stringify(pages))
+    },
     autoHeight() {
       const textarea = this.$refs.comment
       const borders = textarea.offsetHeight - textarea.clientHeight
@@ -296,26 +320,21 @@ export default {
   }
 
   &-button {
+    align-items: center;
     background-color: $color__body;
     border: $border-weight solid transparent;
     border-radius: $border-radius !important;
     cursor: pointer;
-    line-height: 1.5rem;
-    margin-right: 0.35rem;
-    position: relative;
+    display: flex;
+    height: 1.75rem;
+    justify-content: center;
+    line-height: 0;
+    margin-right: 0.25rem;
     transition: filter 150ms $transition__normal;
-    width: 1.5rem;
-
-    .material-design-icon {
-      display: block;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%);
-      position: absolute;
-    }
+    width: 1.75rem;
 
     &:hover {
-      filter: brightness(0.9);
+      filter: invert(0.1);
     }
 
     &:focus {
@@ -323,16 +342,9 @@ export default {
       outline: none !important;
     }
 
-    &[title='Italic'] {
-      @include font__code;
-
-      font-size: 110%;
-      line-height: 1;
+    &:nth-child(4) {
+      margin-right: 1rem;
     }
-  }
-
-  &-divider {
-    margin: 0 0.25rem;
   }
 }
 
