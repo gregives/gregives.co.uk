@@ -4,7 +4,7 @@
       <div class="header__logo">
         <nuxt-link to="/">Greg Ives</nuxt-link>
       </div>
-      <input id="__menu" type="checkbox" />
+      <input id="menu" type="checkbox" />
       <nav-bar />
       <div class="header__buttons">
         <theme-toggle />
@@ -77,7 +77,7 @@ export default {
   z-index: 3;
 }
 
-#__menu {
+#menu {
   display: none;
 }
 </style>

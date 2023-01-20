@@ -23,7 +23,7 @@
         name="text"
         required
         placeholder="Join the conversation"
-          @input="onInput"
+        @input="onInput"
       ></textarea>
     </div>
     <div
@@ -36,7 +36,7 @@
         title="Bold"
         @click="addBold"
       >
-          <bold-icon :size="24" />
+        <bold-icon :size="24" />
       </button>
       <button
         class="comment__markdown-button"
@@ -44,7 +44,7 @@
         title="Italic"
         @click="addItalic"
       >
-          <italic-icon :size="24" />
+        <italic-icon :size="24" />
       </button>
       <button
         class="comment__markdown-button"
@@ -52,7 +52,7 @@
         title="Strikethrough"
         @click="addStrikethrough"
       >
-          <strike-icon :size="24" />
+        <strike-icon :size="24" />
       </button>
       <button
         class="comment__markdown-button"
@@ -60,7 +60,7 @@
         title="Link"
         @click="addLink"
       >
-          <link-icon :size="24" />
+        <link-icon :size="24" />
       </button>
       <button
         class="comment__markdown-button"
@@ -68,7 +68,7 @@
         title="Quote"
         @click="addQuote"
       >
-          <quote-icon :size="28" />
+        <quote-icon :size="28" />
       </button>
       <button
         class="comment__markdown-button"
@@ -76,7 +76,7 @@
         title="Bullet list"
         @click="addBulletList"
       >
-          <bullet-list-icon :size="24" />
+        <bullet-list-icon :size="24" />
       </button>
       <button
         class="comment__markdown-button"
@@ -84,7 +84,7 @@
         title="Number list"
         @click="addNumberList"
       >
-          <number-list-icon :size="24" />
+        <number-list-icon :size="24" />
       </button>
       <button
         class="comment__markdown-button"
@@ -92,7 +92,7 @@
         title="Code block"
         @click="addCodeBlock"
       >
-          <code-block-icon :size="23" />
+        <code-block-icon :size="23" />
       </button>
     </div>
     <recaptcha />
@@ -110,7 +110,6 @@
 </template>
 
 <script>
-import AccountIcon from 'icons/Account'
 import BoldIcon from 'icons/FormatBold'
 import ItalicIcon from 'icons/FormatItalic'
 import StrikeIcon from 'icons/FormatStrikethrough'
@@ -122,7 +121,6 @@ import CodeBlockIcon from 'icons/CodeTags'
 
 export default {
   components: {
-    AccountIcon,
     BoldIcon,
     ItalicIcon,
     StrikeIcon,

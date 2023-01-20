@@ -142,7 +142,7 @@
   }
 }
 
-#__menu:checked ~ .nav {
+#menu:checked ~ .nav {
   visibility: visible;
   transform: translateX(-100%);
   transition: transform 400ms $transition__snappy--out, visibility 0s;

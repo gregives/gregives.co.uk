@@ -23,7 +23,10 @@ const client = new fauna.Client({
   keepAlive: process.env.NETLIFY_DEV !== 'true'
 })
 
-export async function handleFormSubmission({ payload }) {
+export async function handleFormSubmission(...args) {
+  console.log(args)
+  const [{ payload }] = args
+
   // Form name can be defined in either the payload or the data
   const { data, form_name: formName = data['form-name'] } = payload
 

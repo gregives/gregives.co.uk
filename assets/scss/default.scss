@@ -51,7 +51,7 @@ html,
 body,
 #__nuxt,
 #__layout,
-#__wrapper {
+#__layout > div {
   height: 100%;
 }
 

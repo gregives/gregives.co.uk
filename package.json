@@ -29,6 +29,7 @@
     "dotenv": "^16.0.3",
     "faunadb": "^4.7.1",
     "frontmatter-markdown-loader": "^2.3.0",
+    "gotrue-js": "^0.9.29",
     "highlight.js": "^11.7.0",
     "javascript-time-ago": "^2.5.9",
     "lazysizes": "^5.3.2",

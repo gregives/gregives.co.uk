@@ -90,6 +90,7 @@ export default {
   css: ['~/assets/scss/default.scss'],
   // Plugins to load before mounting the app
   plugins: [
+    '~/plugins/auth.js',
     '~/plugins/components.js',
     '~/plugins/dynamic-content.client.js',
     '~/plugins/dynamic-content.server.js',

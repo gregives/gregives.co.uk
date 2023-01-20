@@ -20,7 +20,7 @@
       <nuxt-link to="/projects/">See more projects</nuxt-link>
       <see-more-icon />
     </div>
-    <ol id="stuff" class="home__posts">
+    <ol class="home__posts">
       <post-card v-for="post in posts" :key="post.title" :post="post" />
     </ol>
     <div class="home__posts-more">

@@ -1,5 +1,5 @@
 <template>
-  <label class="hamburger" for="__menu" aria-label="Menu" title="Menu">
+  <label class="hamburger" for="menu" aria-label="Menu" title="Menu">
     <div class="hamburger__icon"></div>
   </label>
 </template>
@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     closeMenu() {
-      document.getElementById('__menu').checked = false
+      document.getElementById('menu').checked = false
     }
   }
 }
@@ -85,7 +85,7 @@ $thickness: 2px;
   }
 }
 
-#__menu:checked ~ .header__buttons {
+#menu:checked ~ .header__buttons {
   .hamburger__icon {
     transform: rotate(45deg);
     transition: transform $speed $speed $transition__snappy--out;

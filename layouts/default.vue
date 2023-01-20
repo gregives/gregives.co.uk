@@ -1,5 +1,5 @@
 <template>
-  <div id="__wrapper">
+  <div>
     <top-bar />
     <nuxt />
     <bottom-bar />
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="scss">
-#__wrapper {
+#__layout > div {
   display: flex;
   flex-direction: column;
 }

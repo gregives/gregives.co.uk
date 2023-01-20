@@ -1,13 +1,15 @@
 <template>
-  <footer class="footer">
+  <footer id="bottom" class="footer">
     <div class="footer__content">
-      <p>
-        &copy; Greg Ives {{ new Date().getFullYear() }}
-        <a
-          class="footer__source"
-          href="https://github.com/gregives/gregives.co.uk"
-        >
-          Source code
+      <p v-if="$auth.user">
+        Signed in as {{ $auth.user.name }},
+        <a class="footer__link" href="#" @click.prevent="$auth.logout()"
+          >sign out</a
+        >?
+      </p>
+      <p v-else>
+        <a class="footer__link" href="#" @click.prevent="$auth.login()">
+          Sign in with GitHub
         </a>
       </p>
       <p><view-counter /></p>
@@ -104,10 +106,8 @@ export default {
   }
 }
 
-.footer__source {
+.footer__link {
   @include link;
-
-  margin-left: 1rem;
 }
 
 .footer__social-icon {

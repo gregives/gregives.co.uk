@@ -85,7 +85,7 @@ export default {
     z-index: 100;
   }
 
-  :not(#__wrapper):hover > .mouse {
+  :not(#__layout > div):hover > .mouse {
     height: 40rem;
     width: 40rem;
   }
