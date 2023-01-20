@@ -1,7 +1,7 @@
 ---
 title: Styling a SectionList in React Native
 date: 2023-01-18
-description: The easiest way to apply styles to sections in a SectionList
+description: The easiest way to apply styles to sections in a SectionList.
 tags:
   - React Native
   - SectionList

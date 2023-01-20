@@ -1,14 +1,14 @@
 ---
 title: Nuxt, Netlify Forms and reCAPTCHA
 date: 2021-12-27
-description: How to integrate Netlify Forms and reCAPTCHA into a Nuxt application
+description: How to integrate Netlify Forms and reCAPTCHA into a Nuxt application.
 tags:
   - Nuxt
   - Netlify Forms
   - reCAPTCHA
   - Invisible
   - SSR
-  - "@nuxtjs/recaptcha"
+  - '@nuxtjs/recaptcha'
 ---
 
 For a long time, I've been using [FormSubmit](https://formsubmit.co/) for the contact form on this website. It is great at what it does and it's free! However, after submitting the contact form it would redirect you to the FormSubmit website to fill out a reCAPTCHA; I would much rather the users stay on my website and use AJAX to submit the form.

@@ -2,7 +2,7 @@
 title: TV Remote
 date: 2018-12-01
 image: /assets/images/dynamic/tv-remote/unphone.jpg
-description: Firmware for the unPhone, a souped-up ESP32 with an LCD touchscreen, to control televisions from a number of manufacturers
+description: Firmware for the unPhone, a souped-up ESP32 with an LCD touchscreen, to control televisions from a number of manufacturers.
 tags:
   - C++
   - unPhone

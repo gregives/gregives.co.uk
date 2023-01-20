@@ -2,7 +2,7 @@
 title: Hype
 date: 2016-10-01
 image: /assets/images/dynamic/hype/screenshots1.png
-description: Product of my first hackathon. Hype, an Android app to “hype” a location or event, which can be viewed on an interactive map
+description: Product of my first hackathon. Hype, an Android app to “hype” a location or event, which can be viewed on an interactive map.
 tags:
   - Hackathon
   - Android

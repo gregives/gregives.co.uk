@@ -2,7 +2,7 @@
 title: Eleventy Load
 date: 2021-02-08
 image: /assets/images/dynamic/eleventy-load/connections.jpg
-description: Resolve dependencies and post-process files in your Eleventy project, similar to webpack loaders
+description: Resolve dependencies and post-process files in your Eleventy project, similar to webpack loaders.
 github: https://github.com/gregives/eleventy-load
 website: https://eleventy-load.xyz
 tags:

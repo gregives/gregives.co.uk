@@ -1,7 +1,7 @@
 ---
 title: Build a Blog with Nuxt and Markdown
 date: 2020-02-08
-description: Learn how to build a blog with Nuxt and Markdown
+description: Learn how to build a blog with Nuxt and Markdown.
 tags:
   - Blog
   - Nuxt

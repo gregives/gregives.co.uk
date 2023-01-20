@@ -1,7 +1,7 @@
 ---
 title: Interpolating Colour with CSS
 date: 2021-05-09
-description: Different methods of interpolating colour in CSS including negative animation‑delay
+description: Different methods of interpolating colour in CSS including negative animation‑delay.
 tags:
   - CSS
   - Color interpolation

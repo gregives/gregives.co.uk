@@ -2,7 +2,7 @@
 title: SnapScroll
 date: 2017-08-01
 image: /assets/images/dynamic/snapscroll/screenshot.png
-description: My first JavaScript library to scroll smoothly between points on a website, built as a jQuery plugin
+description: My first JavaScript library to scroll smoothly between points on a website, built as a jQuery plugin.
 tags:
   - jQuery
   - Library

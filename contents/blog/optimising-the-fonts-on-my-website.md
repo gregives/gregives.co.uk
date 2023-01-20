@@ -1,7 +1,7 @@
 ---
 title: Optimising the Fonts on My Website
 date: 2020-04-10
-description: How I changed my font loading strategy and reduced the first stage fonts by over 100 kB
+description: How I changed my font loading strategy and reduced the first stage fonts by over 100 kB.
 tags:
   - Fonts
   - Web optimisation
