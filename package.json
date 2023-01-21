@@ -25,6 +25,7 @@
   "dependencies": {
     "@nuxtjs/recaptcha": "^1.1.1",
     "@nuxtjs/sitemap": "^2.4.0",
+    "@sindresorhus/slugify": "^2.1.1",
     "core-js": "^3.27.1",
     "dotenv": "^16.0.3",
     "faunadb": "^4.7.1",

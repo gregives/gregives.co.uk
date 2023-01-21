@@ -7,6 +7,7 @@ import markdownItMark from 'markdown-it-mark'
 import markdownItSub from 'markdown-it-sub'
 import markdownItSup from 'markdown-it-sup'
 import markdownItToc from 'markdown-it-toc-done-right'
+import slugify from '@sindresorhus/slugify'
 
 // Custom syntax highlighting
 import highlight from './highlight'
@@ -41,10 +42,12 @@ const createRenderFunction = (sanitize) => {
     highlight: (...args) => highlight(markdown, ...args)
   })
     .use(markdownItAnchor, {
-      permalink: markdownItAnchor.permalink.headerLink()
+      permalink: markdownItAnchor.permalink.headerLink(),
+      slugify
     })
     .use(markdownItToc, {
-      level: [2, 3]
+      level: [2, 3],
+      slugify
     })
     .use(markdownItAbbr)
     .use(markdownItSup)
