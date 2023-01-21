@@ -39,13 +39,7 @@ if (process.client) {
       state.user = transformUser(auth.currentUser())
     })
 
-    document.documentElement.style.scrollBehavior = 'auto'
     window.location.hash = 'bottom'
-
-    // Wait before changing scroll behaviour back to smooth
-    setTimeout(() => {
-      document.documentElement.style.scrollBehavior = 'smooth'
-    }, 0)
   } else {
     setTimeout(() => {
       state.user = transformUser(auth.currentUser())

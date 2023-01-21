@@ -8,8 +8,8 @@ const head = function () {
   if (redirect !== null) {
     localStorage.removeItem('redirect')
 
-    const url = new URL(redirect)
-    url.hash = window.location.hash // Pass hash through to redirect
+    // Keep the same hash during redirect
+    const url = new URL(window.location.hash, redirect)
     window.location.replace(url)
   }
 

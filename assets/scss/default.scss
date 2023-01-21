@@ -23,11 +23,6 @@
   font-size: calc(0.9em + 0.5vmin);
   overflow-y: scroll;
   overflow-x: hidden;
-  scroll-behavior: smooth;
-
-  @media (prefers-reduced-motion) {
-    scroll-behavior: auto !important;
-  }
 
   // Bound font-size on larger screens
   @media (min-width: $breakpoint--xl) {
@@ -198,7 +193,7 @@ html {
   border-radius: math.div($border-radius, 2);
   outline: solid $border-weight * 2 $color__primary;
   outline-offset: math.div($border-radius, 2);
-  scroll-margin: 6rem;
+  scroll-margin: 5rem;
 }
 
 :target {
@@ -209,8 +204,8 @@ html {
     margin-top: -6rem;
   }
 
-  @supports (scroll-margin: 6rem) {
-    scroll-margin: 6rem;
+  @supports (scroll-margin: 5rem) {
+    scroll-margin: 5rem;
 
     &::before {
       display: none;
