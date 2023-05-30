@@ -143,7 +143,7 @@ export default {
     box-shadow: 0 0 3rem 2rem $color__accent;
     content: '';
     left: 1rem;
-    opacity: 0.2;
+    opacity: 0.1;
     padding-bottom: calc(200% - 2rem);
     position: absolute;
     top: 1rem;

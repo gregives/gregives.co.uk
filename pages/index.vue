@@ -75,7 +75,7 @@ export default {
         vue
       },
       posts: posts.slice(0, 3),
-      projects: projects.slice(0, 1)
+      projects: projects.slice(0, 2)
     }
   }
 }
@@ -88,7 +88,7 @@ export default {
     (
       (calc(50% - 10rem) 5rem 20rem),
       (calc(50% + 5rem) 10rem 15rem),
-      (calc(50% - 80rem) 60rem 55rem),
+      (calc(50% - 80rem) 40rem 55rem),
       (calc(50% + 80rem) 60% 55rem)
     )
   );
@@ -122,7 +122,7 @@ export default {
 }
 
 .home__description {
-  margin: 0 auto 8rem;
+  margin: 0 auto 5rem;
   max-width: 60rem;
   position: relative;
   text-align: center;
@@ -134,10 +134,6 @@ export default {
   display: grid;
   grid-gap: 2.5rem;
   margin-top: 5rem;
-
-  @media (min-width: $breakpoint--sm) {
-    margin-top: 10rem;
-  }
 }
 
 .home__projects {
@@ -188,12 +184,6 @@ export default {
       right: -2rem;
       top: -0.5rem;
     }
-  }
-}
-
-@media (min-width: $breakpoint--sm) {
-  .home__projects-more {
-    margin-top: -4rem;
   }
 }
 </style>

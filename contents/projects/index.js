@@ -43,6 +43,8 @@ export const projectSlugs = [
   'icon-packs',
   'myles-wellbeing',
   'picnic-spots',
+  'poetry-tips',
+  'recommend-domains',
   'snapscroll',
   'stegaphoto',
   'tv-remote',

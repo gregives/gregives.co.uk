@@ -62,32 +62,32 @@ export default {
 </script>
 
 <style lang="scss">
-@media (pointer: fine) {
-  html:hover .mouse {
-    opacity: 0.1;
-  }
-}
-
 @supports (pointer-events: none) {
-  .mouse {
-    background-image: radial-gradient($color__primary 5%, transparent 50%);
-    left: 0;
-    height: 20rem;
-    opacity: 0;
-    pointer-events: none;
-    position: fixed;
-    top: 0;
-    transform: translate3d(0, 0, 0);
-    transition: height 300ms $transition__normal,
-      width 300ms $transition__normal, opacity 300ms $transition__normal 600ms;
-    width: 20rem;
-    will-change: transform;
-    z-index: 100;
-  }
+  @media screen and (pointer: fine) {
+    html:hover .mouse {
+      opacity: 0.1;
+    }
 
-  :not(#__layout > div):hover > .mouse {
-    height: 40rem;
-    width: 40rem;
+    .mouse {
+      background-image: radial-gradient($color__primary 5%, transparent 50%);
+      left: 0;
+      height: 20rem;
+      opacity: 0;
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      transform: translate3d(0, 0, 0);
+      transition: height 300ms $transition__normal,
+        width 300ms $transition__normal, opacity 300ms $transition__normal 600ms;
+      width: 20rem;
+      will-change: transform;
+      z-index: 100;
+    }
+
+    :not(#__layout > div):hover > .mouse {
+      height: 40rem;
+      width: 40rem;
+    }
   }
 }
 </style>

@@ -161,17 +161,23 @@ export default {
   }
 
   @supports (pointer-events: none) {
-    &::after {
-      background-image: linear-gradient(to top, $color__body 6rem, transparent);
-      bottom: -5rem;
-      content: '';
-      display: block;
-      height: 10rem;
-      pointer-events: none;
-      position: sticky;
-      margin-left: -1rem;
-      margin-right: -1rem;
-      z-index: 1;
+    @media screen {
+      &::after {
+        background-image: linear-gradient(
+          to top,
+          $color__body 6rem,
+          transparent
+        );
+        bottom: -5rem;
+        content: '';
+        display: block;
+        height: 10rem;
+        pointer-events: none;
+        position: sticky;
+        margin-left: -1rem;
+        margin-right: -1rem;
+        z-index: 1;
+      }
     }
   }
 }
