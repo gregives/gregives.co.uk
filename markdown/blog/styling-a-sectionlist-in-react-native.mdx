@@ -1,17 +1,12 @@
----
-title: Styling a SectionList in React Native
-date: 2023-01-18
-description: The easiest way to apply styles to sections in a SectionList.
-tags:
-  - React Native
-  - SectionList
-  - CSS
-  - Myles Wellbeing
----
+export const metadata = {
+  title: "Styling a SectionList in React Native",
+  date: "2023-01-18",
+  description: "The easiest way to apply styles to sections in a SectionList.",
+};
 
 I'm currently building [Myles Wellbeing](https://myleswellbeing.com/), an app which rewards employees for living healthy lifestyles. One of the screens in the Myles Wellbeing app displays your activity 'history' which breaks down the activities you've tracked each day. I started building this screen in React Native using a SectionList and I found it surprisingly difficult to create sections with rounded corners. Here's what I wanted it to look like:
 
-![Screenshot of the Myles Wellbeing app showing a sectioned list with rounded corners](/assets/images/react-native-sectionlist/screenshot1.png "20rem")
+![Screenshot of the Myles Wellbeing app showing a sectioned list with rounded corners](react-native-sectionlist/screenshot1.png "20rem")
 
 ## What Is a SectionList?
 
@@ -89,7 +84,7 @@ export function StyledSectionList({ sections }) {
 
 Every item looks the same with square corners and a black border on the bottom.
 
-![Screenshot of the Myles Wellbeing app showing a sectioned list with rounded corners](/assets/images/react-native-sectionlist/screenshot2.png "20rem")
+![Screenshot of the Myles Wellbeing app showing a sectioned list with rounded corners](react-native-sectionlist/screenshot2.png "20rem")
 
 ### Styling the First and Last Item Differently
 

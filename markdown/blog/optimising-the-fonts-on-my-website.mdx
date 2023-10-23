@@ -1,18 +1,13 @@
----
-title: Optimising the Fonts on My Website
-date: 2020-04-10
-description: How I changed my font loading strategy and reduced the first stage fonts by over 100 kB.
-tags:
-  - Fonts
-  - Web optimisation
-  - FOIT
-  - FOUT
-  - FOFT
-  - System fonts
-  - Subsetting
----
+import { Alert } from "@/components/Alert";
 
-I'll admit, I visit my own website a lot more than I reasonably should. One of my biggest peeves about my website was the time taken to load the display font --- the titles would initially render in Georgia and after a few seconds there would be a layout shift when my chosen font, Tiempos Headline, finally loaded! I read an excellent article by Zach Leatherman, [Developing a Robust Font Loading Strategy for CSS-Tricks](https://www.zachleat.com/web/css-tricks-web-fonts/), which inspired me to change my font loading strategy and massively reduce initial load times.
+export const metadata = {
+  title: "Optimising the Fonts on My Website",
+  date: "2020-04-10",
+  description:
+    "How I changed my font loading strategy and reduced the first stage fonts by over 100 kB.",
+};
+
+I'll admit, I visit my own website a lot more than I reasonably should. One of my biggest peeves about my website was the time taken to load the display font--the titles would initially render in Georgia and after a few seconds there would be a layout shift when my chosen font, Tiempos Headline, finally loaded! I read an excellent article by Zach Leatherman, [Developing a Robust Font Loading Strategy for CSS-Tricks](https://www.zachleat.com/web/css-tricks-web-fonts/), which inspired me to change my font loading strategy and massively reduce initial load times.
 
 ## Before Optimising the Fonts
 
@@ -28,7 +23,7 @@ Before I decided to optimise the fonts on my website, I was loading four web fon
 
 Opening up the Network panel in Chrome DevTools showed the time taken to download all four web fonts on the home page. I disabled cache and loaded the page on a throttled Slow 3G network. The waterfall graph below shows the times taken for the fonts to load, over a period of 10 seconds:
 
-![Waterfall graph showing four fonts loading after 8 seconds](/images/optimising-fonts/waterfall1.png)
+![Waterfall graph showing four fonts loading after 8 seconds](optimising-fonts/waterfall1.png)
 
 The fonts were all requested just after 2 seconds, and the last font finished loading more than 6 seconds later. Because of the time taken to load the fonts, the page is initially rendered with fallback fonts, which then causes a layout shift when the web fonts finally load.
 
@@ -50,11 +45,11 @@ A FOUT occurs when the browser renders the fallback system font while the web fo
 
 FOFT is very similar to FOUT, in that you render text as soon as possible without waiting for the web font to load. However, instead of the browser rendering a fallback system font, the browser renders a "Roman" web font. A "Roman" web font is a subset of the full web font, which often supports exclusively Western European languages and a reduced set of features. The browser uses _font synthesis_ to render "faux bold" and "faux italic" text while the full web font continues to load.
 
-Zach Leatherman really is the authority on everything web fonts --- I encourage you to read his [Web Font Loading Glossary](https://www.zachleat.com/web/webfont-glossary/) and [Guide to Font Loading Strategies](https://www.zachleat.com/web/comprehensive-webfonts/) for all the different ways of loading fonts!
+Zach Leatherman really is the authority on everything web fonts--I encourage you to read his [Web Font Loading Glossary](https://www.zachleat.com/web/webfont-glossary/) and [Guide to Font Loading Strategies](https://www.zachleat.com/web/comprehensive-webfonts/) for all the different ways of loading fonts!
 
 ## Do I Really Need This Many Web Fonts?
 
-Retrospectively, it seems crazy to load seven web fonts on a single page of my website. I encourage you to ask yourself, "Why am I actually using this web font?" --- I couldn't come up with any explanation aside from the fact that I like fonts! I wasn't relying on any special ligatures for my code blocks, nor features like tabular numbers.
+Retrospectively, it seems crazy to load seven web fonts on a single page of my website. I encourage you to ask yourself, "Why am I actually using this web font?"--I couldn't come up with any explanation aside from the fact that I like fonts! I wasn't relying on any special ligatures for my code blocks, nor features like tabular numbers.
 
 Instead of browsing Google Fonts for new fonts on my website, I decided instead to take a look at the system fonts already on my device. Obviously the fonts available on each device vary, so here are some great resources I used:
 
@@ -90,9 +85,9 @@ The number of fonts in [Google Fonts](https://fonts.google.com/) is increasing e
 
 I settled on DM Serif Text by Colophon Foundry and Frank Grießhammer. There is also a higher contrast DM Serif Display, but I much preferred the thicker strokes of DM Serif Text on the relatively small headings on my website. Both fonts are licensed under the Open Font License, which importantly **allows for modification**.
 
-![Details of DM Serif Text after uploading the font to Wakamai Fondue](/assets/images/optimising-fonts/wakamaifondue.png)
+![Details of DM Serif Text after uploading the font to Wakamai Fondue](optimising-fonts/wakamaifondue.png)
 
-I'd like to quickly draw your attention to a fabulous tool I discovered, which answers the question, "What can my font do?" Possibly the best-named website ever, [Wakamai Fondue](https://wakamaifondue.com/) provides a drag-and-drop interface for discovering what your font can do --- I dropped DM Serif Text onto Wakamai Fondue to find out which features it supported and how many characters it contained. This wasn't necessary but provided some nice context to the font sunsetting which was coming next!
+I'd like to quickly draw your attention to a fabulous tool I discovered, which answers the question, "What can my font do?" Possibly the best-named website ever, [Wakamai Fondue](https://wakamaifondue.com/) provides a drag-and-drop interface for discovering what your font can do--I dropped DM Serif Text onto Wakamai Fondue to find out which features it supported and how many characters it contained. This wasn't necessary but provided some nice context to the font sunsetting which was coming next!
 
 ### Subsetting a Font
 
@@ -118,11 +113,11 @@ The unicodes specify which characters we want to keep in our first stage font fi
 
 Subsetting my new display font brought my first stage fonts down to **only 12.0kB** in size! That's a reduction of a whopping **133kB** on some pages, compared to the seven web fonts I was previously loading.
 
-<post-aside type="info">
+<Alert type="info">
 
 Remember to generate your fonts in WOFF format as well as WOFF 2 for [the best browser support](https://caniuse.com/#feat=woff). Just specify `--flavor=woff` and make sure your `output-file` has a `.woff` extension.
 
-</post-aside>
+</Alert>
 
 #### Second Stage Font
 
@@ -180,17 +175,17 @@ if ("fonts" in document) {
 }
 ```
 
-Browser support for the [CSS Font Loading API](https://caniuse.com/#feat=font-loading) is pretty good but notably doesn't include Internet Explorer --- however, it's worth noting that our first stage font will still load in Internet Explorer, it will just be missing extras like kerning. If you do want to support Internet Explorer completely, you can just dump the second stage `@font-face` declarations into the document head, Zach explains how to do this [in his article](https://www.zachleat.com/web/css-tricks-web-fonts/).
+Browser support for the [CSS Font Loading API](https://caniuse.com/#feat=font-loading) is pretty good but notably doesn't include Internet Explorer--however, it's worth noting that our first stage font will still load in Internet Explorer, it will just be missing extras like kerning. If you do want to support Internet Explorer completely, you can just dump the second stage `@font-face` declarations into the document head, Zach explains how to do this [in his article](https://www.zachleat.com/web/css-tricks-web-fonts/).
 
 ## After Optimising the Fonts
 
 Changing the font loading strategy on my website **massively** reduced the time for the fonts to load and improved first render times, as I was loading fewer resources. Here's the waterfall graph we saw earlier, showing the time taken to load fonts **before** optimising:
 
-![Waterfall graph showing four fonts loading after 8 seconds](/assets/images/optimising-fonts/waterfall1.png)
+![Waterfall graph showing four fonts loading after 8 seconds](optimising-fonts/waterfall1.png)
 
 And here's the new waterfall graph showing the time taken for fonts to load **after** switching to system fonts and implementing a FOFT font loading strategy:
 
-![Waterfall graph showing two fonts loading after 6 seconds and 8 seconds](/assets/images/optimising-fonts/waterfall2.png)
+![Waterfall graph showing two fonts loading after 6 seconds and 8 seconds](optimising-fonts/waterfall2.png)
 
 **Wow!** That has made a huge difference to font loading times: the display font used for the headings of my website now loads after 6 seconds, compared to nearly 9 seconds before. These times were recorded whilst throttling the network; when I remove the throttling, there is **no FOUT** at all now I preload the first stage font.
 

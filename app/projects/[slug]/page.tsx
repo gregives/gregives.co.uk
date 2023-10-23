@@ -2,15 +2,20 @@ import { ArticleHeader } from "@/components/ArticleHeader";
 import { BentoGrid } from "@/components/BentoGrid";
 import { BentoItem } from "@/components/BentoItem";
 import { loadMarkdown } from "@/utilities/markdown";
+import { redirect } from "next/navigation";
 
-export default async function ArticlePage({
+export default async function ProjectPage({
   params,
 }: {
   params: {
     slug: string;
   };
 }) {
-  const { Content, metadata } = await loadMarkdown(`/blog/${params.slug}`);
+  const { Content, metadata } = await loadMarkdown(`/projects/${params.slug}`);
+
+  if (metadata.website) {
+    redirect(metadata.website);
+  }
 
   return (
     <main className="h-full">

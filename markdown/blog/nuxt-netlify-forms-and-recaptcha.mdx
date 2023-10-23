@@ -1,15 +1,11 @@
----
-title: Nuxt, Netlify Forms and reCAPTCHA
-date: 2021-12-27
-description: How to integrate Netlify Forms and reCAPTCHA into a Nuxt application.
-tags:
-  - Nuxt
-  - Netlify Forms
-  - reCAPTCHA
-  - Invisible
-  - SSR
-  - "@nuxtjs/recaptcha"
----
+import { Alert } from "@/components/Alert";
+
+export const metadata = {
+  title: "Nuxt, Netlify Forms and reCAPTCHA",
+  date: "2021-12-27",
+  description:
+    "How to integrate Netlify Forms and reCAPTCHA into a Nuxt application.",
+};
 
 For a long time, I've been using [FormSubmit](https://formsubmit.co/) for the contact form on this website. It is great at what it does and it's free! However, after submitting the contact form it would redirect you to the FormSubmit website to fill out a reCAPTCHA; I would much rather the users stay on my website and use AJAX to submit the form.
 
@@ -29,7 +25,7 @@ Firstly, let's try to understand how Netlify Forms works, starting on the [HTML 
 >
 > Your form's `name` attribute determines what we call the form in the Netlify app interface. If you have more than one form on a site, each form should have a different `name` attribute.
 >
-> When Netlify bots parse the static HTML for a form you’ve added, they automatically strip the `data-netlify="true"` or `netlify` attribute from the `<form>` tag and inject a hidden input named `form-name`.
+> When Netlify bots parse the static HTML for a form you've added, they automatically strip the `data-netlify="true"` or `netlify` attribute from the `<form>` tag and inject a hidden input named `form-name`.
 
 There are **three things we should take away from this documentation**:
 
@@ -66,7 +62,7 @@ Netlify would then remove the `data-netlify="true"` attribute (or the `netlify` 
 
 This is where the documentation gets a bit confusing, especially if you're building your site using a static site generator like Nuxt.
 
-> Our buildbots find your forms by parsing the HTML of your site when the build completes. This means that if you’re using JavaScript to render a form client-side, our buildbots won’t find it in the pre-built files.
+> Our buildbots find your forms by parsing the HTML of your site when the build completes. This means that if you're using JavaScript to render a form client-side, our buildbots won't find it in the pre-built files.
 >
 > - Create a hidden HTML form with the `data-netlify="true"` attribute or a `netlify` attribute and input fields with `name` attributes to match the inputs of your JavaScript-rendered form. You need to apply the same work around if you want to use our reCAPTCHA 2 integration, and create a `div` element in the hidden HTML with the `data-netlify-recaptcha="true"` attribute.
 > - Add a hidden input to the JavaScript-rendered form or JSX form:
@@ -75,23 +71,23 @@ This is where the documentation gets a bit confusing, especially if you're build
 >   <input type="hidden" name="form-name" value="name_of_my_form" />
 >   ```
 
-Create a hidden HTML form, that sounds a bit weird? Netlify needs to know **at build time** that your form exists and what inputs your form takes --- it does this by searching your HTML files. If your form lives in a JavaScript file ready to be rendered on the client-side, then Netlify won't know about it.
+Create a hidden HTML form, that sounds a bit weird? Netlify needs to know **at build time** that your form exists and what inputs your form takes--it does this by searching your HTML files. If your form lives in a JavaScript file ready to be rendered on the client-side, then Netlify won't know about it.
 
 **However, this does not apply to Nuxt** because Nuxt is a static site generator. The `nuxt generate` command will render your HTML at build time and Netlify will have no trouble finding your form.
 
 We do need to pay attention to the second point though: if we ignore the second point, Netlify will change our HTML by removing the `data-netlify="true"` or `netlify` attribute and adding the hidden input into our form, **without Nuxt knowing**. This will cause a mismatch during hydration.
 
-<post-aside type="info">
+<Alert type="info">
 
 Hydration refers to the client-side process during which Vue takes over the static HTML sent by the server and turns it into dynamic DOM that can react to client-side data changes. A mismatch occurs when the virtual DOM tree does not match the DOM structure rendered from the server. Read more about hydration in the [Vue SSR Guide](https://ssr.vuejs.org/guide/hydration.html).
 
-</post-aside>
+</Alert>
 
 ## A Basic Form Using Netlify Forms and Nuxt
 
 Putting together everything we've learnt so far, let's create our first form. We'll put the form in a single-file component, with some optional styles in a `<style>` tag. No need for a `<script>` tag yet, this form works using HTML only.
 
-```vue
+```html
 <template>
   <form name="contact" method="POST" data-netlify="true">
     <input type="hidden" name="form-name" value="contact" />
@@ -103,8 +99,8 @@ Putting together everything we've learnt so far, let's create our first form. We
   </form>
 </template>
 
-<style lang="scss">
-/* Make your form look beautiful here */
+<style>
+  /* Make your form look beautiful here */
 </style>
 ```
 
@@ -121,7 +117,7 @@ When you click the submit button, a few things will happen:
 
 You can display your own success page instead of Netlify's by adding an `action` attribute to your `<form>` tag. The value should be the URL of your success page, for example:
 
-```vue {2}
+```html {2}
 <template>
   <form name="contact" method="POST" action="/success" data-netlify="true">
     <input type="hidden" name="form-name" value="contact" />
@@ -215,7 +211,7 @@ export default {
 
 Now we can add the `data-netlify-recaptcha="true"` attribute to our form and use the `<recaptcha />` component that `@nuxtjs/recaptcha` registers.
 
-```vue {2,8}
+```html {2,8}
 <template>
   <form
     name="contact"
@@ -262,7 +258,7 @@ Users won't have a widget to click on, so reCAPTCHA needs to know when to genera
 
 We'll move each of the `<form>` attributes onto a new line, just so we can see them easier!
 
-```vue {8,20-32}
+```html {8,20-32}
 <template>
   <form
     name="contact"
@@ -283,23 +279,23 @@ We'll move each of the `<form>` attributes onto a new line, just so we can see t
 </template>
 
 <script>
-export default {
-  methods: {
-    async onSubmit(event) {
-      // Wait for the reCAPTCHA token
-      await this.$recaptcha.getResponse();
+  export default {
+    methods: {
+      async onSubmit(event) {
+        // Wait for the reCAPTCHA token
+        await this.$recaptcha.getResponse();
 
-      // Submit the form
-      event.target.submit();
+        // Submit the form
+        event.target.submit();
+      },
     },
-  },
-};
+  };
 </script>
 ```
 
 **The reCAPTCHA widget should now be invisible!** Although, you'll notice that a badge has appeared in the bottom right of the page; if you want to, [Google's documentation says](https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed) you can remove this badge "as long as you include the reCAPTCHA branding visibly in the user flow".
 
-```vue {16-20,39-43}
+```html {16-20,39-43}
 <template>
   <form
     name="contact"
@@ -325,23 +321,23 @@ export default {
 </template>
 
 <script>
-export default {
-  methods: {
-    async onSubmit(event) {
-      // Wait for the reCAPTCHA token
-      await this.$recaptcha.getResponse();
+  export default {
+    methods: {
+      async onSubmit(event) {
+        // Wait for the reCAPTCHA token
+        await this.$recaptcha.getResponse();
 
-      // Submit the form
-      event.target.submit();
+        // Submit the form
+        event.target.submit();
+      },
     },
-  },
-};
+  };
 </script>
 
 <style>
-.grecaptcha-badge {
-  visibility: hidden;
-}
+  .grecaptcha-badge {
+    visibility: hidden;
+  }
 </style>
 ```
 
@@ -353,7 +349,7 @@ Personally, I like this method because I can style the message to match the webs
 
 If you've followed up to this point, you've built a form with an invisible reCAPTCHA challenge using Netlify Forms. Let's take this one step further and send the form data using AJAX so that the user isn't redirected away from the page when they click the submit button. We'll use the global [`fetch()` method](https://developer.mozilla.org/en-US/docs/Web/API/fetch) to send the form data, no need to use an npm package for this!
 
-```vue {22,28-32,35-59}
+```html {22,28-32,35-59}
 <template>
   <form
     name="contact"
@@ -380,53 +376,51 @@ If you've followed up to this point, you've built a form with an invisible reCAP
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      message: null,
-    };
-  },
-  methods: {
-    async onSubmit(event) {
-      try {
-        // Wait for the reCAPTCHA token
-        await this.$recaptcha.getResponse();
-
-        // Submit the form to Netlify
-        const response = await fetch("/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams(new FormData(event.target)).toString(),
-        });
-
-        // Throw an error if the response was not successful
-        if (!response.ok) {
-          throw new Error("Response was not successful");
-        }
-
-        // Say thank you and reset reCAPTCHA
-        this.message = "Thanks!";
-        await this.$recaptcha.reset();
-      } catch {
-        // Error message if something goes wrong
-        this.message = "Something went wrong, please try again.";
-      }
+  export default {
+    data() {
+      return {
+        message: null,
+      };
     },
-  },
-};
+    methods: {
+      async onSubmit(event) {
+        try {
+          // Wait for the reCAPTCHA token
+          await this.$recaptcha.getResponse();
+
+          // Submit the form to Netlify
+          const response = await fetch("/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams(new FormData(event.target)).toString(),
+          });
+
+          // Throw an error if the response was not successful
+          if (!response.ok) {
+            throw new Error("Response was not successful");
+          }
+
+          // Say thank you and reset reCAPTCHA
+          this.message = "Thanks!";
+          await this.$recaptcha.reset();
+        } catch {
+          // Error message if something goes wrong
+          this.message = "Something went wrong, please try again.";
+        }
+      },
+    },
+  };
 </script>
 
 <style>
-.grecaptcha-badge {
-  visibility: hidden;
-}
+  .grecaptcha-badge {
+    visibility: hidden;
+  }
 </style>
 ```
 
 {/* <netlify-form :step="5"></netlify-form> */}
 
-There we go! You can play around with the feedback message to make it a bit more fun, <nuxt-link to="/contact/">my contact form</nuxt-link> throws a little paper plane.
-
-I hope this blog post has helped you to implement Netlify Forms in your Nuxt application with reCAPTCHA. If you've got any questions, feel free to fill out <nuxt-link to="/contact/">my contact form</nuxt-link> or find me on social media!
+There we go! I hope this blog post has helped you to implement Netlify Forms in your Nuxt application with reCAPTCHA. If you've got any questions, feel free to contact me or find me on social media!

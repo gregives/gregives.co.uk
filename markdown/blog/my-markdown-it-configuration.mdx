@@ -1,18 +1,17 @@
----
-title: My Markdown-It Configuration
-date: 2020-02-16
-description: An overview of the markdown-it and highlight.js configurations used on my website.
-tags:
-  - Markdown
-  - markdown-it
-  - highlight.js
----
+import { Alert } from "@/components/Alert";
 
-<post-aside type="info">
+export const metadata = {
+  title: "My Markdown-It Configuration",
+  date: "2020-02-16",
+  description:
+    "An overview of the markdown-it and highlight.js configurations used on my website.",
+};
+
+<Alert type="info">
 
 My Markdown configuration has changed considerably since I wrote this blog post but this is still a good starting point! If you want to view my updated configuration, [view the source on GitHub](https://github.com/gregives/gregives.co.uk/blob/master/config/markdown.js).
 
-</post-aside>
+</Alert>
 
 I use [markdown-it](https://github.com/markdown-it/markdown-it) and [highlight.js](https://highlightjs.org) to render my blog posts. Out of the box, markdown-it and highlight.js may provide all the functionality you need, however, customising them enables you to do stuff like:
 
@@ -20,7 +19,7 @@ I use [markdown-it](https://github.com/markdown-it/markdown-it) and [highlight.j
 - Add new language aliases for syntax highlighting
 - Use [BEM](http://getbem.com/naming) class names
 - Add heading anchors
-- Use proper quote characters e.g. “”
+- Use proper quote characters e.g. ""
 - Open external links in new tabs
 - Write abbreviations, subscript, superscript and more in Markdown
 
@@ -90,7 +89,7 @@ hljs.registerLanguage("vue", () => hljs.getLanguage("html"));
 
 Secondly, I pass some configuration options to markdown-it:
 
-- `html: true` allows me to put raw HTML into my Markdown files. This also allows me to put Vue components into my Markdown files, as explained in my previous blog post, <nuxt-link to="/blog/build-a-blog-with-nuxt-and-markdown/">Build a Blog with Nuxt and Markdown</nuxt-link>.
+- `html: true` allows me to put raw HTML into my Markdown files. This also allows me to put Vue components into my Markdown files, as explained in my previous blog post, [Build a Blog with Nuxt and Markdown](/blog/build-a-blog-with-nuxt-and-markdown).
 - `xhtmlOut: true` converts newlines `\n` in paragraphs into break tags `<br/>`.
 - `typographer: true` enables some "language-neutral replacement" and beautifies quotation marks.
 

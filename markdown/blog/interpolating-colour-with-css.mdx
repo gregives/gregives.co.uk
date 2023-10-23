@@ -1,13 +1,11 @@
----
-title: Interpolating Colour with CSS
-date: 2021-05-09
-description: Different methods of interpolating colour in CSS including negative animation‑delay.
-tags:
-  - CSS
-  - Color interpolation
-  - Custom properties
-  - animation-delay
----
+import { Alert } from "@/components/Alert";
+
+export const metadata = {
+  title: "Interpolating Colour with CSS",
+  date: "2021-05-09",
+  description:
+    "Different methods of interpolating colour in CSS including negative animation‑delay.",
+};
 
 "How to interpolate colour CSS", I typed into Google. Surely there's an easy way to interpolate colour in CSS, given that the browser natively interpolates colour in gradients and animation? The first result is the [color-interpolate](https://www.npmjs.com/package/color-interpolate) package on npm, not a very good start.
 
@@ -169,13 +167,13 @@ We can circumvent this by adding more colours into our animation. Because we're 
 
 ## Combining CSS Variables and Animation
 
-By combining the use of CSS variables and animation, we can interpolate colour in the HSL colour space whilst getting the browser to do the interpolation for us. This gives us the best of both worlds! **However**, by default, browsers don't know how to interpret custom properties and so can't interpolate them --- we need to tell the browser what each custom property means. We can do this using the `@property` rule [defined by CSS Houdini](https://drafts.css-houdini.org/css-properties-values-api-1/#at-property-rule).
+By combining the use of CSS variables and animation, we can interpolate colour in the HSL colour space whilst getting the browser to do the interpolation for us. This gives us the best of both worlds! **However**, by default, browsers don't know how to interpret custom properties and so can't interpolate them--we need to tell the browser what each custom property means. We can do this using the `@property` rule [defined by CSS Houdini](https://drafts.css-houdini.org/css-properties-values-api-1/#at-property-rule).
 
-<post-aside type="warning">
+<Alert type="warning">
 
 Your browser [might not support](https://caniuse.com/mdn-css_at-rules_property) the `@property` rule, so the following demonstration **might just switch straight from red to green**. This is what happens when the browser doesn't know how to interpolate a custom property!
 
-</post-aside>
+</Alert>
 
 We can define our CSS variables inside the `@keyframes` rule like so:
 

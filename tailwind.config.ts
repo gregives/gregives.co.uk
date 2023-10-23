@@ -1,20 +1,26 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
+  darkMode: "class",
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./mdx-components.tsx",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./markdown/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  plugins: [require("@tailwindcss/forms")],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      boxShadow: {
+        bento: "inset 0 -2rem 2rem -2rem var(--tw-shadow-color)",
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans],
+        display: ["var(--font-display)", ...defaultTheme.fontFamily.sans],
       },
     },
   },
-  plugins: [],
 };
+
 export default config;
