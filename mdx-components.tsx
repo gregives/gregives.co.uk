@@ -31,7 +31,7 @@ export function Heading1({
   return (
     <Heading
       level={1}
-      className={twMerge("mt-8 first:mt-0 mb-8 last:mb-0", className)}
+      className={twMerge("pt-8 -mt-8 mb-8 last:mb-0", className)}
       {...properties}
     />
   );
@@ -44,7 +44,7 @@ export function Heading2({
   return (
     <Heading
       level={2}
-      className={twMerge("mt-6 first:mt-0 mb-6 last:mb-0", className)}
+      className={twMerge("pt-8 -mt-2 first:-mt-8 mb-6 last:mb-0", className)}
       {...properties}
     />
   );
@@ -57,7 +57,7 @@ export function Heading3({
   return (
     <Heading
       level={3}
-      className={twMerge("mt-4 first:mt-0 mb-4 last:mb-0", className)}
+      className={twMerge("pt-8 -mt-4 first:mt-8 mb-4 last:mb-0", className)}
       {...properties}
     />
   );

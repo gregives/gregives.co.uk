@@ -46,7 +46,7 @@ ul[class] ul[class] {
 }
 
 .toc-level[class] .toc-level[class] {
-  @apply ml-2 my-0 text-xs;
+  @apply ml-4 my-0 text-xs;
 }
 
 .toc-item {
@@ -55,4 +55,17 @@ ul[class] ul[class] {
 
 .toc-item .toc-item {
   @apply mt-3;
+}
+
+a[target="_blank"]::after {
+  content: "\202F\2197";
+}
+
+.font-display a[target="_blank"]::after {
+  content: "\00A0\2197";
+  vertical-align: text-top;
+}
+
+:target {
+  scroll-margin-top: 4rem;
 }

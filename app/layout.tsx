@@ -35,7 +35,7 @@ export default function RootLayout({
     >
       <body className="h-full flex flex-col">
         <Header className="text-slate-100 sticky top-0" />
-        <Container className="w-full relative p-2 z-10 flex-grow bg-slate-800 rounded-3xl">
+        <Container className="w-full relative p-2 z-10 flex-grow bg-slate-800 rounded-[2rem]">
           {children}
         </Container>
         <Footer className="text-slate-100 sticky bottom-0" />
