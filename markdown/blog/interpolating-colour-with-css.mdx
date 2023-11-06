@@ -1,4 +1,5 @@
 import { Alert } from "@/components/Alert";
+import Interpolation from "@/components/Interpolation";
 
 export const metadata = {
   title: "Interpolating Colour with CSS",
@@ -27,7 +28,7 @@ We could implement interpolation between red and green using a single `progress`
 }
 ```
 
-{/* <interpolation :step="1"></interpolation> */}
+<Interpolation step={1} />
 
 This is okay but there's an arbitrary `1.2` which controls the hue: when the progress is 0%, the hue will be 0; when the progress is 100%, the hue will be 120 which corresponds to lime green.
 
@@ -43,6 +44,7 @@ We can implement this in CSS using two additional `start` and `end` variables:
 .progress {
   --start: 0;
   --end: 120;
+
   background-color: hsl(
     calc(var(--start) + (var(--end) - var(--start)) * var(--progress) / 100),
     100%,
@@ -51,12 +53,13 @@ We can implement this in CSS using two additional `start` and `end` variables:
 }
 ```
 
-{/* <interpolation :step="2"></interpolation> */}
+<Interpolation step={2} />
 
 ### Interpolating Between Any Two Colours
 
 You might be able to see where this is going... if we use 7 CSS variables, we can finally interpolate between any two colours represented by their `hsl()` value. Here's what this looks like:
 
+{/* prettier-ignore-start */}
 ```css
 .progress {
   --h-start: 0;
@@ -65,21 +68,17 @@ You might be able to see where this is going... if we use 7 CSS variables, we ca
   --h-end: 120;
   --s-end: 100;
   --l-end: 50;
+
   background-color: hsl(
-    calc(
-      var(--h-start) + (var(--h-end) - var(--h-start)) * var(--progress) / 100
-    ),
-    calc(
-      var(--s-start) + (var(--s-end) - var(--s-start)) * var(--progress) / 100
-    ),
-    calc(
-      var(--l-start) + (var(--l-end) - var(--l-start)) * var(--progress) / 100
-    )
+    calc(var(--h-start) + (var(--h-end) - var(--h-start)) * var(--progress) / 100),
+    calc(var(--s-start) + (var(--s-end) - var(--s-start)) * var(--progress) / 100),
+    calc(var(--l-start) + (var(--l-end) - var(--l-start)) * var(--progress) / 100)
   );
 }
 ```
+{/* prettier-ignore-end */}
 
-{/* <interpolation :step="3"></interpolation> */}
+<Interpolation step={3} />
 
 ## Interpolating Colour Using Animation
 
@@ -107,9 +106,9 @@ However, the browser can calculate interpolation itself, which you may (or may n
 }
 ```
 
-{/* <interpolation :step="4"></interpolation> */}
+<Interpolation step={4} />
 
-### Negative `animation-delay`
+### Negative Animation Delay
 
 The magic to interpolating colour using animation is a negative `animation-delay` property. From the [CSS Animations Level 1](https://drafts.csswg.org/css-animations-1/#animation-delay) specification:
 
@@ -133,7 +132,7 @@ If we want to set the background colour to the midpoint of red and green, we wou
 }
 ```
 
-{/* <interpolation :step="5"></interpolation> */}
+<Interpolation step={5} />
 
 Now the browser is doing all the hard work, we just specify the colours we want to interpolate and the browser does the rest. **But hang on!** In this last demonstration, the midpoint of red and green appears to be brown, whereas previously the midpoint was yellow. That's because the browser interpolates colour in the [alpha-premultiplied sRGBA colour space](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#interpolation) "to prevent unexpected gray colours from appearing".
 
@@ -163,7 +162,7 @@ We can circumvent this by adding more colours into our animation. Because we're 
 }
 ```
 
-{/* <interpolation :step="6"></interpolation> */}
+<Interpolation step={6} />
 
 ## Combining CSS Variables and Animation
 
@@ -216,7 +215,7 @@ We can define our CSS variables inside the `@keyframes` rule like so:
 }
 ```
 
-{/* <interpolation :step="7"></interpolation> */}
+<Interpolation step={7} />
 
 ## Which Method Is Best?
 

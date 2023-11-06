@@ -17,17 +17,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${BASE_ORIGIN}/blog`,
       lastModified: new Date(),
     },
-    ...articles.map(({ metadata }) => ({
-      url: `${BASE_ORIGIN}${metadata.path}`,
-      lastModified: new Date(),
-    })),
+    ...articles
+      .filter(({ metadata }) => metadata.website === undefined)
+      .map(({ metadata }) => ({
+        url: `${BASE_ORIGIN}${metadata.path}`,
+        lastModified: new Date(),
+      })),
     {
       url: `${BASE_ORIGIN}/projects`,
       lastModified: new Date(),
     },
-    ...projects.map(({ metadata }) => ({
-      url: `${BASE_ORIGIN}${metadata.path}`,
-      lastModified: new Date(),
-    })),
+    ...projects
+      .filter(({ metadata }) => metadata.website === undefined)
+      .map(({ metadata }) => ({
+        url: `${BASE_ORIGIN}${metadata.path}`,
+        lastModified: new Date(),
+      })),
   ];
 }

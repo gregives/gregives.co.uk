@@ -2,7 +2,23 @@ import { ArticleHeader } from "@/components/ArticleHeader";
 import { BentoGrid } from "@/components/BentoGrid";
 import { BentoItem } from "@/components/BentoItem";
 import { loadMarkdown } from "@/utilities/markdown";
+import { Metadata } from "next";
 import { redirect } from "next/navigation";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: {
+    slug: string;
+  };
+}): Promise<Metadata> {
+  const { metadata } = await loadMarkdown(`/projects/${params.slug}`);
+
+  return {
+    title: metadata.title,
+    description: metadata.description,
+  };
+}
 
 export default async function ProjectPage({
   params,
@@ -24,6 +40,7 @@ export default async function ProjectPage({
           <ArticleHeader metadata={metadata} className="mb-8" />
           <Content />
         </BentoItem>
+        <BentoItem className="hidden sm:flex col-span-4 bg-slate-700 before:opacity-25 ring-inset shadow-inner" />
       </BentoGrid>
     </main>
   );

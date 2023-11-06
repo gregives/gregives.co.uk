@@ -1,57 +1,72 @@
+"use client";
+
+import { CSSProperties, useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-const classNames = {
-  slate:
-    "shadow-slate-500/50 bg-gradient-to-br from-slate-200 from-[calc(100%-8rem)] to-slate-300",
-  red: "shadow-red-500/50 bg-gradient-to-br from-red-300 from-[calc(100%-8rem)] to-red-400",
-  orange:
-    "shadow-orange-500/50 bg-gradient-to-br from-orange-300 from-[calc(100%-8rem)] to-orange-400",
-  amber:
-    "shadow-amber-500/50 bg-gradient-to-br from-amber-300 from-[calc(100%-8rem)] to-amber-400",
-  yellow:
-    "shadow-yellow-500/50 bg-gradient-to-br from-yellow-300 from-[calc(100%-8rem)] to-yellow-400",
-  lime: "shadow-lime-500/50 bg-gradient-to-br from-lime-300 from-[calc(100%-8rem)] to-lime-400",
-  green:
-    "shadow-green-500/50 bg-gradient-to-br from-green-300 from-[calc(100%-8rem)] to-green-400",
-  emerald:
-    "shadow-emerald-500/50 bg-gradient-to-br from-emerald-300 from-[calc(100%-8rem)] to-emerald-400",
-  teal: "shadow-teal-500/50 bg-gradient-to-br from-teal-300 from-[calc(100%-8rem)] to-teal-400",
-  cyan: "shadow-cyan-500/50 bg-gradient-to-br from-cyan-300 from-[calc(100%-8rem)] to-cyan-400",
-  sky: "shadow-sky-500/50 bg-gradient-to-br from-sky-300 from-[calc(100%-8rem)] to-sky-400",
-  blue: "shadow-blue-500/50 bg-gradient-to-br from-blue-300 from-[calc(100%-8rem)] to-blue-400",
-  indigo:
-    "shadow-indigo-500/50 bg-gradient-to-br from-indigo-300 from-[calc(100%-8rem)] to-indigo-400",
-  violet:
-    "shadow-violet-500/50 bg-gradient-to-br from-violet-300 from-[calc(100%-8rem)] to-violet-400",
-  purple:
-    "shadow-purple-500/50 bg-gradient-to-br from-purple-300 from-[calc(100%-8rem)] to-purple-400",
-  fuchsia:
-    "shadow-fuchsia-500/50 bg-gradient-to-br from-fuchsia-300 from-[calc(100%-8rem)] to-fuchsia-400",
-  pink: "shadow-pink-500/50 bg-gradient-to-br from-pink-300 from-[calc(100%-8rem)] to-pink-400",
-  rose: "shadow-rose-500/50 bg-gradient-to-br from-rose-300 from-[calc(100%-8rem)] to-rose-400",
-};
+type BentoItemProperties = JSX.IntrinsicElements["div"];
 
-type BentoItemProperties = JSX.IntrinsicElements["div"] & {
-  color?: keyof typeof classNames;
-};
+function useFadeIn() {
+  const ref = useRef(null);
 
-export function BentoItem({
-  color = "slate",
-  className,
-  ...properties
-}: BentoItemProperties) {
-  const applyBackground =
-    className === undefined || className.search(/\bbg-\w+-\d+\b/) === -1;
+  const [style, setStyle] = useState<CSSProperties | undefined>({
+    opacity: 0,
+    transitionProperty: "all",
+    transform: "translateY(1rem) skewY(1deg) scale(0.98)",
+    transformOrigin: "top",
+  });
+
+  useEffect(() => {
+    if (ref.current) {
+      let handle: NodeJS.Timeout;
+
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          const transitionDuration =
+            500 + (entry.boundingClientRect.top / window.innerHeight) * 500;
+
+          setStyle((style) => ({
+            ...style,
+            opacity: 1,
+            transitionDuration: transitionDuration + "ms",
+            transform: "none",
+          }));
+
+          handle = setTimeout(() => {
+            setStyle(undefined);
+          }, transitionDuration);
+
+          if (ref.current) {
+            observer.unobserve(ref.current);
+          }
+        }
+      });
+
+      observer.observe(ref.current);
+
+      return () => {
+        observer.disconnect();
+        clearTimeout(handle);
+      };
+    }
+  }, [ref]);
+
+  return {
+    ref,
+    style,
+  };
+}
+
+export function BentoItem({ className, ...properties }: BentoItemProperties) {
+  const fadeProperties = useFadeIn();
 
   return (
     <div
-      className={
-        twMerge(
-          "flex flex-col justify-end rounded-3xl overflow-hidden col-span-full px-4 sm:px-6 md:px-8 lg:px-10 py-6 md:py-8",
-          applyBackground && classNames[color],
-          className
-        ) + " shadow-bento"
-      }
+      className={twMerge(
+        "relative flex flex-col justify-end rounded-3xl col-span-full px-4 sm:px-6 md:px-8 lg:px-10 py-6 md:py-8 bg-slate-200 ring-1 ring-black/10 shadow",
+        "before:block before:absolute before:bottom-0 before:left-0 before:w-full before:h-48 before:max-h-full before:rounded-3xl before:shadow-[inset_0_-2rem_2rem_-2rem_black] before:bg-gradient-to-br before:from-transparent before:from-[calc(100%-8rem)] before:to-black before:mix-blend-soft-light before:pointer-events-none",
+        className
+      )}
+      {...fadeProperties}
       {...properties}
     />
   );

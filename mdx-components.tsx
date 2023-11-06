@@ -6,6 +6,7 @@ import { twMerge } from "tailwind-merge";
 
 async function Image({
   src: path,
+  title: maxWidth,
   ...properties
 }: JSX.IntrinsicElements["img"]) {
   const image = await import(`@/assets/images/${path}`);
@@ -18,8 +19,11 @@ async function Image({
       src={src}
       height={height}
       width={width}
-      sizes="100vw"
-      className="my-4 w-full max-h-[60svh] object-contain object-left"
+      sizes="(min-width: 640px) 66.6666vw, 100vw"
+      className="my-4 w-full max-h-[60svh] object-contain object-left drop-shadow-md"
+      style={{
+        maxWidth,
+      }}
     />
   );
 }
@@ -57,20 +61,23 @@ export function Heading3({
   return (
     <Heading
       level={3}
-      className={twMerge("pt-8 -mt-4 first:mt-8 mb-4 last:mb-0", className)}
+      className={twMerge("pt-8 -mt-4 first:-mt-8 mb-4 last:mb-0", className)}
       {...properties}
     />
   );
 }
 
-export function Paragraph(properties: JSX.IntrinsicElements["p"]) {
-  return <p className="mb-6 last:mb-0" {...properties} />;
+export function Paragraph({
+  className,
+  ...properties
+}: JSX.IntrinsicElements["p"]) {
+  return <p className={twMerge("mb-6 last:mb-0", className)} {...properties} />;
 }
 
 export function OrderedList(properties: JSX.IntrinsicElements["ol"]) {
   return (
     <ol
-      className="mb-6 last:mb-0 list-decimal space-y-3 marker:tracking-tighter"
+      className="mb-6 last:mb-0 list-decimal marker:tracking-tighter"
       {...properties}
     />
   );
@@ -79,14 +86,16 @@ export function OrderedList(properties: JSX.IntrinsicElements["ol"]) {
 export function UnorderedList(properties: JSX.IntrinsicElements["ul"]) {
   return (
     <ul
-      className="mb-6 last:mb-0 list-disc space-y-3 marker:tracking-tighter"
+      className="mb-6 last:mb-0 list-disc marker:tracking-tighter"
       {...properties}
     />
   );
 }
 
 export function ListItem(properties: JSX.IntrinsicElements["li"]) {
-  return <li className="ml-6 pl-1" {...properties} />;
+  return (
+    <li className="first:-mt-2 mb-3 last:mb-0 ml-6 pl-1" {...properties} />
+  );
 }
 
 export function Pre(properties: JSX.IntrinsicElements["pre"]) {
@@ -101,7 +110,7 @@ export function Pre(properties: JSX.IntrinsicElements["pre"]) {
 export function Code(properties: JSX.IntrinsicElements["code"]) {
   return (
     <code
-      className="bg-slate-200 rounded px-1 box-decoration-clone"
+      className="bg-slate-200 group-[]/error:bg-orange-100 rounded px-1 box-decoration-clone"
       {...properties}
     />
   );
@@ -110,7 +119,7 @@ export function Code(properties: JSX.IntrinsicElements["code"]) {
 export function Blockquote(properties: JSX.IntrinsicElements["blockquote"]) {
   return (
     <blockquote
-      className="mb-6 first:mt-0 last:mb-0 ring-2 ring-inset ring-slate-200 p-4 rounded-xl"
+      className="mb-6 first:mt-0 last:mb-0 ring-2 ring-inset ring-slate-300 p-4 rounded-xl"
       {...properties}
     />
   );

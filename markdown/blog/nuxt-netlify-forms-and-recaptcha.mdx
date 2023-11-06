@@ -87,7 +87,7 @@ Hydration refers to the client-side process during which Vue takes over the stat
 
 Putting together everything we've learnt so far, let's create our first form. We'll put the form in a single-file component, with some optional styles in a `<style>` tag. No need for a `<script>` tag yet, this form works using HTML only.
 
-```html
+```vue
 <template>
   <form name="contact" method="POST" data-netlify="true">
     <input type="hidden" name="form-name" value="contact" />
@@ -100,7 +100,7 @@ Putting together everything we've learnt so far, let's create our first form. We
 </template>
 
 <style>
-  /* Make your form look beautiful here */
+/* Make your form look beautiful here */
 </style>
 ```
 
@@ -117,7 +117,7 @@ When you click the submit button, a few things will happen:
 
 You can display your own success page instead of Netlify's by adding an `action` attribute to your `<form>` tag. The value should be the URL of your success page, for example:
 
-```html {2}
+```vue {2}
 <template>
   <form name="contact" method="POST" action="/success" data-netlify="true">
     <input type="hidden" name="form-name" value="contact" />
@@ -211,7 +211,7 @@ export default {
 
 Now we can add the `data-netlify-recaptcha="true"` attribute to our form and use the `<recaptcha />` component that `@nuxtjs/recaptcha` registers.
 
-```html {2,8}
+```vue {7,14}
 <template>
   <form
     name="contact"
@@ -258,7 +258,7 @@ Users won't have a widget to click on, so reCAPTCHA needs to know when to genera
 
 We'll move each of the `<form>` attributes onto a new line, just so we can see them easier!
 
-```html {8,20-32}
+```vue {8,20-32}
 <template>
   <form
     name="contact"
@@ -279,23 +279,23 @@ We'll move each of the `<form>` attributes onto a new line, just so we can see t
 </template>
 
 <script>
-  export default {
-    methods: {
-      async onSubmit(event) {
-        // Wait for the reCAPTCHA token
-        await this.$recaptcha.getResponse();
+export default {
+  methods: {
+    async onSubmit(event) {
+      // Wait for the reCAPTCHA token
+      await this.$recaptcha.getResponse();
 
-        // Submit the form
-        event.target.submit();
-      },
+      // Submit the form
+      event.target.submit();
     },
-  };
+  },
+};
 </script>
 ```
 
 **The reCAPTCHA widget should now be invisible!** Although, you'll notice that a badge has appeared in the bottom right of the page; if you want to, [Google's documentation says](https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed) you can remove this badge "as long as you include the reCAPTCHA branding visibly in the user flow".
 
-```html {16-20,39-43}
+```vue {16-20,39-43}
 <template>
   <form
     name="contact"
@@ -321,23 +321,23 @@ We'll move each of the `<form>` attributes onto a new line, just so we can see t
 </template>
 
 <script>
-  export default {
-    methods: {
-      async onSubmit(event) {
-        // Wait for the reCAPTCHA token
-        await this.$recaptcha.getResponse();
+export default {
+  methods: {
+    async onSubmit(event) {
+      // Wait for the reCAPTCHA token
+      await this.$recaptcha.getResponse();
 
-        // Submit the form
-        event.target.submit();
-      },
+      // Submit the form
+      event.target.submit();
     },
-  };
+  },
+};
 </script>
 
 <style>
-  .grecaptcha-badge {
-    visibility: hidden;
-  }
+.grecaptcha-badge {
+  visibility: hidden;
+}
 </style>
 ```
 
@@ -349,7 +349,7 @@ Personally, I like this method because I can style the message to match the webs
 
 If you've followed up to this point, you've built a form with an invisible reCAPTCHA challenge using Netlify Forms. Let's take this one step further and send the form data using AJAX so that the user isn't redirected away from the page when they click the submit button. We'll use the global [`fetch()` method](https://developer.mozilla.org/en-US/docs/Web/API/fetch) to send the form data, no need to use an npm package for this!
 
-```html {22,28-32,35-59}
+```vue {22,28-32,35-59}
 <template>
   <form
     name="contact"
@@ -376,48 +376,48 @@ If you've followed up to this point, you've built a form with an invisible reCAP
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        message: null,
-      };
-    },
-    methods: {
-      async onSubmit(event) {
-        try {
-          // Wait for the reCAPTCHA token
-          await this.$recaptcha.getResponse();
+export default {
+  data() {
+    return {
+      message: null,
+    };
+  },
+  methods: {
+    async onSubmit(event) {
+      try {
+        // Wait for the reCAPTCHA token
+        await this.$recaptcha.getResponse();
 
-          // Submit the form to Netlify
-          const response = await fetch("/", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: new URLSearchParams(new FormData(event.target)).toString(),
-          });
+        // Submit the form to Netlify
+        const response = await fetch("/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams(new FormData(event.target)).toString(),
+        });
 
-          // Throw an error if the response was not successful
-          if (!response.ok) {
-            throw new Error("Response was not successful");
-          }
-
-          // Say thank you and reset reCAPTCHA
-          this.message = "Thanks!";
-          await this.$recaptcha.reset();
-        } catch {
-          // Error message if something goes wrong
-          this.message = "Something went wrong, please try again.";
+        // Throw an error if the response was not successful
+        if (!response.ok) {
+          throw new Error("Response was not successful");
         }
-      },
+
+        // Say thank you and reset reCAPTCHA
+        this.message = "Thanks!";
+        await this.$recaptcha.reset();
+      } catch {
+        // Error message if something goes wrong
+        this.message = "Something went wrong, please try again.";
+      }
     },
-  };
+  },
+};
 </script>
 
 <style>
-  .grecaptcha-badge {
-    visibility: hidden;
-  }
+.grecaptcha-badge {
+  visibility: hidden;
+}
 </style>
 ```
 

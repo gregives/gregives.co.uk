@@ -7,7 +7,7 @@ type HeaderProperties = JSX.IntrinsicElements["header"];
 export function Header({ className, ...properties }: HeaderProperties) {
   return (
     <header className={twMerge("py-8", className)} {...properties}>
-      <Container className="flex space-x-8 px-6 sm:px-8 md:px-10 lg:px-12">
+      <Container className="flex space-x-4 sm:space-x-6 md:space-x-8 px-6 sm:px-8 md:px-10 lg:px-12">
         <Link className="text-sm font-medium" href="/">
           Home
         </Link>
@@ -15,7 +15,7 @@ export function Header({ className, ...properties }: HeaderProperties) {
           Blog
         </Link>
         <Link className="text-sm font-medium" href="/projects">
-          Work
+          Projects
         </Link>
       </Container>
     </header>

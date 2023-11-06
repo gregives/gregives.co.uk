@@ -11,7 +11,7 @@ export function Alert({ className, type, ...properties }: AlertProperties) {
         "mb-8 last:mb-0 ring-2 ring-inset p-4 rounded-xl",
         type === "info"
           ? "ring-blue-400 bg-blue-50"
-          : "ring-red-400 bg-red-50 group/error",
+          : "ring-orange-400 bg-orange-50 group/error",
         className
       )}
       {...properties}

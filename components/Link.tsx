@@ -7,7 +7,7 @@ export function Link({ className, ...properties }: LinkProperties) {
   return (
     <NextLink
       className={twMerge(
-        "text-blue-700 group-[]/error:text-red-700 underline underline-offset-2 decoration-1 decoration-blue-700/20 group-[]/error:decoration-red-700/20 hover:decoration-current group-[]/error:hover:decoration-current",
+        "text-blue-700 group-[]/error:text-orange-700 underline underline-offset-2 decoration-1 decoration-blue-700/20 group-[]/error:decoration-orange-700/20 hover:decoration-current group-[]/error:hover:decoration-current",
         className
       )}
       {...properties}

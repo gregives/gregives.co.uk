@@ -12,9 +12,6 @@ const config: Config = {
   plugins: [require("@tailwindcss/forms")],
   theme: {
     extend: {
-      boxShadow: {
-        bento: "inset 0 -2rem 2rem -2rem var(--tw-shadow-color)",
-      },
       fontFamily: {
         sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans],
         display: ["var(--font-display)", ...defaultTheme.fontFamily.sans],
