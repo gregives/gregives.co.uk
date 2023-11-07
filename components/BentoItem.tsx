@@ -62,7 +62,7 @@ export function BentoItem({ className, ...properties }: BentoItemProperties) {
   return (
     <div
       className={twMerge(
-        "relative flex flex-col justify-end rounded-3xl col-span-full px-4 sm:px-6 md:px-8 lg:px-10 py-6 md:py-8 bg-slate-200 ring-1 ring-black/10 shadow",
+        "bento-item relative flex flex-col justify-end rounded-3xl col-span-full px-4 sm:px-6 md:px-8 lg:px-10 py-6 md:py-8 bg-slate-200 ring-1 ring-black/10 shadow",
         "before:block before:absolute before:bottom-0 before:left-0 before:w-full before:h-48 before:max-h-full before:rounded-3xl before:shadow-[inset_0_-2rem_2rem_-2rem_black] before:bg-gradient-to-br before:from-transparent before:from-[calc(100%-8rem)] before:to-black before:mix-blend-soft-light before:pointer-events-none",
         className
       )}

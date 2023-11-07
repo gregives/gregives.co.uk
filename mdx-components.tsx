@@ -7,6 +7,7 @@ import { twMerge } from "tailwind-merge";
 async function Image({
   src: path,
   title: maxWidth,
+  className,
   ...properties
 }: JSX.IntrinsicElements["img"]) {
   const image = await import(`@/assets/images/${path}`);
@@ -20,7 +21,10 @@ async function Image({
       height={height}
       width={width}
       sizes="(min-width: 640px) 66.6666vw, 100vw"
-      className="my-4 w-full max-h-[60svh] object-contain object-left drop-shadow-md"
+      className={twMerge(
+        "my-4 w-full max-h-[60svh] object-contain object-left drop-shadow-md",
+        className
+      )}
       style={{
         maxWidth,
       }}
@@ -74,52 +78,88 @@ export function Paragraph({
   return <p className={twMerge("mb-6 last:mb-0", className)} {...properties} />;
 }
 
-export function OrderedList(properties: JSX.IntrinsicElements["ol"]) {
+export function OrderedList({
+  className,
+  ...properties
+}: JSX.IntrinsicElements["ol"]) {
   return (
     <ol
-      className="mb-6 last:mb-0 list-decimal marker:tracking-tighter"
+      className={twMerge(
+        "mb-6 last:mb-0 list-decimal marker:tracking-tighter",
+        className
+      )}
       {...properties}
     />
   );
 }
 
-export function UnorderedList(properties: JSX.IntrinsicElements["ul"]) {
+export function UnorderedList({
+  className,
+  ...properties
+}: JSX.IntrinsicElements["ul"]) {
   return (
     <ul
-      className="mb-6 last:mb-0 list-disc marker:tracking-tighter"
+      className={twMerge(
+        "mb-6 last:mb-0 list-disc marker:tracking-tighter",
+        className
+      )}
       {...properties}
     />
   );
 }
 
-export function ListItem(properties: JSX.IntrinsicElements["li"]) {
+export function ListItem({
+  className,
+  ...properties
+}: JSX.IntrinsicElements["li"]) {
   return (
-    <li className="first:-mt-2 mb-3 last:mb-0 ml-6 pl-1" {...properties} />
+    <li
+      className={twMerge("first:-mt-2 mb-3 last:mb-0 ml-6 pl-1", className)}
+      {...properties}
+    />
   );
 }
 
-export function Pre(properties: JSX.IntrinsicElements["pre"]) {
+export function Pre({
+  className,
+  ...properties
+}: JSX.IntrinsicElements["pre"]) {
   return (
     <pre
-      className="bg-slate-200 rounded-xl overflow-x-auto overflow-y-hidden"
+      className={twMerge(
+        "bg-slate-200 rounded-xl overflow-x-auto overflow-y-hidden",
+        className
+      )}
       {...properties}
     />
   );
 }
 
-export function Code(properties: JSX.IntrinsicElements["code"]) {
+export function Code({
+  className,
+  ...properties
+}: JSX.IntrinsicElements["code"]) {
   return (
     <code
-      className="bg-slate-200 group-[]/error:bg-orange-100 rounded px-1 box-decoration-clone"
+      className={twMerge(
+        "bg-slate-200 group-[]/error:bg-orange-100 rounded px-1 box-decoration-clone",
+        className
+      )}
       {...properties}
     />
   );
 }
 
-export function Blockquote(properties: JSX.IntrinsicElements["blockquote"]) {
+export function Blockquote({
+  className,
+  ...properties
+}: JSX.IntrinsicElements["blockquote"]) {
   return (
     <blockquote
-      className="mb-6 first:mt-0 last:mb-0 ring-2 ring-inset ring-slate-300 p-4 rounded-xl"
+      className={twMerge(
+        "mb-6 first:mt-0 last:mb-0 ring-2 ring-inset ring-slate-300 p-4 rounded-xl",
+        className
+      )}
       {...properties}
     />
   );

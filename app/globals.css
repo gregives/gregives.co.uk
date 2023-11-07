@@ -92,11 +92,15 @@ ul[class] ul[class] {
 }
 
 .toc > ol {
-  @apply sticky top-0 -mt-2 py-6 md:py-8 px-4 sm:px-6 md:px-8 lg:px-10;
+  @apply sticky top-0 -mt-4 py-6 md:py-8 px-4 sm:px-6 md:px-8 lg:px-10;
 }
 
 .toc a {
   @apply text-slate-200 decoration-slate-600;
+}
+
+.toc-level {
+  @apply list-none;
 }
 
 .toc-level[class] .toc-level[class] {
@@ -104,13 +108,13 @@ ul[class] ul[class] {
 }
 
 .toc-item {
-  @apply mt-4;
+  @apply mt-4 ml-0 !important;
 
   animation: 500ms 1000ms forwards toc-item;
 }
 
 .toc-item .toc-item {
-  @apply mt-3;
+  @apply mt-3 !important;
 }
 
 a[target="_blank"]::after {

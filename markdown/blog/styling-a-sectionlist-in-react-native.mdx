@@ -18,6 +18,8 @@ When you search how to style the sections in a SectionList, some websites sugges
 
 It is difficult to style the sections of a SectionList because there _are no sections_ being rendered. Behind the scenes, the SectionList is rendering a list of items and inserting section headers, footers and separators in between groups of items. There are no React Native components wrapping the sections, which is why there is no `sectionStyle` or `renderSection` prop for us to use.
 
+Conceptually, it is rendered something like this:
+
 ```tsx
 return (
   <>

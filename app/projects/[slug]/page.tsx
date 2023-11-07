@@ -2,6 +2,7 @@ import { ArticleHeader } from "@/components/ArticleHeader";
 import { BentoGrid } from "@/components/BentoGrid";
 import { BentoItem } from "@/components/BentoItem";
 import { loadMarkdown } from "@/utilities/markdown";
+import { generateTags } from "@/utilities/metadata";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
@@ -14,10 +15,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { metadata } = await loadMarkdown(`/projects/${params.slug}`);
 
-  return {
+  return generateTags({
+    url: `/projects/${params.slug}`,
     title: metadata.title,
     description: metadata.description,
-  };
+  });
 }
 
 export default async function ProjectPage({

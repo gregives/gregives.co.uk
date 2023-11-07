@@ -3,14 +3,16 @@ import { BentoItem } from "@/components/BentoItem";
 import { FeaturedProjects } from "@/components/FeaturedProjects";
 import { Heading2, Paragraph } from "@/mdx-components";
 import { loadMarkdownDirectory } from "@/utilities/markdown";
+import { generateTags } from "@/utilities/metadata";
 import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateTags({
+  url: "/projects",
   title: "Projects",
   description: "Projects created by software engineer Greg Ives.",
-};
+});
 
 export default async function ProjectsPage() {
   const [
