@@ -42,7 +42,7 @@ export default function Interpolation({ step }: InterpolationProperties) {
         }}
       />
       {step !== 4 && (
-        <div className="-mt-8 p-4 sm:px-6 bg-slate-200 rounded-b-xl">
+        <div className="-mt-8 p-4 sm:px-6 bg-slate-200 dark:bg-slate-900 rounded-b-xl">
           <label className="flex text-sm">
             Progress
             <input

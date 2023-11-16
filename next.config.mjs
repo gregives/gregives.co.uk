@@ -12,7 +12,10 @@ const nextConfig = {};
 /** @type {import("rehype-pretty-code").Options} */
 const prettyCodeOptions = {
   keepBackground: false,
-  theme: "github-light",
+  theme: {
+    dark: "github-dark-dimmed",
+    light: "github-light",
+  },
 };
 
 export default addBundleAnalyzer({

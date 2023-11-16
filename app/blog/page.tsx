@@ -20,7 +20,10 @@ export default async function ArticlesPage() {
     <main>
       <BentoGrid>
         {articles.map((article) => (
-          <BentoItem key={article.metadata.title} className="bg-slate-300">
+          <BentoItem
+            key={article.metadata.title}
+            className="bg-slate-300 dark:bg-slate-700"
+          >
             <Heading2>
               <Link
                 href={

@@ -32,7 +32,7 @@ export default async function ProjectsPage() {
         {projects.map((project) => (
           <BentoItem
             key={project.metadata.title}
-            className="order-10 bg-slate-300"
+            className="order-10 bg-slate-300 dark:bg-slate-700"
           >
             <Heading2>
               <Link

@@ -91,7 +91,7 @@ export function Headshots(properties: HeadshotsProperties) {
             <Image
               src={fullImage ?? previewImage}
               alt="Photo of Greg Ives"
-              className="absolute top-0 left-0 w-[700%] max-w-none mix-blend-hard-light"
+              className="absolute top-0 left-0 w-[700%] max-w-none mix-blend-hard-light dark:contrast-0 dark:mix-blend-luminosity"
               style={{
                 transform,
               }}

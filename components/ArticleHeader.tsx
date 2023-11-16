@@ -15,7 +15,7 @@ export function ArticleHeader({
   return (
     <div {...properties}>
       <Heading1>{metadata.title}</Heading1>
-      <Paragraph className="text-xl text-blue-700 font-medium">
+      <Paragraph className="text-xl text-blue-600 dark:text-blue-300 font-medium">
         {metadata.description}
       </Paragraph>
     </div>

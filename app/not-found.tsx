@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <main className="h-full">
       <BentoGrid className="h-full">
-        <BentoItem className="justify-center items-center text-center bg-blue-100">
+        <BentoItem className="justify-center items-center text-center bg-blue-100 dark:bg-blue-950">
           <Heading1 className="sm:text-7xl md:text-8xl lg:text-9xl">
             Page not found
           </Heading1>

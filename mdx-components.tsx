@@ -22,7 +22,7 @@ async function Image({
       width={width}
       sizes="(min-width: 640px) 66.6666vw, 100vw"
       className={twMerge(
-        "my-4 w-full max-h-[60svh] object-contain object-left drop-shadow-md",
+        "my-4 w-full max-h-[60svh] object-contain object-left drop-shadow-md dark:brightness-90",
         className
       )}
       style={{
@@ -39,7 +39,7 @@ export function Heading1({
   return (
     <Heading
       level={1}
-      className={twMerge("pt-8 -mt-8 mb-8 last:mb-0", className)}
+      className={twMerge("pt-8 -mt-8 mb-10 last:mb-0", className)}
       {...properties}
     />
   );
@@ -52,7 +52,7 @@ export function Heading2({
   return (
     <Heading
       level={2}
-      className={twMerge("pt-8 -mt-2 first:-mt-8 mb-6 last:mb-0", className)}
+      className={twMerge("pt-8 mt-4 first:-mt-8 mb-8 last:mb-0", className)}
       {...properties}
     />
   );
@@ -65,7 +65,20 @@ export function Heading3({
   return (
     <Heading
       level={3}
-      className={twMerge("pt-8 -mt-4 first:-mt-8 mb-4 last:mb-0", className)}
+      className={twMerge("pt-8 first:-mt-8 mb-6 last:mb-0", className)}
+      {...properties}
+    />
+  );
+}
+
+export function Heading4({
+  className,
+  ...properties
+}: JSX.IntrinsicElements["h4"]) {
+  return (
+    <Heading
+      level={4}
+      className={twMerge("pt-8 -mt-4 first:-mt-8 mb-6 last:mb-0", className)}
       {...properties}
     />
   );
@@ -127,7 +140,7 @@ export function Pre({
   return (
     <pre
       className={twMerge(
-        "bg-slate-200 rounded-xl overflow-x-auto overflow-y-hidden",
+        "bg-slate-200 dark:bg-slate-900 rounded-xl overflow-x-auto overflow-y-hidden",
         className
       )}
       {...properties}
@@ -142,7 +155,7 @@ export function Code({
   return (
     <code
       className={twMerge(
-        "bg-slate-200 group-[]/error:bg-orange-100 rounded px-1 box-decoration-clone",
+        "bg-slate-200 dark:bg-slate-900 group-[]/error:bg-orange-100 dark:group-[]/error:bg-orange-950/50 rounded px-1 box-decoration-clone",
         className
       )}
       {...properties}
@@ -157,7 +170,7 @@ export function Blockquote({
   return (
     <blockquote
       className={twMerge(
-        "mb-6 first:mt-0 last:mb-0 ring-2 ring-inset ring-slate-300 p-4 rounded-xl",
+        "mb-6 first:mt-0 last:mb-0 ring-2 ring-inset ring-slate-300 dark:ring-slate-600 p-4 rounded-xl",
         className
       )}
       {...properties}
@@ -172,6 +185,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h1: Heading1,
     h2: Heading2,
     h3: Heading3,
+    h4: Heading4,
     p: Paragraph,
     // @ts-ignore
     a: Link,

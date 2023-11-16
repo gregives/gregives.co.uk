@@ -16,15 +16,40 @@ code {
 }
 
 :focus-visible:not(.focus-ignore) {
-  @apply rounded outline outline-2 outline-offset-4 outline-current;
+  @apply outline outline-2 outline-offset-4 outline-current;
 }
 
+:focus-visible:not([class*="rounded-"]) {
+  @apply rounded;
+}
+
+.font-display:focus-visible,
 .font-display :focus-visible {
   @apply outline-4;
 }
 
-.font-display {
-  @apply uppercase;
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+pre[data-theme="dark"],
+code[data-theme="dark"] {
+  display: none;
+}
+
+.dark pre[data-theme="light"],
+.dark code[data-theme="light"] {
+  display: none;
+}
+
+.dark pre[data-theme="dark"],
+.dark code[data-theme="dark"] {
+  display: block;
 }
 
 code > [data-line]::before {
@@ -35,7 +60,7 @@ code > [data-line]::before {
 }
 
 code > [data-highlighted-line] {
-  @apply bg-gradient-to-r from-blue-500 from-[2px] via-blue-500/20 via-[2px] to-blue-500/5 to-[1rem];
+  @apply bg-gradient-to-r from-blue-500 from-[2px] via-blue-500/20 via-[2px] to-blue-500/5 dark:to-blue-500/10 to-[0.75rem];
 }
 
 code > [data-highlighted-line]::before {
@@ -96,7 +121,7 @@ ul[class] ul[class] {
 }
 
 .toc a {
-  @apply text-slate-200 decoration-slate-600;
+  @apply text-slate-200 decoration-slate-600 dark:text-slate-300 dark:decoration-slate-600;
 }
 
 .toc-level {
@@ -123,7 +148,13 @@ a[target="_blank"]::after {
 
 .font-display a[target="_blank"]::after {
   content: "\00A0\2197";
-  vertical-align: text-top;
+  font-size: 125%;
+  font-weight: 400;
+  line-height: 0;
+}
+
+.dark .font-display a[target="_blank"]::after {
+  font-weight: 300;
 }
 
 :target {

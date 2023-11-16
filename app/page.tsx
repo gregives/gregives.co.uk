@@ -26,16 +26,16 @@ export default async function Home() {
   return (
     <main>
       <BentoGrid>
-        <BentoItem className="order-1 sm:order-2 sm:col-span-6 md:col-span-4 overflow-hidden bg-blue-200 sm:bg-blue-300 max-sm:before:opacity-50">
+        <BentoItem className="order-1 sm:order-2 sm:col-span-6 md:col-span-4 overflow-hidden bg-blue-200 sm:bg-blue-300 dark:bg-blue-900 max-sm:before:opacity-50">
           <div className="relative max-sm:overflow-hidden">
             <Headshots />
-            <div className="sm:hidden absolute inset-0 bg-gradient-to-b from-transparent from-60% to-blue-200 sm:to-blue-300" />
+            <div className="sm:hidden absolute inset-0 bg-gradient-to-b from-transparent from-60% to-blue-200 sm:to-blue-300 dark:to-blue-900" />
           </div>
           <div className="mt-8 text-center sm:hidden">
             <Content />
           </div>
         </BentoItem>
-        <BentoItem className="hidden sm:flex order-2 sm:order-1 sm:col-span-6 md:col-span-8 bg-blue-100 before:opacity-50">
+        <BentoItem className="hidden sm:flex order-2 sm:order-1 sm:col-span-6 md:col-span-8 bg-blue-100 dark:bg-blue-950 before:opacity-50">
           <div className="max-w-2xl pt-8">
             <Content />
           </div>
@@ -45,7 +45,7 @@ export default async function Home() {
           poetryTips={poetryTips}
           recommendDomains={recommendDomains}
         />
-        <BentoItem className="order-7 md:order-6 col-span-6 md:col-span-4 relative items-center bg-blue-300">
+        <BentoItem className="order-7 md:order-6 col-span-6 md:col-span-4 relative items-center bg-blue-300 dark:bg-blue-500">
           <Heading2>
             <Link href="https://twitter.com/gregiv_es" target="_blank">
               Twitter
@@ -53,7 +53,7 @@ export default async function Home() {
             </Link>
           </Heading2>
         </BentoItem>
-        <BentoItem className="order-8 md:order-7 col-span-6 md:col-span-4 relative items-center bg-slate-300">
+        <BentoItem className="order-8 md:order-7 col-span-6 md:col-span-4 relative items-center bg-slate-300 dark:bg-slate-600">
           <Heading2>
             <Link href="https://github.com/gregives" target="_blank">
               GitHub
@@ -61,7 +61,7 @@ export default async function Home() {
             </Link>
           </Heading2>
         </BentoItem>
-        <BentoItem className="order-6 md:order-8 md:col-span-4 relative items-center bg-purple-300">
+        <BentoItem className="order-6 md:order-8 md:col-span-4 relative items-center bg-purple-300 dark:bg-purple-700">
           <Heading2>
             <Link href="/projects">
               Other projects
@@ -77,7 +77,7 @@ export default async function Home() {
         {latestArticles.map((article) => (
           <BentoItem
             key={article.metadata.title}
-            className="order-10 sm:col-span-9 md:col-span-10 bg-teal-300 saturate-50"
+            className="order-10 sm:col-span-9 md:col-span-10 bg-teal-300 dark:bg-teal-700 saturate-50 dark:saturate-100"
           >
             <Heading2>
               <Link href={article.metadata.path}>{article.metadata.title}</Link>

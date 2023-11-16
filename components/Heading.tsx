@@ -2,7 +2,7 @@ import { twMerge } from "tailwind-merge";
 
 type HeadingProperties<T extends keyof JSX.IntrinsicElements> =
   JSX.IntrinsicElements[T] & {
-    level: 1 | 2 | 3;
+    level: 1 | 2 | 3 | 4 | 5 | 6;
     as?: T;
   };
 
@@ -14,8 +14,12 @@ export function Heading<T extends keyof JSX.IntrinsicElements>({
   ...properties
 }: HeadingProperties<T>) {
   className = twMerge(
-    level === 1 ? "text-5xl" : level === 2 ? "text-4xl" : "text-3xl",
-    "font-display",
+    level === 1
+      ? "text-5xl/tight"
+      : level === 2
+      ? "text-4xl/tight"
+      : "text-3xl/tight",
+    "font-display font-extrabold dark:font-bold dark:tracking-wide uppercase",
     className
   );
 

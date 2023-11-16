@@ -1,7 +1,7 @@
 import { Header } from "@/components/Header";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Bebas_Neue, Inter } from "next/font/google";
+import { Big_Shoulders_Display, Inter } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Container } from "@/components/Container";
 import { BASE_ORIGIN } from "@/utilities/constants";
@@ -13,9 +13,8 @@ const sans = Inter({
   variable: "--font-sans",
 });
 
-const display = Bebas_Neue({
+const display = Big_Shoulders_Display({
   subsets: ["latin"],
-  weight: "400",
   display: "swap",
   variable: "--font-display",
 });
@@ -61,11 +60,11 @@ export default function RootLayout({
           <style>{noscript}</style>
         </noscript>
       </head>
-      <body className="h-full flex flex-col">
+      <body className="h-full flex flex-col text-slate-900 dark:text-slate-100">
         <div className="focus-ignore" tabIndex={0} />
         <Header className="text-slate-100 sticky top-0" />
         <div className="focus-ignore" tabIndex={0} />
-        <Container className="w-full relative p-2 z-10 flex-grow bg-slate-800 rounded-[2rem]">
+        <Container className="w-full relative p-2 z-10 flex-grow bg-slate-800 dark:bg-slate-900 rounded-[2rem]">
           {children}
         </Container>
         <div className="focus-ignore" tabIndex={0} />
