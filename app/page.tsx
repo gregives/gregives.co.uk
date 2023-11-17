@@ -46,7 +46,7 @@ export default async function Home() {
           recommendDomains={recommendDomains}
         />
         <BentoItem className="order-7 md:order-6 col-span-6 md:col-span-4 relative items-center bg-blue-300 dark:bg-blue-500">
-          <Heading2>
+          <Heading2 className="text-3xl/tight sm:text-4xl/tight">
             <Link href="https://twitter.com/gregiv_es" target="_blank">
               Twitter
               <span className="absolute inset-0" />
@@ -54,7 +54,7 @@ export default async function Home() {
           </Heading2>
         </BentoItem>
         <BentoItem className="order-8 md:order-7 col-span-6 md:col-span-4 relative items-center bg-slate-300 dark:bg-slate-600">
-          <Heading2>
+          <Heading2 className="text-3xl/tight sm:text-4xl/tight">
             <Link href="https://github.com/gregives" target="_blank">
               GitHub
               <span className="absolute inset-0" />
@@ -77,7 +77,7 @@ export default async function Home() {
         {latestArticles.map((article) => (
           <BentoItem
             key={article.metadata.title}
-            className="order-10 sm:col-span-9 md:col-span-10 bg-teal-300 dark:bg-teal-700 saturate-50 dark:saturate-100"
+            className="order-10 sm:col-span-9 md:col-span-10 bg-teal-300 dark:bg-emerald-700 saturate-50 dark:saturate-100"
           >
             <Heading2>
               <Link href={article.metadata.path}>{article.metadata.title}</Link>

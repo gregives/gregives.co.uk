@@ -3,7 +3,6 @@
 import { twMerge } from "tailwind-merge";
 import { Container } from "./Container";
 import { Disclosure } from "@headlessui/react";
-import { useLocalStorage } from "react-use";
 import Link from "next/link";
 import { useFadeIn } from "./BentoItem";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
@@ -47,17 +46,48 @@ function HeaderButton({
   );
 }
 
-export function Header({ className, ...properties }: HeaderProperties) {
-  const [theme, setTheme] = useLocalStorage<"dark" | "light">("theme", "light");
-  const [switching, setSwitching] = useState(false);
+const LIGHT_THEME = "light" as const;
+const DARK_THEME = "dark" as const;
+
+const THEME_KEY = "theme" as const;
+const DEFAULT_THEME = LIGHT_THEME;
+
+type Theme = typeof DARK_THEME | typeof LIGHT_THEME;
+
+function useTheme() {
+  const [theme, setTheme] = useState<Theme>();
+
+  const setThemeWrapper = (theme: Theme) => {
+    if (theme === DARK_THEME) {
+      document.documentElement.classList.add(DARK_THEME);
+    } else {
+      document.documentElement.classList.remove(DARK_THEME);
+    }
+
+    setTheme(theme);
+  };
 
   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+    const initialTheme =
+      typeof localStorage === "undefined"
+        ? DEFAULT_THEME
+        : (localStorage.getItem(THEME_KEY) as Theme) ?? DEFAULT_THEME;
+
+    setThemeWrapper(initialTheme);
+  }, []);
+
+  useEffect(() => {
+    if (theme !== undefined) {
+      localStorage.setItem(THEME_KEY, theme);
     }
   }, [theme]);
+
+  return [theme, setThemeWrapper] as const;
+}
+
+export function Header({ className, ...properties }: HeaderProperties) {
+  const [theme, setTheme] = useTheme();
+  const [switching, setSwitching] = useState(false);
 
   const toggleTheme = () => {
     setSwitching(true);
