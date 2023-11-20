@@ -1,15 +1,16 @@
 import { Container } from "./Container";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
+import { ViewCounter } from "./ViewCounter";
 
 const navigation = [
   {
     name: "Email",
-    href: "#",
+    href: "mailto:greg@gregives.co.uk",
     icon: EnvelopeIcon,
   },
   {
     name: "Twitter",
-    href: "#",
+    href: "https://twitter.com/gregiv_es",
     icon: (properties: JSX.IntrinsicElements["svg"]) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...properties}>
         <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
@@ -18,7 +19,7 @@ const navigation = [
   },
   {
     name: "GitHub",
-    href: "#",
+    href: "https://github.com/gregives",
     icon: (properties: JSX.IntrinsicElements["svg"]) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...properties}>
         <path
@@ -37,8 +38,8 @@ export function Footer(properties: FooterProperties) {
   return (
     <footer {...properties}>
       <Container className="py-8 px-6 sm:px-8 md:px-10 lg:px-12">
-        <div className="sm:flex sm:items-center sm:justify-between">
-          <div className="flex space-x-6 sm:order-2">
+        <div className="flex flex-wrap items-center justify-between space-y-8 sm:space-y-0">
+          <div className="w-full sm:w-auto flex space-x-6 sm:order-3">
             {navigation.map((item) => (
               <a
                 key={item.name}
@@ -50,8 +51,11 @@ export function Footer(properties: FooterProperties) {
               </a>
             ))}
           </div>
-          <p className="mt-8 text-sm text-slate-500 sm:order-1 sm:mt-0">
-            &copy; {new Date().getFullYear()} Greg Ives. All rights reserved.
+          <p className="text-slate-500 sm:order-1">
+            &copy; {new Date().getFullYear()} Greg Ives
+          </p>
+          <p className="text-slate-500 sm:order-2">
+            <ViewCounter increment />
           </p>
         </div>
       </Container>

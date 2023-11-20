@@ -1,6 +1,5 @@
+import { ArticlePreview } from "@/components/ArticlePreview";
 import { BentoGrid } from "@/components/BentoGrid";
-import { BentoItem } from "@/components/BentoItem";
-import { Heading2, Paragraph } from "@/mdx-components";
 import { loadMarkdownDirectory } from "@/utilities/markdown";
 import { generateTags } from "@/utilities/metadata";
 import { Metadata } from "next";
@@ -20,24 +19,10 @@ export default async function ArticlesPage() {
     <main>
       <BentoGrid>
         {articles.map((article) => (
-          <BentoItem
-            key={article.metadata.title}
-            className="bg-slate-300 dark:bg-slate-700"
-          >
-            <Heading2>
-              <Link
-                href={
-                  article.metadata.website
-                    ? article.metadata.website
-                    : article.metadata.path
-                }
-                target={article.metadata.website ? "_blank" : undefined}
-              >
-                {article.metadata.title}
-              </Link>
-            </Heading2>
-            <Paragraph>{article.metadata.description}</Paragraph>
-          </BentoItem>
+          <ArticlePreview
+            key={article.metadata.path}
+            metadata={article.metadata}
+          />
         ))}
       </BentoGrid>
     </main>

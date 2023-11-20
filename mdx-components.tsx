@@ -140,7 +140,7 @@ export function Pre({
   return (
     <pre
       className={twMerge(
-        "bg-slate-200 dark:bg-slate-900 rounded-xl overflow-x-auto overflow-y-hidden",
+        "bg-slate-200 dark:bg-slate-900 rounded-xl overflow-x-auto overflow-y-hidden -mx-px",
         className
       )}
       {...properties}

@@ -34,10 +34,10 @@ export default async function ArticlePage({
     <main className="h-full">
       <BentoGrid className="h-full">
         <BentoItem className="justify-start show-toc sm:col-span-8 bg-slate-50 dark:bg-slate-800 dark:before:opacity-25">
-          <ArticleHeader metadata={metadata} className="mb-8" />
+          <ArticleHeader metadata={metadata} />
           <Content />
         </BentoItem>
-        <BentoItem className="hidden sm:flex col-span-4 bg-slate-700 dark:bg-slate-800 before:opacity-25 dark:before:opacity-25" />
+        <BentoItem className="hidden sm:flex col-span-4 bg-slate-700 dark:bg-slate-800 before:opacity-25 dark:before:opacity-25 ring-inset shadow-inner" />
       </BentoGrid>
     </main>
   );

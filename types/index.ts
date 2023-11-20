@@ -5,3 +5,7 @@ export type ArticleMetadata = {
   website?: string;
   path: string;
 };
+
+export type Page = {
+  views: number;
+};

@@ -142,19 +142,21 @@ ul[class] ul[class] {
   @apply mt-3 !important;
 }
 
-a[target="_blank"]::after {
-  content: "\202F\2197";
-}
+@media (min-width: 640px) {
+  a[target="_blank"]::after {
+    content: "\202F\2197";
+  }
 
-.font-display a[target="_blank"]::after {
-  content: "\00A0\2197";
-  font-size: 125%;
-  font-weight: 400;
-  line-height: 0;
-}
+  .font-display a[target="_blank"]::after {
+    content: "\00A0\2197";
+    font-size: 125%;
+    font-weight: 400;
+    line-height: 0;
+  }
 
-.dark .font-display a[target="_blank"]::after {
-  font-weight: 300;
+  .dark .font-display a[target="_blank"]::after {
+    font-weight: 300;
+  }
 }
 
 :target {
