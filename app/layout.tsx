@@ -60,24 +60,12 @@ export default function RootLayout({
           <style>{noscript}</style>
         </noscript>
       </head>
-      <body className="h-full flex flex-col text-slate-900 dark:text-slate-100">
-        <div className="focus-ignore" tabIndex={0} />
+      <body className="h-full text-slate-900 dark:text-slate-100">
         <Header className="text-slate-100 sticky top-0" />
-        <div className="focus-ignore" tabIndex={0} />
-        <div className="flex-grow relative z-10 flex">
-          <div className="relative flex-grow flex-shrink overflow-hidden">
-            <div className="absolute w-full h-full top-0 right-2 bg-slate-900 rounded-r-[2rem]" />
-          </div>
-          <Container className="w-full p-2 bg-slate-800 dark:bg-slate-900 [transition-property:background-color] [transition-duration:1s] dark:[transition-duration:0s] rounded-[2rem]">
-            {children}
-          </Container>
-          <div className="relative flex-grow flex-shrink overflow-hidden">
-            <div className="absolute w-full h-full top-0 left-2 bg-slate-900 rounded-l-[2rem]" />
-          </div>
-        </div>
-        <div className="focus-ignore" tabIndex={0} />
+        <Container className="min-h-[calc(100%-11rem)] grid relative z-10 p-2 bg-slate-800 dark:bg-slate-900 rounded-[2rem] [transition-property:background-color] [transition-duration:500ms] dark:[transition-duration:0s]">
+          {children}
+        </Container>
         <Footer className="text-slate-100 sticky bottom-0" />
-        <div className="focus-ignore" tabIndex={0} />
       </body>
     </html>
   );

@@ -31,7 +31,7 @@ export default async function ArticlePage({
   const { Content, metadata } = await loadMarkdown(`/blog/${params.slug}`);
 
   return (
-    <main className="h-full">
+    <main>
       <BentoGrid className="h-full">
         <BentoItem className="justify-start show-toc sm:col-span-8 bg-slate-50 dark:bg-slate-800 dark:before:opacity-25">
           <ArticleHeader metadata={metadata} />

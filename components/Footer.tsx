@@ -1,6 +1,11 @@
+"use client";
+
 import { Container } from "./Container";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import { ViewCounter } from "./ViewCounter";
+import { Heading2, Paragraph } from "@/mdx-components";
+import { Input } from "./Input";
+import { Button } from "./Button";
 
 const navigation = [
   {
@@ -35,9 +40,39 @@ const navigation = [
 type FooterProperties = JSX.IntrinsicElements["footer"];
 
 export function Footer(properties: FooterProperties) {
+  const scrollToBottom = () => {
+    document.documentElement.scrollTo(0, document.documentElement.scrollHeight);
+  };
+
   return (
-    <footer {...properties}>
-      <Container className="py-8 px-6 sm:px-8 md:px-10 lg:px-12">
+    <footer onFocus={scrollToBottom} {...properties}>
+      <Container className="pb-8 px-6 sm:px-8 md:px-10 lg:px-12">
+        <div className="py-16 sm:py-24 text-center flex flex-col items-center bg-radial-gradient-t from-sky-900 to-transparent">
+          <Heading2 className="text-4xl/tight sm:text-5xl/tight tracking-wide">
+            <span className="hidden sm:inline">Subscribe to </span>My Newsletter
+          </Heading2>
+          <Paragraph className="max-w-xl">
+            Sign up to receive my very irregular newsletter including updates on
+            new blog posts, projects I&rsquo;m working and exclusive content.
+          </Paragraph>
+          <form
+            action="https://app.convertkit.com/forms/5075878/subscriptions"
+            className="mt-4 w-full max-w-xl flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 items-stretch"
+            method="POST"
+          >
+            <Input
+              aria-label="Email address"
+              className="flex-grow"
+              name="email_address"
+              placeholder="Email address"
+              required
+              type="email"
+            />
+            <Button className="shadow-xl shadow-sky-800/50" type="submit">
+              Subscribe
+            </Button>
+          </form>
+        </div>
         <div className="flex flex-wrap items-center justify-between space-y-8 sm:space-y-0">
           <div className="w-full sm:w-auto flex space-x-6 sm:order-3">
             {navigation.map((item) => (

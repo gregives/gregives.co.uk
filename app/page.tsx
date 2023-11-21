@@ -1,7 +1,7 @@
 import { BentoGrid } from "@/components/BentoGrid";
 import { BentoItem } from "@/components/BentoItem";
 import { loadMarkdown, loadMarkdownDirectory } from "@/utilities/markdown";
-import { Heading2, Paragraph } from "@/mdx-components";
+import { Heading2 } from "@/mdx-components";
 import Link from "next/link";
 import { Headshots } from "@/components/Headshots";
 import { FeaturedProjects } from "@/components/FeaturedProjects";
@@ -92,17 +92,19 @@ export default async function Home() {
                   &ldquo;
                 </div>
               </div>
-              <blockquote className="text-2xl flex-grow max-w-xl">
+              <blockquote className="text-xl sm:text-2xl flex-grow max-w-xl">
                 Greg is a rare breed of developer that can work across the full
                 stack and is a genuine joy to work with. We&rsquo;re lucky to
                 have him leading our development at Myles.
               </blockquote>
             </div>
             <div className="flex-shrink-0 md:ml-16">
-              <p className="mt-12 md:mt-0 md:text-right text-5xl font-display font-extrabold dark:font-bold dark:tracking-wide uppercase">
+              <p className="mt-12 md:mt-0 md:text-right text-4xl sm:text-5xl font-display font-extrabold dark:font-bold dark:tracking-wide uppercase">
                 Toby Cannon
               </p>
-              <p className="mt-4 md:text-right text-xl">CEO, Myles Wellbeing</p>
+              <p className="mt-4 md:text-right text-lg sm:text-xl">
+                CEO, Myles Wellbeing
+              </p>
             </div>
           </div>
         </BentoItem>

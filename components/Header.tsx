@@ -99,9 +99,17 @@ export function Header({ className, ...properties }: HeaderProperties) {
     }, 100);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <header className={twMerge("relative", className)} {...properties}>
-      <Container className="relative px-6 sm:px-8 md:px-10 lg:px-12 flex overflow-x-auto hide-scrollbar justify-between py-8">
+    <header
+      className={twMerge("relative", className)}
+      onFocus={scrollToTop}
+      {...properties}
+    >
+      <Container className="relative bg-radial-gradient-b from-slate-800 to-transparent py-8 px-6 sm:px-8 md:px-10 lg:px-12 flex overflow-x-auto hide-scrollbar justify-between">
         <div className="flex space-x-8 mr-8">
           <HeaderLink href="/">Home</HeaderLink>
           <HeaderLink href="/blog">Blog</HeaderLink>
