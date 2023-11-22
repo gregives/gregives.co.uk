@@ -36,14 +36,13 @@ export const metadata: Metadata = {
   },
 };
 
-const css = String.raw;
+function setTheme() {
+  const theme = localStorage.getItem("theme");
 
-const noscript = css`
-  .bento-item {
-    opacity: 1 !important;
-    transform: none !important;
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark");
   }
-`;
+}
 
 export default function RootLayout({
   children,
@@ -53,16 +52,19 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${sans.variable} ${display.variable} bg-slate-950 h-full`}
+      className={`${sans.variable} ${display.variable} bg-slate-950 h-full`}
+      suppressHydrationWarning
     >
       <head>
-        <noscript>
-          <style>{noscript}</style>
-        </noscript>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(${setTheme.toString()})()`,
+          }}
+        />
       </head>
       <body className="h-full text-slate-900 dark:text-slate-100">
         <Header className="text-slate-100 sticky top-0" />
-        <Container className="min-h-[calc(100%-11rem)] grid relative z-10 p-2 bg-slate-800 dark:bg-slate-900 shadow-2xl shadow-slate-950 rounded-[2rem] [transition-property:background-color] [transition-duration:500ms] dark:[transition-duration:0s]">
+        <Container className="min-h-[calc(100%-11rem)] grid relative z-10 p-2 bg-slate-800 dark:bg-slate-900 shadow-2xl shadow-slate-950 rounded-[2rem]">
           {children}
         </Container>
         <Footer className="text-slate-100 sticky bottom-0" />

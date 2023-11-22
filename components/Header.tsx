@@ -6,7 +6,7 @@ import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
 import { useFadeIn } from "./BentoItem";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 type HeaderProperties = React.ComponentProps<typeof Disclosure>;
 
@@ -46,22 +46,16 @@ function HeaderButton({
   );
 }
 
-const LIGHT_THEME = "light" as const;
-const DARK_THEME = "dark" as const;
-
-const THEME_KEY = "theme" as const;
-const DEFAULT_THEME = LIGHT_THEME;
-
-type Theme = typeof DARK_THEME | typeof LIGHT_THEME;
+type Theme = "light" | "dark";
 
 function useTheme() {
   const [theme, setTheme] = useState<Theme>();
 
   const setThemeWrapper = (theme: Theme) => {
-    if (theme === DARK_THEME) {
-      document.documentElement.classList.add(DARK_THEME);
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove(DARK_THEME);
+      document.documentElement.classList.remove("dark");
     }
 
     setTheme(theme);
@@ -70,15 +64,15 @@ function useTheme() {
   useEffect(() => {
     const initialTheme =
       typeof localStorage === "undefined"
-        ? DEFAULT_THEME
-        : (localStorage.getItem(THEME_KEY) as Theme) ?? DEFAULT_THEME;
+        ? "light"
+        : (localStorage.getItem("theme") as Theme) ?? "light";
 
     setThemeWrapper(initialTheme);
   }, []);
 
   useEffect(() => {
     if (theme !== undefined) {
-      localStorage.setItem(THEME_KEY, theme);
+      localStorage.setItem("theme", theme);
     }
   }, [theme]);
 
@@ -89,7 +83,7 @@ export function Header({ className, ...properties }: HeaderProperties) {
   const [theme, setTheme] = useTheme();
   const [switching, setSwitching] = useState(false);
 
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     setSwitching(true);
     setTimeout(() => {
       setTheme(theme === "dark" ? "light" : "dark");
@@ -97,7 +91,7 @@ export function Header({ className, ...properties }: HeaderProperties) {
         setSwitching(false);
       }, 100);
     }, 100);
-  };
+  }, [setTheme, theme]);
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
@@ -118,23 +112,20 @@ export function Header({ className, ...properties }: HeaderProperties) {
         <div className="flex space-x-8">
           <HeaderButton onClick={toggleTheme}>
             <span className="mr-2">Theme</span>
-            {theme === "light" ? (
-              <SunIcon
-                className={twMerge(
-                  "w-4 h-4 scale-125 transition-transform",
-                  switching && "-rotate-90 scale-0"
-                )}
-                aria-hidden="true"
-              />
-            ) : (
-              <MoonIcon
-                className={twMerge(
-                  "w-4 h-4 transition-transform origin-bottom",
-                  switching && "rotate-90 scale-0"
-                )}
-                aria-hidden="true"
-              />
-            )}
+            <MoonIcon
+              className={twMerge(
+                "hidden dark:inline w-4 h-4 transition-transform origin-bottom",
+                switching && "rotate-90 scale-0"
+              )}
+              aria-hidden="true"
+            />
+            <SunIcon
+              className={twMerge(
+                "inline dark:hidden w-4 h-4 scale-125 transition-transform",
+                switching && "-rotate-90 scale-0"
+              )}
+              aria-hidden="true"
+            />
           </HeaderButton>
         </div>
       </Container>

@@ -64,19 +64,18 @@ export function Headshots(properties: HeadshotsProperties) {
   }, []);
 
   useEffect(() => {
-    const handle = requestIdleCallback(async () => {
+    if (loaded) {
       window.addEventListener("mousemove", changeHeadshot);
       window.addEventListener("touchstart", changeHeadshot);
       window.addEventListener("touchmove", changeHeadshot);
-    });
+    }
 
     return () => {
-      cancelIdleCallback(handle);
       window.removeEventListener("mousemove", changeHeadshot);
       window.removeEventListener("touchstart", changeHeadshot);
       window.removeEventListener("touchmove", changeHeadshot);
     };
-  });
+  }, [loaded, changeHeadshot]);
 
   return (
     <div {...properties}>

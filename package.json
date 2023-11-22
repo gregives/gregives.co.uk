@@ -14,11 +14,11 @@
     "@heroicons/react": "^2.0.18",
     "@mdx-js/loader": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
-    "@next/bundle-analyzer": "^14.0.2",
-    "@next/mdx": "^14.0.2",
+    "@next/bundle-analyzer": "^14.0.3",
+    "@next/mdx": "^14.0.3",
     "firebase": "^10.6.0",
     "firebase-admin": "^11.11.0",
-    "next": "^14.0.2",
+    "next": "^14.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rehype-autolink-headings": "^7.1.0",
@@ -32,14 +32,14 @@
   },
   "devDependencies": {
     "@types/mdx": "^2.0.10",
-    "@types/node": "^20.9.0",
-    "@types/react": "^18.2.37",
-    "@types/react-dom": "^18.2.15",
+    "@types/node": "^20.9.4",
+    "@types/react": "^18.2.38",
+    "@types/react-dom": "^18.2.17",
     "autoprefixer": "^10.4.16",
-    "eslint": "^8.53.0",
-    "eslint-config-next": "^14.0.2",
+    "eslint": "^8.54.0",
+    "eslint-config-next": "^14.0.3",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.5",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.2"
   }
 }
