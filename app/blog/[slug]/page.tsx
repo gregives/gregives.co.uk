@@ -37,7 +37,10 @@ export default async function ArticlePage({
           <ArticleHeader metadata={metadata} />
           <Content />
         </BentoItem>
-        <BentoItem className="hidden sm:flex col-span-4 bg-slate-700 dark:bg-slate-800 before:opacity-25 dark:before:opacity-25 ring-inset shadow-inner" />
+        <BentoItem
+          className="hidden sm:flex col-span-4 bg-slate-700 dark:bg-slate-800"
+          inset
+        />
       </BentoGrid>
     </main>
   );

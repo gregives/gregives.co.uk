@@ -72,7 +72,10 @@ export default async function Home() {
             </Heading2>
           </BentoItem>
         </div>
-        <BentoItem className="order-7 sm:col-span-3 md:col-span-2 sm:row-span-3 bg-slate-700 dark:bg-slate-800 before:opacity-25 ring-inset shadow-inner">
+        <BentoItem
+          className="order-7 sm:col-span-3 md:col-span-2 sm:row-span-3 bg-slate-700 dark:bg-slate-800"
+          inset
+        >
           <Heading2 className="text-center sm:text-left sm:[writing-mode:vertical-lr] sm:rotate-180 sm:p-0 sm:text-6xl text-slate-50">
             From the blog
           </Heading2>
@@ -102,7 +105,7 @@ export default async function Home() {
               <p className="mt-12 md:mt-0 md:text-right text-4xl sm:text-5xl font-display font-extrabold dark:font-bold dark:tracking-wide uppercase">
                 Toby Cannon
               </p>
-              <p className="mt-4 md:text-right text-lg sm:text-xl">
+              <p className="mt-4 md:text-right md:text-lg">
                 CEO, Myles Wellbeing
               </p>
             </div>
