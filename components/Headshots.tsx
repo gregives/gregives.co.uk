@@ -1,6 +1,7 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
+import fullImage from "@/assets/headshots.png";
 import previewImage from "@/assets/headshotsPreview.png";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -12,7 +13,7 @@ type Headshot = {
 };
 
 export function Headshots(properties: HeadshotsProperties) {
-  const [fullImage, setFullImage] = useState<StaticImageData>();
+  const [loaded, setLoaded] = useState(false);
   const [transform, setTransform] = useState(
     `translate(-${400 / 7}%, -${300 / 4}%)`
   );
@@ -64,9 +65,6 @@ export function Headshots(properties: HeadshotsProperties) {
 
   useEffect(() => {
     const handle = requestIdleCallback(async () => {
-      const fullImage = await import("@/assets/headshots.png");
-      setFullImage(fullImage.default);
-
       window.addEventListener("mousemove", changeHeadshot);
       window.addEventListener("touchstart", changeHeadshot);
       window.addEventListener("touchmove", changeHeadshot);
@@ -88,14 +86,27 @@ export function Headshots(properties: HeadshotsProperties) {
             className="relative w-full pb-[133.3333%] -m-1"
             ref={headshotsRef}
           >
+            {!loaded && (
+              <Image
+                src={previewImage}
+                alt="Photo of Greg Ives"
+                className="absolute top-0 left-0 w-[700%] max-w-none mix-blend-hard-light dark:contrast-0 dark:mix-blend-luminosity"
+                style={{
+                  transform,
+                }}
+                priority
+                sizes="(min-width: 768px) 233.3333vw, 350vw"
+              />
+            )}
             <Image
-              src={fullImage ?? previewImage}
+              src={fullImage}
               alt="Photo of Greg Ives"
               className="absolute top-0 left-0 w-[700%] max-w-none mix-blend-hard-light dark:contrast-0 dark:mix-blend-luminosity"
               style={{
                 transform,
+                visibility: loaded ? "visible" : "hidden",
               }}
-              priority
+              onLoad={() => setLoaded(true)}
               sizes="(min-width: 768px) 233.3333vw, 350vw"
             />
           </div>
