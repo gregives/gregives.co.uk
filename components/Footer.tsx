@@ -49,15 +49,28 @@ export function Footer(properties: FooterProperties) {
       <Container className="pb-8 px-6 sm:px-8 md:px-10 lg:px-12">
         <div className="py-16 sm:py-24 text-center flex flex-col items-center bg-radial-gradient-t from-sky-900 to-transparent">
           <Heading2 className="text-4xl/tight sm:text-5xl/tight tracking-wide">
-            <span className="hidden sm:inline">Subscribe to </span>My Newsletter
+            <span className="hidden sm:inline-block md:skew-y-6 origin-right">
+              Subscribe to
+            </span>{" "}
+            My Newsletter
           </Heading2>
           <Paragraph className="max-w-xl">
-            Sign up to receive my very irregular newsletter including updates on
-            new blog posts, projects I&rsquo;m working and exclusive content.
+            Sign up to receive my{" "}
+            {"very irregular".split("").map((letter) => (
+              <span
+                key={letter}
+                className="inline-block whitespace-pre"
+                style={{ transform: `translateY(${Math.random() * 4 - 2}px)` }}
+              >
+                {letter}
+              </span>
+            ))}{" "}
+            newsletter including updates on new blog posts, projects I&rsquo;m
+            working and exclusive content.
           </Paragraph>
           <form
             action="https://app.convertkit.com/forms/5075878/subscriptions"
-            className="mt-4 w-full max-w-xl flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 items-stretch"
+            className="mt-8 w-full max-w-xl flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 md:space-x-6 items-stretch"
             method="POST"
           >
             <Input
@@ -68,9 +81,14 @@ export function Footer(properties: FooterProperties) {
               required
               type="email"
             />
-            <Button className="shadow-xl shadow-sky-800/50" type="submit">
-              Subscribe
-            </Button>
+            <div className="origin-left md:-rotate-12">
+              <Button
+                className="w-full h-full shadow-xl shadow-sky-800/50"
+                type="submit"
+              >
+                Subscribe
+              </Button>
+            </div>
           </form>
         </div>
         <div className="flex flex-wrap items-center justify-between space-y-8 sm:space-y-0">

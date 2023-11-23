@@ -31,7 +31,7 @@ export function ViewCounter({
   return (
     <ViewCounterInner {...properties}>
       {children}
-      {page.views === 1 ? "1 view" : `${page.views} views`}
+      {page.views === 1 ? "1 view" : `${page.views.toLocaleString()} views`}
     </ViewCounterInner>
   );
 }
