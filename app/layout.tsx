@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Container } from "@/components/Container";
 import { BASE_ORIGIN } from "@/utilities/constants";
 import { generateTags } from "@/utilities/metadata";
+import Script from "next/script";
 
 const sans = Inter({
   subsets: ["latin"],
@@ -40,7 +41,7 @@ function setTheme() {
   const theme = localStorage.getItem("theme");
 
   if (theme === "dark") {
-    document.documentElement.classList.add("dark");
+    document.documentElement.dataset.theme = "dark";
   }
 }
 
@@ -68,6 +69,9 @@ export default function RootLayout({
           {children}
         </Container>
         <Footer className="text-slate-100 sticky bottom-0" />
+        <Script id="animate">
+          {'document.documentElement.dataset.animate = "true";'}
+        </Script>
       </body>
     </html>
   );

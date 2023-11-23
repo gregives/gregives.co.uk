@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
-  darkMode: "class",
+  darkMode: ["class", '[data-theme="dark"]'],
   content: [
     "./mdx-components.tsx",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",

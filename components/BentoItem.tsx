@@ -1,62 +1,94 @@
 "use client";
 
-import { CSSProperties, useEffect, useRef, useState } from "react";
+import {
+  CSSProperties,
+  MutableRefObject,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { twMerge } from "tailwind-merge";
 
 type BentoItemProperties = JSX.IntrinsicElements["div"] & {
   inset?: boolean;
 };
 
+function useIntersection<TElement extends Element>(
+  ref: MutableRefObject<TElement | null>
+) {
+  const [intersection, setIntersection] = useState<IntersectionObserverEntry>();
+
+  useEffect(() => {
+    if (ref.current) {
+      const observer = new IntersectionObserver(([entry]) => {
+        setIntersection(entry);
+
+        if (entry.isIntersecting) {
+          observer.disconnect();
+        }
+      });
+
+      observer.observe(ref.current);
+
+      return () => {
+        observer.disconnect();
+      };
+    }
+  }, [ref]);
+
+  return intersection;
+}
+
+const HIDDEN_STYLE = {
+  opacity: 0,
+  transitionProperty: "all",
+  transform: "translateY(1rem) skewY(1deg) scale(0.98)",
+  transformOrigin: "top",
+};
+
 export function useFadeIn() {
   const ref = useRef(null);
+  const intersection = useIntersection(ref);
 
-  // const [style, setStyle] = useState<CSSProperties | undefined>({
-  //   opacity: 0,
-  //   transitionProperty: "all",
-  //   transform: "translateY(1rem) skewY(1deg) scale(0.98)",
-  //   transformOrigin: "top",
-  // });
+  const [style, setStyle] = useState<CSSProperties | undefined>(
+    typeof document !== "undefined" && document.documentElement.dataset.animate
+      ? HIDDEN_STYLE
+      : undefined
+  );
 
-  // useEffect(() => {
-  //   if (ref.current) {
-  //     let handle: NodeJS.Timeout;
+  useEffect(() => {
+    if (intersection && intersection.isIntersecting) {
+      const transitionDuration =
+        500 +
+        (intersection.boundingClientRect.top / window.innerHeight) * 500 +
+        (intersection.boundingClientRect.left / window.innerWidth) * 500;
 
-  //     const observer = new IntersectionObserver(([entry]) => {
-  //       if (entry.isIntersecting) {
-  //         const transitionDuration =
-  //           500 +
-  //           (entry.boundingClientRect.top / window.innerHeight) * 500 +
-  //           (entry.boundingClientRect.left / window.innerWidth) * 500;
+      setStyle((style) => ({
+        ...style,
+        opacity: 1,
+        transitionDuration: transitionDuration + "ms",
+        transform: "none",
+      }));
 
-  //         setStyle((style) => ({
-  //           ...style,
-  //           opacity: 1,
-  //           transitionDuration: transitionDuration + "ms",
-  //           transform: "none",
-  //         }));
+      const handle = setTimeout(() => {
+        setStyle(undefined);
+      }, transitionDuration);
 
-  //         handle = setTimeout(() => {
-  //           setStyle(undefined);
-  //         }, transitionDuration);
-
-  //         if (ref.current) {
-  //           observer.unobserve(ref.current);
-  //         }
-  //       }
-  //     });
-
-  //     observer.observe(ref.current);
-
-  //     return () => {
-  //       observer.disconnect();
-  //       clearTimeout(handle);
-  //     };
-  //   }
-  // }, [ref]);
+      return () => {
+        clearTimeout(handle);
+      };
+    } else if (
+      intersection &&
+      !intersection.isIntersecting &&
+      document.documentElement.dataset.animate
+    ) {
+      setStyle(HIDDEN_STYLE);
+    }
+  }, [intersection]);
 
   return {
     ref,
-    // style,
+    style,
   };
 }
 

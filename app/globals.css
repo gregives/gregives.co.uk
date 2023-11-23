@@ -42,13 +42,13 @@ code[data-theme="dark"] {
   display: none;
 }
 
-.dark pre[data-theme="light"],
-.dark code[data-theme="light"] {
+[data-theme="dark"] pre[data-theme="light"],
+[data-theme="dark"] code[data-theme="light"] {
   display: none;
 }
 
-.dark pre[data-theme="dark"],
-.dark code[data-theme="dark"] {
+[data-theme="dark"] pre[data-theme="dark"],
+[data-theme="dark"] code[data-theme="dark"] {
   display: block;
 }
 
@@ -154,7 +154,7 @@ ul[class] ul[class] {
     line-height: 0;
   }
 
-  .dark .font-display a[target="_blank"]::after {
+  [data-theme="dark"] .font-display a[target="_blank"]::after {
     font-weight: 300;
   }
 }

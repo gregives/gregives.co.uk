@@ -4,7 +4,6 @@ import { twMerge } from "tailwind-merge";
 import { Container } from "./Container";
 import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
-import { useFadeIn } from "./BentoItem";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 import { useCallback, useEffect, useState } from "react";
 
@@ -14,15 +13,12 @@ function HeaderLink({
   className,
   ...properties
 }: React.ComponentProps<typeof Link>) {
-  const fadeProperties = useFadeIn();
-
   return (
     <Link
       className={twMerge(
         "inline-flex items-center text-sm font-medium",
         className
       )}
-      {...fadeProperties}
       {...properties}
     />
   );
@@ -32,15 +28,12 @@ function HeaderButton({
   className,
   ...properties
 }: JSX.IntrinsicElements["button"]) {
-  const fadeProperties = useFadeIn();
-
   return (
     <button
       className={twMerge(
         "inline-flex items-center text-sm font-medium",
         className
       )}
-      {...fadeProperties}
       {...properties}
     />
   );
@@ -53,9 +46,9 @@ function useTheme() {
 
   const setThemeWrapper = (theme: Theme) => {
     if (theme === "dark") {
-      document.documentElement.classList.add("dark");
+      document.documentElement.dataset.theme = "dark";
     } else {
-      document.documentElement.classList.remove("dark");
+      delete document.documentElement.dataset.theme;
     }
 
     setTheme(theme);
