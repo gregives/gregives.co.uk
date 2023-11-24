@@ -42,10 +42,7 @@ export default async function ProjectPage({
           <ArticleHeader metadata={metadata} />
           <Content />
         </BentoItem>
-        <BentoItem
-          className="hidden sm:flex col-span-4 bg-slate-700 dark:bg-slate-800"
-          inset
-        />
+        <BentoItem className="hidden sm:flex col-span-4 bg-slate-800" inset />
       </BentoGrid>
     </main>
   );

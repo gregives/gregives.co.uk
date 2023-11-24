@@ -30,7 +30,7 @@ export function FeaturedProjects({
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent from-60% to-orange-300 dark:to-amber-700" />
           </div>
-          <Heading2>
+          <Heading2 link>
             <Link href={mylesWellbeing.website as string} target="_blank">
               {mylesWellbeing.title}
             </Link>
@@ -39,7 +39,7 @@ export function FeaturedProjects({
         </BentoItem>
       )}
       <BentoItem className="order-4 relative sm:col-span-6 bg-red-300 dark:bg-red-700">
-        <Heading2>
+        <Heading2 link>
           <Link href={poetryTips.website as string} target="_blank">
             {poetryTips.title}
           </Link>
@@ -47,7 +47,7 @@ export function FeaturedProjects({
         <Paragraph>{poetryTips.description}</Paragraph>
       </BentoItem>
       <BentoItem className="order-5 relative sm:col-span-6 bg-indigo-300 dark:bg-indigo-700">
-        <Heading2>
+        <Heading2 link>
           <Link href={recommendDomains.website as string} target="_blank">
             {recommendDomains.title}
           </Link>

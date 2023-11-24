@@ -35,7 +35,7 @@ async function Image({
 export function Heading1({
   className,
   ...properties
-}: JSX.IntrinsicElements["h1"]) {
+}: Omit<React.ComponentProps<typeof Heading<"h1">>, "level">) {
   return (
     <Heading
       level={1}
@@ -48,7 +48,7 @@ export function Heading1({
 export function Heading2({
   className,
   ...properties
-}: JSX.IntrinsicElements["h2"]) {
+}: Omit<React.ComponentProps<typeof Heading<"h2">>, "level">) {
   return (
     <Heading
       level={2}
@@ -61,7 +61,7 @@ export function Heading2({
 export function Heading3({
   className,
   ...properties
-}: JSX.IntrinsicElements["h3"]) {
+}: Omit<React.ComponentProps<typeof Heading<"h3">>, "level">) {
   return (
     <Heading
       level={3}
@@ -74,7 +74,7 @@ export function Heading3({
 export function Heading4({
   className,
   ...properties
-}: JSX.IntrinsicElements["h4"]) {
+}: Omit<React.ComponentProps<typeof Heading<"h4">>, "level">) {
   return (
     <Heading
       level={4}

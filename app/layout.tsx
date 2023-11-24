@@ -65,7 +65,7 @@ export default function RootLayout({
       </head>
       <body className="h-full text-slate-900 dark:text-slate-100">
         <Header className="text-slate-100 sticky top-0" />
-        <Container className="min-h-[calc(100%-11rem)] grid relative z-10 p-2 bg-slate-800 dark:bg-slate-900 shadow-2xl shadow-slate-950 rounded-[2rem]">
+        <Container className="min-h-[calc(100%-11rem)] grid relative z-10 p-2 bg-slate-700 dark:bg-slate-900 shadow-2xl shadow-slate-950 rounded-[2rem]">
           {children}
         </Container>
         <Footer className="text-slate-100 sticky bottom-0" />

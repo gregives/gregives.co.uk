@@ -34,7 +34,7 @@ export default async function ProjectsPage() {
             key={project.metadata.title}
             className="order-10 bg-slate-300 dark:bg-slate-700"
           >
-            <Heading2>
+            <Heading2 link={project.metadata.website !== undefined}>
               <Link
                 href={
                   project.metadata.website

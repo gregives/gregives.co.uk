@@ -48,7 +48,7 @@ export default async function Home() {
         />
         <div className="order-6 col-span-full flex flex-wrap justify-stretch text-center -m-1">
           <BentoItem className="order-2 md:order-1 m-1 flex-grow relative items-center bg-blue-300 dark:bg-blue-500">
-            <Heading2 className="text-3xl/tight sm:text-4xl/tight">
+            <Heading2 link className="text-3xl/tight sm:text-4xl/tight">
               <Link href="https://twitter.com/gregiv_es" target="_blank">
                 Twitter
                 <span className="absolute inset-0" />
@@ -56,7 +56,7 @@ export default async function Home() {
             </Heading2>
           </BentoItem>
           <BentoItem className="order-3 md:order-2 m-1 flex-grow relative items-center bg-slate-300 dark:bg-slate-600">
-            <Heading2 className="text-3xl/tight sm:text-4xl/tight">
+            <Heading2 link className="text-3xl/tight sm:text-4xl/tight">
               <Link href="https://github.com/gregives" target="_blank">
                 GitHub
                 <span className="absolute inset-0" />
@@ -73,7 +73,7 @@ export default async function Home() {
           </BentoItem>
         </div>
         <BentoItem
-          className="order-7 sm:col-span-3 md:col-span-2 sm:row-span-3 bg-slate-700 dark:bg-slate-800"
+          className="order-7 sm:col-span-3 md:col-span-2 sm:row-span-3 bg-slate-800"
           inset
         >
           <Heading2 className="text-center sm:text-left sm:[writing-mode:vertical-lr] sm:rotate-180 sm:p-0 sm:text-6xl text-slate-50">
@@ -87,7 +87,7 @@ export default async function Home() {
             className="order-8 sm:col-span-9 md:col-span-10 md:flex-col lg:flex-row bg-teal-300 dark:bg-emerald-700 saturate-50 dark:saturate-100"
           />
         ))}
-        <BentoItem className="order-9 bg-sky-800 dark:bg-sky-900 text-slate-100 before:opacity-25">
+        <BentoItem className="order-9 bg-sky-700 dark:bg-sky-900 text-slate-100 before:opacity-25 shadow-xl">
           <div className="flex flex-col md:flex-row md:items-end justify-between">
             <div className="flex flex-col lg:flex-row">
               <div className="relative w-20 h-16 flex-shrink-0">
