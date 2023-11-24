@@ -16,7 +16,7 @@ function HeaderLink({
   return (
     <Link
       className={twMerge(
-        "inline-flex items-center text-sm font-medium",
+        "-my-1 py-1 px-2 inline-flex items-center text-sm font-medium",
         className
       )}
       {...properties}
@@ -31,7 +31,7 @@ function HeaderButton({
   return (
     <button
       className={twMerge(
-        "inline-flex items-center text-sm font-medium",
+        "-my-1 py-1 px-2 inline-flex items-center text-sm font-medium",
         className
       )}
       {...properties}
@@ -97,12 +97,12 @@ export function Header({ className, ...properties }: HeaderProperties) {
       {...properties}
     >
       <Container className="relative bg-radial-gradient-b from-slate-800 to-transparent py-8 px-6 sm:px-8 md:px-10 lg:px-12 flex overflow-x-auto hide-scrollbar justify-between">
-        <div className="flex space-x-8 mr-8">
+        <div className="flex space-x-6 mr-6 -ml-2">
           <HeaderLink href="/">Home</HeaderLink>
           <HeaderLink href="/blog">Blog</HeaderLink>
           <HeaderLink href="/projects">Projects</HeaderLink>
         </div>
-        <div className="flex space-x-8">
+        <div className="flex space-x-6 -mr-2">
           <HeaderButton onClick={toggleTheme}>
             <span className="mr-2">Theme</span>
             <MoonIcon

@@ -34,7 +34,10 @@ export default async function ProjectsPage() {
             key={project.metadata.title}
             className="order-10 bg-slate-300 dark:bg-slate-700"
           >
-            <Heading2 link={project.metadata.website !== undefined}>
+            <Heading2
+              link={project.metadata.website !== undefined}
+              className="relative"
+            >
               <Link
                 href={
                   project.metadata.website
@@ -44,6 +47,7 @@ export default async function ProjectsPage() {
                 target={project.metadata.website ? "_blank" : undefined}
               >
                 {project.metadata.title}
+                <span className="absolute inset-0" />
               </Link>
             </Heading2>
             <Paragraph>{project.metadata.description}</Paragraph>

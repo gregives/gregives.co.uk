@@ -27,8 +27,11 @@ export function ArticlePreview({
       )}
       {...properties}
     >
-      <Heading2 className="mb-4">
-        <Link href={metadata.path}>{metadata.title}</Link>
+      <Heading2 className="flex-grow relative mb-4">
+        <Link href={metadata.path}>
+          {metadata.title}
+          <span className="absolute inset-0" />
+        </Link>
       </Heading2>
       <ViewCounter
         path={metadata.path}
