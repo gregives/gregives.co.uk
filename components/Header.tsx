@@ -97,12 +97,12 @@ export function Header({ className, ...properties }: HeaderProperties) {
       {...properties}
     >
       <Container className="relative bg-radial-gradient-b from-slate-800 to-transparent py-8 px-6 sm:px-8 md:px-10 lg:px-12 flex overflow-x-auto hide-scrollbar justify-between">
-        <div className="flex space-x-6 mr-6 -ml-2">
+        <div className="flex space-x-2 mr-2 sm:space-x-6 sm:mr-6 -ml-2">
           <HeaderLink href="/">Home</HeaderLink>
           <HeaderLink href="/blog">Blog</HeaderLink>
           <HeaderLink href="/projects">Projects</HeaderLink>
         </div>
-        <div className="flex space-x-6 -mr-2">
+        <div className="flex space-x-2 sm:space-x-6 -mr-2">
           <HeaderButton onClick={toggleTheme}>
             <span className="mr-2">Theme</span>
             <MoonIcon
