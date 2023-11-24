@@ -73,7 +73,7 @@ export function Footer(properties: FooterProperties) {
               </span>
             ))}{" "}
             newsletter including updates on new blog posts, projects I&rsquo;m
-            working and exclusive content.
+            working on and exclusive content.
           </Paragraph>
           <form
             action="https://app.convertkit.com/forms/5075878/subscriptions"

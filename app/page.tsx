@@ -47,7 +47,7 @@ export default async function Home() {
           recommendDomains={recommendDomains}
         />
         <div className="order-6 col-span-full flex flex-wrap justify-stretch text-center -m-1">
-          <BentoItem className="order-2 md:order-1 m-1 flex-grow relative items-center bg-blue-300 dark:bg-blue-500">
+          <BentoItem className="order-2 md:order-1 m-1 flex-1 relative items-center bg-blue-300 dark:bg-blue-500">
             <Heading2 link className="text-3xl/tight sm:text-4xl/tight">
               <Link href="https://twitter.com/gregiv_es" target="_blank">
                 Twitter
@@ -55,7 +55,7 @@ export default async function Home() {
               </Link>
             </Heading2>
           </BentoItem>
-          <BentoItem className="order-3 md:order-2 m-1 flex-grow relative items-center bg-slate-300 dark:bg-slate-600">
+          <BentoItem className="order-3 md:order-2 m-1 flex-1 relative items-center bg-slate-300 dark:bg-slate-600">
             <Heading2 link className="text-3xl/tight sm:text-4xl/tight">
               <Link href="https://github.com/gregives" target="_blank">
                 GitHub
@@ -63,7 +63,7 @@ export default async function Home() {
               </Link>
             </Heading2>
           </BentoItem>
-          <BentoItem className="order-1 md:order-3 w-full md:w-auto m-1 flex-grow relative items-center bg-purple-300 dark:bg-purple-700">
+          <BentoItem className="order-1 md:order-3 w-full md:w-auto m-1 flex-grow lg:flex-1 relative items-center bg-purple-300 dark:bg-purple-700">
             <Heading2>
               <Link href="/projects">
                 Other projects
