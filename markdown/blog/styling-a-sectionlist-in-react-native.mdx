@@ -1,0 +1,160 @@
+export const metadata = {
+  title: "Styling a SectionList in React Native",
+  date: "2023-01-18",
+  description: "The easiest way to apply styles to sections in a SectionList.",
+};
+
+I'm currently building [Myles Wellbeing](https://myleswellbeing.com/), an app which rewards employees for living healthy lifestyles. One of the screens in the Myles Wellbeing app displays your activity 'history' which breaks down the activities you've tracked each day. I started building this screen in React Native using a SectionList and I found it surprisingly difficult to create sections with rounded corners. Here's what I wanted it to look like:
+
+![Screenshot of the Myles Wellbeing app showing a sectioned list with rounded corners](react-native-sectionlist/screenshot1.png)
+
+## What Is a SectionList?
+
+According to the [React Native docs](https://reactnative.dev/docs/sectionlist), a SectionList is a "performant interface for rendering sectioned lists". Most importantly, it gives us the ability to render a separator, header and footer in between groups of items.
+
+When you search how to style the sections in a SectionList, some websites suggest rendering a FlatList for each section, instead of using a SectionList. **Do not do this** as it will negate the benefits of a virtualised list.
+
+### Why Is It Difficult To Style a SectionList?
+
+It is difficult to style the sections of a SectionList because there _are no sections_ being rendered. Behind the scenes, the SectionList is rendering a list of items and inserting section headers, footers and separators in between groups of items. There are no React Native components wrapping the sections, which is why there is no `sectionStyle` or `renderSection` prop for us to use.
+
+Conceptually, it is rendered something like this:
+
+```tsx
+return (
+  <>
+    <SectionHeader /> {/* Inserted before section */}
+    <Item />
+    <ItemSeparator />
+    <Item />
+    <ItemSeparator />
+    <Item />
+    <ItemSeparator />
+    <Item />
+    <SectionFooter /> {/* Inserted after section */}
+    <SectionSeparator /> {/* Inserted in between sections */}
+  </>
+);
+```
+
+## How To Style the SectionList
+
+The key to styling a SectionList is to style the first and last items of each section differently from the other items. Let's begin by styling all items the same and then we'll add the additional styles for the first and last item.
+
+```jsx
+import { SectionList, StyleSheet, Text, View } from "react-native";
+
+const styles = StyleSheet.create({
+  item: {
+    backgroundColor: "#eeeeee",
+    borderBottomColor: "#000000",
+    borderBottomWidth: 1,
+    padding: 8,
+  },
+  header: {
+    marginVertical: 8,
+  },
+});
+
+function renderItem({ item }) {
+  return (
+    <View style={styles.item}>
+      <Text>{item}</Text>
+    </View>
+  );
+}
+
+function renderSectionHeader({ section: { title } }) {
+  return (
+    <View style={styles.item}>
+      <Text>{title}</Text>
+    </View>
+  );
+}
+
+export function StyledSectionList({ sections }) {
+  return (
+    <SectionList
+      renderItem={renderItem}
+      renderSectionHeader={renderSectionHeader}
+      sections={sections}
+      stickySectionHeadersEnabled={false}
+    />
+  );
+}
+```
+
+Every item looks the same with square corners and a black border on the bottom.
+
+![Screenshot of the Myles Wellbeing app showing a sectioned list with rounded corners](react-native-sectionlist/screenshot2.png)
+
+### Styling the First and Last Item Differently
+
+Now let's add the styles for the first and last item. We can do this by checking the `index` passed to the `renderItem` function:
+
+- The first item will have `index === 0`
+- The last item will have `index === section.data.length - 1`
+
+The `section` is also passed to the `renderItem` function and contains all the information about the current section.
+
+```jsx {10-18,24,27-31}
+import { SectionList, StyleSheet, Text, View } from "react-native";
+
+const styles = StyleSheet.create({
+  item: {
+    backgroundColor: "#eeeeee",
+    borderBottomColor: "#000000",
+    borderBottomWidth: 1,
+    padding: 8,
+  },
+  itemFirst: {
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+  },
+  itemLast: {
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
+    borderBottomWidth: 0,
+  },
+  header: {
+    marginVertical: 8,
+  },
+});
+
+function renderItem({ item, index, section }) {
+  return (
+    <View
+      style={[
+        styles.item,
+        index === 0 && styles.itemFirst,
+        index === section.data.length - 1 && styles.itemLast,
+      ]}
+    >
+      <Text>{item}</Text>
+    </View>
+  );
+}
+
+function renderSectionHeader({ section: { title } }) {
+  return (
+    <View style={styles.item}>
+      <Text>{title}</Text>
+    </View>
+  );
+}
+
+export function StyledSectionList({ sections }) {
+  return (
+    <SectionList
+      renderItem={renderItem}
+      renderSectionHeader={renderSectionHeader}
+      sections={sections}
+      stickySectionHeadersEnabled={false}
+    />
+  );
+}
+```
+
+That's the easiest way I've found of styling a SectionList. Thanks for reading!
+
+![Screenshot of the Myles Wellbeing app showing a sectioned list with rounded corners](react-native-sectionlist/screenshot1.png)

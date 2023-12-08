@@ -1,0 +1,235 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+strong {
+  font-weight: 600;
+}
+
+code {
+  counter-reset: line;
+  font-size: 0.95em;
+}
+
+:focus {
+  @apply outline-none;
+}
+
+:focus-visible:not(.focus-ignore) {
+  @apply outline outline-2 outline-offset-4 outline-current;
+}
+
+:focus-visible:not([class*="rounded-"]) {
+  @apply rounded;
+}
+
+.font-display:focus-visible,
+.font-display :focus-visible {
+  @apply outline-4;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+pre[data-theme="dark"],
+code[data-theme="dark"] {
+  display: none;
+}
+
+[data-theme="dark"] pre[data-theme="light"],
+[data-theme="dark"] code[data-theme="light"] {
+  display: none;
+}
+
+[data-theme="dark"] pre[data-theme="dark"],
+[data-theme="dark"] code[data-theme="dark"] {
+  display: block;
+}
+
+code > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+
+  @apply hidden sm:inline-block mr-6 text-right w-4 text-gray-400;
+}
+
+code > [data-highlighted-line] {
+  @apply bg-gradient-to-r from-blue-500 from-[2px] via-blue-500/20 via-[2px] to-blue-500/5 dark:to-blue-500/10 to-[0.75rem];
+}
+
+code > [data-highlighted-line]::before {
+  @apply text-blue-500;
+}
+
+pre > code[class] {
+  @apply m-0 px-0 py-4;
+}
+
+pre > code > [data-line] {
+  @apply px-4;
+}
+
+[data-rehype-pretty-code-fragment]:not(:last-child) {
+  @apply mb-6;
+}
+
+ol[class] ol[class],
+ol[class] ul[class],
+ul[class] ol[class],
+ul[class] ul[class] {
+  @apply my-3;
+}
+
+@keyframes toc {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes toc-item {
+  from {
+    transform: translateY(0.5rem);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+.toc {
+  @apply hidden absolute top-0 left-full ml-2 w-1/2 h-full text-sm z-10 opacity-0;
+
+  animation: 500ms 1000ms forwards toc;
+}
+
+.show-toc .toc {
+  @apply sm:block;
+}
+
+.toc > ol {
+  @apply sticky top-0 -mt-4 py-6 md:py-8 px-4 sm:px-6 md:px-8 lg:px-10;
+}
+
+.toc a {
+  @apply text-slate-200 decoration-slate-600 dark:text-slate-300 dark:decoration-slate-600;
+}
+
+.toc-level {
+  @apply list-none;
+}
+
+.toc-level[class] .toc-level[class] {
+  @apply ml-4 my-0 text-xs;
+}
+
+.toc-item {
+  @apply mt-4 ml-0 !important;
+
+  animation: 500ms 1000ms forwards toc-item;
+}
+
+.toc-item .toc-item {
+  @apply mt-3 !important;
+}
+
+:target {
+  scroll-margin-top: 4rem;
+}
+
+@keyframes progress {
+  from {
+    background-color: hsl(var(--s-h) var(--s-s) var(--s-l));
+  }
+
+  to {
+    background-color: hsl(var(--e-h) var(--e-s) var(--e-l));
+  }
+}
+
+@keyframes progress-multiple {
+  0% {
+    background-color: red;
+  }
+
+  32.5% {
+    background-color: orange;
+  }
+
+  50% {
+    background-color: yellow;
+  }
+
+  100% {
+    background-color: lime;
+  }
+}
+
+@keyframes progress-variable {
+  from {
+    --hue: 0;
+    --saturation: 100%;
+    --lightness: 50%;
+  }
+
+  to {
+    --hue: 120;
+    --saturation: 100%;
+    --lightness: 50%;
+  }
+}
+
+@property --hue {
+  syntax: "<number> | <angle>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --saturation {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+
+@property --lightness {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+
+.interpolation-variable {
+  background-color: hsl(
+    calc(var(--s-h) + (var(--e-h) - var(--s-h)) * var(--progress) / 100)
+      calc(var(--s-s) + (var(--e-s) - var(--s-s)) * var(--progress) / 100)
+      calc(var(--s-l) + (var(--e-l) - var(--s-l)) * var(--progress) / 100)
+  );
+}
+
+.interpolation-animate {
+  animation: 3s linear infinite alternate progress;
+}
+
+.interpolation-animate-delay {
+  animation: 101s linear paused progress;
+  animation-delay: calc(-1s * var(--progress));
+}
+
+.interpolation-animate-multiple {
+  animation: 101s ease-in-out paused progress-multiple;
+  animation-delay: calc(-1s * var(--progress));
+}
+
+.interpolation-animate-variable {
+  animation: 101s linear paused progress-variable;
+  animation-delay: calc(-1s * var(--progress));
+  background-color: hsl(var(--hue) var(--saturation) var(--lightness));
+}
