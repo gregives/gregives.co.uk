@@ -88,14 +88,9 @@ export function Footer(properties: FooterProperties) {
               required
               type="email"
             />
-            <div className="origin-left md:-rotate-12">
-              <Button
-                className="w-full h-full shadow-xl shadow-sky-800/50"
-                type="submit"
-              >
-                Subscribe
-              </Button>
-            </div>
+            <Button className="shadow-xl shadow-sky-800/50" type="submit">
+              Subscribe
+            </Button>
           </form>
         </div>
         <div className="flex flex-wrap items-center justify-between space-y-8 sm:space-y-0">

@@ -1,11 +1,16 @@
 import { BentoGrid } from "@/components/BentoGrid";
 import { BentoItem } from "@/components/BentoItem";
 import { loadMarkdown, loadMarkdownDirectory } from "@/utilities/markdown";
-import { Heading2 } from "@/mdx-components";
+import { Heading2, Paragraph } from "@/mdx-components";
 import Link from "next/link";
 import { Headshots } from "@/components/Headshots";
 import { FeaturedProjects } from "@/components/FeaturedProjects";
 import { ArticlePreview } from "@/components/ArticlePreview";
+import { getRecentlyPlayed } from "@/utilities/spotify";
+import { SpeakerWaveIcon } from "@heroicons/react/24/outline";
+import { getWeather } from "@/utilities/weather";
+import { twMerge } from "tailwind-merge";
+import Image from "next/image";
 
 export default async function Home() {
   const [
@@ -14,12 +19,16 @@ export default async function Home() {
     { metadata: poetryTips },
     { metadata: recommendDomains },
     articles,
+    recentlyPlayedSong,
+    weather,
   ] = await Promise.all([
     loadMarkdown("/index"),
     loadMarkdown("/projects/myles-wellbeing"),
     loadMarkdown("/projects/poetry-tips"),
     loadMarkdown("/projects/recommend-domains"),
     loadMarkdownDirectory("/blog"),
+    getRecentlyPlayed(),
+    getWeather(),
   ]);
 
   const latestArticles = articles.slice(0, 3);
@@ -40,6 +49,77 @@ export default async function Home() {
           <div className="max-w-2xl pt-8">
             <Content />
           </div>
+        </BentoItem>
+        <BentoItem className="order-2 col-span-6 md:col-span-4 bg-slate-800">
+          <div className="absolute inset-0 rounded-3xl overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              alt=""
+              decoding="async"
+              sizes="(min-width: 768px) 33.3333vw, 50vw"
+              srcSet={recentlyPlayedSong.albumImages
+                .map((image) => `${image.url} ${image.width}w`)
+                .join(", ")}
+              src={recentlyPlayedSong.albumImages[0].url}
+              className="w-full h-full object-cover blur-lg scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/80" />
+          </div>
+          <div className="z-10 flex flex-col justify-end text-white">
+            <Heading2
+              className={twMerge(
+                "font-bold tracking-wide text-3xl/tight line-clamp-3",
+                recentlyPlayedSong.name.length < 20 && "md:text-4xl/tight"
+              )}
+            >
+              <Link href={recentlyPlayedSong.url} target="_blank">
+                {recentlyPlayedSong.name}
+                <span className="absolute inset-0" />
+              </Link>
+            </Heading2>
+            <Paragraph className="leading-7 line-clamp-3">
+              <SpeakerWaveIcon
+                className="inline-block h-6 w-6 -mt-1 mr-3 align-middle"
+                aria-hidden="true"
+              />
+              {recentlyPlayedSong.artists.join(", ")}
+            </Paragraph>
+          </div>
+        </BentoItem>
+        <BentoItem
+          className={twMerge(
+            "order-2 col-span-6 md:col-span-4 bg-gray-300 dark:bg-gray-700",
+            weather.background
+          )}
+        >
+          <Image
+            alt=""
+            src={weather.icon}
+            height={128}
+            width={128}
+            className={twMerge(
+              "justify-self-start self-end w-48 -mt-8 -mb-12 sm:-mx-8 sm:-mt-12 sm:-mb-16 hue-rotate-[10deg] brightness-200 saturate-150 drop-shadow-lg",
+              // Invert snow icon
+              weather.icon.includes("/wn/13") && "brightness-0 invert"
+            )}
+            unoptimized
+          />
+          <Heading2
+            className={twMerge(
+              "text-3xl/tight md:text-4xl/tight",
+              weather.icon.includes("n@") && "font-bold tracking-wide"
+            )}
+          >
+            {weather.description}
+          </Heading2>
+          <Paragraph>Nottingham, UK</Paragraph>
+        </BentoItem>
+        <BentoItem className="order-2 hidden md:flex md:col-span-4 bg-fuchsia-200 dark:bg-fuchsia-900">
+          <div />
+          <Heading2 className="-skew-y-6 origin-left">
+            What&rsquo;s up?
+          </Heading2>
+          <Paragraph>The opposite of down.</Paragraph>
         </BentoItem>
         <FeaturedProjects
           mylesWellbeing={mylesWellbeing}
@@ -84,7 +164,7 @@ export default async function Home() {
           <ArticlePreview
             key={article.metadata.title}
             metadata={article.metadata}
-            className="order-8 sm:col-span-9 md:col-span-10 md:flex-col lg:flex-row bg-teal-300 dark:bg-emerald-700 saturate-50 dark:saturate-100"
+            className="order-8 sm:col-span-9 md:col-span-10 md:flex-col lg:flex-row bg-emerald-200 dark:bg-emerald-700"
           />
         ))}
         <BentoItem className="order-9 bg-sky-700 dark:bg-sky-900 text-slate-100 before:opacity-25 shadow-xl">
@@ -95,14 +175,14 @@ export default async function Home() {
                   &ldquo;
                 </div>
               </div>
-              <blockquote className="text-xl sm:text-2xl flex-grow max-w-xl">
+              <blockquote className="text-xl sm:text-2xl flex-grow max-w-xl font-light">
                 Greg is a rare breed of developer that can work across the full
                 stack and is a genuine joy to work with. We&rsquo;re lucky to
                 have him leading our development at Myles.
               </blockquote>
             </div>
             <div className="flex-shrink-0 md:ml-16">
-              <p className="mt-12 md:mt-0 md:text-right text-4xl sm:text-5xl font-display font-extrabold dark:font-bold dark:tracking-wide uppercase">
+              <p className="mt-12 md:mt-0 md:text-right text-4xl/tight sm:text-5xl/tight font-display font-bold tracking-wide uppercase">
                 Toby Cannon
               </p>
               <p className="mt-4 md:text-right md:text-lg">
