@@ -1,3 +1,4 @@
+import { join } from "path";
 import { readdirSync } from "fs";
 import { ArticleMetadata } from "@/types";
 import { notFound } from "next/navigation";
@@ -30,7 +31,7 @@ export async function loadMarkdown<TPath extends string>(path: TPath) {
 }
 
 export async function loadMarkdownDirectory<TPath extends string>(path: TPath) {
-  const slugs = readdirSync(`./markdown${path}`)
+  const slugs = readdirSync(join(process.cwd(), "markdown", path))
     .filter((path) => path.endsWith(".mdx"))
     .map((path) => path.replace(/\.mdx$/, ""));
 
