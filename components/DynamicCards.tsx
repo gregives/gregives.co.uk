@@ -25,7 +25,7 @@ export async function DynamicCards() {
             src={recentlyPlayedSong.albumImage.url}
             height={recentlyPlayedSong.albumImage.height}
             width={recentlyPlayedSong.albumImage.width}
-            className="w-full h-full object-cover blur-lg scale-110"
+            className="w-full h-full object-cover blur-2xl scale-125 saturate-200 brightness-125 dark:brightness-110"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/80" />
         </div>
