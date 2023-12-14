@@ -72,11 +72,15 @@ export async function getRecentlyPlayed() {
 
   const [mostRecent]: Track[] = response.items;
 
+  const albumImage = mostRecent.track.album.images.reduce((smallest, image) => {
+    return image.width < smallest.width ? image : smallest;
+  });
+
   return {
     name: mostRecent.track.name,
     album: mostRecent.track.album.name,
-    albumImages: mostRecent.track.album.images,
-    artists: mostRecent.track.artists.map(({ name }) => name),
+    albumImage,
+    artist: mostRecent.track.artists[0].name,
     duration: mostRecent.track.duration_ms,
     playedAt: mostRecent.played_at,
     url: mostRecent.track.external_urls.spotify,

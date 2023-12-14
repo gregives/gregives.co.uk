@@ -6,11 +6,8 @@ import Link from "next/link";
 import { Headshots } from "@/components/Headshots";
 import { FeaturedProjects } from "@/components/FeaturedProjects";
 import { ArticlePreview } from "@/components/ArticlePreview";
-import { getRecentlyPlayed } from "@/utilities/spotify";
-import { SpeakerWaveIcon } from "@heroicons/react/24/outline";
-import { getWeather } from "@/utilities/weather";
-import { twMerge } from "tailwind-merge";
-import Image from "next/image";
+import { DynamicCards } from "@/components/DynamicCards";
+import { Suspense } from "react";
 
 export default async function Home() {
   const [
@@ -19,16 +16,12 @@ export default async function Home() {
     { metadata: poetryTips },
     { metadata: recommendDomains },
     articles,
-    recentlyPlayedSong,
-    weather,
   ] = await Promise.all([
     loadMarkdown("/index"),
     loadMarkdown("/projects/myles-wellbeing"),
     loadMarkdown("/projects/poetry-tips"),
     loadMarkdown("/projects/recommend-domains"),
     loadMarkdownDirectory("/blog"),
-    getRecentlyPlayed(),
-    getWeather(),
   ]);
 
   const latestArticles = articles.slice(0, 3);
@@ -50,70 +43,16 @@ export default async function Home() {
             <Content />
           </div>
         </BentoItem>
-        <BentoItem className="order-2 col-span-6 md:col-span-4 bg-slate-800">
-          <div className="absolute inset-0 rounded-3xl overflow-hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              alt=""
-              decoding="async"
-              sizes="(min-width: 768px) 33.3333vw, 50vw"
-              srcSet={recentlyPlayedSong.albumImages
-                .map((image) => `${image.url} ${image.width}w`)
-                .join(", ")}
-              src={recentlyPlayedSong.albumImages[0].url}
-              className="w-full h-full object-cover blur-lg scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/80" />
-          </div>
-          <div className="z-10 flex flex-col justify-end text-white">
-            <Heading2
-              className={twMerge(
-                "font-bold tracking-wide text-3xl/tight line-clamp-3",
-                recentlyPlayedSong.name.length < 20 && "md:text-4xl/tight"
-              )}
-            >
-              <Link href={recentlyPlayedSong.url} target="_blank">
-                {recentlyPlayedSong.name}
-                <span className="absolute inset-0" />
-              </Link>
-            </Heading2>
-            <Paragraph className="leading-7 line-clamp-3">
-              <SpeakerWaveIcon
-                className="inline-block h-6 w-6 -mt-1 mr-3 align-middle"
-                aria-hidden="true"
-              />
-              {recentlyPlayedSong.artists.join(", ")}
-            </Paragraph>
-          </div>
-        </BentoItem>
-        <BentoItem
-          className={twMerge(
-            "order-2 col-span-6 md:col-span-4 bg-gray-300 dark:bg-gray-700",
-            weather.background
-          )}
+        <Suspense
+          fallback={
+            <>
+              <BentoItem className="h-72 order-2 col-span-6 md:col-span-4 bg-gray-500 dark:bg-gray-700 before:opacity-25 dark:before:opacity-25 animate-pulse" />
+              <BentoItem className="h-72 order-2 col-span-6 md:col-span-4 bg-gray-300 dark:bg-gray-600 before:opacity-25 dark:before:opacity-25 animate-pulse" />
+            </>
+          }
         >
-          <Image
-            alt=""
-            src={weather.icon}
-            height={128}
-            width={128}
-            className={twMerge(
-              "justify-self-start self-end w-48 -mt-8 -mb-12 sm:-mx-8 sm:-mt-12 sm:-mb-16 hue-rotate-[10deg] brightness-200 saturate-150 drop-shadow-lg",
-              // Invert snow icon
-              weather.icon.includes("/wn/13") && "brightness-0 invert"
-            )}
-            unoptimized
-          />
-          <Heading2
-            className={twMerge(
-              "text-3xl/tight md:text-4xl/tight",
-              weather.icon.includes("n@") && "font-bold tracking-wide"
-            )}
-          >
-            {weather.description}
-          </Heading2>
-          <Paragraph>Nottingham, UK</Paragraph>
-        </BentoItem>
+          <DynamicCards />
+        </Suspense>
         <BentoItem className="order-2 hidden md:flex md:col-span-4 bg-fuchsia-200 dark:bg-fuchsia-900">
           <div />
           <Heading2 className="-skew-y-6 origin-left">
