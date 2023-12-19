@@ -32,11 +32,15 @@ export async function DynamicCards() {
         <div className="z-10 flex flex-col justify-end text-white">
           <Heading2
             className={twMerge(
-              "font-bold tracking-wide text-3xl/tight line-clamp-2",
+              "font-bold tracking-wide text-3xl/tight",
               recentlyPlayedSong.name.length < 20 && "md:text-4xl/tight"
             )}
           >
-            <Link href={recentlyPlayedSong.url} target="_blank">
+            <Link
+              href={recentlyPlayedSong.url}
+              target="_blank"
+              className="line-clamp-2"
+            >
               {recentlyPlayedSong.name}
               <span className="absolute inset-0" />
             </Link>
