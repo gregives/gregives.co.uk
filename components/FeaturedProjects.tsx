@@ -7,13 +7,13 @@ import { BentoItem } from "./BentoItem";
 
 type FeaturedProjectsProperties = {
   mylesWellbeing?: ArticleMetadata;
-  poetryTips: ArticleMetadata;
+  poemGenerator: ArticleMetadata;
   recommendDomains: ArticleMetadata;
 };
 
 export function FeaturedProjects({
   mylesWellbeing,
-  poetryTips,
+  poemGenerator,
   recommendDomains,
 }: FeaturedProjectsProperties) {
   return (
@@ -41,12 +41,12 @@ export function FeaturedProjects({
       )}
       <BentoItem className="order-4 relative sm:col-span-6 bg-red-300 dark:bg-red-700">
         <Heading2 link className="relative">
-          <Link href={poetryTips.website as string} target="_blank">
-            {poetryTips.title}
+          <Link href={poemGenerator.website as string} target="_blank">
+            {poemGenerator.title}
             <span className="absolute inset-0" />
           </Link>
         </Heading2>
-        <Paragraph>{poetryTips.description}</Paragraph>
+        <Paragraph>{poemGenerator.description}</Paragraph>
       </BentoItem>
       <BentoItem className="order-5 relative sm:col-span-6 bg-indigo-300 dark:bg-indigo-700">
         <Heading2 link className="relative">

@@ -17,7 +17,7 @@ export const metadata: Metadata = generateTags({
 export default async function ProjectsPage() {
   const [
     ,
-    { metadata: poetryTips },
+    { metadata: poemGenerator },
     { metadata: recommendDomains },
     ...projects
   ] = await loadMarkdownDirectory("/projects");
@@ -26,7 +26,7 @@ export default async function ProjectsPage() {
     <main>
       <BentoGrid>
         <FeaturedProjects
-          poetryTips={poetryTips}
+          poemGenerator={poemGenerator}
           recommendDomains={recommendDomains}
         />
         {projects.map((project) => (

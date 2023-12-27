@@ -13,13 +13,13 @@ export default async function Home() {
   const [
     { Content },
     { metadata: mylesWellbeing },
-    { metadata: poetryTips },
+    { metadata: poemGenerator },
     { metadata: recommendDomains },
     articles,
   ] = await Promise.all([
     loadMarkdown("/index"),
     loadMarkdown("/projects/myles-wellbeing"),
-    loadMarkdown("/projects/poetry-tips"),
+    loadMarkdown("/projects/poem-generator"),
     loadMarkdown("/projects/recommend-domains"),
     loadMarkdownDirectory("/blog"),
   ]);
@@ -62,7 +62,7 @@ export default async function Home() {
         </BentoItem>
         <FeaturedProjects
           mylesWellbeing={mylesWellbeing}
-          poetryTips={poetryTips}
+          poemGenerator={poemGenerator}
           recommendDomains={recommendDomains}
         />
         <div className="order-6 col-span-full flex flex-wrap justify-stretch text-center -m-1">
