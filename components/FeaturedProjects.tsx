@@ -8,13 +8,13 @@ import { BentoItem } from "./BentoItem";
 type FeaturedProjectsProperties = {
   mylesWellbeing?: ArticleMetadata;
   poemGenerator: ArticleMetadata;
-  recommendDomains: ArticleMetadata;
+  emojiFamily: ArticleMetadata;
 };
 
 export function FeaturedProjects({
   mylesWellbeing,
   poemGenerator,
-  recommendDomains,
+  emojiFamily,
 }: FeaturedProjectsProperties) {
   return (
     <>
@@ -48,14 +48,14 @@ export function FeaturedProjects({
         </Heading2>
         <Paragraph>{poemGenerator.description}</Paragraph>
       </BentoItem>
-      <BentoItem className="order-5 relative sm:col-span-6 bg-indigo-300 dark:bg-indigo-700">
+      <BentoItem className="order-5 relative sm:col-span-6 bg-sky-300 dark:bg-sky-700">
         <Heading2 link className="relative">
-          <Link href={recommendDomains.website as string} target="_blank">
-            {recommendDomains.title}
+          <Link href={emojiFamily.website as string} target="_blank">
+            {emojiFamily.title}
             <span className="absolute inset-0" />
           </Link>
         </Heading2>
-        <Paragraph>{recommendDomains.description}</Paragraph>
+        <Paragraph>{emojiFamily.description}</Paragraph>
       </BentoItem>
     </>
   );

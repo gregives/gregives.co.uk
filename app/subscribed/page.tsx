@@ -9,13 +9,13 @@ export default async function Home() {
     { Content },
     { metadata: mylesWellbeing },
     { metadata: poemGenerator },
-    { metadata: recommendDomains },
+    { metadata: emojiFamily },
     articles,
   ] = await Promise.all([
     loadMarkdown("/subscribed"),
     loadMarkdown("/projects/myles-wellbeing"),
     loadMarkdown("/projects/poem-generator"),
-    loadMarkdown("/projects/recommend-domains"),
+    loadMarkdown("/projects/emoji-family"),
     loadMarkdownDirectory("/blog"),
   ]);
 
@@ -30,7 +30,7 @@ export default async function Home() {
         <FeaturedProjects
           mylesWellbeing={mylesWellbeing}
           poemGenerator={poemGenerator}
-          recommendDomains={recommendDomains}
+          emojiFamily={emojiFamily}
         />
         {latestArticles.map((article) => (
           <ArticlePreview

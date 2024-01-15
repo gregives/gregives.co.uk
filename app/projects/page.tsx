@@ -7,6 +7,7 @@ import { generateTags } from "@/utilities/metadata";
 import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
+import { twMerge } from "tailwind-merge";
 
 export const metadata: Metadata = generateTags({
   url: "/projects",
@@ -17,8 +18,8 @@ export const metadata: Metadata = generateTags({
 export default async function ProjectsPage() {
   const [
     ,
+    { metadata: emojiFamily },
     { metadata: poemGenerator },
-    { metadata: recommendDomains },
     ...projects
   ] = await loadMarkdownDirectory("/projects");
 
@@ -27,12 +28,16 @@ export default async function ProjectsPage() {
       <BentoGrid>
         <FeaturedProjects
           poemGenerator={poemGenerator}
-          recommendDomains={recommendDomains}
+          emojiFamily={emojiFamily}
         />
         {projects.map((project) => (
           <BentoItem
             key={project.metadata.title}
-            className="order-10 bg-slate-300 dark:bg-slate-700"
+            className={twMerge(
+              "order-10 bg-slate-300 dark:bg-slate-700",
+              project.metadata.title === "Recommend Domains" &&
+                "bg-indigo-300 dark:bg-indigo-700"
+            )}
           >
             <Heading2
               link={project.metadata.website !== undefined}
