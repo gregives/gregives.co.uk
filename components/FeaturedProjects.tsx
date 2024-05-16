@@ -7,14 +7,14 @@ import { BentoItem } from "./BentoItem";
 
 type FeaturedProjectsProperties = {
   mylesWellbeing?: ArticleMetadata;
+  jotboard: ArticleMetadata;
   poemGenerator: ArticleMetadata;
-  emojiFamily: ArticleMetadata;
 };
 
 export function FeaturedProjects({
   mylesWellbeing,
+  jotboard,
   poemGenerator,
-  emojiFamily,
 }: FeaturedProjectsProperties) {
   return (
     <>
@@ -39,7 +39,16 @@ export function FeaturedProjects({
           <Paragraph>{mylesWellbeing.description}</Paragraph>
         </BentoItem>
       )}
-      <BentoItem className="order-4 relative sm:col-span-6 bg-red-300 dark:bg-red-700">
+      <BentoItem className="order-4 relative sm:col-span-6 bg-lime-400 dark:bg-lime-800">
+        <Heading2 link className="relative">
+          <Link href={jotboard.website as string} target="_blank">
+            {jotboard.title}
+            <span className="absolute inset-0" />
+          </Link>
+        </Heading2>
+        <Paragraph>{jotboard.description}</Paragraph>
+      </BentoItem>
+      <BentoItem className="order-5 relative sm:col-span-6 bg-red-300 dark:bg-red-700">
         <Heading2 link className="relative">
           <Link href={poemGenerator.website as string} target="_blank">
             {poemGenerator.title}
@@ -47,15 +56,6 @@ export function FeaturedProjects({
           </Link>
         </Heading2>
         <Paragraph>{poemGenerator.description}</Paragraph>
-      </BentoItem>
-      <BentoItem className="order-5 relative sm:col-span-6 bg-sky-300 dark:bg-sky-700">
-        <Heading2 link className="relative">
-          <Link href={emojiFamily.website as string} target="_blank">
-            {emojiFamily.title}
-            <span className="absolute inset-0" />
-          </Link>
-        </Heading2>
-        <Paragraph>{emojiFamily.description}</Paragraph>
       </BentoItem>
     </>
   );

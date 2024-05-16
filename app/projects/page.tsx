@@ -18,7 +18,8 @@ export const metadata: Metadata = generateTags({
 export default async function ProjectsPage() {
   const [
     ,
-    { metadata: emojiFamily },
+    { metadata: jotboard },
+    emojiFamily,
     { metadata: poemGenerator },
     ...projects
   ] = await loadMarkdownDirectory("/projects");
@@ -26,17 +27,16 @@ export default async function ProjectsPage() {
   return (
     <main>
       <BentoGrid>
-        <FeaturedProjects
-          poemGenerator={poemGenerator}
-          emojiFamily={emojiFamily}
-        />
-        {projects.map((project) => (
+        <FeaturedProjects poemGenerator={poemGenerator} jotboard={jotboard} />
+        {[emojiFamily, ...projects].map((project) => (
           <BentoItem
             key={project.metadata.title}
             className={twMerge(
               "order-10 bg-slate-300 dark:bg-slate-700",
               project.metadata.title === "Recommend Domains" &&
-                "bg-indigo-300 dark:bg-indigo-700"
+                "bg-indigo-300 dark:bg-indigo-700",
+              project.metadata.title === "Emoji Family" &&
+                "bg-sky-300 dark:bg-sky-700"
             )}
           >
             <Heading2
