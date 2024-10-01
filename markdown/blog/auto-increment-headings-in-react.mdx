@@ -1,0 +1,66 @@
+export const metadata = {
+  title: "Auto-Increment Headings in React",
+  date: "2024-10-01",
+  description:
+    "A really simple ‘trick’ to automatically number headings in React.",
+};
+
+I've recently launched [Jotboard](https://jotboard.co), a Google Jamboard alternative, which allows you to import your boards from Jamboard. One of the pages contains headings like this:
+
+- Step 1
+- Step 2
+- Step 3
+
+## The Challenge
+
+How can we create these headings in React? We could hard-code the headings like so:
+
+```jsx
+export default function ImportPage() {
+  return (
+    <main>
+      <h2>Step 1</h2>
+      <h2>Step 2</h2>
+      <h2>Step 3</h2>
+    </main>
+  );
+}
+```
+
+But what if we want to add another step in-between Step 1 and Step 2? This would be even worse if we had 50 steps.
+
+## The Inspiration
+
+I like how Markdown handles numbered lists: you can just use `1.` for every item and it will automatically number the list for you.
+
+```md
+1. Item 1
+1. Item 2
+1. Item 3
+```
+
+Will render:
+
+1. Item 1
+1. Item 2
+1. Item 3
+
+## The Trick
+
+So how can we do this in React? After some thinking, I realised that you can automatically increment headings in React by using the increment `++` operator. Which seems obvious in hindsight!
+
+```jsx
+export default function ImportPage() {
+  let step = 1;
+
+  return (
+    <main>
+      <h2>Step {step++}</h2>
+      <h2>Step {step++}</h2>
+      <h2>Step {step++}</h2>
+    </main>
+  );
+}
+```
+
+The `++` operator will return the value of the variable and then increment the variable, which is exactly what we want.

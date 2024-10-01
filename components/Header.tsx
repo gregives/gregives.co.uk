@@ -2,12 +2,11 @@
 
 import { twMerge } from "tailwind-merge";
 import { Container } from "./Container";
-import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 import { useCallback, useEffect, useState } from "react";
 
-type HeaderProperties = React.ComponentProps<typeof Disclosure>;
+type HeaderProperties = JSX.IntrinsicElements["header"];
 
 function HeaderLink({
   className,

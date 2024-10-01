@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-strong {
+strong,
+th {
   font-weight: 600;
 }
 
