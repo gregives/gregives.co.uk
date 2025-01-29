@@ -22,7 +22,9 @@ export function Heading<T extends keyof JSX.IntrinsicElements>({
       ? "text-5xl/tight"
       : level === 2
       ? "text-4xl/tight"
-      : "text-3xl/tight",
+      : level === 3
+      ? "text-3xl/tight"
+      : "text-2xl/tight",
     "font-display font-extrabold dark:font-bold dark:tracking-wide uppercase",
     link && "flex items-end space-x-2",
     className

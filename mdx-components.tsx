@@ -127,7 +127,7 @@ export function ListItem({
 }: JSX.IntrinsicElements["li"]) {
   return (
     <li
-      className={twMerge("first:-mt-2 mb-3 last:mb-0 ml-6 pl-1", className)}
+      className={twMerge("first:-mt-2 mb-2 last:mb-0 ml-6 pl-1", className)}
       {...properties}
     />
   );

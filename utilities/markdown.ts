@@ -8,6 +8,7 @@ export async function loadMarkdown<TPath extends string>(path: TPath) {
     const {
       default: Content,
       metadata,
+      ...other
     }: {
       default: React.FC;
       metadata: TPath extends `/blog/${string}` | `/projects/${string}`
@@ -24,6 +25,7 @@ export async function loadMarkdown<TPath extends string>(path: TPath) {
         ...metadata,
         path,
       },
+      ...other,
     };
   } catch {
     notFound();

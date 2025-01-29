@@ -37,11 +37,6 @@ const navigation = [
   },
 ];
 
-const RANDOM_NUMBERS = [
-  -1.02, 1.57, 1.26, -1.01, 0.22, -1.51, 0.86, -0.89, 1.32, 1.91, -0.72, -0.92,
-  1.22, -0.27,
-];
-
 type FooterProperties = JSX.IntrinsicElements["footer"];
 
 export function Footer(properties: FooterProperties) {
@@ -60,20 +55,8 @@ export function Footer(properties: FooterProperties) {
             My Newsletter
           </Heading2>
           <Paragraph className="max-w-xl">
-            Sign up to receive my{" "}
-            {"very irregular".split("").map((letter, index) => (
-              <span
-                key={index}
-                className="inline-block whitespace-pre"
-                style={{
-                  transform: `translateY(${RANDOM_NUMBERS[index]}px)`,
-                }}
-              >
-                {letter}
-              </span>
-            ))}{" "}
-            newsletter including updates on new blog posts, projects I&rsquo;m
-            working on and exclusive content.
+            Sign up to receive my very irregular newsletter including updates on
+            new blog posts, projects I&rsquo;m working on and exclusive content.
           </Paragraph>
           <form
             action="https://app.convertkit.com/forms/5075878/subscriptions"
