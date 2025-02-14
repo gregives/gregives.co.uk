@@ -4,20 +4,24 @@ import { loadMarkdown, loadMarkdownDirectory } from "@/utilities/markdown";
 import { Heading2, Paragraph } from "@/mdx-components";
 import Link from "next/link";
 import { Headshots } from "@/components/Headshots";
-import { FeaturedProjects } from "@/components/FeaturedProjects";
 import { ArticlePreview } from "@/components/ArticlePreview";
 import { DynamicCards } from "@/components/DynamicCards";
 import { Suspense } from "react";
+import Image from "next/image";
+import { Project } from "@/components/Project";
+import mylesWellbeingImage from "@/assets/images/myles-wellbeing/screenshot.jpg";
 
 export default async function Home() {
   const [
     { Content },
+    { metadata: lineAvatars },
     { metadata: mylesWellbeing },
     { metadata: jotboard },
     { metadata: poemGenerator },
     articles,
   ] = await Promise.all([
     loadMarkdown("/index"),
+    loadMarkdown("/projects/line-avatars"),
     loadMarkdown("/projects/myles-wellbeing"),
     loadMarkdown("/projects/jotboard"),
     loadMarkdown("/projects/poem-generator"),
@@ -60,12 +64,34 @@ export default async function Home() {
           </Heading2>
           <Paragraph>The opposite of down.</Paragraph>
         </BentoItem>
-        <FeaturedProjects
-          mylesWellbeing={mylesWellbeing}
-          jotboard={jotboard}
-          poemGenerator={poemGenerator}
+        <Project
+          project={mylesWellbeing}
+          className="order-2 relative sm:col-span-6 sm:row-span-3 bg-gradient-to-b from-yellow-800 to-20% to-orange-300 dark:to-amber-700 overflow-hidden"
+        >
+          <div className="relative -mx-10 -mt-8 mb-8">
+            <Image
+              src={mylesWellbeingImage}
+              alt="Screenshot of the Myles Wellbeing app"
+              priority
+              className="mix-blend-luminosity"
+              sizes="(min-width: 640px) 50vw, 100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent from-60% to-orange-300 dark:to-amber-700" />
+          </div>
+        </Project>
+        <Project
+          project={lineAvatars}
+          className="order-2 sm:col-span-6 bg-teal-300 dark:bg-teal-700"
         />
-        <div className="order-6 col-span-full flex flex-wrap justify-stretch text-center -m-1">
+        <Project
+          project={jotboard}
+          className="order-2 sm:col-span-6 bg-lime-400 dark:bg-lime-700"
+        />
+        <Project
+          project={poemGenerator}
+          className="order-2 sm:col-span-6 bg-red-300 dark:bg-red-700"
+        />
+        <div className="order-2 col-span-full flex flex-wrap justify-stretch text-center -m-1">
           <BentoItem className="order-2 md:order-1 m-1 flex-1 relative items-center bg-blue-300 dark:bg-blue-500">
             <Heading2 link className="text-3xl/tight sm:text-4xl/tight">
               <Link href="https://twitter.com/gregiv_es" target="_blank">
@@ -92,7 +118,7 @@ export default async function Home() {
           </BentoItem>
         </div>
         <BentoItem
-          className="order-7 sm:col-span-3 md:col-span-2 sm:row-span-3 bg-slate-800"
+          className="order-2 sm:col-span-3 md:col-span-2 sm:row-span-3 bg-slate-800"
           inset
         >
           <Heading2 className="text-center sm:text-left sm:[writing-mode:vertical-lr] sm:rotate-180 sm:p-0 sm:text-6xl text-slate-50">
@@ -103,10 +129,10 @@ export default async function Home() {
           <ArticlePreview
             key={article.metadata.title}
             metadata={article.metadata}
-            className="order-8 sm:col-span-9 md:col-span-10 md:flex-col lg:flex-row bg-emerald-200 dark:bg-emerald-700"
+            className="order-2 sm:col-span-9 md:col-span-10 md:flex-col lg:flex-row bg-emerald-200 dark:bg-emerald-700"
           />
         ))}
-        <BentoItem className="order-9 bg-sky-700 dark:bg-sky-900 text-slate-100 before:opacity-25 shadow-xl">
+        <BentoItem className="order-2 bg-sky-700 dark:bg-sky-900 text-slate-100 before:opacity-25 shadow-xl">
           <div className="flex flex-col md:flex-row md:items-end justify-between">
             <div className="flex flex-col lg:flex-row">
               <div className="relative w-20 h-16 flex-shrink-0">
