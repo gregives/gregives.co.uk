@@ -1,9 +1,8 @@
-import { ArticlePreview } from "@/components/ArticlePreview";
+import { Article } from "@/components/Article";
 import { BentoGrid } from "@/components/BentoGrid";
 import { loadMarkdownDirectory } from "@/utilities/markdown";
 import { generateTags } from "@/utilities/metadata";
 import { Metadata } from "next";
-import Link from "next/link";
 import React from "react";
 
 export const metadata: Metadata = generateTags({
@@ -19,10 +18,7 @@ export default async function ArticlesPage() {
     <main>
       <BentoGrid>
         {articles.map((article) => (
-          <ArticlePreview
-            key={article.metadata.path}
-            metadata={article.metadata}
-          />
+          <Article key={article.metadata.path} metadata={article.metadata} />
         ))}
       </BentoGrid>
     </main>

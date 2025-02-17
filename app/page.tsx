@@ -4,7 +4,7 @@ import { loadMarkdown, loadMarkdownDirectory } from "@/utilities/markdown";
 import { Heading2, Paragraph } from "@/mdx-components";
 import Link from "next/link";
 import { Headshots } from "@/components/Headshots";
-import { ArticlePreview } from "@/components/ArticlePreview";
+import { Article } from "@/components/Article";
 import { DynamicCards } from "@/components/DynamicCards";
 import { Suspense } from "react";
 import Image from "next/image";
@@ -126,7 +126,7 @@ export default async function Home() {
           </Heading2>
         </BentoItem>
         {latestArticles.map((article) => (
-          <ArticlePreview
+          <Article
             key={article.metadata.title}
             metadata={article.metadata}
             className="order-2 sm:col-span-9 md:col-span-10 md:flex-col lg:flex-row bg-emerald-200 dark:bg-emerald-700"

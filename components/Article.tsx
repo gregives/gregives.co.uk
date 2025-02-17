@@ -8,23 +8,20 @@ import { twMerge } from "tailwind-merge";
 import { ViewCounter } from "./ViewCounter";
 import { EyeIcon } from "@heroicons/react/24/outline";
 
-type ArticlePreviewProperties = React.ComponentProps<typeof BentoItem> & {
+type ArticleProperties = React.ComponentProps<typeof BentoItem> & {
   metadata: ArticleMetadata & {
     path: string;
   };
 };
 
-export function ArticlePreview({
+export function Article({
   metadata,
   className,
   ...properties
-}: ArticlePreviewProperties) {
+}: ArticleProperties) {
   return (
     <BentoItem
-      className={twMerge(
-        "md:flex-row flex-wrap justify-between bg-slate-300 dark:bg-slate-700",
-        className
-      )}
+      className={twMerge("md:flex-row flex-wrap justify-between", className)}
       {...properties}
     >
       <Heading2 className="flex-grow relative mb-4">

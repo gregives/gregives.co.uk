@@ -1,7 +1,7 @@
 import { BentoGrid } from "@/components/BentoGrid";
 import { BentoItem } from "@/components/BentoItem";
 import { loadMarkdown, loadMarkdownDirectory } from "@/utilities/markdown";
-import { ArticlePreview } from "@/components/ArticlePreview";
+import { Article } from "@/components/Article";
 import { Project } from "@/components/Project";
 import Image from "next/image";
 import mylesWellbeingImage from "@/assets/images/myles-wellbeing/screenshot.jpg";
@@ -59,7 +59,7 @@ export default async function Home() {
           className="order-2 sm:col-span-6 bg-red-300 dark:bg-red-700"
         />
         {latestArticles.map((article) => (
-          <ArticlePreview
+          <Article
             key={article.metadata.title}
             metadata={article.metadata}
             className="order-2 bg-teal-300 dark:bg-emerald-700 saturate-50 dark:saturate-100"
