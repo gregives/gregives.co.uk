@@ -10,18 +10,19 @@ import { Suspense } from "react";
 import Image from "next/image";
 import { Project } from "@/components/Project";
 import mylesWellbeingImage from "@/assets/images/myles-wellbeing/screenshot.jpg";
+import { Badge } from "@/components/Badge";
 
 export default async function Home() {
   const [
     { Content },
-    { metadata: lineAvatars },
+    { metadata: emojiFamily },
     { metadata: mylesWellbeing },
     { metadata: jotboard },
     { metadata: poemGenerator },
     articles,
   ] = await Promise.all([
     loadMarkdown("/index"),
-    loadMarkdown("/projects/line-avatars"),
+    loadMarkdown("/projects/emoji-family"),
     loadMarkdown("/projects/myles-wellbeing"),
     loadMarkdown("/projects/jotboard"),
     loadMarkdown("/projects/poem-generator"),
@@ -78,19 +79,23 @@ export default async function Home() {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent from-60% to-orange-300 dark:to-amber-700" />
           </div>
+          <Badge>Acquired!</Badge>
         </Project>
-        <Project
-          project={lineAvatars}
-          className="order-2 sm:col-span-6 bg-teal-300 dark:bg-teal-700"
-        />
         <Project
           project={jotboard}
           className="order-2 sm:col-span-6 bg-lime-400 dark:bg-lime-700"
         />
         <Project
+          project={emojiFamily}
+          className="order-2 sm:col-span-6 bg-sky-300 dark:bg-sky-700"
+        />
+        <Project
           project={poemGenerator}
           className="order-2 sm:col-span-6 bg-red-300 dark:bg-red-700"
-        />
+        >
+          <Badge>Acquired!</Badge>
+          <div className="-mb-12" />
+        </Project>
         <div className="order-2 col-span-full flex flex-wrap justify-stretch text-center -m-1">
           <BentoItem className="order-2 md:order-1 m-1 flex-1 relative items-center bg-blue-300 dark:bg-blue-500">
             <Heading2 link className="text-3xl/tight sm:text-4xl/tight">

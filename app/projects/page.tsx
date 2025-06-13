@@ -1,3 +1,4 @@
+import { Badge } from "@/components/Badge";
 import { BentoGrid } from "@/components/BentoGrid";
 import { Project } from "@/components/Project";
 import { loadMarkdownDirectory } from "@/utilities/markdown";
@@ -26,21 +27,24 @@ export default async function ProjectsPage() {
     <main>
       <BentoGrid>
         <Project
-          project={lineAvatars}
-          className="sm:col-span-6 bg-teal-300 dark:bg-teal-700"
-        />
-        <Project
           project={jotboard}
           className="sm:col-span-6 bg-lime-400 dark:bg-lime-700"
         />
         <Project
-          project={poemGenerator}
-          className="sm:col-span-6 bg-red-300 dark:bg-red-700"
+          project={lineAvatars}
+          className="sm:col-span-6 bg-teal-300 dark:bg-teal-700"
         />
         <Project
           project={emojiFamily}
           className="sm:col-span-6 bg-sky-300 dark:bg-sky-700"
         />
+        <Project
+          project={poemGenerator}
+          className="sm:col-span-6 bg-red-300 dark:bg-red-700"
+        >
+          <Badge>Acquired!</Badge>
+          <div className="-mb-12" />
+        </Project>
         {projects.map((project) => (
           <Project key={project.metadata.title} project={project.metadata} />
         ))}
