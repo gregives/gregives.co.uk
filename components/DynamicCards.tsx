@@ -80,7 +80,7 @@ export async function DynamicCards() {
         >
           {weather.description}
         </Heading2>
-        <Paragraph>Nottingham, UK</Paragraph>
+        <Paragraph>Warrington, UK</Paragraph>
       </BentoItem>
     </>
   );

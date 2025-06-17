@@ -42,7 +42,7 @@ const backgrounds: Record<string, string> = {
 
 export async function getWeather() {
   const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=52.95&lon=-1.15&appid=${OPENWEATHER_API_KEY}`,
+    `https://api.openweathermap.org/data/2.5/weather?lat=53.39&lon=2.60&appid=${OPENWEATHER_API_KEY}`,
     {
       next: {
         revalidate: 3600,
