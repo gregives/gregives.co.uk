@@ -1,5 +1,5 @@
 import { Header } from "@/components/Header";
-import "./globals.css";
+import "../globals.css";
 import type { Metadata } from "next";
 import { Big_Shoulders_Display, Inter } from "next/font/google";
 import { Footer } from "@/components/Footer";

@@ -1,0 +1,28 @@
+.home {
+  color-scheme: light dark;
+  --background: #fff;
+  --foreground: #000;
+  --muted: #6b6b6b;
+  --rule: #e2e2e2;
+}
+
+@media (prefers-color-scheme: dark) {
+  .home {
+    --background: #000;
+    --foreground: #fff;
+    --muted: #9a9a9a;
+    --rule: #262626;
+  }
+}
+
+.home body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.home ::selection {
+  background: var(--foreground);
+  color: var(--background);
+}
